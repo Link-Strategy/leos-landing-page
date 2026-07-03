@@ -44,3 +44,4 @@ build/
 .gemini/
 GATE_REPORT.md
 .agents/reports/gate-manifest.json
+.secret/

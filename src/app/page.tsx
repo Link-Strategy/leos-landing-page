@@ -1,8 +1,9 @@
-import StaticSection from "@/components/landing/StaticSection";
+﻿import StaticSection from "@/components/landing/StaticSection";
 import HomeElementorInteractions from "@/components/landing/HomeElementorInteractions";
 import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
 import HeartTab from "@/components/landing/HeartTab";
 import Products from "@/components/landing/Products";
+import News from "@/components/landing/News";
 
 export default function Home() {
   return (
@@ -23,7 +24,7 @@ export default function Home() {
         <Products />
         <StaticSection name="07-esg" />
         <StaticSection name="08-partners" />
-        <StaticSection name="09-news" />
+        <News />
         <StaticSection name="10-career" />
       </div>
 
@@ -33,5 +34,3 @@ export default function Home() {
     </div>
   );
 }
-
-

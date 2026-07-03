@@ -1,8 +1,0 @@
-{
-  "extraPaths": [
-    "assets/contracts/generated/python",
-    "../../assets/contracts/generated/python",
-    "assets/configs/generated/python",
-    "../../assets/configs/generated/python"
-  ]
-}
