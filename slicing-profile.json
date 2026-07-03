@@ -80,9 +80,9 @@
     {
       "id": "shared-ui-react",
       "type": "Shell",
-      "source": "components/ui/react/",
-      "target": "components/ui/",
-      "description": "Shared React UI components (Locked DNA) from Brain"
+      "source": "packages/ui/src/",
+      "target": "src/components/ui/",
+      "description": "Shared React UI components from Brain"
     }
   ],
   "harvesting": [
