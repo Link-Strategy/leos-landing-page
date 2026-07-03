@@ -50,48 +50,6 @@
   },
   "mappings": [
     {
-      "id": "hands-rules",
-      "type": "Rule",
-      "source": ".agents/rules/hands/",
-      "target": ".agents/rules/",
-      "description": "Luật thực thi dành cho Hands"
-    },
-    {
-      "id": "hands-workflows",
-      "type": "Workflow",
-      "source": ".agents/workflows/hands/",
-      "target": ".agents/workflows/",
-      "description": "Workflow dành cho Hands"
-    },
-    {
-      "id": "hands-templates",
-      "type": "Template",
-      "source": ".agents/templates/",
-      "target": ".agents/templates/",
-      "description": "Templates for Hands operations"
-    },
-    {
-      "id": "satellite-constitution",
-      "type": "Rule",
-      "source": ".agents/templates/GEMINI_SATELLITE_TEMPLATE.md",
-      "target": "GEMINI.md",
-      "description": "Hiến pháp Vệ tinh"
-    },
-    {
-      "id": "satellite-readme",
-      "type": "Task",
-      "source": ".agents/templates/README_SATELLITE_TEMPLATE.md",
-      "target": "README.md",
-      "description": "Hướng dẫn vận hành vệ tinh"
-    },
-    {
-      "id": "env-example",
-      "type": "Shell",
-      "source": ".agents/templates/ENV_EXAMPLE_TEMPLATE",
-      "target": ".env.example",
-      "description": "Cấu hình môi trường mẫu"
-    },
-    {
       "id": "ls-engine",
       "type": "Tool",
       "source": ".agents/tools/ls-engine/",
@@ -106,42 +64,6 @@
       "description": "Chốt chặn CI/CD tự động (Guardian Mode)"
     },
     {
-      "id": "codeowners",
-      "type": "DNA",
-      "source": ".github/CODEOWNERS",
-      "target": ".github/CODEOWNERS",
-      "description": "Cấu hình quyền sở hữu mã nguồn"
-    },
-    {
-      "id": "asset-index",
-      "type": "DNA",
-      "source": "asset-index.json",
-      "target": "asset-index.json",
-      "description": "Danh mục tài sản hệ thống"
-    },
-
-    {
-      "id": "hands-skills",
-      "type": "Skill",
-      "source": ".agents/skills/hands/",
-      "target": ".agents/skills/",
-      "description": "Kỹ năng thực thi dành cho thợ"
-    },
-    {
-      "id": "package-lock-contract",
-      "type": "DNA",
-      "source": "apps/landing-page/package-lock.json",
-      "target": "package-lock.json",
-      "description": "Standalone Satellite dependency lockfile"
-    },
-    {
-      "id": "typescript-contract",
-      "type": "DNA",
-      "source": "apps/landing-page/tsconfig.json",
-      "target": "tsconfig.json",
-      "description": "TypeScript workspace config and contract adapter declarations"
-    },
-    {
       "id": "task-spec",
       "type": "Task",
       "source": "apps/landing-page/01_TASK_SPEC.md",
@@ -149,18 +71,18 @@
       "description": "Đặc tả nhiệm vụ (Brain -> Hands)"
     },
     {
-      "id": "shared-ui-react",
-      "type": "Shell",
-      "source": "components/ui/react/",
-      "target": "components/ui/",
-      "description": "Shared React UI components (Locked DNA) from Brain"
-    },
-    {
       "id": "slicing-profile-dna",
       "type": "DNA",
       "source": "apps/landing-page/slicing-profile.json",
       "target": "slicing-profile.json",
       "description": "Slicing Profile"
+    },
+    {
+      "id": "shared-ui-react",
+      "type": "Shell",
+      "source": "components/ui/react/",
+      "target": "components/ui/",
+      "description": "Shared React UI components (Locked DNA) from Brain"
     }
   ],
   "harvesting": [
