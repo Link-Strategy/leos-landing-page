@@ -1,0 +1,7 @@
+dependency_overrides:
+  letron_contracts:
+    path: ../../assets/contracts/generated/dart
+  letron_configs:
+    path: ../../assets/configs/generated/dart
+  letron_ui:
+    path: ../../components/ui/dart

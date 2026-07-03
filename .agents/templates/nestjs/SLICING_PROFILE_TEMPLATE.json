@@ -1,0 +1,298 @@
+{
+  "name": "NestJS Slicing Profile Template",
+  "version": "2.8.0",
+  "description": "Standardized profile for NestJS microservices. Includes Docker, Jest, and Linter DNA.",
+  "provisioning": {
+    "organization": "Link-Strategy",
+    "delivery_policy": {
+      "allow_baseline": [
+        "README.md",
+        "GEMINI.md",
+        "01_TASK_SPEC.md",
+        "02_DECISION_LOGS.md",
+        "03_LOGS.md",
+        "package.json",
+        "package-lock.json",
+        "tsconfig.json",
+        "tsconfig.build.json",
+        "slicing-profile.json",
+        "nest-cli.json",
+        ".eslintrc.js",
+        ".prettierrc",
+        "Dockerfile",
+        "jest.config.cjs"
+      ],
+      "deny_prefixes": [
+        ".git/",
+        ".agents/",
+        ".github/workflows/",
+        "node_modules/",
+        "dist/",
+        "build/",
+        ".terraform/"
+      ]
+    }
+  },
+  "packaging": {
+    "templates": [
+      {
+        "src": "01_TASK_SPEC_TEMPLATE.md",
+        "dest": "01_TASK_SPEC.md"
+      },
+      {
+        "src": "02_DECISION_LOGS_TEMPLATE.md",
+        "dest": "02_DECISION_LOGS.md"
+      },
+      {
+        "src": "03_LOGS_TEMPLATE.md",
+        "dest": "03_LOGS.md"
+      },
+      {
+        "src": "nestjs/SLICING_PROFILE_TEMPLATE.json",
+        "dest": "slicing-profile.json"
+      }
+    ]
+  },
+  "mappings": [
+    {
+      "id": "hands-rules",
+      "type": "Rule",
+      "source": ".agents/rules/hands/",
+      "target": ".agents/rules/",
+      "description": "Luật thực thi dành cho Hands"
+    },
+    {
+      "id": "hands-workflows",
+      "type": "Workflow",
+      "source": ".agents/workflows/hands/",
+      "target": ".agents/workflows/",
+      "description": "Workflow dành cho Hands"
+    },
+    {
+      "id": "hands-templates",
+      "type": "Template",
+      "source": ".agents/templates/",
+      "target": ".agents/templates/",
+      "description": "Templates for Hands operations"
+    },
+    {
+      "id": "satellite-constitution",
+      "type": "Rule",
+      "source": ".agents/templates/GEMINI_SATELLITE_TEMPLATE.md",
+      "target": "GEMINI.md",
+      "description": "Hiến pháp Vệ tinh"
+    },
+    {
+      "id": "satellite-readme",
+      "type": "Task",
+      "source": ".agents/templates/README_SATELLITE_TEMPLATE.md",
+      "target": "README.md",
+      "description": "Hướng dẫn vận hành vệ tinh"
+    },
+    {
+      "id": "env-example",
+      "type": "Shell",
+      "source": ".agents/templates/ENV_EXAMPLE_TEMPLATE",
+      "target": ".env.example",
+      "description": "Cấu hình môi trường mẫu"
+    },
+    {
+      "id": "ls-engine",
+      "type": "Tool",
+      "source": ".agents/tools/ls-engine/",
+      "target": ".agents/tools/ls-engine/",
+      "description": "Bộ máy vận hành Link Strategy"
+    },
+    {
+      "id": "ls-ci-cd",
+      "type": "Tool",
+      "source": ".agents/templates/link-strategy-hands.yml",
+      "target": ".github/workflows/link-strategy-hands.yml",
+      "description": "Chốt chặn CI/CD tự động (Guardian Mode)"
+    },
+    {
+      "id": "codeowners",
+      "type": "DNA",
+      "source": ".github/CODEOWNERS",
+      "target": ".github/CODEOWNERS",
+      "description": "Cấu hình quyền sở hữu mã nguồn"
+    },
+    {
+      "id": "asset-index",
+      "type": "DNA",
+      "source": "asset-index.json",
+      "target": "asset-index.json",
+      "description": "Danh mục tài sản hệ thống"
+    },
+    {
+      "id": "sovereign-contracts",
+      "type": "DNA",
+      "source": "assets/contracts/",
+      "target": "assets/contracts/",
+      "description": "JSON Schemas and Generated Data Models (Sovereign Forge)"
+    },
+    {
+      "id": "sovereign-configs",
+      "type": "DNA",
+      "source": "assets/configs/",
+      "target": "assets/configs/",
+      "description": "Unified Matrix Configurations and Generated Adapters"
+    },
+    {
+      "id": "service-build-scripts",
+      "type": "Tool",
+      "source": "scripts/",
+      "target": "scripts/",
+      "description": "Build tooling for resolving Brain/Hand aliases in NestJS services"
+    },
+    {
+      "id": "hands-skills",
+      "type": "Skill",
+      "source": ".agents/skills/hands/",
+      "target": ".agents/skills/",
+      "description": "Kỹ năng thực thi dành cho thợ"
+    },
+    {
+      "id": "package-contract",
+      "type": "DNA",
+      "source": "{{SERVICE_PATH}}/package.json",
+      "target": "package.json",
+      "description": "Workspace command manifest for LS tooling and delivery scripts"
+    },
+    {
+      "id": "package-lock-contract",
+      "type": "DNA",
+      "source": "{{SERVICE_PATH}}/package-lock.json",
+      "target": "package-lock.json",
+      "description": "Standalone Satellite dependency lockfile"
+    },
+    {
+      "id": "typescript-contract",
+      "type": "DNA",
+      "source": "{{SERVICE_PATH}}/tsconfig.json",
+      "target": "tsconfig.json",
+      "description": "TypeScript workspace config and contract adapter declarations"
+    },
+    {
+      "id": "typescript-build-contract",
+      "type": "DNA",
+      "source": "{{SERVICE_PATH}}/tsconfig.build.json",
+      "target": "tsconfig.build.json",
+      "description": "TypeScript production build config"
+    },
+    {
+      "id": "task-spec",
+      "type": "Task",
+      "source": "{{SERVICE_PATH}}/01_TASK_SPEC.md",
+      "target": "01_TASK_SPEC.md",
+      "description": "Đặc tả nhiệm vụ (Brain -> Hands)"
+    },
+    {
+      "id": "nest-cli-dna",
+      "type": "DNA",
+      "source": "{{SERVICE_PATH}}/nest-cli.json",
+      "target": "nest-cli.json",
+      "description": "NestJS CLI DNA"
+    },
+    {
+      "id": "eslint-dna",
+      "type": "DNA",
+      "source": "{{SERVICE_PATH}}/.eslintrc.js",
+      "target": ".eslintrc.js",
+      "description": "Linter DNA"
+    },
+    {
+      "id": "prettier-dna",
+      "type": "DNA",
+      "source": "{{SERVICE_PATH}}/.prettierrc",
+      "target": ".prettierrc",
+      "description": "Formatter DNA"
+    }
+  ],
+  "harvesting": [
+    {
+      "id": "decision-logs",
+      "type": "Task",
+      "source": "02_DECISION_LOGS.md",
+      "target": "{{SERVICE_PATH}}/02_DECISION_LOGS.md",
+      "description": "Nhật ký chốt phương án từ vệ tinh"
+    },
+    {
+      "id": "implementation-logs",
+      "type": "Task",
+      "source": "03_LOGS.md",
+      "target": "{{SERVICE_PATH}}/03_LOGS.md",
+      "description": "Nhật ký thực thi chi tiết"
+    },
+    {
+      "id": "source-code",
+      "type": "Shell",
+      "source": "src/",
+      "target": "{{SERVICE_PATH}}/src/",
+      "description": "Mã nguồn NestJS (Controllers, Services, Modules)"
+    },
+    {
+      "id": "e2e-tests",
+      "type": "Shell",
+      "source": "test/",
+      "target": "{{SERVICE_PATH}}/test/",
+      "description": "Mã nguồn kiểm thử E2E NestJS"
+    },
+    {
+      "id": "package-config",
+      "type": "DNA",
+      "source": "package.json",
+      "target": "{{SERVICE_PATH}}/package.json",
+      "description": "Workspace command manifest and dependency declarations"
+    },
+    {
+      "id": "package-lock-config",
+      "type": "DNA",
+      "source": "package-lock.json",
+      "target": "{{SERVICE_PATH}}/package-lock.json",
+      "description": "Standalone Satellite dependency lockfile harvested from Hands"
+    },
+    {
+      "id": "typescript-config",
+      "type": "DNA",
+      "source": "tsconfig.json",
+      "target": "{{SERVICE_PATH}}/tsconfig.json",
+      "description": "TypeScript workspace config harvested from Hands"
+    },
+    {
+      "id": "typescript-build-config",
+      "type": "DNA",
+      "source": "tsconfig.build.json",
+      "target": "{{SERVICE_PATH}}/tsconfig.build.json",
+      "description": "TypeScript production build config harvested from Hands"
+    },
+    {
+      "id": "nest-cli-config",
+      "type": "DNA",
+      "source": "nest-cli.json",
+      "target": "{{SERVICE_PATH}}/nest-cli.json",
+      "description": "NestJS CLI configuration"
+    },
+    {
+      "id": "eslint-config",
+      "type": "DNA",
+      "source": ".eslintrc.js",
+      "target": "{{SERVICE_PATH}}/.eslintrc.js",
+      "description": "Linter configuration"
+    },
+    {
+      "id": "prettier-config",
+      "type": "DNA",
+      "source": ".prettierrc",
+      "target": "{{SERVICE_PATH}}/.prettierrc",
+      "description": "Formatter configuration"
+    },
+    {
+      "id": "gate-reports",
+      "type": "Task",
+      "source": "report/",
+      "target": "{{SERVICE_PATH}}/report/",
+      "description": "Bằng chứng nghiệm thu từ vệ tinh"
+    }
+  ]
+}

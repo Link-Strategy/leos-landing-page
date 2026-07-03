@@ -1,0 +1,37 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "Satellite service: web (Next.js Dashboard)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "node --test test/*.test.js",
+    "verify-gate": "node .agents/tools/ls-engine/cli.mjs verify-gate",
+    "verify-delivery": "node .agents/tools/ls-engine/cli.mjs verify-delivery",
+    "ls-gitpush": "node .agents/tools/ls-engine/cli.mjs ls-gitpush",
+    "verify-contracts": "node .agents/tools/ls-engine/cli.mjs verify-contracts"
+  },
+  "dependencies": {
+    "next": "16.2.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.3.0",
+    "lucide-react": "^0.400.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.6",
+    "tailwindcss": "^4",
+    "typescript": "5.4.2",
+    "quicktype-core": "^23.0.170"
+  }
+}

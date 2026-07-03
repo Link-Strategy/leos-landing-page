@@ -1,0 +1,424 @@
+@import "tailwindcss";
+
+@source "../../../../../packages/ui/src/**/*.{ts,tsx}";
+@source "../../../../packages/ui/src/**/*.{ts,tsx}";
+@source "../../../packages/ui/src/**/*.{ts,tsx}";
+@source "../../packages/ui/src/**/*.{ts,tsx}";
+@source "../packages/ui/src/**/*.{ts,tsx}";
+
+:root {
+  /* 1. Giao diện cơ bản (Chuẩn Shadcn UI) */
+  --background: #0D1B4B;
+  --foreground: #FFFFFF;
+  --dark-translucent: rgba(13, 27, 75, 0.66);
+
+  --primary: #2A9FFF;
+  --primary-foreground: #FFFFFF;
+
+  --card: #0D1B4B;
+  --card-foreground: #FFFFFF;
+
+  --popover: #0D1B4B;
+  --popover-foreground: #FFFFFF;
+
+  --muted: #6897B9;
+  --muted-foreground: #FFFFFF;
+
+  --border: rgba(255, 255, 255, 0.16);
+  --input: rgba(255, 255, 255, 0.16);
+  --ring: #2A9FFF;
+
+  --radius: 8px;
+  --radius-dropdown: 46px;
+  --radius-mobile-menu: 24px;
+  --radius-header: 100px;
+
+  --border-width-default: 1px;
+
+  --shadow-glow: 0 2px 20px 0 rgba(135, 217, 255, 0.08);
+  --shadow-search: 0 2px 16px 0 rgba(0, 149, 255, 0.26);
+
+  /* Brand Specific Colors (Dựa trên HeaderTailwind.tsx) */
+  --brand-cyan: #6FCBDC;
+  --brand-orange: #FAAF4D;
+  --brand-emerald: #298C43;
+  --brand-teal: #038181;
+  --brand-gray: #6E6F6F;
+  --brand-lime: #7DC35A;
+  --brand-orange-deep: #F78E20;
+
+  /* Layout & Geometry (Dựa trên HeaderTailwind.tsx) */
+  --header-height: 99px;
+  /* 81px container + 18px top padding */
+  --header-height-mobile: 78px;
+  /* 64px container + 14px top padding */
+  --container-width: 1400px;
+
+  /* Semantic Colors bổ sung cho Shadcn */
+  --secondary: #162A6B;
+  --secondary-foreground: #FFFFFF;
+  --accent: rgba(255, 255, 255, 0.08);
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+
+  /* Legacy Elementor Bridge Variables */
+  --e-global-color-primary: var(--primary);
+  --e-global-color-secondary: var(--background);
+  --e-global-color-text: var(--foreground);
+  --e-global-color-accent: #D1D1D1;
+
+  --e-global-typography-primary-font-family: var(--font-sans);
+  --e-global-typography-primary-font-weight: 400;
+  --e-global-typography-primary-line-height: 1.3em;
+
+  --e-global-typography-secondary-font-family: var(--font-sans);
+  --e-global-typography-secondary-font-weight: 400;
+  --e-global-typography-secondary-line-height: 1.3em;
+
+  --e-global-typography-text-font-family: var(--font-sans);
+  --e-global-typography-text-font-weight: 400;
+  --e-global-typography-text-line-height: 1.3em;
+
+  --e-global-typography-accent-font-family: var(--font-sans);
+  --e-global-typography-accent-font-weight: 500;
+  --e-global-typography-accent-line-height: 1.3em;
+}
+
+@theme inline {
+  /* Tailwind v4 theme mapping */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-dark-translucent: var(--dark-translucent);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-lg: var(--radius);
+  --radius-dropdown: var(--radius-dropdown);
+  --radius-mobile-menu: var(--radius-mobile-menu);
+  --radius-header: var(--radius-header);
+  --radius-card-glass: var(--card-glass-radius, var(--radius-landing, 16px));
+
+  --border-width-default: var(--border-width-default);
+
+  --shadow-glow: var(--shadow-glow);
+  --shadow-search: var(--shadow-search);
+
+  /* Brand Colors */
+  --color-brand-primary: var(--primary);
+  --color-brand-cyan: var(--brand-cyan);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-emerald: var(--brand-emerald);
+  --color-brand-teal: var(--brand-teal);
+  --color-brand-gray: var(--brand-gray);
+  --color-brand-lime: var(--brand-lime);
+  --color-brand-orange-deep: var(--brand-orange-deep);
+
+  /* Text Colors Mapping for Shared Components */
+  --color-text-primary: var(--foreground);
+  --color-text-muted: var(--muted);
+
+  /* Typography mappings */
+  --font-sans: var(--font-archivo);
+  --font-display: var(--font-outfit);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* 2. Base & Reset Overrides */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 1550px) {
+  html {
+    scroll-padding-top: var(--header-height-mobile);
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4em;
+}
+
+body a {
+  line-height: 1.4em;
+}
+
+body e-page-transition {
+  background-color: #FFBC7D;
+}
+
+/* Default Headings styling - Sử dụng Outfit Font và tỷ lệ chuẩn */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1.1rem;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* 3. Custom Animations & Keyframes */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shine-move {
+  0% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(-420px);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.shine-layer {
+  animation: shine-move 2.6s linear infinite;
+}
+
+/* 4. Custom Global Utilities & Glassmorphism */
+.mask-gradient {
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.gradient-border-span {
+  background: linear-gradient(90deg, hsl(0deg 0% 100% / 40%) 0%, transparent 12%, transparent 88%, hsl(0deg 0% 100% / 60%) 100%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.search-border-span {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.36) 50%, rgba(255, 255, 255, 0.16) 100%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.header-glass-container {
+  background-color: var(--dark-translucent) !important;
+  border: var(--border-width-default) solid var(--border) !important;
+  box-shadow: var(--shadow-glow) !important;
+  border-radius: var(--radius-header) !important;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+}
+
+
+
+.header-dropdown-glass {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  position: relative;
+  z-index: 10;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  overflow: visible;
+  border-radius: var(--radius-dropdown, 46px);
+  width: 100%;
+}
+
+.header-dropdown-glass.header-dropdown {
+  justify-content: space-between;
+  padding: 2.5rem 3.75rem;
+  overflow: visible !important;
+}
+
+.header-dropdown-glass.products-dropdown {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2.5rem 0;
+  padding: 2.5rem 2rem;
+}
+
+@media (max-width: 1550px) {
+  .header-dropdown-glass.header-dropdown {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.search-results-glass {
+  background-color: rgba(13, 27, 75, 0.98) !important;
+  box-shadow: var(--shadow-search) !important;
+}
+
+/* Helpers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 5. Radix UI Navigation Menu overrides to prevent double glass and allow custom dropdown sizing */
+[data-radix-navigation-menu-viewport] {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  overflow: visible !important;
+}
+
+/* 6. Layout & Scroll Progress Wrap (Dịch chuyển từ layout.tsx) */
+body .site-main {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
+}
+
+main {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  width: 100%;
+}
