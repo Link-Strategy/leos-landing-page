@@ -1,0 +1,13 @@
+%%{init: {'themeVariables': {'fontSize': '18px'}, 'flowchart': {'nodeSpacing': 80, 'rankSpacing': 120}}}%%
+flowchart LR
+    User["Người dùng"] -->|"Yêu cầu bằng tiếng Việt tự nhiên\n(Ví dụ: 'Viết bài blog về logistics xanh...')"| Chatbox
+    
+    subgraph Agent ["LandingAgent (AI Agent)"]
+        Chatbox["Antigravity Agent Chatbox\n(Giao diện tương tác chính)"]
+        Chatbox --> Rule["1. Áp dụng Rules\n(Brand Voice, Security, Governance...)"]
+        Rule --> Workflow["2. Chạy Workflows tự động\n(Contract casting, Harvest...)"]
+        Workflow --> Skill["3. Gọi Skills chuyên môn\n(9router, nodejs-backend, tailwind...)"]
+        Skill --> Tool["4. Thực thi qua Tools\n(ls-post CLI, upload.cjs, MongoDB...)"]
+    end
+    
+    Tool -->|"Kết quả tự động"| Result["Bài viết đã đăng, RSS & sitemap đã cập nhật\nSocial đã publish"]

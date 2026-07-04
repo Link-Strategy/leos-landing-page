@@ -1,0 +1,339 @@
+{
+  "measuredAt": "2026-07-04T05:19:39.236Z",
+  "pageHeightPx": 785.2,
+  "pageHeightMm": 277,
+  "documentHeightPx": 4982.8,
+  "documentHeightMm": 1757.8,
+  "estimatedPages": 7,
+  "sections": [
+    {
+      "index": 1,
+      "title": "Tài liệu dành cho nhân viên truyền thông",
+      "topPx": 31.5,
+      "bottomPx": 60.5,
+      "heightPx": 29,
+      "heightMm": 10.2,
+      "pageShare": 0,
+      "startPage": 1,
+      "endPage": 1,
+      "topInPageMm": 11.1,
+      "bottomInPageMm": 21.3,
+      "firstPageRemainingMm": 265.9,
+      "crossesPage": false,
+      "recommendation": "ok",
+      "actionHint": "No action needed."
+    },
+    {
+      "index": 2,
+      "title": "1. LandingAgent là gì?",
+      "topPx": 75.3,
+      "bottomPx": 252.9,
+      "heightPx": 177.5,
+      "heightMm": 62.6,
+      "pageShare": 0.2,
+      "startPage": 1,
+      "endPage": 1,
+      "topInPageMm": 26.6,
+      "bottomInPageMm": 89.2,
+      "firstPageRemainingMm": 250.4,
+      "crossesPage": false,
+      "recommendation": "ok",
+      "actionHint": "No action needed."
+    },
+    {
+      "index": 3,
+      "title": "2. Nền tảng sử dụng: Antigravity Agent Chatbox",
+      "topPx": 267.7,
+      "bottomPx": 571.6,
+      "heightPx": 303.9,
+      "heightMm": 107.2,
+      "pageShare": 0.4,
+      "startPage": 1,
+      "endPage": 1,
+      "topInPageMm": 94.4,
+      "bottomInPageMm": 201.6,
+      "firstPageRemainingMm": 182.6,
+      "crossesPage": false,
+      "recommendation": "ok",
+      "actionHint": "No action needed."
+    },
+    {
+      "index": 4,
+      "title": "3. Bên trong Agent: Rules, Skills, Workflows",
+      "topPx": 586.4,
+      "bottomPx": 1807.1,
+      "heightPx": 1220.7,
+      "heightMm": 430.6,
+      "pageShare": 1.6,
+      "startPage": 1,
+      "endPage": 3,
+      "topInPageMm": 206.9,
+      "bottomInPageMm": 83.5,
+      "firstPageRemainingMm": 70.1,
+      "crossesPage": true,
+      "recommendation": "split section or reduce table/image height",
+      "actionHint": "Split \"## 3. Bên trong Agent: Rules, Skills, Workflows\" into smaller ### subsections, split long tables, or reduce large image/diagram height."
+    },
+    {
+      "index": 5,
+      "title": "4. Các tính năng chính",
+      "topPx": 2355.6,
+      "bottomPx": 2925.8,
+      "heightPx": 570.2,
+      "heightMm": 201.2,
+      "pageShare": 0.7,
+      "startPage": 4,
+      "endPage": 4,
+      "topInPageMm": 0,
+      "bottomInPageMm": 201.2,
+      "firstPageRemainingMm": 277,
+      "crossesPage": false,
+      "recommendation": "ok",
+      "actionHint": "No action needed."
+    },
+    {
+      "index": 6,
+      "title": "5. Hướng dẫn sử dụng hàng ngày",
+      "topPx": 2940.6,
+      "bottomPx": 3779.2,
+      "heightPx": 838.5,
+      "heightMm": 295.8,
+      "pageShare": 1.1,
+      "startPage": 4,
+      "endPage": 5,
+      "topInPageMm": 206.4,
+      "bottomInPageMm": 225.2,
+      "firstPageRemainingMm": 70.6,
+      "crossesPage": true,
+      "recommendation": "split section or reduce table/image height",
+      "actionHint": "Split \"## 5. Hướng dẫn sử dụng hàng ngày\" into smaller ### subsections, split long tables, or reduce large image/diagram height."
+    },
+    {
+      "index": 7,
+      "title": "6. Hiện trạng & Lộ trình",
+      "topPx": 3926,
+      "bottomPx": 4302.2,
+      "heightPx": 376.2,
+      "heightMm": 132.7,
+      "pageShare": 0.5,
+      "startPage": 6,
+      "endPage": 6,
+      "topInPageMm": 0,
+      "bottomInPageMm": 132.7,
+      "firstPageRemainingMm": 277,
+      "crossesPage": false,
+      "recommendation": "ok",
+      "actionHint": "No action needed."
+    },
+    {
+      "index": 8,
+      "title": "7. Lợi ích cho nhân viên truyền thông",
+      "topPx": 4327.9,
+      "bottomPx": 4567.1,
+      "heightPx": 239.3,
+      "heightMm": 84.4,
+      "pageShare": 0.3,
+      "startPage": 6,
+      "endPage": 6,
+      "topInPageMm": 141.8,
+      "bottomInPageMm": 226.2,
+      "firstPageRemainingMm": 135.2,
+      "crossesPage": false,
+      "recommendation": "ok",
+      "actionHint": "No action needed."
+    },
+    {
+      "index": 9,
+      "title": "8. Hỏi đáp nhanh",
+      "topPx": 4711.2,
+      "bottomPx": 4982.8,
+      "heightPx": 271.6,
+      "heightMm": 95.8,
+      "pageShare": 0.3,
+      "startPage": 7,
+      "endPage": 7,
+      "topInPageMm": 0,
+      "bottomInPageMm": 95.8,
+      "firstPageRemainingMm": 277,
+      "crossesPage": false,
+      "recommendation": "ok",
+      "actionHint": "No action needed."
+    }
+  ],
+  "manualBreaks": [
+    {
+      "index": 1,
+      "topPx": 2355.6,
+      "topMm": 831,
+      "pageBefore": 3,
+      "pageAfter": 4
+    },
+    {
+      "index": 2,
+      "topPx": 3926,
+      "topMm": 1385,
+      "pageBefore": 5,
+      "pageAfter": 6
+    },
+    {
+      "index": 3,
+      "topPx": 4711.2,
+      "topMm": 1662,
+      "pageBefore": 6,
+      "pageAfter": 7
+    }
+  ],
+  "pagesInfo": [
+    {
+      "page": 1,
+      "fillHeightMm": 277,
+      "fillPercent": 100
+    },
+    {
+      "page": 2,
+      "fillHeightMm": 277,
+      "fillPercent": 100
+    },
+    {
+      "page": 3,
+      "fillHeightMm": 83.5,
+      "fillPercent": 30
+    },
+    {
+      "page": 4,
+      "fillHeightMm": 277,
+      "fillPercent": 100
+    },
+    {
+      "page": 5,
+      "fillHeightMm": 225.2,
+      "fillPercent": 81
+    },
+    {
+      "page": 6,
+      "fillHeightMm": 226.2,
+      "fillPercent": 82
+    },
+    {
+      "page": 7,
+      "fillHeightMm": 95.8,
+      "fillPercent": 35
+    }
+  ],
+  "page": {
+    "format": "A4",
+    "widthMm": 210,
+    "heightMm": 297,
+    "marginMm": {
+      "top": 10,
+      "right": 12,
+      "bottom": 10,
+      "left": 12
+    },
+    "contentWidthMm": 186,
+    "contentHeightMm": 277,
+    "pxPerMm": 3.7795275590551185
+  },
+  "estimateDecisions": [
+    {
+      "index": 0,
+      "title": "Preamble",
+      "estimated_weight_lines": 0.75,
+      "accumulated_before_lines": 0,
+      "inserted_break_before": false,
+      "has_table_or_image": false,
+      "has_manual_break": false,
+      "reasons": []
+    },
+    {
+      "index": 1,
+      "title": "## Tài liệu dành cho nhân viên truyền thông",
+      "estimated_weight_lines": 2,
+      "accumulated_before_lines": 0.75,
+      "inserted_break_before": false,
+      "has_table_or_image": false,
+      "has_manual_break": false,
+      "reasons": []
+    },
+    {
+      "index": 2,
+      "title": "## 1. LandingAgent là gì?",
+      "estimated_weight_lines": 6.5,
+      "accumulated_before_lines": 3.75,
+      "inserted_break_before": false,
+      "has_table_or_image": false,
+      "has_manual_break": false,
+      "reasons": []
+    },
+    {
+      "index": 3,
+      "title": "## 2. Nền tảng sử dụng: Antigravity Agent Chatbox",
+      "estimated_weight_lines": 35,
+      "accumulated_before_lines": 11.25,
+      "inserted_break_before": false,
+      "has_table_or_image": true,
+      "has_manual_break": false,
+      "reasons": []
+    },
+    {
+      "index": 4,
+      "title": "## 3. Bên trong Agent: Rules, Skills, Workflows",
+      "estimated_weight_lines": 0.5,
+      "accumulated_before_lines": 47.25,
+      "inserted_break_before": false,
+      "has_table_or_image": false,
+      "has_manual_break": true,
+      "reasons": []
+    },
+    {
+      "index": 5,
+      "title": "## 4. Các tính năng chính",
+      "estimated_weight_lines": 28,
+      "accumulated_before_lines": 0.5,
+      "inserted_break_before": false,
+      "has_table_or_image": false,
+      "has_manual_break": false,
+      "reasons": []
+    },
+    {
+      "index": 6,
+      "title": "## 5. Hướng dẫn sử dụng hàng ngày",
+      "estimated_weight_lines": 0.5,
+      "accumulated_before_lines": 29.5,
+      "inserted_break_before": false,
+      "has_table_or_image": false,
+      "has_manual_break": true,
+      "reasons": []
+    },
+    {
+      "index": 7,
+      "title": "## 6. Hiện trạng & Lộ trình",
+      "estimated_weight_lines": 25.5,
+      "accumulated_before_lines": 0.5,
+      "inserted_break_before": false,
+      "has_table_or_image": true,
+      "has_manual_break": false,
+      "reasons": []
+    },
+    {
+      "index": 8,
+      "title": "## 7. Lợi ích cho nhân viên truyền thông",
+      "estimated_weight_lines": 0.5,
+      "accumulated_before_lines": 27,
+      "inserted_break_before": false,
+      "has_table_or_image": false,
+      "has_manual_break": true,
+      "reasons": []
+    },
+    {
+      "index": 9,
+      "title": "## 8. Hỏi đáp nhanh",
+      "estimated_weight_lines": 13,
+      "accumulated_before_lines": 0.5,
+      "inserted_break_before": false,
+      "has_table_or_image": false,
+      "has_manual_break": false,
+      "reasons": []
+    }
+  ]
+}

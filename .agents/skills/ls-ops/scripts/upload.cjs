@@ -1,79 +1,72 @@
 #!/usr/bin/env node
 /**
- * upload.js - Upload a local file to S3 via Link Strategy webhook
- * Usage: node scripts/ops/upload.js <filePath> <folder> [fileName]
- * Example: node scripts/ops/upload.js C:/img.png posts/2026/03 my-image.png
+ * upload.cjs - Upload file tr?c ti?p l?n S3
+ * Usage: node .agents/skills/ls-ops/scripts/upload.cjs <filePath> [folder]
  */
+const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
+const path = require("path");
+const fs = require("fs");
 
-const { execFileSync } = require('child_process');
-const path = require('path');
-const fs = require('fs');
-const os = require('os');
-
-// Load .env - handle = signs in values
-const envPath = path.resolve(__dirname, '../../../../.env');
+// Load .env
+const envPath = path.resolve(__dirname, "../../../../.env");
 const env = {};
 if (fs.existsSync(envPath)) {
-  fs.readFileSync(envPath, 'utf8').split('\n').forEach(line => {
-    const idx = line.indexOf('=');
-    if (idx > 0) {
-      const key = line.slice(0, idx).trim();
-      const val = line.slice(idx + 1).trim();
+  fs.readFileSync(envPath, "utf8").split("\n").forEach(line => {
+    const t = line.trim();
+    if (!t || t.startsWith("#")) return;
+    const i = t.indexOf("=");
+    if (i > 0) {
+      const key = t.slice(0, i).trim();
+      let val = t.slice(i + 1).trim();
+      if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'")))
+        val = val.slice(1, -1);
       env[key] = val;
     }
   });
 }
 
-const WEBHOOK_URL = env.UPLOAD_WEBHOOK_URL || "https://leos.local/webhook/upload";
-
-const [, , filePath, folderInput, fileName, contentType = 'image/png'] = process.argv;
-
-// Calculate dynamic default folder based on Link Strategy standards
-const now = new Date();
-const year = now.getFullYear();
-const month = String(now.getMonth() + 1).padStart(2, '0');
-const defaultFolder = `linkstrategy/manual-uploads/${year}/${month}`;
-
-const folder = folderInput || env.DEFAULT_UPLOAD_FOLDER || defaultFolder;
-
+const [,, filePath, folderInput] = process.argv;
 if (!filePath) {
-  console.error('Usage: node upload.js <filePath> [folder] [fileName] [contentType]');
+  console.error("Usage: node upload.cjs <filePath> [folder]");
   process.exit(1);
 }
 
+const now = new Date();
+const month = String(now.getMonth() + 1).padStart(2, "0");
+const folder = folderInput || `uploads/${now.getFullYear()}/${month}`;
 const resolvedPath = path.resolve(filePath);
-const destName = fileName || path.basename(resolvedPath);
 
 if (!fs.existsSync(resolvedPath)) {
-  console.error('File not found:', resolvedPath);
+  console.error("File not found:", resolvedPath);
   process.exit(1);
 }
 
-// Write params JSON to temp file (no BOM, no shell quoting issues)
-const paramJson = JSON.stringify({
-  filename: destName,
-  folder,
-  content_type: contentType,
-  source_type: 'binary',
-  metadata: { uploader: 'LS-Ops-Node' }
+const s3 = new S3Client({
+  region: env.S3_REGION || "ap-southeast-1",
+  credentials: {
+    accessKeyId: env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
+  },
 });
 
-const tempFile = path.join(os.tmpdir(), `ls-upload-params-${Date.now()}.json`);
-fs.writeFileSync(tempFile, paramJson, { encoding: 'utf8' });
+const bucket = env.S3_BUCKET_NAME || "letron-blog-content-dev";
+const fileName = path.basename(resolvedPath);
+const key = `${folder}/${Date.now()}-${fileName.replace(/[^a-zA-Z0-9.-]/g, "_")}`;
 
-try {
-  const result = execFileSync('curl.exe', [
-    '-s', '-X', 'POST', WEBHOOK_URL,
-    '-F', 'tool=upload_asset',
-    '-F', `params=<${tempFile.replace(/\\/g, '/')}`,
-    '-F', `data=@${resolvedPath.replace(/\\/g, '/')}`
-  ], { encoding: 'utf8' });
-
-  console.log(result);
-} catch (e) {
-  console.error('Upload failed:', e.message);
-  process.exit(1);
-} finally {
-  fs.unlinkSync(tempFile);
+async function main() {
+  try {
+    const fileBuffer = fs.readFileSync(resolvedPath);
+    await s3.send(new PutObjectCommand({
+      Bucket: bucket,
+      Key: key,
+      Body: fileBuffer,
+      CacheControl: "public, max-age=31536000, immutable",
+    }));
+    const url = `https://${bucket}.s3.${env.S3_REGION || "ap-southeast-1"}.amazonaws.com/${key}`;
+    console.log(JSON.stringify({ ok: true, url, key, size: fileBuffer.length }));
+  } catch (err) {
+    console.error("Upload failed:", err.message);
+    process.exit(1);
+  }
 }
-
+main();

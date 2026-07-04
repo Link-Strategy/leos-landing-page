@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogDb } from "@/lib/mongodb";
 import { blogAssetToPost, formatBlogDate, type BlogAsset, type BlogPost } from "@/lib/blog-utils";
+import { renderMarkdownToHtml } from "@/lib/blog/markdown";
 import { Badge } from "@/components/ui/badge";
 
 interface PageProps {
@@ -14,7 +15,6 @@ async function getPost(slug: string): Promise<BlogPost | null> {
   const allAssets = await db.collection<BlogAsset>("assets")
     .find({ platform: "blog", status: "published" })
     .toArray();
-
   for (const asset of allAssets) {
     const post = blogAssetToPost(asset);
     if (post.slug === slug) return post;
@@ -22,21 +22,39 @@ async function getPost(slug: string): Promise<BlogPost | null> {
   return null;
 }
 
+function estimateReadingTime(body: string): number {
+  const wordsPerMinute = 300;
+  const words = body.trim().split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / wordsPerMinute));
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
   if (!post) return { title: "Bai viet khong tim thay - LeOS" };
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://linkstrategy.io.vn";
+
   return {
     title: post.title + " - LeOS",
     description: post.excerpt,
+    alternates: { canonical: `${siteUrl}/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
       publishedTime: post.publishedAt,
-      images: post.coverImage ? [{ url: post.coverImage }] : [],
+      tags: post.tags,
+      url: `${siteUrl}/blog/${post.slug}`,
+      images: post.coverImage ? [{ url: post.coverImage, width: 1200, height: 630 }] : [],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: post.coverImage ? [post.coverImage] : [],
+    },
+    robots: { index: true, follow: true },
   };
 }
 
@@ -46,13 +64,8 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
   if (!post) notFound();
 
-  const bodyHtml = post.body
-    .replace(/^### (.+)$/gm, "<h3>$1</h3>")
-    .replace(/^## (.+)$/gm, "<h2>$1</h2>")
-    .replace(/^# (.+)$/gm, "<h1>$1</h1>")
-    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-    .replace(/\*(.+?)\*/g, "<em>$1</em>")
-    .replace(/\n/g, "<br />");
+  const bodyHtml = await renderMarkdownToHtml(post.body);
+  const readingTime = estimateReadingTime(post.body);
 
   return (
     <div className="min-h-screen bg-background">
@@ -68,6 +81,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
           <div className="flex items-center gap-3 mb-4">
             {post.category && <Badge variant="secondary">{post.category}</Badge>}
             <span className="text-sm text-muted-foreground">{formatBlogDate(post.publishedAt)}</span>
+            <span className="text-sm text-muted-foreground">{readingTime} phut doc</span>
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">{post.title}</h1>
@@ -85,16 +99,19 @@ export default async function BlogDetailPage({ params }: PageProps) {
             </div>
           )}
 
-          <div className="prose prose-invert max-w-none text-base leading-relaxed text-foreground/90 prose-headings:text-foreground prose-a:text-primary prose-strong:text-foreground"
+          <div className="prose prose-invert max-w-none text-base leading-relaxed text-foreground/90 prose-headings:text-foreground prose-a:text-primary prose-strong:text-foreground prose-img:rounded-xl prose-pre:bg-muted prose-code:text-primary"
             dangerouslySetInnerHTML={{ __html: bodyHtml }}
           />
 
           {post.cta && (
             <div className="mt-12 p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 text-center">
               <p className="text-lg font-semibold text-foreground mb-4">{post.cta}</p>
-              <Link href="/lien-he" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors">
+              <button onClick={async () => {
+                try { await fetch("/api/blog/track-click", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ articleId: post.id, ctaId: "article_cta_primary", destinationUrl: "/lien-he" }) }); } catch {}
+                window.location.href = "/lien-he";
+              }} className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors cursor-pointer">
                 Lien he tu van &rarr;
-              </Link>
+              </button>
             </div>
           )}
 

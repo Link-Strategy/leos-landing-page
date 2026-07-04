@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 248 57">
+  <defs>
+    <linearGradient id="g0" x1="6.5" y1="35" x2="66.9032" y2="7.78505" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FBB04C"/>
+      <stop offset="1" stop-color="#FBB04C"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="79.5" y1="43.5" x2="240" y2="-7" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2A9FFF"/>
+      <stop offset="1" stop-color="#2A9FFF"/>
+    </linearGradient>
+
+    <linearGradient id="shine-le" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FBB04C" stop-opacity="1"/>
+      <stop offset="0%" stop-color="white" stop-opacity="0"/>
+      <stop offset="0%" stop-color="white" stop-opacity="0.9"/>
+      <stop offset="0%" stop-color="white" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#FBB04C" stop-opacity="1"/>
+      <animateTransform attributeName="gradientTransform" type="translate" from="-2 0" to="2 0" dur="0s" repeatCount="0"/>
+    </linearGradient>
+
+    <linearGradient id="shine1" gradientUnits="userSpaceOnUse" x1="-60" y1="28" x2="-20" y2="28">
+      <stop offset="0%" stop-color="white" stop-opacity="0"/>
+      <stop offset="50%" stop-color="white" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+      <animate attributeName="x1" values="-60;270;-60" dur="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="-20;310;-20" dur="2.8s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <linearGradient id="shine2" gradientUnits="userSpaceOnUse" x1="-80" y1="28" x2="-40" y2="28">
+      <stop offset="0%" stop-color="white" stop-opacity="0"/>
+      <stop offset="50%" stop-color="white" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+      <animate attributeName="x1" values="-80;270;-80" dur="2.8s" begin="0.15s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="-40;310;-40" dur="2.8s" begin="0.15s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <clipPath id="clip-le">
+      <path d="M8.12695 39.04C8.12695 40.0372 8.57281 40.9685 9.34473 41.583C9.93102 42.0539 10.6731 42.3183 11.4375 42.3184L30.4316 42.293V49.5303L10.7031 49.5488C8.28721 49.5488 5.91532 48.7287 4.02637 47.2275C1.49909 45.2075 0.0371094 42.2119 0.0371094 38.9961L0 7.28711H8.0791L8.12695 39.04ZM67.168 16.6621C69.5911 16.6623 71.5614 18.6161 71.5615 21.0186L71.5693 32.4141C71.5693 33.584 71.1088 34.6803 70.2852 35.4971C69.4501 36.3213 68.3475 36.7705 67.1748 36.7705H43.0977V41.7705H71.5693V45.001C71.5693 47.4036 69.5982 49.3574 67.1748 49.3574H39.9023C37.479 49.3574 35.5078 47.4036 35.5078 45.001V21.0186C35.508 18.616 37.4791 16.6621 39.9023 16.6621H67.168ZM43.0977 24.249V29.1904H63.9609V24.249H43.0977Z"/>
+    </clipPath>
+    <clipPath id="clip-tron">
+      <path d="M152.111 7.2832C155.897 7.2832 158.981 10.3339 158.992 14.0869L159.021 28.9922C159.029 30.8354 158.305 32.5572 156.984 33.8486C155.667 35.14 153.901 35.8322 152.067 35.8213L151.136 35.8096L151.685 36.5566C152.464 37.6237 153.318 38.75 154.23 39.9385L156.966 43.5068C157.868 44.6952 158.758 45.8655 159.623 47.0098C160.272 47.8671 160.885 48.6693 161.464 49.4199H151.117L140.938 35.8877H132.706V27.583H148.353C149.696 27.5828 150.783 26.5046 150.783 25.1729V17.8691C150.783 16.5373 149.696 15.4592 148.353 15.459H128.078V35.8838H128.022V49.416H119.832V7.2832H152.111ZM238.478 7.2832C240.953 7.28324 243.287 8.23621 245.042 9.95801L245.228 10.1416C246.987 11.8635 248 14.2591 248 16.7168V49.4199H239.624V17.5557C239.624 16.4043 238.674 15.463 237.513 15.4629H219.149C217.988 15.4631 217.038 16.4043 217.038 17.5557V49.4199H208.911V16.541C208.911 14.0868 209.872 11.7716 211.608 10.0312C213.345 8.27984 215.766 7.2832 218.237 7.2832H238.478ZM112.852 7.2832C113.827 7.28335 114.621 8.06686 114.621 9.03809V15.4033H97.2832V49.416H88.9072V15.4033H71.5684V9.03809C71.5684 8.07045 72.3631 7.2832 73.3428 7.2832H112.852ZM194.875 7.2832C199.703 7.28334 203.633 11.1834 203.629 15.9775V40.6699C203.629 42.999 202.72 45.1851 201.046 46.8262C199.395 48.4559 197.198 49.3613 194.875 49.3613H194.819L173.391 49.2217C168.585 49.1957 164.681 45.295 164.681 40.5303V15.9736C164.681 11.1833 168.611 7.28342 173.446 7.2832H194.875ZM175.744 15.4551C174.156 15.4551 172.871 16.7397 172.871 18.3145V38.3818C172.871 39.9566 174.156 41.2295 175.744 41.2295H192.451C194.039 41.2295 195.324 39.9566 195.324 38.3818V18.3145C195.324 16.736 194.04 15.4551 192.451 15.4551H175.744Z"/>
+    </clipPath>
+
+    <filter id="bevel-le" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
+      <feOffset dx="0" dy="-1" result="offsetblur"/>
+      <feFlood flood-color="rgba(255,200,100,0.5)" result="color"/>
+      <feComposite in="color" in2="offsetblur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="bevel-tron" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
+      <feOffset dx="0" dy="-1" result="offsetblur"/>
+      <feFlood flood-color="rgba(80,180,255,0.5)" result="color"/>
+      <feComposite in="color" in2="offsetblur" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- LE base fill orange -->
+  <path d="M8.12695 39.04C8.12695 40.0372 8.57281 40.9685 9.34473 41.583C9.93102 42.0539 10.6731 42.3183 11.4375 42.3184L30.4316 42.293V49.5303L10.7031 49.5488C8.28721 49.5488 5.91532 48.7287 4.02637 47.2275C1.49909 45.2075 0.0371094 42.2119 0.0371094 38.9961L0 7.28711H8.0791L8.12695 39.04ZM67.168 16.6621C69.5911 16.6623 71.5614 18.6161 71.5615 21.0186L71.5693 32.4141C71.5693 33.584 71.1088 34.6803 70.2852 35.4971C69.4501 36.3213 68.3475 36.7705 67.1748 36.7705H43.0977V41.7705H71.5693V45.001C71.5693 47.4036 69.5982 49.3574 67.1748 49.3574H39.9023C37.479 49.3574 35.5078 47.4036 35.5078 45.001V21.0186C35.508 18.616 37.4791 16.6621 39.9023 16.6621H67.168ZM43.0977 24.249V29.1904H63.9609V24.249H43.0977Z" fill="#FBB04C" filter="url(#bevel-le)" style="fill:rgb(251, 176, 76);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- LE shine overlay -->
+  <rect x="0" y="0" width="72" height="57" fill="url(#shine1)" clip-path="url(#clip-le)" opacity="0.9" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Top edge highlight LE -->
+  <rect x="0" y="7" width="72" height="2" fill="rgba(255,220,150,0.35)" clip-path="url(#clip-le)" style="fill:rgba(255, 220, 150, 0.35);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- TRON base fill blue -->
+  <path d="M152.111 7.2832C155.897 7.2832 158.981 10.3339 158.992 14.0869L159.021 28.9922C159.029 30.8354 158.305 32.5572 156.984 33.8486C155.667 35.14 153.901 35.8322 152.067 35.8213L151.136 35.8096L151.685 36.5566C152.464 37.6237 153.318 38.75 154.23 39.9385L156.966 43.5068C157.868 44.6952 158.758 45.8655 159.623 47.0098C160.272 47.8671 160.885 48.6693 161.464 49.4199H151.117L140.938 35.8877H132.706V27.583H148.353C149.696 27.5828 150.783 26.5046 150.783 25.1729V17.8691C150.783 16.5373 149.696 15.4592 148.353 15.459H128.078V35.8838H128.022V49.416H119.832V7.2832H152.111ZM238.478 7.2832C240.953 7.28324 243.287 8.23621 245.042 9.95801L245.228 10.1416C246.987 11.8635 248 14.2591 248 16.7168V49.4199H239.624V17.5557C239.624 16.4043 238.674 15.463 237.513 15.4629H219.149C217.988 15.4631 217.038 16.4043 217.038 17.5557V49.4199H208.911V16.541C208.911 14.0868 209.872 11.7716 211.608 10.0312C213.345 8.27984 215.766 7.2832 218.237 7.2832H238.478ZM112.852 7.2832C113.827 7.28335 114.621 8.06686 114.621 9.03809V15.4033H97.2832V49.416H88.9072V15.4033H71.5684V9.03809C71.5684 8.07045 72.3631 7.2832 73.3428 7.2832H112.852ZM194.875 7.2832C199.703 7.28334 203.633 11.1834 203.629 15.9775V40.6699C203.629 42.999 202.72 45.1851 201.046 46.8262C199.395 48.4559 197.198 49.3613 194.875 49.3613H194.819L173.391 49.2217C168.585 49.1957 164.681 45.295 164.681 40.5303V15.9736C164.681 11.1833 168.611 7.28342 173.446 7.2832H194.875ZM175.744 15.4551C174.156 15.4551 172.871 16.7397 172.871 18.3145V38.3818C172.871 39.9566 174.156 41.2295 175.744 41.2295H192.451C194.039 41.2295 195.324 39.9566 195.324 38.3818V18.3145C195.324 16.736 194.04 15.4551 192.451 15.4551H175.744Z" fill="#2A9FFF" filter="url(#bevel-tron)" style="fill:rgb(42, 159, 255);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- TRON shine overlay -->
+  <rect x="71" y="0" width="177" height="57" fill="url(#shine2)" clip-path="url(#clip-tron)" opacity="0.9" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Top edge highlight TRON -->
+  <rect x="71" y="7" width="177" height="2" fill="rgba(150,220,255,0.3)" clip-path="url(#clip-tron)" style="fill:rgba(150, 220, 255, 0.3);stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- T divider line (3D separation between Le and T) -->
+  <line x1="72" y1="7" x2="72" y2="50" stroke="rgba(255,255,255,0.08)" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgba(255, 255, 255, 0.08);color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+</svg>

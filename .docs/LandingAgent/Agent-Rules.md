@@ -91,12 +91,51 @@ node .agents/tools/ls-post/cli.mjs <lệnh> [đối số]
 | `schedule-asset` | Lên lịch đăng qua QStash | QStash token |
 | `unschedule-asset` | Hủy lịch đăng QStash | QStash token |
 
+### Publish API
+Internal API endpoint để publish bài lên social platforms.
+
+`
+POST /api/publish
+Body: { platform: string, asset: { title, body, hashtags } }
+`
+
+- Platform: linkedin, acebook, 	hreads, instagram, 	iktok, youtube, wordpress, zalo
+- Đọc token từ .env theo format {PLATFORM}_ACCESS_TOKEN + {PLATFORM}_PAGE_ID
+- Trả về { ok, platform, status, postId, permalink, error }
+- CLI publish-asset gọi API này, fallback về blog-only nếu chưa có token
+
+### upload.cjs
+Upload file trực tiếp lên S3 (không qua Next.js server).
+
+```
+node .agents/skills/ls-ops/scripts/upload.cjs <filePath> [folder]
+```
+
+- Folder mặc định: `uploads/YYYY/MM`
+- Trả về JSON `{ ok, url, key, size }`
+- Cần AWS credentials trong `.env`
+
+S3 bucket: `letron-blog-content-dev` (ap-southeast-1)
+Public URL format: `https://letron-blog-content-dev.s3.ap-southeast-1.amazonaws.com/{key}`
+
 ### Blog
 - Danh sách: `/blog`
 - Chi tiết: `/blog/[slug]` (SEO + OG tags)
 - API: `GET /api/blog/posts`
 - RSS: `/rss.xml`
 - Section trên landing: `News.tsx` (đọc từ MongoDB, fallback WordPress)
+
+### Publish API
+- Endpoint: POST /api/publish
+- Platforms: linkedin, facebook, threads, instagram, tiktok, youtube, wordpress, zalo
+- Đọc token từ process.env, cần {PLATFORM}_ACCESS_TOKEN + {PLATFORM}_PAGE_ID
+- execution.mjs gọi API này, fallback về blog nếu thiếu token
+
+### S3 Upload
+- Tool: `upload.cjs` (CLI)
+- Bucket: `letron-blog-content-dev`
+- Upload thẳng S3 bằng `@aws-sdk/client-s3`
+- Public URL có sẵn sau upload
 
 ### Lead Capture
 - API: `POST /api/contact`
@@ -146,8 +185,9 @@ Tỷ lệ khuyến nghị: **4 bài value : 1 bài product-facing**
 
 Khi bắt đầu phiên làm việc, đọc theo thứ tự:
 
-1. `.docs/LandingAgent/LandingAgent.md` — hiểu workspace có gì, thiếu gì
+1. `.docs/LandingAgent/LandingAgent.md` — workspace có gì, thiếu gì
 2. `.docs/LandingAgent/Agent-Rules.md` — (file này) — brand, taxonomy, tools cho LeOS
 3. `.agents/rules/09-Agent Context Memory.md` — giọng văn, cấu trúc kể chuyện (dùng phần không bị ghi đè)
 4. `01_TASK_SPEC.md` — task hiện tại
 5. `03_LOGS.md` — tiến độ & blockers
+

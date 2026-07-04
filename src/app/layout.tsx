@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Archivo, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -20,8 +20,20 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Letron - Giải Pháp Chuyển Hóa Rác Thải & Vật Liệu Xây Dựng Xanh",
+  title: {
+    default: "LeOS - Công nghệ xanh, Vận hành thông minh",
+    template: "%s | LeOS",
+  },
   description: "Giải pháp công nghệ chuyển hóa rác thải và vật liệu xây dựng xanh hàng đầu Việt Nam.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://linkstrategy.io.vn"),
+  alternates: { canonical: "/" },
+  openGraph: {
+    siteName: "LeOS",
+    type: "website",
+    locale: "vi_VN",
+  },
+  twitter: { card: "summary_large_image" },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

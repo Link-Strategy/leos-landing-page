@@ -1,0 +1,140 @@
+body {
+  font-family: Arial, "Noto Sans", sans-serif;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  orphans: 3;
+  widows: 3;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+h2 {
+  break-before: auto;
+  page-break-before: auto;
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+h1 + h2,
+h2:first-of-type {
+  break-before: auto;
+  page-break-before: auto;
+}
+
+h3,
+h4 {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+p,
+li {
+  orphans: 3;
+  widows: 3;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+pre,
+blockquote,
+figure {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+table {
+  width: 100% !important;
+  max-width: 100% !important;
+  border-collapse: collapse;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin: 16px 0 24px;
+  font-size: 13px;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+thead {
+  display: table-header-group;
+}
+
+tfoot {
+  display: table-footer-group;
+}
+
+tr,
+td,
+th {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+th,
+td {
+  border: 1px solid #d1d5db;
+  padding: 6px 10px;
+  vertical-align: middle;
+  word-break: break-word;
+}
+
+th {
+  background: #003366;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.page-break {
+  break-before: page;
+  page-break-before: always;
+}
+
+.layout-anchor {
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+.mermaid-diagram {
+  margin: 12px 0 18px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.mermaid-diagram img {
+  display: block;
+  max-width: 100%;
+  max-height: 270mm;
+  width: auto;
+  height: auto;
+}
