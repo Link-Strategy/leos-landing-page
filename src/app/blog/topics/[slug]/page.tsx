@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getBlogDb } from "@/lib/mongodb";
@@ -13,14 +13,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 async function getPostsByCategory(slug: string): Promise<BlogPost[]> {
-  const db = await getBlogDb();
-  const assets = await db.collection<BlogAsset>("assets")
-    .find({ platform: "blog", status: "published" })
-    .sort({ publish_at: -1, created_at: -1 })
-    .toArray();
-  return assets
-    .map(blogAssetToPost)
-    .filter((p) => (p.category ?? "").toLowerCase().replace(/\s+/g, "-") === slug);
+  try {
+    const db = await getBlogDb();
+    const assets = await db.collection<BlogAsset>("assets")
+      .find({ platform: "blog", status: "published" })
+      .sort({ publish_at: -1, created_at: -1 })
+      .toArray();
+    return assets
+      .map(blogAssetToPost)
+      .filter((p) => (p.category ?? "").toLowerCase().replace(/\s+/g, "-") === slug);
+  } catch {
+    return [];
+  }
 }
 
 export default async function TopicPage({ params }: { params: Promise<{ slug: string }> }) {

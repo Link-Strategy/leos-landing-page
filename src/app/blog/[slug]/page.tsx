@@ -1,4 +1,4 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogDb } from "@/lib/mongodb";
@@ -11,13 +11,17 @@ interface PageProps {
 }
 
 async function getPost(slug: string): Promise<BlogPost | null> {
-  const db = await getBlogDb();
-  const allAssets = await db.collection<BlogAsset>("assets")
-    .find({ platform: "blog", status: "published" })
-    .toArray();
-  for (const asset of allAssets) {
-    const post = blogAssetToPost(asset);
-    if (post.slug === slug) return post;
+  try {
+    const db = await getBlogDb();
+    const allAssets = await db.collection<BlogAsset>("assets")
+      .find({ platform: "blog", status: "published" })
+      .toArray();
+    for (const asset of allAssets) {
+      const post = blogAssetToPost(asset);
+      if (post.slug === slug) return post;
+    }
+  } catch {
+    // DB not available
   }
   return null;
 }

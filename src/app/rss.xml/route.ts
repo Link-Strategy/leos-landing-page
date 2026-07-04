@@ -1,16 +1,20 @@
-﻿import { getBlogDb } from "@/lib/mongodb";
-import { blogAssetToPost, generateSlug, type BlogAsset } from "@/lib/blog-utils";
+import { getBlogDb } from "@/lib/mongodb";
+import { blogAssetToPost, generateSlug, type BlogAsset, type BlogPost } from "@/lib/blog-utils";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://linkstrategy.io.vn";
 
 export async function GET() {
-  const db = await getBlogDb();
-  const assets = await db.collection<BlogAsset>("assets")
-    .find({ platform: "blog", status: "published" })
-    .sort({ publish_at: -1, created_at: -1 })
-    .toArray();
-
-  const posts = assets.map(blogAssetToPost);
+  let posts: BlogPost[] = [];
+  try {
+    const db = await getBlogDb();
+    const assets = await db.collection<BlogAsset>("assets")
+      .find({ platform: "blog", status: "published" })
+      .sort({ publish_at: -1, created_at: -1 })
+      .toArray();
+    posts = assets.map(blogAssetToPost);
+  } catch {
+    // DB not available — serve empty feed
+  }
 
   const itemsXml = posts
     .map(

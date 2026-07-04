@@ -1,4 +1,4 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
 import { getBlogDb } from "@/lib/mongodb";
 import { blogAssetToPost, formatBlogDate, type BlogAsset, type BlogPost } from "@/lib/blog-utils";
@@ -17,12 +17,16 @@ function estimateReadingTime(body: string): number {
 }
 
 async function getPublishedPosts(): Promise<BlogPost[]> {
-  const db = await getBlogDb();
-  const assets = await db.collection<BlogAsset>("assets")
-    .find({ platform: "blog", status: "published" })
-    .sort({ publish_at: -1, created_at: -1 })
-    .toArray();
-  return assets.map(blogAssetToPost);
+  try {
+    const db = await getBlogDb();
+    const assets = await db.collection<BlogAsset>("assets")
+      .find({ platform: "blog", status: "published" })
+      .sort({ publish_at: -1, created_at: -1 })
+      .toArray();
+    return assets.map(blogAssetToPost);
+  } catch {
+    return [];
+  }
 }
 
 function getUniqueCategories(posts: BlogPost[]): string[] {
