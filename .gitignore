@@ -30,11 +30,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-# WordPress static assets (không cần push lên Satellite)
-/public/wp-content/
-/public/wp-includes/
-# Next.js static export output (không cần push lên Satellite)
-/public/landing/
 .env
 .env.*
 !.env.example

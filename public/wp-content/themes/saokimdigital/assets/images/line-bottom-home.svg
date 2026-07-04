@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Gradient for glow circle -->
+    <radialGradient id="cyan-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="1"/>
+      <stop offset="30%" stop-color="#22d3ee" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Cyan glow dot at the top-right of SVG (will become top-left on screen due to scaleX lật ngược) -->
+  <circle cx="372" cy="24" r="16" fill="url(#cyan-glow)" />
+  <!-- The core solid cyan circle -->
+  <circle cx="372" cy="24" r="4.5" fill="#22d3ee" />
+
+  <!-- Bottom blue line -->
+  <rect x="40" y="294" width="320" height="2" rx="1" fill="#1D63DF" />
+</svg>
