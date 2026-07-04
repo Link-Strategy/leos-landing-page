@@ -1,8 +1,0 @@
-# Link Strategy: CODEOWNERS
-# Enforces Brain sovereignty. All changes must be reviewed by the Brain.
-
-*       @Link-Strategy/brain-team
-/.agents/ @Link-Strategy/brain-team
-/.LinkStrategy/ @Link-Strategy/brain-team
-/scripts/ @Link-Strategy/brain-team
-/components/ui/ @Link-Strategy/brain-team
