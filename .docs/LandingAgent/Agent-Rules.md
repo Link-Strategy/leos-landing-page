@@ -99,7 +99,7 @@ POST /api/publish
 Body: { platform: string, asset: { title, body, hashtags } }
 `
 
-- Platform: linkedin, acebook, 	hreads, instagram, 	iktok, youtube, wordpress, zalo
+- Platform: linkedin, facebook, threads, instagram, tiktok, youtube, zalo
 - Đọc token từ .env theo format {PLATFORM}_ACCESS_TOKEN + {PLATFORM}_PAGE_ID
 - Trả về { ok, platform, status, postId, permalink, error }
 - CLI publish-asset gọi API này, fallback về blog-only nếu chưa có token
@@ -123,11 +123,11 @@ Public URL format: `https://letron-blog-content-dev.s3.ap-southeast-1.amazonaws.
 - Chi tiết: `/blog/[slug]` (SEO + OG tags)
 - API: `GET /api/blog/posts`
 - RSS: `/rss.xml`
-- Section trên landing: `News.tsx` (đọc từ MongoDB, fallback WordPress)
+- Section trên landing: `News.tsx` (đọc từ MongoDB)
 
 ### Publish API
 - Endpoint: POST /api/publish
-- Platforms: linkedin, facebook, threads, instagram, tiktok, youtube, wordpress, zalo
+- Platforms: linkedin, facebook, threads, instagram, tiktok, youtube, zalo
 - Đọc token từ process.env, cần {PLATFORM}_ACCESS_TOKEN + {PLATFORM}_PAGE_ID
 - execution.mjs gọi API này, fallback về blog nếu thiếu token
 

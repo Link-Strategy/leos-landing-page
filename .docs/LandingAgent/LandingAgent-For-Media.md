@@ -8,7 +8,7 @@
 
 LandingAgent là **trợ lý AI chuyên trách toàn bộ hoạt động truyền thông số** của Letron — từ viết bài blog, đăng lên website, gửi RSS, cập nhật sitemap, đồng bộ mạng xã hội, cho đến thu thập khách hàng tiềm năng.
 
-Điểm khác biệt cốt lõi: bạn **không cần biết code, không cần vào WordPress, không cần đăng nhập từng nền tảng social**. Bạn chỉ cần **trò chuyện với AI qua một hộp chat duy nhất** — mọi thao tác kỹ thuật phía sau do agent tự động xử lý.
+Điểm khác biệt cốt lõi: bạn **không cần biết code, không cần đăng nhập từng nền tảng social**. Bạn chỉ cần **trò chuyện với AI qua một hộp chat duy nhất** — mọi thao tác kỹ thuật phía sau do agent tự động xử lý.
 
 > **Meta**: LandingAgent = Landing Page + AI Agent. Một agent chuyên trách toàn bộ "mặt tiền số" của Letron.
 
@@ -136,7 +136,7 @@ Workflows là các "kịch bản" được lập trình sẵn. Khi agent nhận 
 
 ### 4.3 Tự động đăng bài lên mạng xã hội (đã có code, chờ kích hoạt)
 
-- **8 nền tảng** — LinkedIn, Facebook, Instagram, Threads, TikTok, YouTube, Zalo, WordPress.
+- **7 nền tảng** — LinkedIn, Facebook, Instagram, Threads, TikTok, YouTube, Zalo.
 - **Một câu lệnh → nhiều kênh** — Bạn chỉ cần nói "Publish bài này lên social", agent tự động đẩy lên tất cả các kênh đã cấu hình.
 - **Cần token từ người dùng** — Mỗi nền tảng yêu cầu token xác thực (lấy từ mục cài đặt của từng nền tảng). Đây là bước làm một lần duy nhất.
 

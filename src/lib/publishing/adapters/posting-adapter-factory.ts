@@ -48,14 +48,6 @@ class SimplePlatformPostingAdapterFactory implements PostingAdapterFactory {
         return new InstagramPostingAdapter(token, pageId);
       }
 
-      case "wordpress": {
-        const { WordPressPostingAdapter } = await import("./wordpress-posting-adapter");
-        return new WordPressPostingAdapter(token, {
-          siteId: pageId,
-          siteUrl: auth.metadata?.siteUrl as string | undefined,
-        });
-      }
-
       case "tiktok": {
         const { TikTokPostingAdapter } = await import("./tiktok-posting-adapter");
         return new TikTokPostingAdapter(token);

@@ -5,6 +5,7 @@ import { getBlogDb } from "@/lib/mongodb";
 import { blogAssetToPost, formatBlogDate, type BlogAsset, type BlogPost } from "@/lib/blog-utils";
 import { renderMarkdownToHtml } from "@/lib/blog/markdown";
 import { Badge } from "@/components/ui/badge";
+import CtaButton from "@/components/blog/CtaButton";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -35,7 +36,7 @@ function estimateReadingTime(body: string): number {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
-  if (!post) return { title: "Bai viet khong tim thay - LeOS" };
+  if (!post) return { title: "Bài viết không tìm thấy - LeOS" };
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://linkstrategy.io.vn";
 
@@ -79,19 +80,19 @@ export default async function BlogDetailPage({ params }: PageProps) {
         />
         <div className="container relative mx-auto px-4 z-10 max-w-[800px]">
           <Link href="/blog" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-primary mb-8 transition-colors">
-            &larr; Quay lai Blog
+            &larr; Quay lại Blog
           </Link>
 
           <div className="flex items-center gap-3 mb-4">
             {post.category && <Badge variant="secondary">{post.category}</Badge>}
             <span className="text-sm text-muted-foreground">{formatBlogDate(post.publishedAt)}</span>
-            <span className="text-sm text-muted-foreground">{readingTime} phut doc</span>
+            <span className="text-sm text-muted-foreground">{readingTime} phút đọc</span>
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">{post.title}</h1>
 
           <div className="flex items-center gap-3 text-sm text-muted-foreground mb-8">
-            <span>Tac gia: {post.author}</span>
+            <span>Tác giả: {post.author}</span>
             {post.tags.length > 0 && post.tags.map((tag) => (
               <Badge key={tag} variant="outline" className="text-[10px] px-2 py-0.5">{tag}</Badge>
             ))}
@@ -108,19 +109,14 @@ export default async function BlogDetailPage({ params }: PageProps) {
           />
 
           {post.cta && (
-            <div className="mt-12 p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 text-center">
+            <div className="mt-12 p-6 rounded-2xl bg-linear-to-br from-primary/10 to-transparent border border-primary/20 text-center">
               <p className="text-lg font-semibold text-foreground mb-4">{post.cta}</p>
-              <button onClick={async () => {
-                try { await fetch("/api/blog/track-click", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ articleId: post.id, ctaId: "article_cta_primary", destinationUrl: "/lien-he" }) }); } catch {}
-                window.location.href = "/lien-he";
-              }} className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors cursor-pointer">
-                Lien he tu van &rarr;
-              </button>
+              <CtaButton articleId={post.id} />
             </div>
           )}
 
           <div className="mt-12 pt-8 border-t border-white/10 text-center">
-            <Link href="/blog" className="text-primary hover:underline">&larr; Xem tat ca bai viet</Link>
+            <Link href="/blog" className="text-primary hover:underline">&larr; Xem tất cả bài viết</Link>
           </div>
         </div>
       </article>

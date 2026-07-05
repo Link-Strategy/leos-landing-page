@@ -16,7 +16,6 @@ export type Platform =
   | "blog"
   | "tiktok"
   | "youtube"
-  | "wordpress"
   | "zalo";
 
 // ── Shared request/response types ─────────────────────────────────────────────

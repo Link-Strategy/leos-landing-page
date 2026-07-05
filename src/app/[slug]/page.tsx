@@ -7,8 +7,6 @@ const reservedTopLevelRoutes = new Set([
   "lien-he",
   "san-pham",
   "tuyen-dung",
-  "wp-content",
-  "wp-includes",
 ]);
 
 export function generateStaticParams() {

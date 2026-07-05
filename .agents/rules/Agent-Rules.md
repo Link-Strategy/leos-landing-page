@@ -96,7 +96,7 @@ node .agents/tools/ls-post/cli.mjs <lệnh> [đối số]
 - Chi tiết: `/blog/[slug]` (SEO + OG tags)
 - API: `GET /api/blog/posts`
 - RSS: `/rss.xml`
-- Section trên landing: `News.tsx` (đọc từ MongoDB, fallback WordPress)
+- Section trên landing: `News.tsx` (đọc từ MongoDB)
 
 ### Lead Capture
 - API: `POST /api/contact`

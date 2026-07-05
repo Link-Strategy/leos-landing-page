@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { Archivo, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -34,6 +34,22 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icons/icon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icons/icon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icons/icon-192x192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180" },
+    ],
+  },
+  manifest: "/site.webmanifest",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -45,11 +61,7 @@ export default function RootLayout({
     <html lang="vi" className={`${archivo.variable} ${outfit.variable}`}>
       <head>
 
-        {/* <link href="/wp-content/themes/hello-elementor/assets/css/theme.css" rel="stylesheet" /> */}
         <link href="/wp-content/themes/saokimdigital/style.css" rel="stylesheet" />
-        {/* <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" /> */}
-        {/* <link href="/wp-content/themes/hello-elementor/assets/css/reset.css" rel="stylesheet" /> */}
-        {/* <link href="/wp-content/themes/hello-elementor/assets/css/header-footer.css" rel="stylesheet" /> */}
         <link href="/wp-content/uploads/elementor/css/custom-frontend.min.css" rel="stylesheet" />
         <link href="/wp-content/uploads/elementor/css/post-6.css" rel="stylesheet" />
         <link href="/wp-content/plugins/elementor/assets/css/widget-image.min.css" rel="stylesheet" />

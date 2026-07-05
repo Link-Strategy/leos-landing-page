@@ -35,7 +35,7 @@ export async function GET() {
   <channel>
     <title>LeOS Blog</title>
     <link>${SITE_URL}/blog</link>
-    <description>Cong nghe xanh, van hanh thong minh - Blog LeOS</description>
+    <description>Công nghệ xanh, Vận hành thông minh - Blog LeOS</description>
     <language>vi</language>
     <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
     ${itemsXml}

@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = {
   title: "Blog - LeOS",
-  description: "Cong nghe xanh, van hanh thong minh ? tin tuc va kien thuc tu LeOS",
+  description: "Công nghệ xanh, Vận hành thông minh – tin tức và kiến thức từ LeOS",
 };
 
 const POSTS_PER_PAGE = 9;
@@ -65,10 +65,10 @@ export default async function BlogPage({
           <div className="text-center mb-12">
             <Badge variant="secondary" className="mb-4 px-4 py-1.5 text-xs font-semibold">Blog</Badge>
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Cong nghe xanh ? Van hanh thong minh
+              Công nghệ xanh – Vận hành thông minh
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Kien thuc, case study va cap nhat tu doi ngu LeOS ve chuyen doi xanh va van hanh ben vung.
+              Kiến thức, case study và cập nhật từ đội ngũ LeOS về chuyển đổi xanh và vận hành bền vững.
             </p>
           </div>
 
@@ -136,7 +136,7 @@ export default async function BlogPage({
                     </CardContent>
                     <CardFooter>
                       <span className="text-xs text-primary font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                        Doc tiep ?
+                        Đọc tiếp →
                       </span>
                     </CardFooter>
                   </Card>
@@ -153,7 +153,7 @@ export default async function BlogPage({
                   href={`/blog?page=${currentPage - 1}${selectedCategory ? `&cat=${selectedCategory}` : ""}`}
                   className="px-4 py-2 rounded-lg bg-muted text-sm hover:bg-muted/80 transition-colors"
                 >
-                  ? Trang truoc
+                  ← Trang trước
                 </Link>
               )}
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
@@ -174,7 +174,7 @@ export default async function BlogPage({
                   href={`/blog?page=${currentPage + 1}${selectedCategory ? `&cat=${selectedCategory}` : ""}`}
                   className="px-4 py-2 rounded-lg bg-muted text-sm hover:bg-muted/80 transition-colors"
                 >
-                  Trang sau ?
+                  Trang sau →
                 </Link>
               )}
             </div>

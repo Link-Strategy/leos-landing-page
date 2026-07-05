@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 
-const PLATFORMS = ["linkedin", "facebook", "threads", "instagram", "tiktok", "youtube", "wordpress", "zalo"];
+const PLATFORMS = ["linkedin", "facebook", "threads", "instagram", "tiktok", "youtube", "zalo"];
 
 function getSiteUrl() {
   return process.env.NEXT_PUBLIC_SITE_URL || process.env.APP_URL || "http://localhost:3000";
