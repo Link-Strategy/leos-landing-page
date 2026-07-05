@@ -15,7 +15,9 @@ const MIN_CONTENT_LENGTH = 120;
 function getSiteUrl() {
   return (
     process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
-    "https://linkstrategy.io.vn"
+    process.env.APP_URL?.trim() ||
+    process.env.NEXT_PUBLIC_APP_URL?.trim() ||
+    "https://letrongroup.com"
   ).replace(/\/+$/, "");
 }
 

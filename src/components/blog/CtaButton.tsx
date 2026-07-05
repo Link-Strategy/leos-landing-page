@@ -17,7 +17,7 @@ export default function CtaButton({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          articleId,
+          articleExternalId: articleId,
           ctaId: "article_cta_primary",
           destinationUrl,
         }),

@@ -3,14 +3,14 @@ import { getBlogDb } from "@/lib/mongodb";
 
 export async function POST(request: NextRequest) {
   try {
-    const { articleId, ctaId, destinationUrl } = await request.json();
-    if (!articleId || !ctaId) {
-      return NextResponse.json({ ok: false, error: "Missing articleId or ctaId" }, { status: 400 });
+    const { articleExternalId, ctaId, destinationUrl } = await request.json();
+    if (!articleExternalId || !ctaId) {
+      return NextResponse.json({ ok: false, error: "Missing articleExternalId or ctaId" }, { status: 400 });
     }
 
     const db = await getBlogDb();
     await db.collection("click_events").insertOne({
-      articleId,
+      articleExternalId,
       ctaId,
       destinationUrl: destinationUrl || "",
       sourcePath: request.headers.get("referer") || "",

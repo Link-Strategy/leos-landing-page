@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | LeOS",
   },
   description: "Giải pháp công nghệ chuyển hóa rác thải và vật liệu xây dựng xanh hàng đầu Việt Nam.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://linkstrategy.io.vn"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL?.trim() || process.env.APP_URL?.trim() || "https://letrongroup.com"),
   alternates: { canonical: "/" },
   openGraph: {
     siteName: "LeOS",

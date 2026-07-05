@@ -1,6 +1,6 @@
 ﻿import type { MetadataRoute } from "next";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://linkstrategy.io.vn";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.trim() || process.env.APP_URL?.trim() || "https://letrongroup.com";
 
 export default function robots(): MetadataRoute.Robots {
   return {

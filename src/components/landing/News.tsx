@@ -1,7 +1,7 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
-import { getBlogDb } from "@/lib/mongodb";
-import { generateSlug, formatBlogDate, type BlogAsset } from "@/lib/blog-utils";
+import { formatBlogDate } from "@/lib/blog-utils";
+import { getCachedLatestPublishedBlogArticles } from "@/lib/blog/queries";
 
 interface NewsItem {
   id: string;
@@ -12,48 +12,30 @@ interface NewsItem {
   category: string;
 }
 
-function assetId(a: BlogAsset): string {
-  try { return String(a._id); } catch { return ""; }
-}
-
-function assetMeta(a: BlogAsset) { return a.platform_metadata || {}; }
-
 async function getNews(): Promise<NewsItem[]> {
   try {
-    const db = await getBlogDb();
-    const assets = await db.collection<BlogAsset>("assets")
-      .find({ platform: "blog", status: "published" })
-      .sort({ publish_at: -1, created_at: -1 })
-      .limit(6)
-      .toArray();
-
-    if (assets.length > 0) {
-      return assets.map((a) => {
-        const meta = assetMeta(a);
-        const title = a.title || "";
-        const slug = meta.slug || generateSlug(title);
-        const date = a.publish_at || a.created_at || new Date();
-        return {
-          id: assetId(a),
-          title,
-          date: formatBlogDate(date),
-          image: meta.coverImage || (a.media?.[0]?.url) || "/wp-content/uploads/2026/05/1-10.jpg",
-          link: "/blog/" + slug,
-          category: meta.category || "Blog",
-        };
-      });
+    const articles = await getCachedLatestPublishedBlogArticles(6);
+    if (articles.length > 0) {
+      return articles.map((a) => ({
+        id: a.externalId,
+        title: a.title,
+        date: formatBlogDate(a.publishedAt!),
+        image: a.coverImage || "/wp-content/uploads/2026/05/1-10.jpg",
+        link: "/blog/" + a.slug,
+        category: a.category || "Blog",
+      }));
     }
   } catch {
     // DB not available, use fallback
   }
 
   return [
-    { id: "1", title: "LETRON chuyen hoa 1 trieu tan xi thai nhiet dien thanh vat lieu xay dung xanh", date: "06 Thang 5", image: "/wp-content/uploads/2026/05/1-10.jpg", link: "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh-8/", category: "Cong nghe xanh" },
-    { id: "2", title: "Ung dung tri tue nhan tao LeLe AI trong viec toi uu hoa cap phoi be tong hieu nang cao", date: "04 Thang 5", image: "/wp-content/uploads/2026/05/5.jpg", link: "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh-7/", category: "Tri tue nhan tao" },
-    { id: "3", title: "Phat trien ha tang tram doi pin tu dong Le-ChargeHub ket hop luoi dien Solar", date: "30 Thang 4", image: "/wp-content/uploads/2026/05/1-9.jpg", link: "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh-6/", category: "Nang luong" },
-    { id: "4", title: "He dieu hanh cong nghiep LeOS toi uu hoa 25% chu trinh chuoi cung ung tuan hoan", date: "25 Thang 4", image: "/wp-content/uploads/2026/05/4.jpg", link: "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh-5/", category: "So hoa" },
-    { id: "5", title: "Tin chi Carbon so: Minh bach hoa lo trinh giam phat thai huong toi Net Zero", date: "18 Thang 4", image: "/wp-content/uploads/2026/05/2-4.jpg", link: "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh-4/", category: "Carbon Ledger" },
-    { id: "6", title: "Hop tac chien luoc phat trien mo hinh khu cong nghiep sinh thai tuan hoan dau tien", date: "12 Thang 4", image: "/wp-content/uploads/2026/05/2-5.jpg", link: "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh-3/", category: "Do thi xanh" },
+    { id: "1", title: "LETRON chuyen hoa 1 triệu tan xỉ thải nhiệt điện thanh vật liệu xây dựng xanh", date: "06 tháng 5", image: "/wp-content/uploads/2026/05/1-10.jpg", link: "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh-8/", category: "Công nghệ xanh" },
+    { id: "2", title: "Ứng dụng trí tuệ nhân tạo LeLe AI trong viec tối ưu hóa cấp phối bê tông hiệu năng cao", date: "04 tháng 5", image: "/wp-content/uploads/2026/05/5.jpg", link: "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh-7/", category: "Trí tuệ nhân tạo" },
+    { id: "3", title: "Phát triển hạ tầng trạm đổi pin tự động Le-ChargeHub kết hợp lưới điện Solar", date: "30 tháng 4", image: "/wp-content/uploads/2026/05/1-9.jpg", link: "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh-6/", category: "Năng lượng" },
+    { id: "4", title: "Hệ điều hành công nghiệp LeOS tối ưu hóa 25% chu trình chuỗi cung ứng tuần hoàn", date: "25 tháng 4", image: "/wp-content/uploads/2026/05/4.jpg", link: "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh-5/", category: "Số hóa" },
+    { id: "5", title: "Tín chỉ Carbon số: Minh bạch hóa lộ trình giảm phát thải hướng tới Net Zero", date: "18 tháng 4", image: "/wp-content/uploads/2026/05/2-4.jpg", link: "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh-4/", category: "Carbon Ledger" },
+    { id: "6", title: "Hợp tác chiến lược phát triển mô hình khu công nghiệp sinh thái tuần hoàn đầu tiên", date: "12 tháng 4", image: "/wp-content/uploads/2026/05/2-5.jpg", link: "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh-3/", category: "Đô thị xanh" },
   ];
 }
 
@@ -69,20 +51,20 @@ export default async function News() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-2xl space-y-4">
             <div className="text-emerald-400 text-xs tracking-widest uppercase font-semibold">
-              Kenh truyen thong
+              Kênh truyền thông
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
-              Tin tuc - Su kien
+              Tin tức - Sự kiện
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-              Nhung cau chuyen, du lieu va chuyen dong moi nhat tu hanh trinh kien tao cong nghiep xanh va tuong lai Net Zero cua LeTRON.
+              Những câu chuyện, dữ liệu và chuyển động mới nhất từ hành trình kiến tạo công nghiệp xanh và tương lai Net Zero của LeTRON.
             </p>
           </div>
 
           <div className="flex-shrink-0">
             <Link href="/blog">
               <button className="px-6 py-3 rounded-full border border-white/10 text-zinc-300 font-semibold hover:bg-[#132563] hover:text-white transition-all duration-300 flex items-center gap-2">
-                Xem tat ca bai viet
+                Xem tất cả bài viết
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
@@ -121,7 +103,7 @@ export default async function News() {
 
                 <div className="pt-2">
                   <Link href={news.link} className="inline-flex items-center gap-1 text-xs font-semibold text-zinc-400 group-hover:text-emerald-400 transition-colors">
-                    Doc tiep
+                    Đọc tiếp
                     <svg className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                     </svg>

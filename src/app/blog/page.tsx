@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { getBlogDb } from "@/lib/mongodb";
-import { blogAssetToPost, formatBlogDate, type BlogAsset, type BlogPost } from "@/lib/blog-utils";
+import { formatBlogDate } from "@/lib/blog-utils";
+import { getCachedPublicBlogArticles, getCachedAvailableBlogCategories } from "@/lib/blog/queries";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -16,22 +16,12 @@ function estimateReadingTime(body: string): number {
   return Math.max(1, Math.ceil(body.trim().split(/\s+/).length / 300));
 }
 
-async function getPublishedPosts(): Promise<BlogPost[]> {
+async function getPublishedPosts() {
   try {
-    const db = await getBlogDb();
-    const assets = await db.collection<BlogAsset>("assets")
-      .find({ platform: "blog", status: "published" })
-      .sort({ publish_at: -1, created_at: -1 })
-      .toArray();
-    return assets.map(blogAssetToPost);
+    return await getCachedPublicBlogArticles();
   } catch {
     return [];
   }
-}
-
-function getUniqueCategories(posts: BlogPost[]): string[] {
-  const cats = new Set<string>(); posts.forEach((p) => { if (p.category) cats.add(p.category); });
-  return [...cats];
 }
 
 export default async function BlogPage({
@@ -47,11 +37,11 @@ export default async function BlogPage({
   let filtered = allPosts;
   if (selectedCategory) {
     filtered = allPosts.filter(
-      (p) => (p.category ?? "").toLowerCase().replace(/\s+/g, "-") === selectedCategory
+      (p) => (p.categorySlug ?? "") === selectedCategory
     );
   }
 
-  const categories = getUniqueCategories(allPosts);
+  const categories = (await getCachedAvailableBlogCategories()).map(c => c.slug);
   const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE));
   const pagedPosts = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
 
@@ -83,10 +73,10 @@ export default async function BlogPage({
                     : "bg-muted text-muted-foreground hover:bg-muted/80"
                 }`}
               >
-                Tat ca
+                Tất cả
               </Link>
-              {categories.map((catName) => {
-                const catSlug = catName.toLowerCase().replace(/\s+/g, "-");
+              {categories.map((catSlug) => {
+                const catName = catSlug.replace(/-/g, " ");
                 return (
                   <Link
                     key={catSlug}
@@ -106,12 +96,12 @@ export default async function BlogPage({
 
           {pagedPosts.length === 0 ? (
             <div className="text-center py-20">
-              <p className="text-muted-foreground text-lg">Chua co bai viet nao. Quay lai sau nhe!</p>
+              <p className="text-muted-foreground text-lg">Chưa có bài viết nào. Quay lại sau nhé!</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {pagedPosts.map((post) => (
-                <Link key={post.id} href={`/blog/${post.slug}`} className="group block">
+                <Link key={post.slug} href={`/blog/${post.slug}`} className="group block">
                   <Card variant="glass" className="h-full flex flex-col">
                     {post.coverImage && (
                       <div className="relative w-full h-48 overflow-hidden rounded-t-card-glass">
@@ -124,8 +114,8 @@ export default async function BlogPage({
                         {post.category && (
                           <Badge variant="outline" className="text-[10px] px-2 py-0.5">{post.category}</Badge>
                         )}
-                        <span className="text-[10px] text-muted-foreground">{formatBlogDate(post.publishedAt)}</span>
-                        <span className="text-[10px] text-muted-foreground">{estimateReadingTime(post.body)} phut doc</span>
+                        <span className="text-[10px] text-muted-foreground">{formatBlogDate(post.publishedAt!)}</span>
+                        <span className="text-[10px] text-muted-foreground">{post.readingTimeMinutes} phút đọc</span>
                       </div>
                       <CardTitle className="text-base font-bold leading-snug group-hover:text-primary transition-colors">
                         {post.title}

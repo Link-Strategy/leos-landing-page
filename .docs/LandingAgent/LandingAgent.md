@@ -29,13 +29,12 @@
 /                           Trang chủ (static)
 /blog                       Blog listing (static, paginated, category filter)
 /blog/[slug]                Blog chi tiết (dynamic SSR, SEO metadata)
-/blog/topics/[slug]         Topic hub (dynamic SSR)
+/blog/topics/[slug]         Topic hub (dynamic SSR, lọc theo chủ đề)
 /rss.xml                    RSS feed (dynamic)
 /sitemap                    Sitemap (dynamic)
 /api/blog/posts             Blog JSON API (dynamic)
 /api/blog/track-click       CTA click tracking (POST)
 /api/blog/refresh           Revalidate cache + GSC submit (POST)
-/api/blog/sync              Sync bài viết (POST)
 /api/contact                Lead capture API (POST)
 /san-pham                   Sản phẩm (static HTML legacy)
 /san-pham/[...slug]         Sản phẩm chi tiết (SSG)
@@ -125,35 +124,47 @@ LeadForm.tsx → POST /api/contact
 ### P0 — Critical
 | Mục | Trạng thái | Hành động cần làm |
 |:---|:---|:---|
-| Social API tokens | ❌ Rỗng | User lấy token từ LinkedIn, FB, Meta, TikTok, YouTube, Zalo, WP |
+| Social API tokens | ❌ Rỗng (local) / ✅ Có (Vercel Production) | Local `.env` để trống, token thật trên Vercel Production — chỉ cần deploy là dùng được |
 
 ### P1 — Product
 | Mục | Trạng thái | Hành động cần làm |
 |:---|:---|:---|
 | Email notification leads | ❌ Chưa có | Cần Brevo API key + webhook khi có lead mới |
 | Blog search | ❌ Chưa có | Search bar + API endpoint |
-| WordPress sync | ❌ Đã xóa | Không còn dùng WordPress |
+| Blog content production | ✅ 1 bài published (đã migrate sang articles collection) | Đã chạy migration script, routes dùng `articles` thay `assets` |
+| Blog search | ❌ Chưa có | Search bar + API endpoint |
 
 ### P2 — Automation & Analytics
 | Mục | Trạng thái | Hành động cần làm |
 |:---|:---|:---|
 | Social publishing | ⚠️ Code sẵn, chờ tokens | User điền token → publish-asset hoạt động |
-| GSC active | ⚠️ Code sẵn, chờ test | Kiểm tra .env Google credentials + test submit |
-| Blog metrics | ⚠️ Đang mock | Kết nối Google Analytics / dashboard thật |
-| Blog content production | ⚠️ 1 bài published (MongoDB) | Cần sản xuất thêm nội dung blog |
+| GSC active | ✅ Đã test thành công | `POST /api/blog/refresh` → GSC sitemap submitted |
 
 ### P3 — Nice to Have
 | Mục | Ghi chú |
 |:---|:---|
-| PWA offline support | Manifest đã có, cần service worker |
-| RSS full content | Hiện chỉ có excerpt, thêm body vào RSS |
+| PWA offline support | ✅ Hoàn chỉnh | Service worker (`sw.js`), manifest (`manifest.ts` + `site.webmanifest`), đủ bộ icon 16–512px, register trong `ClientScripts.tsx` |
+| RSS full content | ✅ Toàn bộ body, render HTML từ markdown | Gồm heading, link, ảnh trong feed |
 | Multiple authors | Author là string, chưa có profile |
 | Blog CMS UI | Chỉ có CLI, chưa có giao diện quản lý |
 | i18n / English blog | Chưa hỗ trợ đa ngôn ngữ |
 
 ---
 
-## 5. Lỗi đã fix gần đây
+## 5. Những gì đã cập nhật gần đây
+
+### Production Readability — Blog System
+
+| Khoản mục | Trạng thái |
+|:---|:---|
+| Migration `assets` → `articles` collection | ✅ All routes updated (blog listing, detail, topic, RSS, sitemap, API, News) |
+| Hardcoded `linkstrategy.io.vn` | ✅ Fixed 8 files, use `getSiteUrl()` |
+| Loading/error/not-found states | ✅ 8 files created (3 route groups) |
+| Track-click type mismatch | ✅ `CtaButton` + route dùng `articleExternalId` |
+| Unit tests | ✅ 22 tests — validation, slug, utils, SEO |
+| Migration script | ✅ `scripts/migrate-assets-to-articles.mjs` (chờ chạy) |
+
+## 6. Lỗi đã fix gần đây
 
 | Lỗi | Nguyên nhân | Cách fix |
 |:---|:---|:---|
@@ -161,10 +172,17 @@ LeadForm.tsx → POST /api/contact
 | `themeColor` warning | Metadata không support `themeColor` | Move sang `export const viewport` |
 | Mojibake ở code blog | File lưu sai encoding (ASCII) | Ghi lại UTF-8, sửa toàn bộ text UI |
 | Mojibake ở MongoDB | Bytes gốc mất khi sync/import | `updateOne` với tiếng Việt đúng, thêm platform_metadata |
+| CSS/JS bị vỡ khi cleanup | Xóa nhầm CSS `<link>` trong layout | Restore lại đủ 43 CSS files trong `<head>` |
+| WordPress code references | Publishing adapter + env vars + docs | Xóa adapter, platform type, WEBHOOK_URL, cập nhật docs |
+| PWA thiếu service worker + icons | ClientScripts chưa register SW, manifest thiếu PNG icons | Thêm `sw.js`, register trong `useEffect`, 4 PNG icon sizes, `site.webmanifest` |
+| RSS chỉ có excerpt | Dùng `post.excerpt` cho `<description>` | Render full body HTML từ markdown bằng `renderMarkdownToHtml` |
+| `/api/blog/sync` còn sót | WordPress sync route cũ | Xóa route khỏi codebase |
+| `WEBHOOK_URL` dư thừa | Legacy WordPress publish webhook | Xóa khỏi Vercel Production env |
+| Social tokens rỗng trong local `.env` | Token chỉ set trên Vercel, local để trống | Rút gọn format, thêm comment |
 
 ---
 
-## 6. Quy trình vào việc
+## 7. Quy trình vào việc
 
 Trước khi làm việc, agent đọc theo thứ tự:
 

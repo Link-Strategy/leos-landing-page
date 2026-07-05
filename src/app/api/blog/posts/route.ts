@@ -1,6 +1,5 @@
 ﻿import { NextRequest, NextResponse } from "next/server";
-import { getBlogDb } from "@/lib/mongodb";
-import { blogAssetToPost, type BlogAsset } from "@/lib/blog-utils";
+import { getCachedPublicBlogArticles, getCachedPublicBlogArticleBySlug } from "@/lib/blog/queries";
 
 export async function GET(request: NextRequest) {
   try {
@@ -10,27 +9,18 @@ export async function GET(request: NextRequest) {
     const category = searchParams.get("category");
     const slug = searchParams.get("slug");
 
-    const db = await getBlogDb();
-    const query: Record<string, unknown> = { platform: "blog", status: "published" };
-    if (category) query.category = category;
-
-    const assets = await db.collection<BlogAsset>("assets")
-      .find(query)
-      .sort({ publish_at: -1, created_at: -1 })
-      .toArray();
-
-    let posts = assets.map(blogAssetToPost);
-
     if (slug) {
-      posts = posts.filter((p) => p.slug === slug);
-      if (posts.length === 0) {
+      const article = await getCachedPublicBlogArticleBySlug(slug);
+      if (!article) {
         return NextResponse.json({ post: null }, { status: 404 });
       }
-      return NextResponse.json({ post: posts[0] });
+      return NextResponse.json({ post: article });
     }
 
-    const total = posts.length;
-    const paged = posts.slice((page - 1) * limit, page * limit);
+    let articles = await getCachedPublicBlogArticles(category || undefined);
+
+    const total = articles.length;
+    const paged = articles.slice((page - 1) * limit, page * limit);
 
     return NextResponse.json({
       posts: paged,

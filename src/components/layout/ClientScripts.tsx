@@ -5,6 +5,11 @@ import Script from "next/script";
 
 export default function ClientScripts() {
   useEffect(() => {
+    // Register service worker cho PWA
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js");
+    }
+
     const lazyloadRunObserver = () => {
       const lazyloadBackgrounds = document.querySelectorAll(
         ".e-con.e-parent:not(.e-lazyloaded)"
@@ -51,6 +56,14 @@ export default function ClientScripts() {
       <Script src="/wp-content/themes/saokimdigital/assets/js/main.js?ver=1.0.0" strategy="afterInteractive" />
       <Script src="/wp-content/themes/hello-elementor/assets/js/hello-frontend.js?ver=3.4.7" strategy="afterInteractive" />
       <Script src="/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.0.8" strategy="afterInteractive" />
+
+      {/* Fix webpack public path for Elementor chunks on sub-pages */}
+      <Script id="elementor-webpack-path-fix" strategy="afterInteractive">
+        {`(function(){if(typeof __webpack_require__ !== "undefined" && __webpack_require__.p) {
+          __webpack_require__.p = "/wp-content/plugins/elementor/assets/js/";
+        }})();`}
+      </Script>
+
       <Script src="/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.0.8" strategy="afterInteractive" />
       <Script src="/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" strategy="afterInteractive" />
       

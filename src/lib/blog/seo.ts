@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 
 import type { BlogArticle } from "./types";
 
+const BRAND = "LeOS";
+
 export function getSiteUrl() {
   return (
     process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
     process.env.APP_URL?.trim() ||
     process.env.NEXT_PUBLIC_APP_URL?.trim() ||
-    "https://linkstrategy.io.vn"
+    "https://letrongroup.com"
   ).replace(/\/+$/, "");
 }
 
@@ -18,7 +20,7 @@ export function buildBlogArticleMetadata(article: BlogArticle): Metadata {
   const image = article.coverImage || "/icon.svg";
 
   return {
-    title: `${title} | Link Strategy`,
+    title: `${title} | ${BRAND}`,
     description,
     alternates: {
       canonical,
@@ -27,7 +29,7 @@ export function buildBlogArticleMetadata(article: BlogArticle): Metadata {
       title,
       description,
       url: canonical,
-      siteName: "Link Strategy",
+      siteName: BRAND,
       type: "article",
       publishedTime: article.publishedAt ?? undefined,
       modifiedTime: article.updatedAt,
@@ -65,11 +67,11 @@ export function buildBlogPostingJsonLd(article: BlogArticle) {
     image: article.coverImage ? [article.coverImage] : undefined,
     author: {
       "@type": "Person",
-      name: article.authorName || "Link Strategy Team",
+      name: article.authorName || "LeOS Team",
     },
     publisher: {
       "@type": "Organization",
-      name: "Link Strategy",
+      name: BRAND,
       url: getSiteUrl(),
     },
   };

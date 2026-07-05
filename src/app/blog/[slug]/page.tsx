@@ -1,76 +1,43 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getBlogDb } from "@/lib/mongodb";
-import { blogAssetToPost, formatBlogDate, type BlogAsset, type BlogPost } from "@/lib/blog-utils";
+import { formatBlogDate } from "@/lib/blog-utils";
+import {
+  getCachedPublicBlogArticleBySlug,
+  getCachedRelatedBlogArticles,
+} from "@/lib/blog/queries";
+import { buildBlogArticleMetadata } from "@/lib/blog/seo";
 import { renderMarkdownToHtml } from "@/lib/blog/markdown";
 import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import CtaButton from "@/components/blog/CtaButton";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-async function getPost(slug: string): Promise<BlogPost | null> {
-  try {
-    const db = await getBlogDb();
-    const allAssets = await db.collection<BlogAsset>("assets")
-      .find({ platform: "blog", status: "published" })
-      .toArray();
-    for (const asset of allAssets) {
-      const post = blogAssetToPost(asset);
-      if (post.slug === slug) return post;
-    }
-  } catch {
-    // DB not available
-  }
-  return null;
-}
-
-function estimateReadingTime(body: string): number {
-  const wordsPerMinute = 300;
-  const words = body.trim().split(/\s+/).length;
-  return Math.max(1, Math.ceil(words / wordsPerMinute));
-}
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getPost(slug);
-  if (!post) return { title: "Bài viết không tìm thấy - LeOS" };
+  const article = await getCachedPublicBlogArticleBySlug(slug);
+  if (!article) return { title: "Bài viết không tìm thấy - LeOS" };
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://linkstrategy.io.vn";
-
-  return {
-    title: post.title + " - LeOS",
-    description: post.excerpt,
-    alternates: { canonical: `${siteUrl}/blog/${post.slug}` },
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      type: "article",
-      publishedTime: post.publishedAt,
-      tags: post.tags,
-      url: `${siteUrl}/blog/${post.slug}`,
-      images: post.coverImage ? [{ url: post.coverImage, width: 1200, height: 630 }] : [],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
-      images: post.coverImage ? [post.coverImage] : [],
-    },
-    robots: { index: true, follow: true },
-  };
+  return buildBlogArticleMetadata(article);
 }
 
 export default async function BlogDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const post = await getPost(slug);
+  const article = await getCachedPublicBlogArticleBySlug(slug);
 
-  if (!post) notFound();
+  if (!article) notFound();
 
-  const bodyHtml = await renderMarkdownToHtml(post.body);
-  const readingTime = estimateReadingTime(post.body);
+  const bodyHtml = await renderMarkdownToHtml(article.contentMarkdown);
+
+  const relatedArticles = await getCachedRelatedBlogArticles(
+    slug,
+    article.category,
+    article.tags,
+    3,
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -84,23 +51,23 @@ export default async function BlogDetailPage({ params }: PageProps) {
           </Link>
 
           <div className="flex items-center gap-3 mb-4">
-            {post.category && <Badge variant="secondary">{post.category}</Badge>}
-            <span className="text-sm text-muted-foreground">{formatBlogDate(post.publishedAt)}</span>
-            <span className="text-sm text-muted-foreground">{readingTime} phút đọc</span>
+            {article.category && <Badge variant="secondary">{article.category}</Badge>}
+            <span className="text-sm text-muted-foreground">{formatBlogDate(article.publishedAt!)}</span>
+            <span className="text-sm text-muted-foreground">{article.readingTimeMinutes} phút đọc</span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">{post.title}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">{article.title}</h1>
 
           <div className="flex items-center gap-3 text-sm text-muted-foreground mb-8">
-            <span>Tác giả: {post.author}</span>
-            {post.tags.length > 0 && post.tags.map((tag) => (
+            <span>Tác giả: {article.authorName || "LeOS Team"}</span>
+            {article.tags.length > 0 && article.tags.map((tag) => (
               <Badge key={tag} variant="outline" className="text-[10px] px-2 py-0.5">{tag}</Badge>
             ))}
           </div>
 
-          {post.coverImage && (
+          {article.coverImage && (
             <div className="relative w-full h-[400px] rounded-2xl overflow-hidden mb-10">
-              <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover" />
+              <img src={article.coverImage} alt={article.title} className="w-full h-full object-cover" />
             </div>
           )}
 
@@ -108,18 +75,55 @@ export default async function BlogDetailPage({ params }: PageProps) {
             dangerouslySetInnerHTML={{ __html: bodyHtml }}
           />
 
-          {post.cta && (
-            <div className="mt-12 p-6 rounded-2xl bg-linear-to-br from-primary/10 to-transparent border border-primary/20 text-center">
-              <p className="text-lg font-semibold text-foreground mb-4">{post.cta}</p>
-              <CtaButton articleId={post.id} />
-            </div>
-          )}
-
           <div className="mt-12 pt-8 border-t border-white/10 text-center">
             <Link href="/blog" className="text-primary hover:underline">&larr; Xem tất cả bài viết</Link>
           </div>
         </div>
       </article>
+
+      {/* Related Articles */}
+      {relatedArticles.length > 0 && (
+        <section className="relative pb-20">
+          <div className="container relative mx-auto px-4 z-10 max-w-[1200px]">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl font-bold text-foreground mb-2">Bài viết liên quan</h2>
+              <p className="text-muted-foreground text-sm">Có thể bạn cũng quan tâm</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {relatedArticles.map((related) => (
+                <Link key={related.slug} href={`/blog/${related.slug}`} className="group block">
+                  <Card variant="glass" className="h-full flex flex-col">
+                    {related.coverImage && (
+                      <div className="relative w-full h-40 overflow-hidden rounded-t-card-glass">
+                        <img
+                          src={related.coverImage}
+                          alt={related.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    )}
+                    <CardHeader className={related.coverImage ? "pt-4" : ""}>
+                      <div className="flex items-center gap-2 mb-2 flex-wrap">
+                        {related.category && (
+                          <Badge variant="outline" className="text-[10px] px-2 py-0.5">
+                            {related.category}
+                          </Badge>
+                        )}
+                      </div>
+                      <CardTitle className="text-sm font-bold leading-snug group-hover:text-primary transition-colors">
+                        {related.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-1">
+                      <p className="text-xs text-muted-foreground/80 line-clamp-2">{related.excerpt}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 }

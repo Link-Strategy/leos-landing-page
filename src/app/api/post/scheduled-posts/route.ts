@@ -33,7 +33,8 @@ export async function POST(request: NextRequest) {
     }
 
     const now = new Date();
-    const articleUrl = `https://linkstrategy.io.vn/posts/${asset.platform || "general"}/${assetId}`;
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || process.env.APP_URL?.trim() || "https://letrongroup.com";
+    const articleUrl = `${siteUrl}/posts/${asset.platform || "general"}/${assetId}`;
 
     await collection.updateOne({ _id: queryId }, {
       $set: { status: "published", published_at: now, url: articleUrl, updated_at: now }
