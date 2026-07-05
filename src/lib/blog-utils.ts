@@ -79,7 +79,7 @@ export function blogAssetToPost(asset: BlogAsset): BlogPost {
     cta: asset.cta,
     category: meta.category || "General",
     tags: meta.tags || [],
-    author: meta.authorName || "LeOS Team",
+    author: meta.authorName || "LeTRON Team",
     coverImage: meta.coverImage || (asset.media?.[0]?.url),
     publishedAt: (asset.publish_at || asset.created_at)?.toISOString() || new Date().toISOString(),
     createdAt: asset.created_at?.toISOString() || new Date().toISOString(),

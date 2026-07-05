@@ -100,7 +100,7 @@ export default function Header() {
                   </li>
 
                   <li className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-526">
-                    <Link className="elementor-item" href="/category/tin-tuc-su-kien">
+                    <Link className="elementor-item" href="/blog">
                       Tin tức – Sự kiện
                     </Link>
                   </li>
@@ -208,7 +208,7 @@ export default function Header() {
                     </ul>
                   </li>
                   <li className="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-526">
-                    <Link className="elementor-item" href="/category/tin-tuc-su-kien" tabIndex={-1}>
+                    <Link className="elementor-item" href="/blog" tabIndex={-1}>
                       Tin tức – Sự kiện
                     </Link>
                   </li>
@@ -499,7 +499,7 @@ export default function Header() {
                     </Link>
                   </h3>
                   <ul>
-                    <li>LeOS (Hệ điều hành ALL IN ONE)</li>
+                    <li>LeTRON (Hệ điều hành ALL IN ONE)</li>
                     <li>LeLe AGI (Trợ lý ảo)</li>
                     <li>Le-CarbonRegistry (Tín chỉ Carbon)</li>
                     <li>Le-BatteryPassport (Hộ chiếu Pin)</li>

@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
         slug: body.slug || generateSlug(body.title),
         category: body.category || "General",
         tags: body.tags || [],
-        authorName: body.author || "LeOS Team",
+        authorName: body.author || "LeTRON Team",
       },
       publish_at: new Date(),
       created_at: new Date(),

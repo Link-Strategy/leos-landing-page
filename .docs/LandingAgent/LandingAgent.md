@@ -179,6 +179,9 @@ LeadForm.tsx → POST /api/contact
 | `/api/blog/sync` còn sót | WordPress sync route cũ | Xóa route khỏi codebase |
 | `WEBHOOK_URL` dư thừa | Legacy WordPress publish webhook | Xóa khỏi Vercel Production env |
 | Social tokens rỗng trong local `.env` | Token chỉ set trên Vercel, local để trống | Rút gọn format, thêm comment |
+| Elementor Pro ChunkLoadError (share-buttons, load-more, ajax-pagination) | 3 Pro JS chunks không tồn tại trong project | Tạo dummy chunks, fix webpack public path cho sub-pages |
+| 4 Elementor social icon 404 (Linkedin/FB/Gmail/X) | Theme assets thiếu | Tạo SVG placeholder icons đúng tên file |
+| Category page lỗi webpack public path | Elementor runtime tính sai path trên relative-URL pages | Inject `__webpack_require__.p` fix giữa webpack runtime và frontend-modules |
 
 ---
 

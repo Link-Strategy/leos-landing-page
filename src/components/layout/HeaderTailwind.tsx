@@ -38,7 +38,7 @@ const NAV_ITEMS = [
   { title: "Giới thiệu", href: "/gioi-thieu" },
   { title: "Công ty thành viên", href: "/cong-ty-thanh-vien", hasDropdown: true },
   { title: "Sản phẩm", href: "/san-pham", hasDropdown: true },
-  { title: "Tin tức – Sự kiện", href: "/category/tin-tuc-su-kien" },
+  { title: "Tin tức – Sự kiện", href: "/blog" },
   { title: "Tuyển dụng", href: "/tuyen-dung" },
   { title: "Liên hệ", href: "/lien-he" },
 ];
@@ -129,7 +129,7 @@ const PRODUCTS = [
     textClass: "text-brand-cyan",
     h3TextSizeClass: "max-[1550px]:text-[22px]",
     features: [
-      "LeOS (Hệ điều hành ALL IN ONE)",
+      "LeTRON (Hệ điều hành ALL IN ONE)",
       "LeLe AGI (Trợ lý ảo)",
       "Le-CarbonRegistry (Tín chỉ Carbon)",
       "Le-BatteryPassport (Hộ chiếu Pin)",
@@ -434,7 +434,7 @@ export default function Header() {
                     </ul>
                   </li>
                   <li>
-                    <Link className="block py-2 font-sans text-base font-medium text-white" href="/category/tin-tuc-su-kien" tabIndex={-1}>
+                    <Link className="block py-2 font-sans text-base font-medium text-white" href="/blog" tabIndex={-1}>
                       Tin tức – Sự kiện
                     </Link>
                   </li>

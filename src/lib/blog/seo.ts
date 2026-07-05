@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import type { BlogArticle } from "./types";
 
-const BRAND = "LeOS";
+const BRAND = "LeTRON";
 
 export function getSiteUrl() {
   return (
@@ -67,7 +67,7 @@ export function buildBlogPostingJsonLd(article: BlogArticle) {
     image: article.coverImage ? [article.coverImage] : undefined,
     author: {
       "@type": "Person",
-      name: article.authorName || "LeOS Team",
+      name: article.authorName || "LeTRON Team",
     },
     publisher: {
       "@type": "Organization",

@@ -21,14 +21,14 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: {
-    default: "LeOS - Công nghệ xanh, Vận hành thông minh",
-    template: "%s | LeOS",
+    default: "LeTRON - Công nghệ xanh, Vận hành thông minh",
+    template: "%s | LeTRON",
   },
   description: "Giải pháp công nghệ chuyển hóa rác thải và vật liệu xây dựng xanh hàng đầu Việt Nam.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL?.trim() || process.env.APP_URL?.trim() || "https://letrongroup.com"),
   alternates: { canonical: "/" },
   openGraph: {
-    siteName: "LeOS",
+    siteName: "LeTRON",
     type: "website",
     locale: "vi_VN",
   },
@@ -108,7 +108,7 @@ export default function RootLayout({
         <link href="/wp-content/plugins/elementor-pro/assets/css/conditionals/popup.min.css" rel="stylesheet" />
 
       </head>
-      <body>
+      <body suppressHydrationWarning>
 
         <HeaderTailwind />
         <main>{children}</main>

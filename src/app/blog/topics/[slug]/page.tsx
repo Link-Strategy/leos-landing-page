@@ -7,7 +7,7 @@ import { getCachedPublicBlogArticles } from "@/lib/blog/queries";
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   return {
-    title: `${slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())} | LeOS Blog`,
+    title: `${slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())} | Blog`,
     description: `Articles about ${slug.replace(/-/g, " ")}`,
   };
 }

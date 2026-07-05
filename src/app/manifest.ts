@@ -2,8 +2,8 @@
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "LeOS - Công nghệ xanh, Vận hành thông minh",
-    short_name: "LeOS",
+    name: "LeTRON - Công nghệ xanh, Vận hành thông minh",
+    short_name: "LeTRON",
     description: "Hệ điều hành vận hành cho doanh nghiệp tài nguyên & môi trường",
     start_url: "/",
     display: "standalone",

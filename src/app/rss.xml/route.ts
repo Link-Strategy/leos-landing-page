@@ -32,9 +32,9 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>LeOS Blog</title>
+    <title>LeTRON Blog</title>
     <link>${SITE_URL}/blog</link>
-    <description>Công nghệ xanh, Vận hành thông minh - Blog LeOS</description>
+    <description>Công nghệ xanh, Vận hành thông minh - Blog LeTRON</description>
     <language>vi</language>
     <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
     ${itemsXml}

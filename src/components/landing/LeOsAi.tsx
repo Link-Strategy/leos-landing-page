@@ -22,7 +22,7 @@ export default function LeOsAi() {
                 Kiến trúc đa tầng
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
-                Hệ điều hành công nghiệp LeOS <br />
+                Hệ điều hành công nghiệp LeTRON <br />
                 <span className="text-zinc-400">&amp; Trí tuệ nhân tạo </span>
                 <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
                   LeLe AI
@@ -113,7 +113,7 @@ export default function LeOsAi() {
               
               <Image
                 src="/wp-content/uploads/2026/05/img-3-1.png"
-                alt="Hệ điều hành công nghiệp LeOS"
+                alt="Hệ điều hành công nghiệp LeTRON"
                 width={500}
                 height={350}
                 className="rounded-2xl w-full max-w-[450px] h-auto object-cover filter brightness-90 group-hover:brightness-100 transition-all duration-500"

@@ -58,7 +58,7 @@ export function LeadForm({
       <div className="relative z-10 rounded-[20px] border border-emerald-500/30 bg-emerald-500/10 p-6 text-center backdrop-blur-md">
         <p className="text-emerald-300 font-semibold text-lg mb-2">Da gui thanh cong!</p>
         <p className="text-emerald-400/70 text-sm">
-          Cam on ban. Doi ngu LeOS se lien he lai trong thoi gian som nhat.
+          Cam on ban. Đội ngũ LeTRON se lien he lai trong thoi gian som nhat.
         </p>
       </div>
     );

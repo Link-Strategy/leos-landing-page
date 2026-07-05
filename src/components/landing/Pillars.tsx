@@ -19,7 +19,7 @@ export default function Pillars() {
       id: "ledb",
       title: "Le DB - Bộ não Số",
       icon: "🧠",
-      tags: ["LeOS (Hệ điều hành ALL IN ONE)", "LeLe AGI (Trợ lý ảo)", "Le-CarbonRegistry (Tín chỉ Carbon)", "Le-BatteryPassport (Hộ chiếu Pin)"],
+      tags: ["LeTRON (Hệ điều hành ALL IN ONE)", "LeLe AGI (Trợ lý ảo)", "Le-CarbonRegistry (Tín chỉ Carbon)", "Le-BatteryPassport (Hộ chiếu Pin)"],
     },
     {
       id: "lesm",
