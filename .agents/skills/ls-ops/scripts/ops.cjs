@@ -32,10 +32,40 @@ switch (action) {
     runScript("delete.cjs", args);
     break;
 
+  case "articles":
+    runScript("articles.cjs", args);
+    break;
+
+  case "images":
+    runScript("images.cjs", args);
+    break;
+
+  case "db":
+    runScript("db.cjs", args);
+    break;
+
+  case "assets":
+    runScript("assets.cjs", args);
+    break;
+
+  case "sync":
+    runScript("sync.cjs", args);
+    break;
+
+  case "leads":
+    runScript("leads.cjs", args);
+    break;
+
   default:
     console.log("LeOS Operations Dispatcher");
     console.log("Usage:");
     console.log('  node .agents/skills/ls-ops/scripts/ops.cjs upload -FilePath <PATH> [-Folder <FOLDER>]');
     console.log('  node .agents/skills/ls-ops/scripts/ops.cjs delete <collection> <24-char-id>');
+    console.log('  node .agents/skills/ls-ops/scripts/ops.cjs articles');
+    console.log('  node .agents/skills/ls-ops/scripts/ops.cjs images');
+    console.log('  node .agents/skills/ls-ops/scripts/ops.cjs db');
+    console.log('  node .agents/skills/ls-ops/scripts/ops.cjs assets');
+    console.log('  node .agents/skills/ls-ops/scripts/ops.cjs sync');
+    console.log('  node .agents/skills/ls-ops/scripts/ops.cjs leads');
     process.exit(1);
 }

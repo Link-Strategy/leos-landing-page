@@ -33,6 +33,24 @@ node .agents/skills/ls-ops/scripts/ops.cjs delete <collection> <24_CHAR_ID>
 ```
 *   **Example**: `node .agents/skills/ls-ops/scripts/ops.cjs delete assets 67d2f0000000000000000102`
 
+### Database & Article Utilities
+Additional utility scripts to audit and manage blog databases and image assets.
+
+*   **List Articles**: `node .agents/skills/ls-ops/scripts/ops.cjs articles`
+    Prints a JSON array of all articles with their ID, slug, title, and current cover image.
+*   **Scan Images**: `node .agents/skills/ls-ops/scripts/ops.cjs images`
+    Scans all markdown content in MongoDB to extract referenced image URLs for auditing.
+*   **Database Stats**: `node .agents/skills/ls-ops/scripts/ops.cjs db`
+    Lists all collections in the database and shows the document count for each.
+*   **List Legacy Assets**: `node .agents/skills/ls-ops/scripts/ops.cjs assets`
+    Outputs a raw list of all assets inside the legacy assets collection.
+*   **Sync Placeholders**: `node .agents/skills/ls-ops/scripts/ops.cjs sync`
+    Uploads local images from `public/wp-content/uploads/` to S3 and updates all mock blog post placeholders in MongoDB with active S3 links.
+*   **List Leads**: `node .agents/skills/ls-ops/scripts/ops.cjs leads`
+    Fetches and displays all registered contact submissions (leads) from the `leads` collection in descending chronological order.
+
+
+
 ## Setup & Requirements
 - **Node.js**: Requires Node.js installed on the host system.
 - **MongoDB Driver**: The `mongodb` npm package must be installed (it is included in `devDependencies`).

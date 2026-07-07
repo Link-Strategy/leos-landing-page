@@ -1,4 +1,4 @@
-﻿import type { Metadata, Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import { Archivo, Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";

@@ -30,9 +30,9 @@ export function WayCard({ iconPath, title, className }: WayCardProps) {
       )}
       style={style}
     >
-      <div className="relative z-[1] flex flex-col items-center gap-2.5 text-center max-[1024px]:gap-2 max-[767px]:gap-2 [&_br]:max-[767px]:hidden">
+      <div className="relative z-1 flex flex-col items-center gap-2.5 text-center max-[1024px]:gap-2 max-[767px]:gap-2 [&_br]:max-[767px]:hidden">
         <div className="inline-block flex-none leading-none">
-          <span className="inline-block text-[60px] leading-none text-[var(--e-global-color-primary)] [border-color:var(--e-global-color-primary)] [fill:var(--e-global-color-primary)] max-[1024px]:text-[50px] max-[767px]:text-[50px]">
+          <span className="inline-block text-[60px] leading-none text-(--e-global-color-primary) border-(--e-global-color-primary) fill-(--e-global-color-primary) max-[1024px]:text-[50px] max-[767px]:text-[50px]">
             <Image
               src={iconPath}
               alt="Letron Way Icon"
@@ -42,9 +42,9 @@ export function WayCard({ iconPath, title, className }: WayCardProps) {
             />
           </span>
         </div>
-        <CardContent className="w-full flex-grow">
+        <CardContent className="w-full grow">
           <CardTitle
-            className="mb-0 font-['Archivo',Sans-serif] text-[16px] font-light leading-[1.3em] tracking-normal text-white max-[1024px]:text-[14px] max-[1024px]:leading-[var(--e-global-typography-primary-line-height)] max-[767px]:text-[14px] max-[767px]:leading-[var(--e-global-typography-primary-line-height)]"
+            className="mb-0 font-sans text-[16px] font-light leading-[1.3em] tracking-normal text-white max-[1024px]:text-[14px] max-[1024px]:leading-(--e-global-typography-primary-line-height) max-[767px]:text-[14px] max-[767px]:leading-(--e-global-typography-primary-line-height)"
           >
             <span>{title}</span>
           </CardTitle>

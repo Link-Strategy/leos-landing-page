@@ -42,10 +42,10 @@ export function HeartCard({
       style={style}
     >
       <div className="w-full">
-        <div className="relative z-[1] mb-[calc(var(--kit-widget-spacing,0px)+0px)] w-full rounded-2xl border-0 px-[25px] pb-[80px] pt-[15px] text-center transition-[background] duration-[600ms] hover:border-0 max-[1550px]:px-5 max-[1550px]:pb-[60px] max-[1550px]:pt-3 max-[1024px]:w-full max-[1024px]:max-w-full max-[1024px]:px-3 max-[1024px]:pb-5 max-[1024px]:pt-2.5 max-[767px]:px-2.5 max-[767px]:py-2.5">
+        <div className="relative z-1 mb-[calc(var(--kit-widget-spacing,0px)+0px)] w-full rounded-2xl border-0 px-[25px] pb-[80px] pt-[15px] text-center transition-[background] duration-600 hover:border-0 max-[1550px]:px-5 max-[1550px]:pb-[60px] max-[1550px]:pt-3 max-[1024px]:w-full max-[1024px]:max-w-full max-[1024px]:px-3 max-[1024px]:pb-5 max-[1024px]:pt-2.5 max-[767px]:px-2.5 max-[767px]:py-2.5">
           <div className="flex flex-col items-center gap-2 text-center max-[1024px]:gap-0">
             <div className="inline-block flex-none leading-none">
-              <span className="inline-block text-[100px] leading-none text-[var(--e-global-color-primary)] [border-color:var(--e-global-color-primary)] [fill:var(--e-global-color-primary)] max-[1550px]:text-[80px] max-[1024px]:text-[60px] max-[767px]:text-[40px]">
+              <span className="inline-block text-[100px] leading-none text-(--e-global-color-primary) border-(--e-global-color-primary) fill-(--e-global-color-primary) max-[1550px]:text-[80px] max-[1024px]:text-[60px] max-[767px]:text-[40px]">
                 <Image
                   src={iconPath}
                   alt={title}
@@ -55,14 +55,14 @@ export function HeartCard({
                 />
               </span>
             </div>
-            <CardContent className="w-full flex-grow">
+            <CardContent className="w-full grow">
               <CardTitle
-                className="mb-2 font-['Archivo',Sans-serif] text-[24px] font-bold leading-[1.3em] tracking-normal text-[var(--glass-card-title)] max-[1550px]:mb-1.5 max-[1550px]:text-[20px] max-[1024px]:text-[18px] max-[767px]:text-[16px]"
+                className="mb-2 font-sans text-[24px] font-bold leading-[1.3em] tracking-normal text-(--glass-card-title) max-[1550px]:mb-1.5 max-[1550px]:text-[20px] max-[1024px]:text-[18px] max-[767px]:text-[16px]"
               >
                 <span>{title}</span>
               </CardTitle>
               <CardDescription
-                className="m-0 font-['Archivo',Sans-serif] text-[16px] font-light leading-[1.3em] text-[var(--e-global-color-text)] max-[1024px]:text-[14px]"
+                className="m-0 font-sans text-[16px] font-light leading-[1.3em] text-(--e-global-color-text) max-[1024px]:text-[14px]"
               >
                 <span>{description}</span>
               </CardDescription>

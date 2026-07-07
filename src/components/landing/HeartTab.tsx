@@ -192,7 +192,7 @@ const WAY_RULES = [
 ];
 
 const tabTriggerClass =
-  "relative z-[1] flex h-auto items-center justify-center rounded-full border-0 bg-transparent px-[21px] py-2.5 font-['Archivo',sans-serif] text-xl font-semibold uppercase leading-[1.5] text-white transition-colors duration-300 hover:text-[#2A9FFF] data-[state=active]:bg-gradient-to-b data-[state=active]:from-[#E2F3FF] data-[state=active]:to-white data-[state=active]:text-[#2A9FFF] max-[1550px]:px-[18px] max-[1550px]:py-2 max-[1550px]:text-lg max-[1024px]:px-3.5 max-[1024px]:py-1.5 max-[1024px]:text-sm max-[767px]:shrink-0";
+  "relative z-[1] flex h-auto items-center justify-center rounded-full border-0 bg-transparent px-[21px] py-2.5 font-sans text-xl font-semibold uppercase leading-[1.5] text-white transition-colors duration-300 hover:text-[#2A9FFF] data-[state=active]:bg-gradient-to-b data-[state=active]:from-[#E2F3FF] data-[state=active]:to-white data-[state=active]:text-[#2A9FFF] max-[1550px]:px-[18px] max-[1550px]:py-2 max-[1550px]:text-lg max-[1024px]:px-3.5 max-[1024px]:py-1.5 max-[1024px]:text-sm max-[767px]:shrink-0";
 
 const heartHeadingCss = `
 .letron-heart-heading-widget {
@@ -203,7 +203,7 @@ const heartHeadingCss = `
 
 .letron-heart-heading-title {
   margin: 0;
-  font-family: "Archivo", Sans-serif;
+  font-family: var(--font-sans), Sans-serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 1.3em;
@@ -268,7 +268,7 @@ const waySectionCss = `
 
 .letron-way-heading-title {
   margin: 0;
-  font-family: "Archivo", Sans-serif;
+  font-family: var(--font-sans), Sans-serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 1.3em;
@@ -501,7 +501,7 @@ const spiritSectionCss = `
 
 .letron-spirit-heading-title {
   margin: 0;
-  font-family: "Archivo", Sans-serif;
+  font-family: var(--font-sans), Sans-serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 1.3em;
@@ -521,7 +521,7 @@ const spiritSectionCss = `
 .letron-spirit-main-heading {
   margin: 0;
   color: #FFFFFF;
-  font-family: "Archivo", Sans-serif;
+  font-family: var(--font-sans), Sans-serif;
   font-size: 64px;
   font-weight: 800;
   line-height: 1.4em;
@@ -537,7 +537,7 @@ const spiritSectionCss = `
   padding: 0px 0px 0px 0px;
   color: var(--e-global-color-text);
   text-align: center;
-  font-family: "Archivo", Sans-serif;
+  font-family: var(--font-sans), Sans-serif;
   font-size: 18px;
   font-weight: 300;
   line-height: 1.3em;
@@ -654,7 +654,7 @@ export default function HeartTab() {
           <Tabs value={activeTab} onValueChange={setActiveTab} className="flex w-full min-w-0 flex-col gap-[60px] px-20 pt-[60px] text-start max-[1550px]:gap-10 max-[1550px]:px-[60px] max-[1550px]:pt-[50px] max-[1024px]:px-[25px] max-[1024px]:pt-[50px] max-[767px]:gap-5 max-[767px]:px-4 max-[767px]:pt-10">
             <TabsList
               variant="elementor"
-              className="relative mx-auto flex w-fit items-center justify-center gap-1.5 overflow-hidden rounded-full bg-gradient-to-b from-white/16 to-white/14 px-1.5 py-1 shadow-[inset_0_2px_16px_rgba(0,149,255,0.26)] backdrop-blur-xl before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-[#76c6ff66] max-[767px]:mx-0 max-[767px]:w-full max-[767px]:justify-start max-[767px]:overflow-x-auto max-[767px]:border max-[767px]:border-[#76c6ff66] max-[767px]:[scrollbar-width:none] max-[767px]:[&::-webkit-scrollbar]:hidden"
+              className="relative mx-auto flex w-fit items-center justify-center gap-1.5 overflow-hidden rounded-full bg-linear-to-b from-white/16 to-white/14 px-1.5 py-1 shadow-[inset_0_2px_16px_rgba(0,149,255,0.26)] backdrop-blur-xl before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-[#76c6ff66] max-[767px]:mx-0 max-[767px]:w-full max-[767px]:justify-start max-[767px]:overflow-x-auto max-[767px]:border max-[767px]:border-[#76c6ff66] max-[767px]:scrollbar-none max-[767px]:[&::-webkit-scrollbar]:hidden"
             >
               <TabsTrigger
                 variant="elementor"
@@ -697,7 +697,7 @@ export default function HeartTab() {
                         <div
                           key={slide.slideIndex}
                           aria-label={`${slide.slideIndex} of 5`}
-                          className="min-w-0 flex-[0_0_calc((100%_-_160px)/5)] max-[1550px]:flex-[0_0_calc((100%_-_80px)/5)] max-[1024px]:flex-[0_0_calc((100%_-_20px)/2)] max-[767px]:mb-5 max-[767px]:w-full"
+                          className="min-w-0 flex-[0_0_calc((100%-160px)/5)] max-[1550px]:flex-[0_0_calc((100%-80px)/5)] max-[1024px]:flex-[0_0_calc((100%-20px)/2)] max-[767px]:mb-5 max-[767px]:w-full"
                           role="listitem"
                         >
                           <HeartCard {...slide} />

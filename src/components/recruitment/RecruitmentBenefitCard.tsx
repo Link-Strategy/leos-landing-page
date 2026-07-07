@@ -42,14 +42,14 @@ export function RecruitmentBenefitCard({
     >
       <div className="flex flex-col items-stretch gap-2.5 text-center max-[1024px]:gap-0">
         <div className="inline-block flex-none leading-none">
-          <span className="inline-block text-[100px] leading-none text-[var(--e-global-color-primary)] [border-color:var(--e-global-color-primary)] [fill:var(--e-global-color-primary)] max-[1550px]:text-[80px] max-[1024px]:text-[60px] max-[767px]:text-[50px] [&_svg]:size-[1em]">
+          <span className="inline-block text-[100px] leading-none text-(--e-global-color-primary) border-(--e-global-color-primary) fill-(--e-global-color-primary) max-[1550px]:text-[80px] max-[1024px]:text-[60px] max-[767px]:text-[50px] [&_svg]:size-[1em]">
             {icon}
           </span>
         </div>
-        <CardContent className="w-full flex-grow">
+        <CardContent className="w-full grow">
           <CardTitle
             asChild
-            className="mb-2 font-['Archivo',Sans-serif] !text-2xl font-bold leading-[1.3em] tracking-normal !text-[var(--e-global-color-primary)] max-[1550px]:text-xl max-[1550px]:leading-[var(--e-global-typography-primary-line-height)] max-[1024px]:mb-1 max-[1024px]:text-lg max-[767px]:text-base"
+            className="mb-2 font-sans text-2xl! font-bold leading-[1.3em] tracking-normal text-(--e-global-color-primary)! max-[1550px]:text-xl max-[1550px]:leading-(--e-global-typography-primary-line-height) max-[1024px]:mb-1 max-[1024px]:text-lg max-[767px]:text-base"
           >
             <h3>
               <span>{title}</span>
@@ -57,7 +57,7 @@ export function RecruitmentBenefitCard({
           </CardTitle>
           <CardDescription
             asChild
-            className="m-0 font-['Archivo',Sans-serif] text-base font-normal leading-[1.3em] text-[var(--e-global-color-text)] max-[1550px]:text-base max-[1550px]:leading-[var(--e-global-typography-text-line-height)] max-[1024px]:text-sm max-[767px]:text-xs"
+            className="m-0 font-sans text-base font-normal leading-[1.3em] text-(--e-global-color-text) max-[1550px]:text-base max-[1550px]:leading-(--e-global-typography-text-line-height) max-[1024px]:text-sm max-[767px]:text-xs"
           >
             <p>{description}</p>
           </CardDescription>

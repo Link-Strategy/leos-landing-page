@@ -1,4 +1,4 @@
-﻿# Agent Rules Supplement — LeOS Workspace
+# Agent Rules Supplement — LeOS Workspace
 
 > **Mục đích**: Bổ sung và ghi đè `.agents/rules/` cho workspace LeOS.
 > **Hiệu lực**: Cao hơn `.agents/rules/` khi có mâu thuẫn.
@@ -90,6 +90,23 @@ node .agents/tools/ls-post/cli.mjs <lệnh> [đối số]
 | `fetch-metrics` | Lấy metrics (đang mock) | MongoDB |
 | `schedule-asset` | Lên lịch đăng qua QStash | QStash token |
 | `unschedule-asset` | Hủy lịch đăng QStash | QStash token |
+
+### ls-ops CLI
+```powershell
+node .agents/skills/ls-ops/scripts/ops.cjs <lệnh> [đối số]
+```
+
+| Lệnh | Chức năng | Yêu cầu |
+|:---|:---|:---|
+| `upload` | Upload file cục bộ lên S3 | AWS credentials |
+| `delete` | Xóa tài liệu khỏi MongoDB bằng ID | MongoDB |
+| `articles` | Liệt kê danh sách bài viết & coverImage | MongoDB |
+| `images` | Quét các liên kết ảnh trong markdown | MongoDB |
+| `db` | Xem số lượng tài liệu trong các collection | MongoDB |
+| `assets` | Liệt kê dữ liệu thô trong collection assets | MongoDB |
+| `sync` | Upload ảnh cục bộ lên S3 và cập nhật MongoDB | MongoDB + S3 |
+| `leads` | Liệt kê danh sách thông tin khách hàng đăng ký (leads) | MongoDB |
+
 
 ### Blog
 - Danh sách: `/blog`
