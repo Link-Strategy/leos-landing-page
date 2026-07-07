@@ -23,7 +23,7 @@ export default async function BlogPage() {
         style={{ backgroundImage: "url('/wp-content/uploads/2026/05/image-6-1.jpg')" }}
       >
         <div className="absolute inset-0 bg-black/40" />
-        <div className="relative z-10 w-full flex flex-col flex-1" style={{ maxWidth: 1680, margin: "0 auto", padding: "0 80px 60px", justifyContent: "flex-end" }}>
+        <div className="relative z-10 w-full flex flex-col flex-1 mx-auto px-20 max-[1550px]:px-[60px] max-lg:px-[25px] max-md:px-4 pb-[60px]" style={{ justifyContent: "flex-end" }}>
           <nav className="rank-math-breadcrumb text-sm mb-6">
             <Link href="/" className="hover:text-white transition-colors" style={{ color: "rgba(255,255,255,0.6)" }}>Home</Link>
             <span className="separator" style={{ color: "rgba(255,255,255,0.3)", margin: "0 8px" }}>/</span>

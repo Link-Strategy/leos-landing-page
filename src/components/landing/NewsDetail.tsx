@@ -82,7 +82,7 @@ export const NewsDetail = (): React.JSX.Element => {
 
                         {/* Header */}
                         <div className="flex w-full flex-col gap-3">
-                            <h1 className="relative font-['Archivo',Helvetica]24px] font-extrabold leading-[1.2] text-white drop-shadow-[0px_4px_20px_rgba(0,140,255,0.2)] sm:text-[28px] lg:text-[30px]">
+                            <h1 className="relative font-['Archivo',Helvetica] text-[24px] font-extrabold leading-[1.2] text-white drop-shadow-[0px_4px_20px_rgba(0,140,255,0.2)] sm:text-[28px] lg:text-[30px]">
                                 LETRON chuyển hóa 1 triệu tấn xỉ thải thành vật liệu xây dựng xanh
                             </h1>
                             <div className="flex flex-wrap items-center gap-[35px]">

@@ -1,12 +1,12 @@
 "use client";
 
+import * as React from "react";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { formatBlogDate } from "@/lib/blog-utils";
-
 import type { BlogArticle } from "@/lib/blog/types";
-type Article = BlogArticle;
 
 interface Category {
   slug: string;
@@ -15,286 +15,249 @@ interface Category {
 }
 
 interface Props {
-  articles: Article[];
+  articles: BlogArticle[];
   categories: Category[];
 }
 
-function DateBadge({ day, month }: { day: number; month: number }) {
-  return (
-    <div style={{
-      position: "absolute" as const, bottom: 0, right: 0, zIndex: 2,
-      display: "flex", flexDirection: "column" as const,
-      alignItems: "center", justifyContent: "center",
-      width: 118, padding: "17px 21px",
-      borderTop: "1px solid rgb(255,255,255)",
-      borderLeft: "1px solid rgb(255,255,255)",
-      borderStyle: "solid",
-      borderRadius: "0 0 20px 0",
-      background: "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(244,244,244,0.2) 100%)",
-      backdropFilter: "blur(13px)",
-      WebkitBackdropFilter: "blur(13px)",
-      boxShadow: "rgba(0,0,0,0.15) 0px 1px 10px 0px",
-      textAlign: "center" as const, color: "white",
-    }}>
-      <div style={{ fontFamily: "Archivo, sans-serif", fontSize: 36, fontWeight: 700, lineHeight: "54px", color: "white" }}>
-        {day}
-      </div>
-      <div style={{ fontFamily: "Archivo, sans-serif", fontSize: 16, fontWeight: 400, lineHeight: "20.8px", color: "white" }}>
-        Tháng {month}
-      </div>
-    </div>
-  );
-}
-
-function EmptyTab({ label }: { label: string }) {
-  return (
-    <div className="text-center py-20">
-      <p className="text-zinc-400 text-lg">Chưa có bài viết cho chủ đề &ldquo;{label}&rdquo;</p>
-    </div>
-  );
-}
-
-function ContentSection({ articles }: { articles: Article[] }) {
-  if (articles.length === 0) return null;
-
-  return (
-    <div style={{ paddingTop: 32 }}>
-      <h2 style={{
-        fontFamily: "Archivo, sans-serif", fontSize: 24, fontWeight: 700,
-        color: "white", marginBottom: 32,
-      }}>
-        Tất cả các bài tin
-      </h2>
-
-      {/* FEATURED CAROUSEL */}
-      <div style={{
-        display: "flex", flexDirection: "row",
-        gap: "0px 126px",
-        paddingTop: 24, paddingRight: 60, paddingBottom: 24, paddingLeft: 60,
-        borderRadius: 20,
-        backgroundColor: "rgba(255,255,255,0.06)",
-        boxShadow: "rgba(12,178,255,0.12) 0px 2px 20px 0px",
-        backdropFilter: "blur(18px)",
-        WebkitBackdropFilter: "blur(18px)",
-        border: "1px solid transparent",
-        position: "relative" as const,
-        boxSizing: "border-box",
-      }}>
-        <div style={{
-          position: "absolute" as const, inset: 0, borderRadius: 20,
-          pointerEvents: "none" as const,
-          background: "linear-gradient(rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 35%, rgba(125,229,255,0.4) 75%, rgba(174,203,255,0.4) 100%)",
-        }} />
-        <Carousel opts={{ loop: true, align: "start" }}>
-          <CarouselContent>
-            {articles.slice(0, 3).map((a) => {
-              const d = a.publishedAt ? new Date(a.publishedAt) : new Date();
-              return (
-                <CarouselItem key={a.slug}>
-                  <Link href={`/blog/${a.slug}`} className="group" style={{ display: "block" }}>
-                    <div style={{
-                      display: "flex", flexDirection: "row" as const,
-                      gap: "0 64px", padding: 0, alignItems: "normal" as const,
-                    }}>
-                      <div style={{ flex: 1, display: "flex", flexDirection: "column" as const, gap: 34 }}>
-                        <h3 style={{
-                          fontFamily: "Archivo, sans-serif", fontSize: 32,
-                          fontWeight: 700, lineHeight: "48px",
-                          color: "white", margin: 0,
-                        }}>
-                          {a.title}
-                        </h3>
-                        <div style={{
-                          fontFamily: "Archivo, sans-serif", fontSize: 24,
-                          fontWeight: 400, lineHeight: "36px",
-                          color: "rgba(255,255,255,0.6)", margin: 0,
-                        }}>
-                          {a.excerpt}
-                        </div>
-                        <div style={{ width: "fit-content" }}>
-                          <span style={{
-                            display: "inline-flex", alignItems: "center" as const,
-                            gap: "normal",
-                            fontFamily: "Archivo, sans-serif", fontSize: 20,
-                            fontWeight: 600, lineHeight: "26px",
-                            padding: "10px 21px",
-                            backgroundColor: "rgb(52,211,153)",
-                            color: "white",
-                            borderRadius: 100,
-                            flexDirection: "row-reverse" as const,
-                          }}>
-                            <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                              <path clipRule="evenodd" d="M18.5303 12.5303C18.8232 12.2374 18.8232 11.7626 18.5303 11.4697L14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967C13.1768 7.76256 13.1768 8.23744 13.4697 8.53033L16.1893 11.25H6C5.58579 11.25 5.25 11.5858 5.25 12C5.25 12.4142 5.58579 12.75 6 12.75H16.1893L13.4697 15.4697C13.1768 15.7626 13.1768 16.2374 13.4697 16.5303C13.7626 16.8232 14.2374 16.8232 14.5303 16.5303L18.5303 12.5303Z" fill="white" fillRule="evenodd" />
-                            </svg>
-                            <span>Đọc thêm</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div style={{ flex: 1, position: "relative" as const }}>
-                        <div style={{ overflow: "hidden", borderRadius: 26, zIndex: 1 }}>
-                          <img
-                            src={a.coverImage || "/wp-content/uploads/2026/05/1-10.jpg"} alt={a.title}
-                            style={{
-                              width: "100%", height: "auto",
-                              aspectRatio: "789/522", objectFit: "cover" as const,
-                              borderRadius: 26, transitionDuration: "0.6s",
-                            }}
-                            className="group-hover:scale-105"
-                          />
-                        </div>
-                        <DateBadge day={d.getDate()} month={d.getMonth() + 1} />
-                      </div>
-                    </div>
-                  </Link>
-                </CarouselItem>
-              );
-            })}
-          </CarouselContent>
-          <div className="flex items-center gap-4 mt-6">
-            <CarouselPrevious className="static translate-y-0 w-10 h-10 rounded-full bg-white/10 border-white/20 text-white hover:bg-white/20" />
-            <CarouselNext className="static translate-y-0 w-10 h-10 rounded-full bg-white/10 border-white/20 text-white hover:bg-white/20" />
-          </div>
-        </Carousel>
-      </div>
-
-      {/* GRID */}
-      {articles.length > 1 && (
-        <div style={{
-          marginTop: 60,
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "24px",
-          rowGap: 60,
-          padding: 0,
-        }}>
-          {articles.slice(1).map((a) => {
-            const d = a.publishedAt ? new Date(a.publishedAt) : new Date();
-            return (
-              <Link key={a.slug} href={`/blog/${a.slug}`} className="group" style={{ display: "flex", flexDirection: "column" as const }}>
-                <div style={{ position: "relative" as const, display: "flex", flexDirection: "column" as const }}>
-                  <div style={{ overflow: "hidden", borderRadius: 26, zIndex: 1 }}>
-                    <img
-                      src={a.coverImage || "/wp-content/uploads/2026/05/1-10.jpg"} alt={a.title}
-                      style={{
-                        width: "100%", height: "auto",
-                        aspectRatio: "544/360", objectFit: "cover" as const,
-                        borderRadius: 26, transitionDuration: "0.6s",
-                      }}
-                      className="group-hover:scale-105"
-                    />
-                  </div>
-                  <DateBadge day={d.getDate()} month={d.getMonth() + 1} />
-                </div>
-                <h3 style={{
-                  fontFamily: "Archivo, sans-serif",
-                  fontSize: 20, fontWeight: 700, lineHeight: "30px", color: "white",
-                  marginTop: 26, paddingTop: 26,
-                  borderTop: "1px solid rgb(75, 101, 148)",
-                }}>
-                  {a.title}
-                </h3>
-                <p className="mt-3 text-sm line-clamp-2" style={{ color: "rgba(255,255,255,0.6)" }}>
-                  {a.excerpt}
-                </p>
-                <p className="mt-2 text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
-                  {formatBlogDate(d.toISOString())} &middot; {a.readingTimeMinutes} phút đọc
-                </p>
-              </Link>
-            );
-          })}
-        </div>
-      )}
-
-      {/* PAGINATION */}
-      {articles.length > 9 && (
-        <nav aria-label="Pagination" style={{
-          display: "flex", justifyContent: "center", alignItems: "center",
-          gap: 8, marginTop: 60,
-        }}>
-          <span style={{
-            display: "flex", alignItems: "center", justifyContent: "center",
-            width: 40, height: 40, borderRadius: 8,
-            backgroundColor: "rgb(52,211,153)", color: "white",
-            fontSize: 14,
-          }}>1</span>
-          {Array.from({ length: Math.ceil(articles.length / 9) - 1 }, (_, i) => i + 2).map((p) => (
-            <span key={p} style={{
-              display: "flex", alignItems: "center", justifyContent: "center",
-              width: 40, height: 40, borderRadius: 8,
-              backgroundColor: "rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.6)",
-              fontSize: 14,
-            }}>{p}</span>
-          ))}
-        </nav>
-      )}
-    </div>
-  );
+function getDayAndMonth(dateStr?: string | Date | null) {
+  if (!dateStr) return { day: "01", month: "Tháng 1" };
+  const d = new Date(dateStr);
+  const day = String(d.getDate()).padStart(2, "0");
+  const month = d.toLocaleDateString("vi-VN", { month: "long" }).toLowerCase();
+  return { day, month };
 }
 
 export default function BlogClient({ articles, categories }: Props) {
-  return (
-    <div style={{ backgroundColor: "#0D1B4B" }}>
-      <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", padding: "16px 0" }}>
-        <div style={{ padding: "0 80px", maxWidth: 1680, margin: "0 auto" }}>
-          <Tabs defaultValue="tat-ca">
-            <TabsList
-              variant="elementor"
-              className="tab-new"
-              style={{
-                display: "flex", gap: 6, padding: "4px 6px",
-                justifyContent: "center", flexWrap: "wrap" as const,
-                overflow: "auto hidden", margin: "0 auto",
-                width: "fit-content", position: "relative" as const,
-                borderRadius: 100,
-                background: "linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.14) 100%)",
-                boxShadow: "inset 0 2px 16px rgba(0,149,255,0.26)",
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-                scrollbarWidth: "none" as const,
-              }}
-            >
-              <TabsTrigger
-                variant="elementor"
-                value="tat-ca"
-                style={{
-                  fontFamily: "Archivo, sans-serif", fontSize: 14, fontWeight: 600,
-                  lineHeight: "150%", borderRadius: 100,
-                  padding: "6px 14px", cursor: "pointer", border: "none",
-                  textTransform: "uppercase" as const,
-                }}
-                className="data-[state=active]:bg-[linear-gradient(180deg,#E2F3FF_0%,#FFFFFF_100%)] data-[state=active]:text-[#2A9FFF] data-[state=inactive]:bg-transparent data-[state=inactive]:text-white"
-              >
-                Tất cả
-              </TabsTrigger>
-              {categories.map((cat) => (
-                <TabsTrigger
-                  key={cat.slug}
-                  variant="elementor"
-                  value={cat.slug}
-                  style={{
-                    fontFamily: "Archivo, sans-serif", fontSize: 14, fontWeight: 600,
-                    lineHeight: "150%", borderRadius: 100,
-                    padding: "6px 14px", cursor: "pointer", border: "none",
-                    textTransform: "uppercase" as const,
-                  }}
-                  className="data-[state=active]:bg-[linear-gradient(180deg,#E2F3FF_0%,#FFFFFF_100%)] data-[state=active]:text-[#2A9FFF] data-[state=inactive]:bg-transparent data-[state=inactive]:text-white"
-                >
-                  {cat.label}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+  // Tabs: 'Tất cả' + available categories
+  const tabs = [
+    { slug: "all", label: "Tất cả" },
+    ...categories.map((c) => ({ slug: c.slug, label: c.label })),
+  ];
 
-            <TabsContent value="tat-ca">
-              <ContentSection articles={articles} />
-            </TabsContent>
-            {categories.map((cat) => (
-              <TabsContent key={cat.slug} value={cat.slug}>
-                <EmptyTab label={cat.label} />
-              </TabsContent>
+  const [activeTab, setActiveTab] = useState("all");
+  const [activePage, setActivePage] = useState(1);
+  const [featuredIndex, setFeaturedIndex] = useState(0);
+
+  // Filter articles based on active tab
+  const filteredArticles =
+    activeTab === "all"
+      ? articles
+      : articles.filter((a) => a.categorySlug === activeTab);
+
+  // Reset page and featured index when tab changes
+  React.useEffect(() => {
+    setActivePage(1);
+    setFeaturedIndex(0);
+  }, [activeTab]);
+
+  // Featured articles (up to 3 latest in filteredArticles)
+  const featuredArticles = filteredArticles.slice(0, 3);
+  const featuredArticle = featuredArticles[featuredIndex];
+
+  // Grid articles (remaining articles after the active featured one)
+  const gridArticles = featuredArticle
+    ? filteredArticles.filter((a) => a.slug !== featuredArticle.slug)
+    : filteredArticles;
+
+  // Pagination details
+  const itemsPerPage = 6;
+  const totalPages = Math.ceil(gridArticles.length / itemsPerPage);
+  const pagedArticles = gridArticles.slice(
+    (activePage - 1) * itemsPerPage,
+    activePage * itemsPerPage
+  );
+
+  // Generate pagination pages array
+  const paginationPages = Array.from({ length: totalPages }, (_, i) => i + 1);
+
+  // Chevron click handlers for featured slider
+  const handlePrevFeatured = () => {
+    if (featuredArticles.length <= 1) return;
+    setFeaturedIndex((prev) => (prev === 0 ? featuredArticles.length - 1 : prev - 1));
+  };
+
+  const handleNextFeatured = () => {
+    if (featuredArticles.length <= 1) return;
+    setFeaturedIndex((prev) => (prev === featuredArticles.length - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <section className="w-full bg-[#0d1b4b] px-20 max-[1550px]:px-[60px] max-lg:px-[25px] max-md:px-4 py-[60px]">
+      <div className="mx-auto flex w-full max-w-full flex-col items-center gap-[60px]">
+        {/* Tabs */}
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full flex justify-center">
+          <TabsList
+            variant="elementor"
+            className="relative flex w-fit max-w-full mx-auto flex-nowrap items-center justify-start md:justify-center gap-[6px] rounded-[100px] border border-[#76c6ff] p-[5px] shadow-[inset_0px_2px_16px_0px_rgba(0,149,255,0.26)] overflow-x-auto scrollbar-none [&::-webkit-scrollbar]:hidden"
+          >
+            <div className="absolute inset-0 rounded-[100px] bg-linear-to-brfrom-white/16o-white/[0.14]" />
+            {tabs.map((tab) => (
+              <TabsTrigger
+                key={tab.slug}
+                variant="elementor"
+                value={tab.slug}
+                className="relative z-10 flex h-[38px] shrink-0 items-center rounded-[100px] border px-[16px] transition cursor-pointer border-[#31b0ff] bg-linear-to-b from-[rgba(118,198,255,0)] to-[rgba(42,117,243,0)] text-white hover:opacity-80 data-[state=active]:border-white data-[state=active]:bg-linear-to-bata-[state=active]:from-[#e2f3ff] data-[state=active]:to-white data-[state=active]:text-[#2a9fff] font-['Archivo',Helvetica] text-[13px] font-semibold leading-none sm:text-[15px]"
+              >
+                <span className="text-center">{tab.label}</span>
+              </TabsTrigger>
             ))}
-          </Tabs>
-        </div>
+          </TabsList>
+        </Tabs>
+
+        {/* Title */}
+        <h1 className="bg-linear-to-r from-[#76c6ff] via-[#2a9fff] to-white bg-clip-text text-center font-['Archivo',Helvetica] text-[28px] font-bold leading-[32px] text-transparent sm:text-[32px]">
+          Tất cả các bài tin
+        </h1>
+
+        {/* Featured article */}
+        {featuredArticle ? (
+          <div className="flex w-full flex-col-reverse items-stretch gap-6 overflow-hidden rounded-[20px] border border-white/36 bg-white/6 p-6 shadow-[0px_2px_20px_0px_rgba(12,178,255,0.12)] backdrop-blur-[18px] lg:flex-row lg:items-center lg:gap-16 lg:p-[36px]">
+            <div className="flex w-full flex-col gap-[34px] lg:max-w-[751px]">
+              <h2 className="font-['Archivo',Helvetica] text-[24px] font-bold leading-normal text-white lg:text-[32px] line-clamp-3">
+                {featuredArticle.title}
+              </h2>
+              {featuredArticle.excerpt && (
+                <p className="font-['Archivo',Helvetica] text-[16px] font-normal leading-normal text-white/70 lg:text-[24px] line-clamp-3">
+                  {featuredArticle.excerpt}
+                </p>
+              )}
+              <Link
+                href={`/blog/${featuredArticle.slug}`}
+                className="group relative flex h-[52px] w-fit items-center rounded-[100px] border border-[#31b0ff] px-[13px] py-[4px] transition hover:opacity-95"
+              >
+                <div className="absolute inset-0 rounded-[100px] bg-linear-to-b from-[#76c6ff] to-[#2a75f3]" />
+                <div className="relative z-10 flex items-center gap-1 px-[8px]">
+                  <span className="font-['Archivo',Helvetica] text-[18px] font-semibold leading-[32px] text-white sm:text-[20px]">
+                    Đọc thêm
+                  </span>
+                  <ArrowRight className="size-5 text-white transition group-hover:translate-x-0.5" />
+                </div>
+                <div className="absolute inset-0 rounded-[inherit] shadow-[inset_0px_-3px_0px_0px_rgba(30,154,255,0.18),inset_0px_-2px_6px_0px_rgba(255,255,255,0.75),inset_0px_-4px_16px_0px_rgba(0,106,255,0.3)]" />
+              </Link>
+              <div className="flex items-center gap-[38px]">
+                <span className="font-['Archivo',Helvetica] text-[16px] font-normal leading-normal text-white">
+                  {`0${featuredIndex + 1} - 0${featuredArticles.length}`}
+                </span>
+                <div className="relative h-[8px] flex-1 max-w-[535px] rounded-[36px] bg-white/16 shadow-[0px_4px_36px_0px_rgba(42,159,255,0.08)] backdrop-blur-[18px]">
+                  <div
+                    className="absolute left-0 top-0 h-[8px] rounded-[36px] bg-[rgba(80,106,151,0.66)] shadow-[0px_4px_26px_0px_rgba(42,159,255,0.08)] backdrop-blur-[18px] transition-all duration-300"
+                    style={{ width: `${((featuredIndex + 1) / featuredArticles.length) * 100}%` }}
+                  />
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={handlePrevFeatured}
+                    aria-label="Tin trước"
+                    className="flex size-[42px] items-center justify-center rounded-[100px] border border-white bg-linear-to-b from-[rgba(42,159,255,0.8)] to-[rgba(118,198,255,0.8)] opacity-66 shadow-[0px_4px_36px_0px_rgba(42,159,255,0.08)] backdrop-blur-[13px] cursor-pointer hover:opacity-90 transition"
+                  >
+                    <ChevronLeft className="size-5 text-white" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleNextFeatured}
+                    aria-label="Tin sau"
+                    className="flex size-[42px] items-center justify-center rounded-[100px] border border-white bg-linear-to-b from-white/16 to-white/11 opacity-66 shadow-[0px_4px_36px_0px_rgba(42,159,255,0.08)] backdrop-blur-[2px] cursor-pointer hover:opacity-90 transition"
+                  >
+                    <ChevronRight className="size-5 text-white" />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="relative aspect-789/522 w-full overflow-hidden rounded-[26px] lg:h-[522px] lg:w-[789px]">
+              <img
+                alt={featuredArticle.title}
+                className="absolute inset-0 size-full object-cover"
+                src={featuredArticle.coverImage || "/figmaAssets/b-i-tin-1.png"}
+              />
+              {(() => {
+                const { day, month } = getDayAndMonth(featuredArticle.publishedAt);
+                return (
+                  <div className="absolute bottom-0 right-0 flex h-[157px] w-[156px] flex-col items-center justify-center rounded-br-[20px] border border-[#f4f4f4] bg-linear-to-b from-white/20 to-[rgba(244,244,244,0.2)] shadow-[0px_1px_10px_0px_rgba(0,0,0,0.15)] backdrop-blur-sm">
+                    <span className="font-['Archivo',Helvetica] -mb-3 text-[48px] font-bold leading-none text-white sm:text-[60px]">
+                      {day}
+                    </span>
+                    <span className="font-['Archivo',Helvetica] text-[18px] font-normal uppercase leading-none text-white sm:text-[24px]">
+                      {month}
+                    </span>
+                  </div>
+                );
+              })()}
+            </div>
+          </div>
+        ) : (
+          <div className="text-center py-20">
+            <p className="text-zinc-400 text-lg">Chưa có bài viết nổi bật nào.</p>
+          </div>
+        )}
+
+        {/* News grid */}
+        {pagedArticles.length > 0 ? (
+          <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {pagedArticles.map((item) => {
+              const { day, month } = getDayAndMonth(item.publishedAt);
+              return (
+                <Link
+                  key={item.slug}
+                  href={`/blog/${item.slug}`}
+                  className="w-full group"
+                >
+                  <Card className="border-0 bg-transparent shadow-none transition duration-300 hover:opacity-95">
+                    <CardContent className="flex flex-col items-start gap-[26px] p-0">
+                      <div
+                        className="relative flex h-[360px] w-full items-start justify-end overflow-hidden rounded-[26px] bg-cover bg-center bg-no-repeat pt-[247px]"
+                        style={{ backgroundImage: `url(${item.coverImage || "/figmaAssets/b-i-tin-1.png"})` }}
+                      >
+                        <div className="flex h-[113px] w-28 items-center justify-center gap-2.5 rounded-[0px_0px_20px_0px] px-[27px] py-6 shadow-[0px_1px_10px_#00000026,inset_0_1px_0_rgba(255,255,255,0.40),inset_1px_0_0_rgba(255,255,255,0.32),inset_0_-1px_1px_rgba(0,0,0,0.13),inset_-1px_0_1px_rgba(0,0,0,0.11)] backdrop-blur-[2.0px] backdrop-brightness-110 [-webkit-backdrop-filter:blur(2.0px)_brightness(110%)] bg-[linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(244,244,244,0.2)_100%)]">
+                          <div className="flex w-[70px] flex-col items-center">
+                            <div className="relative font-['Archivo',Helvetica] text-center text-[30px] font-bold leading-[44px] text-white sm:text-[36px]">
+                              {day}
+                            </div>
+                            <div className="relative font-['Archivo',Helvetica] text-center text-[14px] font-normal uppercase leading-6 text-white">
+                              {month}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="h-px w-full bg-white/20" />
+                      <h3 className="relative self-stretch font-['Archivo',Helvetica] text-[18px] font-bold leading-normal text-white sm:text-[20px] line-clamp-3 transition-colors group-hover:text-[#2a9fff]">
+                        {item.title}
+                      </h3>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="text-center py-20">
+            <p className="text-zinc-400 text-lg">Chưa có bài viết nào trong mục này.</p>
+          </div>
+        )}
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex items-center gap-[15px]">
+            {paginationPages.map((page) => {
+              const isActive = page === activePage;
+              return (
+                <button
+                  key={`page-${page}`}
+                  type="button"
+                  aria-label={`Trang ${page}`}
+                  onClick={() => setActivePage(page)}
+                  className={`flex size-[42px] items-center justify-center rounded-[100px] border text-[16px] font-normal text-white font-['Archivo',Helvetica] transition cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2a9fff] ${isActive
+                      ? "border-[#2a9fff] bg-[#1d63df] opacity-100 shadow-[0px_4px_13px_rgba(42,159,255,0.08)]"
+                      : "border-[#f4f4f4] bg-white/8 opacity-66 shadow-[0px_4px_26px_0px_rgba(42,159,255,0.08)] backdrop-blur-[18px] hover:bg-white/20"
+                    }`}
+                >
+                  {page}
+                </button>
+              );
+            })}
+          </div>
+        )}
       </div>
-    </div>
+    </section>
   );
 }

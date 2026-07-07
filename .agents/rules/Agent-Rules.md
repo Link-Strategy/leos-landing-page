@@ -107,6 +107,41 @@ node .agents/skills/ls-ops/scripts/ops.cjs <lệnh> [đối số]
 | `sync` | Upload ảnh cục bộ lên S3 và cập nhật MongoDB | MongoDB + S3 |
 | `leads` | Liệt kê danh sách thông tin khách hàng đăng ký (leads) | MongoDB |
 
+### ls-jobs CLI
+```bash
+node .agents/tools/ls-jobs/cli.mjs <lệnh> [đối số]
+```
+
+| Lệnh | Chức năng | Side effects |
+|:---|:---|:---|
+| `save-job` | Tạo hoặc cập nhật vị trí tuyển dụng (upsert by slug) | MongoDB |
+| `list` | Liệt kê tất cả vị trí (kể cả draft/closed) | — |
+| `get` | Xem chi tiết một vị trí | — |
+| `publish` | Publish vị trí (draft → published) | MongoDB + cache revalidate + GSC sitemap |
+| `close` | Đóng tuyển (published → closed) | MongoDB + cache revalidate |
+| `unpublish` | Revert về draft | MongoDB + cache revalidate |
+| `delete` | Xóa vĩnh viễn theo slug | MongoDB |
+
+**Payload mẫu** (save-job):
+```json
+{
+  "title": "Kỹ sư IoT cao cấp",
+  "slug": "ky-su-iot-cao-cap",
+  "department": "Kỹ thuật",
+  "location": "Hà Nội",
+  "jobType": "full-time",
+  "salary": "Thỏa thuận",
+  "requirements": "## Yêu cầu\n...",
+  "description": "## Mô tả\n...",
+  "benefits": "## Phúc lợi\n...",
+  "status": "draft",
+  "order": 1
+}
+```
+
+> Lệnh `publish` tự động gọi `/api/recruitment/revalidate` và submit sitemap GSC.
+> Nếu dev server không chạy, revalidate fail nhưng không block.
+
 
 ### Blog
 - Danh sách: `/blog`
@@ -115,12 +150,18 @@ node .agents/skills/ls-ops/scripts/ops.cjs <lệnh> [đối số]
 - RSS: `/rss.xml`
 - Section trên landing: `News.tsx` (đọc từ MongoDB)
 
+### Tuyển dụng
+- Collection MongoDB: `job_listings`
+- Danh sách: `/tuyen-dung` (cache 1h, revalidate tự động)
+- Chi tiết: `/tuyen-dung/[slug]` (SSG, SEO đầy đủ, `<lastmod>` trong sitemap)
+- Sitemap: tự động thêm URL job published vào `/sitemap.xml`
+- Revalidate API: `POST /api/recruitment/revalidate`
+
 ### Lead Capture
 - API: `POST /api/contact`
 - Form: `LeadForm.tsx` (gọi API thật)
 - Lưu trữ: MongoDB collection `leads`
 
----
 
 ## 4. Cấu trúc kể chuyện (Giữ nguyên từ 09-Agent Context Memory)
 

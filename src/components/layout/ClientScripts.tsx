@@ -67,6 +67,8 @@ export default function ClientScripts() {
       <Script src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" strategy="beforeInteractive" />
       <Script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?ver=11" strategy="afterInteractive" />
 
+      {/* hooks.min.js must be loaded before i18n.min.js to prevent "Cannot read properties of undefined (reading 'hooks')" crash */}
+      <Script src="/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" strategy="beforeInteractive" />
       <Script src="/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" strategy="beforeInteractive" />
 
       <Script id="set-locale-data" strategy="beforeInteractive">
@@ -94,7 +96,6 @@ export default function ClientScripts() {
           <Script src="/wp-includes/js/imagesloaded.min.js?ver=5.0.0" strategy="afterInteractive" />
           <Script src="/wp-content/plugins/elementor/assets/lib/swiper/v8/swiper.min.js?ver=8.4.5" strategy="afterInteractive" />
           <Script src="/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=4.0.4" strategy="afterInteractive" />
-          <Script src="/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" strategy="afterInteractive" />
           <Script id="elementor-pro-frontend-config" strategy="afterInteractive">
             {`var ElementorProFrontendConfig = {"ajaxurl":"/wp-admin/admin-ajax.php","nonce":"3d0f92342a","urls":{"assets":"/wp-content/plugins/elementor-pro/assets/","rest":"/wp-json/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"vi","app_id":""},"lottie":{"defaultAnimationUrl":"/wp-content/plugins/elementor-pro/modules/lottie/assets/animations/default.json"}};`}
           </Script>

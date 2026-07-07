@@ -101,7 +101,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
   const categoryLabel = article.category || "Tin tức - Sự kiện";
 
   return (
-    <section className="w-full bg-[#0d1b4b] px-24 max-[1550px]:px-[30px] max-lg:px-3 max-md:px-2 pb-5 lg:pb-8 pt-[calc(var(--header-height-mobile)+20px)] lg:pt-[calc(var(--header-height)+32px)]">
+    <section className="w-full bg-[#0d1b4b] px-20 max-[1550px]:px-[60px] max-lg:px-[25px] max-md:px-4 pb-5 lg:pb-8 pt-[calc(var(--header-height-mobile)+20px)] lg:pt-[calc(var(--header-height)+32px)]">
       <div className="mx-auto flex w-full flex-col items-center">
         <div className="flex w-full flex-col gap-10 xl:flex-row xl:justify-between xl:gap-[4%]">
           {/* Main article */}
