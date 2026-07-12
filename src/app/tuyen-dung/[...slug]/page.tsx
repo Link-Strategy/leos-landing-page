@@ -6,6 +6,8 @@ import { getCachedJobListingBySlug, getCachedPublishedJobListings } from "@/lib/
 import { renderMarkdownToHtml } from "@/lib/blog/markdown";
 import { getSiteUrl } from "@/lib/blog/seo";
 import type { JobListing } from "@/lib/recruitment/types";
+import { JobApplyForm } from "@/components/recruitment/JobApplyForm";
+import { JobListingCard } from "@/components/recruitment/JobListingCard";
 
 const JOB_TYPE_LABELS: Record<string, string> = {
   "full-time": "Toàn thời gian",
@@ -65,187 +67,216 @@ export default async function JobDetailPage({ params }: PageProps) {
     job.benefits ? renderMarkdownToHtml(job.benefits) : Promise.resolve(""),
   ]);
 
+  const otherJobs = (await getCachedPublishedJobListings()).filter((j) => j.slug !== job.slug);
+
+  const getLevel = (title: string) => {
+    const lower = title.toLowerCase();
+    if (lower.includes("trưởng phòng") || lower.includes("truong phong")) return "Trưởng phòng";
+    if (lower.includes("giám đốc") || lower.includes("giam doc")) return "Giám đốc";
+    if (lower.includes("quản lý") || lower.includes("quan ly") || lower.includes("manager")) return "Quản lý / Trưởng nhóm";
+    if (lower.includes("thực tập") || lower.includes("intern")) return "Thực tập sinh";
+    return "Chuyên viên / Nhân viên";
+  };
+
+  const getExperience = (title: string) => {
+    const lower = title.toLowerCase();
+    if (lower.includes("cao cấp") || lower.includes("senior")) return "Từ 3-5 năm";
+    if (lower.includes("intern") || lower.includes("thực tập")) return "Không yêu cầu kinh nghiệm";
+    return "1-3 năm hoặc tương đương";
+  };
+
   return (
-    <main className="w-full min-h-screen bg-[#0d1b4b] px-20 max-[1550px]:px-[60px] max-lg:px-[25px] max-md:px-4 py-[60px] text-white">
-      <div className="mx-auto flex w-full max-w-full flex-col gap-10">
-
-        {/* Breadcrumb */}
-        <nav className="flex flex-wrap items-center gap-2 text-sm font-medium text-[#459be2]">
-          <Link href="/" aria-label="Trang chủ" className="flex items-center gap-1 hover:opacity-80 transition">
-            <Home className="size-4" />
-          </Link>
-          <ChevronRight className="size-3.5 text-[#459be2]" />
-          <Link href="/tuyen-dung" className="hover:opacity-80 transition">Tuyển dụng</Link>
-          <ChevronRight className="size-3.5 text-[#459be2]" />
-          <span className="truncate text-white max-w-[320px]">{job.title}</span>
-        </nav>
-
-        {/* Two-column layout */}
-        <div className="flex flex-col gap-10 xl:flex-row xl:items-start xl:gap-10">
-
-          {/* ── Main content ─────────────────────────────────────── */}
-          <article className="flex min-w-0 flex-1 flex-col gap-8">
-
-            {/* Header */}
-            <div className="flex flex-col gap-4">
-              <span className="inline-flex w-fit items-center rounded-full bg-[#2a9fff]/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#2a9fff] border border-[#2a9fff]/20">
-                {job.department}
-              </span>
-              <h1 className="font-['Archivo',Helvetica] text-[32px] font-bold leading-tight text-white lg:text-[44px]">
-                {job.title}
-              </h1>
-
-              {/* Meta */}
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60">
-                <span className="flex items-center gap-1.5">
-                  <MapPin className="size-4 text-[#2a9fff]" />{job.location}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Clock className="size-4 text-[#2a9fff]" />{JOB_TYPE_LABELS[job.jobType] ?? job.jobType}
-                </span>
-                {job.salary && (
-                  <span className="flex items-center gap-1.5">
-                    <DollarSign className="size-4 text-[#2a9fff]" />{job.salary}
-                  </span>
-                )}
-                {job.publishedAt && (
-                  <span className="flex items-center gap-1.5">
-                    <Briefcase className="size-4 text-[#2a9fff]" />
-                    Đăng ngày {new Date(job.publishedAt).toLocaleDateString("vi-VN")}
-                  </span>
-                )}
+    <div className="site-main archive post-type-archive post-type-archive-tuyen-dung elementor-page-604 elementor-default elementor-template-full-width elementor-kit-6">
+      <div className="elementor elementor-604 elementor-location-single post-575 tuyen-dung type-tuyen-dung status-publish hentry" data-elementor-id="604" data-elementor-post-type="elementor_library" data-elementor-type="single-post">
+        <div className="elementor-element elementor-element-51999a2 e-flex e-con-boxed e-con e-parent" data-e-type="container" data-element_type="container" data-id="51999a2" data-settings='{"background_background":"classic"}'>
+          <div className="e-con-inner">
+            <div className="elementor-element elementor-element-263abe8 elementor-widget elementor-widget-shortcode" data-e-type="widget" data-element_type="widget" data-id="263abe8" data-widget_type="shortcode.default">
+              <div className="elementor-shortcode">
+                <nav aria-label="breadcrumbs" className="rank-math-breadcrumb">
+                  <p>
+                    <Link href="/">Home</Link>
+                    <span className="separator">/</span>
+                    <Link href="/tuyen-dung">Tuyển dụng</Link>
+                    <span className="separator">/</span>
+                    <span className="last">{job.title}</span>
+                  </p>
+                </nav>
               </div>
             </div>
-
-            <div className="h-px w-full bg-white/10" />
-
-            {/* Description */}
-            <section>
-              <h2 className="mb-4 font-['Archivo',Helvetica] text-xl font-bold text-white">Mô tả công việc</h2>
-              <div
-                className="prose prose-recruitment"
-                dangerouslySetInnerHTML={{ __html: descriptionHtml }}
-              />
-            </section>
-
-            {/* Requirements */}
-            <section>
-              <h2 className="mb-4 font-['Archivo',Helvetica] text-xl font-bold text-white">Yêu cầu ứng viên</h2>
-              <div
-                className="prose prose-recruitment"
-                dangerouslySetInnerHTML={{ __html: requirementsHtml }}
-              />
-            </section>
-
-            {/* Benefits */}
-            {benefitsHtml && (
-              <section>
-                <h2 className="mb-4 font-['Archivo',Helvetica] text-xl font-bold text-white">Phúc lợi</h2>
-                <div
-                  className="prose prose-recruitment"
-                  dangerouslySetInnerHTML={{ __html: benefitsHtml }}
-                />
-              </section>
-            )}
-          </article>
-
-          {/* ── Sidebar ──────────────────────────────────────────── */}
-          <aside className="flex w-full flex-col gap-6 xl:w-[340px] xl:shrink-0">
-
-            {/* Apply card */}
-            <div className="rounded-2xl border border-white/10 bg-white/4 p-6 flex flex-col gap-5">
-              <h3 className="font-['Archivo',Helvetica] text-lg font-bold text-white">Ứng tuyển ngay</h3>
-              {job.externalApplyUrl ? (
-                <a
-                  href={job.externalApplyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative flex h-[52px] items-center justify-center rounded-[100px] border border-[#31b0ff] transition hover:opacity-95 overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-linear-to-b from-[#76c6ff] to-[#2a75f3]" />
-                  <span className="relative z-10 font-['Archivo',Helvetica] text-[18px] font-semibold text-white">
-                    Ứng tuyển →
-                  </span>
-                </a>
-              ) : (
-                <a
-                  href="mailto:hr@letrongroup.com"
-                  className="group relative flex h-[52px] items-center justify-center rounded-[100px] border border-[#31b0ff] transition hover:opacity-95 overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-linear-to-b from-[#76c6ff] to-[#2a75f3]" />
-                  <span className="relative z-10 font-['Archivo',Helvetica] text-[18px] font-semibold text-white">
-                    Gửi CV qua email →
-                  </span>
-                </a>
-              )}
-              <p className="text-xs text-white/40 text-center">
-                Hoặc gửi CV đến <span className="text-[#2a9fff]">hr@letrongroup.com</span>
-              </p>
-            </div>
-
-            {/* Job summary card */}
-            <div className="rounded-2xl border border-white/10 bg-white/4 p-6 flex flex-col gap-4">
-              <h3 className="font-['Archivo',Helvetica] text-base font-bold text-white">Thông tin vị trí</h3>
-              <dl className="flex flex-col gap-3 text-sm">
-                {[
-                  { label: "Bộ phận", value: job.department },
-                  { label: "Địa điểm", value: job.location },
-                  { label: "Hình thức", value: JOB_TYPE_LABELS[job.jobType] ?? job.jobType },
-                  { label: "Mức lương", value: job.salary ?? "Thỏa thuận" },
-                ].map(({ label, value }) => (
-                  <div key={label} className="flex justify-between gap-4">
-                    <dt className="text-white/50">{label}</dt>
-                    <dd className="font-medium text-white text-right">{value}</dd>
+            <div className="elementor-element elementor-element-e59ff5c e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="e59ff5c" data-settings='{"background_background":"classic"}'>
+              <div className="elementor-element elementor-element-d13e9f2 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="d13e9f2">
+                <div className="elementor-element elementor-element-0b47443 elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="0b47443" data-widget_type="theme-post-title.default">
+                  <h1 className="elementor-heading-title elementor-size-default">
+                    {job.title}
+                  </h1>
+                </div>
+                <div className="elementor-element elementor-element-bc16879 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="bc16879" data-widget_type="heading.default">
+                  <h3 className="elementor-heading-title elementor-size-default">
+                    Chi tiết công việc
+                  </h3>
+                </div>
+                <div className="elementor-element elementor-element-9d06f8b elementor-widget elementor-widget-shortcode" data-e-type="widget" data-element_type="widget" data-id="9d06f8b" data-widget_type="shortcode.default">
+                  <div className="elementor-shortcode">
+                    <div className="td-job-table">
+                      <div className="td-job-row">
+                        <div className="td-job-title">Nơi làm việc</div>
+                        <div className="td-job-desc">{job.location}</div>
+                      </div>
+                      <div className="td-job-row">
+                        <div className="td-job-title">Cấp bậc</div>
+                        <div className="td-job-desc">{getLevel(job.title)}</div>
+                      </div>
+                      <div className="td-job-row">
+                        <div className="td-job-title">Hình thức</div>
+                        <div className="td-job-desc">{JOB_TYPE_LABELS[job.jobType] ?? job.jobType}</div>
+                      </div>
+                      <div className="td-job-row">
+                        <div className="td-job-title">Kinh nghiệm</div>
+                        <div className="td-job-desc">{getExperience(job.title)}</div>
+                      </div>
+                      <div className="td-job-row">
+                        <div className="td-job-title">Mức lương</div>
+                        <div className="td-job-desc">{job.salary || "Lương thỏa thuận"}</div>
+                      </div>
+                      <div className="td-job-row">
+                        <div className="td-job-title">Ngành nghề</div>
+                        <div className="td-job-desc">{job.department}</div>
+                      </div>
+                      <div className="td-job-row">
+                        <div className="td-job-title">Hạn chót nhận hồ sơ</div>
+                        <div className="td-job-desc">Tuyển liên tục</div>
+                      </div>
+                    </div>
                   </div>
-                ))}
-              </dl>
-            </div>
+                </div>
+                <div className="elementor-element elementor-element-95c7f71 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="95c7f71" data-widget_type="heading.default">
+                  <h3 className="elementor-heading-title elementor-size-default">
+                    Phúc lợi
+                  </h3>
+                </div>
+                <div className="elementor-element elementor-element-1263618 elementor-widget elementor-widget-shortcode" data-e-type="widget" data-element_type="widget" data-id="1263618" data-widget_type="shortcode.default">
+                  <div className="elementor-shortcode">
+                    <div className="td-job-table">
+                      <div className="td-job-row">
+                        <div className="title-phuc-loi">Bảo hiểm</div>
+                        <div className="title-phuc-loi">Du lịch</div>
+                      </div>
+                      <div className="td-job-row">
+                        <div className="title-phuc-loi">Thưởng</div>
+                        <div className="title-phuc-loi">Chăm sóc sức khỏe</div>
+                      </div>
+                      <div className="td-job-row">
+                        <div className="title-phuc-loi">Đào tạo</div>
+                        <div className="title-phuc-loi">Tăng lương</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-            {/* Back link */}
-            <Link
-              href="/tuyen-dung#open-positions"
-              className="flex items-center gap-2 text-sm text-[#2a9fff] hover:opacity-80 transition"
-            >
-              <ArrowLeft className="size-4" />
-              Xem tất cả vị trí tuyển dụng
-            </Link>
-          </aside>
+                {benefitsHtml && (
+                  <div className="elementor-element elementor-element-ba01060 elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="ba01060" data-widget_type="text-editor.default">
+                    <div className="elementor-widget-container prose prose-recruitment">
+                      <div dangerouslySetInnerHTML={{ __html: benefitsHtml }} />
+                    </div>
+                  </div>
+                )}
+
+                <div className="elementor-element elementor-element-6309bf9 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="6309bf9" data-widget_type="heading.default">
+                  <h3 className="elementor-heading-title elementor-size-default">
+                    Mô tả công việc
+                  </h3>
+                </div>
+                <div className="elementor-element elementor-element-ba01060 elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="ba01060" data-widget_type="text-editor.default">
+                  <div className="elementor-widget-container prose prose-recruitment animate-fade-in">
+                    <div dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
+                  </div>
+                </div>
+                <div className="elementor-element elementor-element-892855a elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="892855a" data-widget_type="heading.default">
+                  <h3 className="elementor-heading-title elementor-size-default">
+                    Yêu cầu
+                  </h3>
+                </div>
+                <div className="elementor-element elementor-element-a0778de elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="a0778de" data-widget_type="text-editor.default">
+                  <div className="elementor-widget-container prose prose-recruitment animate-fade-in">
+                    <div dangerouslySetInnerHTML={{ __html: requirementsHtml }} />
+                  </div>
+                </div>
+              </div>
+              <div className="elementor-element elementor-element-ed3e70a e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="ed3e70a">
+                <div className="elementor-element elementor-element-fa73e82 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="fa73e82" data-widget_type="heading.default">
+                  <h2 className="elementor-heading-title elementor-size-default">
+                    Đơn ứng tuyển vị trí
+                  </h2>
+                </div>
+                <div className="elementor-element elementor-element-fab0c68 elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="fab0c68" data-widget_type="text-editor.default">
+                  <p>Hướng dẫn ứng tuyển</p>
+                  <ul>
+                    <li>Điền file thông tin ứng viên</li>
+                    <li>Chọn nút “nộp đơn ứng tuyển” để gửi đơn</li>
+                  </ul>
+                </div>
+                <JobApplyForm jobTitle={job.title} />
+              </div>
+            </div>
+          </div>
         </div>
+
+        {otherJobs.length > 0 && (
+          <div className="elementor-element elementor-element-d4915cf e-flex e-con-boxed e-con e-parent" data-e-type="container" data-element_type="container" data-id="d4915cf" data-settings='{"background_background":"classic"}'>
+            <div className="e-con-inner">
+              <div className="elementor-element elementor-element-ae613c6 sub-title elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="ae613c6" data-widget_type="heading.default">
+                <h3 className="elementor-heading-title elementor-size-default">
+                  Các vị trí đang tuyển
+                </h3>
+              </div>
+              <div className="elementor-element elementor-element-2fc67b5 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="2fc67b5" data-widget_type="heading.default">
+                <h2 className="elementor-heading-title elementor-size-default">
+                  Tìm kiếm công việc mơ ước{" "}
+                  <span>tại LeTRON</span>
+                </h2>
+              </div>
+              <div className="elementor-element elementor-element-ac7e226 elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="ac7e226" data-widget_type="text-editor.default">
+                <p>
+                  Phát triển bản thân và tỏa sáng tại môi trường làm việc hạnh phúc.
+                </p>
+              </div>
+              <div className="elementor-element elementor-element-443f9b7 elementor-grid-1 elementor-widget__width-inherit grid-list-post elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-invisible elementor-widget elementor-widget-loop-grid w-full animate-fade-in" data-e-type="widget" data-element_type="widget" data-id="443f9b7">
+                <div className="elementor-widget-container">
+                  <div className="elementor-loop-container elementor-grid" role="list">
+                    {otherJobs.slice(0, 3).map((otherJob) => (
+                      <JobListingCard key={otherJob.slug} job={otherJob} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Prose styles for markdown content */}
       <style>{`
-        .prose.prose-recruitment {
-          color: rgba(255,255,255,0.75);
-          font-family: 'Archivo', Helvetica, sans-serif;
-          font-size: 16px;
-          line-height: 1.75;
-          max-width: none;
+        .elementor-page-title,
+        .elementor-widget-theme-post-title,
+        .elementor-element-0b47443 {
+          display: block !important;
         }
-        .prose.prose-recruitment h1,
-        .prose.prose-recruitment h2,
-        .prose.prose-recruitment h3,
-        .prose.prose-recruitment h4 {
-          color: #fff;
-          font-weight: 700;
-          margin-top: 1.5em;
-          margin-bottom: 0.5em;
+        .prose-recruitment ul {
+          list-style-type: disc !important;
+          padding-left: 1.5rem !important;
+          margin: 1rem 0 !important;
         }
-        .prose.prose-recruitment h2 { font-size: 1.25rem; }
-        .prose.prose-recruitment h3 { font-size: 1.1rem; }
-        .prose.prose-recruitment ul,
-        .prose.prose-recruitment ol {
-          padding-left: 1.5rem;
-          margin: 0.75rem 0;
+        .prose-recruitment ol {
+          list-style-type: decimal !important;
+          padding-left: 1.5rem !important;
+          margin: 1rem 0 !important;
         }
-        .prose.prose-recruitment ul { list-style-type: disc; }
-        .prose.prose-recruitment ol { list-style-type: decimal; }
-        .prose.prose-recruitment li { margin: 0.35rem 0; }
-        .prose.prose-recruitment p { margin: 0.75rem 0; }
-        .prose.prose-recruitment strong { color: #fff; }
-        .prose.prose-recruitment a { color: #2a9fff; text-decoration: underline; }
-        .prose.prose-recruitment hr { border-color: rgba(255,255,255,0.1); margin: 1.5rem 0; }
+        .prose-recruitment li {
+          margin: 0.5rem 0 !important;
+        }
+        .prose-recruitment p {
+          margin: 1rem 0 !important;
+        }
       `}</style>
-    </main>
+    </div>
   );
 }
