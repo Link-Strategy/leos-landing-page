@@ -11,7 +11,7 @@ type LeadershipMember = {
 const LEADERSHIP_MEMBERS: LeadershipMember[] = [
   { id: "815", name: "Ông Nguyễn Văn Công", title: "CFO", photo: "/about/CFO.png" },
   { id: "813", name: "Ông Lê Minh Tiến", title: "Chủ tịch HĐQT", photo: "/about/COB.png" },
-  { id: "811", name: "Bà Nguyễn Thị Thủy", title: "CEO", photo: "/about/CEO.png" },
+  { id: "811", name: "Bà Hoàng Lệ Thủy", title: "CEO", photo: "/about/CEO.png" },
   { id: "809", name: "Ông Lê Đức Anh", title: "LeAR", photo: "/about/LeAR.png" },
 ];
 
