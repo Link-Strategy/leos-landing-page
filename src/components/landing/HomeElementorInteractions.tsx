@@ -196,158 +196,6 @@ function setupElementorCarousels(root: ParentNode) {
   return cleanups;
 }
 
-function setupPillarHover(root: ParentNode) {
-  const cleanups: Array<() => void> = [];
-  const groups = Array.from(root.querySelectorAll<HTMLElement>(".group-cop-info"));
-  const desktopQuery = window.matchMedia("(min-width: 769px)");
-
-  const hideBox = (box: HTMLElement) => {
-    box.style.opacity = "0";
-    window.setTimeout(() => {
-      if (box.style.opacity === "0") {
-        box.style.display = "none";
-      }
-    }, 200);
-  };
-
-  const showBox = (box: HTMLElement) => {
-    box.style.display = "block";
-    box.style.transition = "opacity 200ms ease";
-    box.style.opacity = "0";
-    window.requestAnimationFrame(() => {
-      box.style.opacity = "1";
-    });
-  };
-
-  const hideAll = (except?: HTMLElement) => {
-    root.querySelectorAll<HTMLElement>(".box-sub-home").forEach((box) => {
-      if (box !== except) {
-        hideBox(box);
-      }
-    });
-  };
-
-  groups.forEach((group) => {
-    const box = group.querySelector<HTMLElement>(".box-sub-home");
-    if (!box) {
-      return;
-    }
-
-    const onMouseEnter = () => {
-      if (desktopQuery.matches) {
-        showBox(box);
-      }
-    };
-
-    const onMouseLeave = () => {
-      if (desktopQuery.matches) {
-        hideBox(box);
-      }
-    };
-
-    const onClick = (event: MouseEvent) => {
-      if (desktopQuery.matches) {
-        return;
-      }
-
-      event.stopPropagation();
-      const isVisible = box.style.display !== "none" && getComputedStyle(box).display !== "none";
-      hideAll(box);
-
-      if (isVisible) {
-        hideBox(box);
-      } else {
-        showBox(box);
-      }
-    };
-
-    group.addEventListener("mouseenter", onMouseEnter);
-    group.addEventListener("mouseleave", onMouseLeave);
-    group.addEventListener("click", onClick);
-    cleanups.push(() => {
-      group.removeEventListener("mouseenter", onMouseEnter);
-      group.removeEventListener("mouseleave", onMouseLeave);
-      group.removeEventListener("click", onClick);
-    });
-  });
-
-  const onDocumentClick = () => {
-    if (!desktopQuery.matches) {
-      hideAll();
-    }
-  };
-
-  document.addEventListener("click", onDocumentClick);
-  cleanups.push(() => document.removeEventListener("click", onDocumentClick));
-
-  return cleanups;
-}
-
-function formatCounterValue(value: number, delimiter: string) {
-  const rounded = Math.round(value);
-  return delimiter ? rounded.toString().replace(/\B(?=(\d{3})+(?!\d))/g, delimiter) : String(rounded);
-}
-
-function setupCounters(root: ParentNode) {
-  const counters = Array.from(root.querySelectorAll<HTMLElement>(".elementor-counter-number"));
-  if (counters.length === 0) {
-    return [];
-  }
-
-  const cleanups: Array<() => void> = [];
-  const animated = new WeakSet<HTMLElement>();
-
-  const animateCounter = (counter: HTMLElement) => {
-    if (animated.has(counter)) {
-      return;
-    }
-
-    animated.add(counter);
-
-    const from = Number(counter.dataset.fromValue ?? 0);
-    const to = Number(counter.dataset.toValue ?? counter.textContent?.replace(/[^\d.-]/g, "") ?? 0);
-    const duration = Number(counter.dataset.duration ?? 2000);
-    const delimiter = counter.dataset.delimiter ?? ",";
-    const start = performance.now();
-
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      counter.textContent = formatCounterValue(from + (to - from) * eased, delimiter);
-
-      if (progress < 1) {
-        window.requestAnimationFrame(tick);
-      }
-    };
-
-    counter.textContent = formatCounterValue(from, delimiter);
-    window.requestAnimationFrame(tick);
-  };
-
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return;
-          }
-
-          animateCounter(entry.target as HTMLElement);
-          observer.unobserve(entry.target);
-        });
-      },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.25 },
-    );
-
-    counters.forEach((counter) => observer.observe(counter));
-    cleanups.push(() => observer.disconnect());
-  } else {
-    counters.forEach(animateCounter);
-  }
-
-  return cleanups;
-}
-
 export default function HomeElementorInteractions() {
   useEffect(() => {
     const root = document.querySelector(".site-main.post-2588");
@@ -355,11 +203,13 @@ export default function HomeElementorInteractions() {
       return;
     }
 
+    // Note: pillar hover (group-cop-info/box-sub-home) and counter animation
+    // (elementor-counter-number) are now handled natively inside the
+    // Pillars.tsx and Counters.tsx React components — removed here to avoid
+    // two competing mechanisms fighting over the same DOM nodes.
     const cleanups = [
       ...setupNestedTabs(root),
       ...setupElementorCarousels(root),
-      ...setupPillarHover(root),
-      ...setupCounters(root),
     ];
 
     return () => {

@@ -1,9 +1,15 @@
-﻿import StaticSection from "@/components/landing/StaticSection";
-import HomeElementorInteractions from "@/components/landing/HomeElementorInteractions";
+﻿import HomeElementorInteractions from "@/components/landing/HomeElementorInteractions";
 import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
+import Hero from "@/components/landing/Hero";
+import LeOsAi from "@/components/landing/LeOsAi";
+import Pillars from "@/components/landing/Pillars";
+import Culture from "@/components/landing/Culture";
 import HeartTab from "@/components/landing/HeartTab";
 import Products from "@/components/landing/Products";
+import Counters from "@/components/landing/Counters";
+import Partners from "@/components/landing/Partners";
 import News from "@/components/landing/News";
+import Career from "@/components/landing/Career";
 
 export default function Home() {
   return (
@@ -15,17 +21,15 @@ export default function Home() {
         data-elementor-post-type="page"
         data-elementor-type="wp-page"
       >
-        {/* Load all split HTML sections statically */}
-        <StaticSection name="01-hero" />
-        <StaticSection name="02-leosai" />
-        <StaticSection name="03-pillars" />
-        <StaticSection name="04-culture" />
+        <Hero />
+        <LeOsAi />
+        <Pillars />
+        <Culture />
         <HeartTab />
         <Products />
-        <StaticSection name="07-esg" />
-        <StaticSection name="08-partners" />
+        <Partners />
         <News />
-        <StaticSection name="10-career" />
+        <Career />
       </div>
 
       {/* Interactions and hooks */}

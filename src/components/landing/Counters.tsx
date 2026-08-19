@@ -60,7 +60,7 @@ function CounterCard({ endValue, duration, title, unit, description }: CounterIt
   return (
     <div
       ref={cardRef}
-      className="p-8 rounded-2xl bg-[#132563]/40 border border-white/10 hover:border-emerald-500/20 hover:bg-[#132563]/60 transition-all duration-300 flex flex-col justify-between space-y-4"
+      className="p-8 rounded-2xl bg-[#132563]/40 border border-white/10 hover:border-[#2A9FFF]/20 hover:bg-[#132563]/60 transition-all duration-300 flex flex-col justify-between space-y-4"
     >
       <div className="space-y-2">
         <h3 className="text-zinc-200 text-sm font-semibold tracking-wide uppercase">
@@ -72,7 +72,7 @@ function CounterCard({ endValue, duration, title, unit, description }: CounterIt
       </div>
 
       <div className="pt-4 flex items-baseline gap-2">
-        <span className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent filter drop-shadow-[0_2px_10px_rgba(52,211,153,0.2)]">
+        <span className="text-4xl sm:text-5xl font-black text-white">
           {formatNumber(count)}
         </span>
         <span className="text-sm font-bold text-zinc-400 uppercase tracking-widest">
@@ -115,19 +115,19 @@ export default function Counters() {
     <section className="relative py-24 bg-transparent overflow-hidden">
 
       {/* Background decoration */}
-      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[#2A9FFF]/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        
+
         {/* Section Header */}
         <div className="max-w-3xl mb-16 space-y-4">
-          <div className="text-emerald-400 text-xs tracking-widest uppercase font-semibold">
+          <div className="text-[#4AB3FF] text-xs tracking-widest uppercase font-semibold">
             Chỉ số phát triển bền vững
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight [text-shadow:4px_0px_20px_rgba(0,140,255,0.2)]">
             ESG – Không phải cam kết <br />
             <span className="text-zinc-400">Là </span>
-            <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="text-[#2A9FFF]">
               dữ liệu đang vận hành
             </span>
           </h2>

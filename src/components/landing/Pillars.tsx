@@ -3,38 +3,42 @@
 import React, { useState, useEffect } from "react";
 import Hover from "./Hover";
 
-
 interface PillarItem {
   id: string;
   title: string;
   icon: string;
   tags: string[];
+  color: string;
 }
 
 export default function Pillars() {
   const [activePillar, setActivePillar] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const pillars: PillarItem[] = [
     {
       id: "ledb",
       title: "Le DB - Bộ não Số",
-      icon: "🧠",
-      tags: ["LeTRON (Hệ điều hành ALL IN ONE)", "LeLe AGI (Trợ lý ảo)", "Le-CarbonRegistry (Tín chỉ Carbon)", "Le-BatteryPassport (Hộ chiếu Pin)"],
+      icon: "/landing/Pillars/LeDB.png",
+      tags: [
+        "LeTRON (Hệ điều hành ALL IN ONE)",
+        "LeLe AGI (Trợ lý ảo)",
+        "Le-CarbonRegistry (Tín chỉ Carbon)",
+        "Le-BatteryPassport (Hộ chiếu Pin)",
+      ],
+      color: "#6FCBDC",
     },
     {
       id: "lesm",
       title: "Le SM - Di chuyển Thông minh",
-      icon: "⚡",
-      tags: [
-        "Le-GreenMobility (Vận tải)",
-        "Le-GreenLogistics (Logistics)",
-        "Le-SmartFleet"
-      ],
+      icon: "/landing/Pillars/LeSM.png",
+      tags: ["Le-GreenMobility (Vận tải)", "Le-GreenLogistics (Logistics)", "Le-SmartFleet"],
+      color: "#7DC35A",
     },
     {
       id: "lese",
       title: "Le SE - Năng lượng Thông minh",
-      icon: "☀️",
+      icon: "/landing/Pillars/LeSE.png",
       tags: [
         "Le-SwapStation (Hạ tầng Trạm sạc)",
         "Le-ChargeHub (Trạm thay Pin tự động)",
@@ -42,11 +46,12 @@ export default function Pillars() {
         "Le-BESS (Hệ thống lưu trữ BESS)",
         "Le-WindFarm (Điện gió)",
       ],
+      color: "#F78E20",
     },
     {
       id: "legm",
       title: "Le GM - Vật liệu Xanh",
-      icon: "🌱",
+      icon: "/landing/Pillars/LeGM.png",
       tags: [
         "Le-GreenBrick",
         "Le-GreenMix",
@@ -54,30 +59,32 @@ export default function Pillars() {
         "Le-GreenSteel",
         "Le-GreenCement",
         "Le-GreenAsphalt",
-        "Le-UHPC"
+        "Le-UHPC",
       ],
+      color: "#298C43",
     },
     {
       id: "lesb",
       title: "Le SB - Xây dựng Thông Minh",
-      icon: "🏗️",
-      tags: [
-        "Le-SmartRoads",
-        "Le-SmartMarine",
-        "Le-SmartIndustrial",
-        "Le-SmartModular"
-      ],
+      icon: "/landing/Pillars/LeSB.png",
+      tags: ["Le-SmartRoads", "Le-SmartMarine", "Le-SmartIndustrial", "Le-SmartModular"],
+      color: "#6E6F6F",
     },
     {
       id: "lesc",
       title: "Le SC - Đô thị Thông minh",
-      icon: "🏙️",
-      tags: [
-        "Le-ESCity (Đô thị Sinh thái)",
-        "Le-EIParks (KCN Net Zero)"
-      ],
+      icon: "/landing/Pillars/LeSC.png",
+      tags: ["Le-ESCity (Đô thị Sinh thái)", "Le-EIParks (KCN Net Zero)"],
+      color: "#038181",
     },
   ];
+
+  useEffect(() => {
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 640);
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
 
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
@@ -114,84 +121,114 @@ export default function Pillars() {
   return (
     <section className="relative py-24 bg-[var(--letron-background)]/40 border-y border-white/10 overflow-visible">
       {/* Glow overlays */}
-      <div className="absolute top-10 left-10 w-[300px] h-[300px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[300px] h-[300px] bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-10 left-10 w-[300px] h-[300px] bg-[#4AB3FF]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-[300px] h-[300px] bg-[#2A9FFF]/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
+      <div className="w-full px-2">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <div className="text-emerald-400 text-xs tracking-widest uppercase font-semibold">
+        <div className="text-center max-w-3xl mx-auto mb-20 md:mb-8 space-y-4">
+          <div className="text-[#4AB3FF] text-xs tracking-widest uppercase font-semibold">
             Mô hình vận hành
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white font-archivo">
-            Vòng Lặp Kép 6 Trụ Cột
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white font-archivo [text-shadow:4px_0px_20px_rgba(0,140,255,0.2)]">
+            Vòng Lặp Kép <span className="text-[#4AB3FF]">6 Trụ Cột</span>
           </h2>
           <p className="text-zinc-400 text-base sm:text-lg">
-            LeTRON xây dựng mô hình kinh tế tuần hoàn khép kín, nơi mỗi mắt xích đều được kết nối số và tạo ra giá trị bền vững.
+            LeTRON xây dựng mô hình kinh tế tuần hoàn khép kín, nơi mỗi mắt xích đều được kết nối số
+            và tạo ra giá trị bền vững.
           </p>
         </div>
 
         {/* Grid & Loop Visual */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* 6 Pillars Cards (Left/Center) */}
-          <div
-            id="pillars-grid-container"
-            className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6 relative"
-          >
-            {pillars.map((pillar) => (
+        <div
+          id="pillars-grid-container"
+          className="flex items-center justify-center flex-col sm:flex-row max-w-[1680px] min-h-[420px] py-10 sm:py-0 sm:h-[420px] md:h-[890px] mx-auto bg-[url('/landing/Pillars/pillars_bg.png')] bg-cover bg-center bg-no-repeat"
+        >
+          {/* 3 Pillars beginning */}
+          <div className="flex flex-row gap-6 sm:flex-col sm:gap-14 md:gap-20">
+            {pillars.slice(0, 3).map((pillar, index) => (
               <div
                 key={pillar.id}
-                className="elementor-element group-cop-info relative p-6 rounded-2xl border border-white/10 bg-[#0d1b4b]/40 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-black/30 group cursor-pointer"
+                className={`relative flex items-center justify-center cursor-pointer ${
+                  index === 0 || index === 2
+                    ? "translate-y-6 sm:translate-y-0 sm:translate-x-6 md:translate-x-10 lg:translate-x-16"
+                    : ""
+                }`}
                 onMouseEnter={() => handleMouseEnter(pillar.id)}
                 onMouseLeave={handleMouseLeave}
                 onClick={(e) => handleCardClick(pillar.id, e)}
               >
-                {/* Accent line */}
-                <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">{pillar.icon}</span>
-                  <h3 className="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors font-archivo">
-                    {pillar.title}
-                  </h3>
-                </div>
-
-                {/* Legacy Sub-Menu Popup (box-sub-home) */}
+                <img
+                  src={pillar.icon}
+                  alt={pillar.title}
+                  className="w-[100px] h-[100px] sm:w-[155px] sm:h-[155px] object-contain mb-2 transition-transform duration-300 hover:rotate-6"
+                />
                 <Hover
                   title={pillar.title}
                   tags={pillar.tags}
                   active={activePillar === pillar.id}
                   dataId={pillar.id}
+                  color={pillar.color}
+                  side={isMobile ? "bottom" : "left"}
                 />
               </div>
             ))}
           </div>
-
-          {/* Double Loop Circle Visual (Right) */}
-          <div className="lg:col-span-4 flex justify-center items-center relative">
-            <div className="relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] flex justify-center items-center">
-              {/* Outer Loop Image rotating slowly */}
-              <div className="absolute inset-0 animate-[spin_60s_linear_infinite]">
+          {/* Double Loop Circle Visual (Center) */}
+          <div className="flex justify-center items-center relative">
+            <div className="relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] flex justify-center items-center">
+              {/* Outer mechanical ring — rotates counter-clockwise */}
+              <div className="absolute inset-0 animate-[spin_60s_linear_infinite_reverse]">
                 <img
                   src="/wp-content/uploads/2026/05/Property-1Variant3-1.png"
                   alt="Vòng lặp kép LeTRON"
-                  className="w-full h-full object-contain opacity-60 filter drop-shadow-[0_0_20px_rgba(16,185,129,0.15)]"
+                  className="w-full h-full! object-contain opacity-60 filter drop-shadow-[0_0_20px_rgba(42,159,255,0.15)]"
                 />
               </div>
 
-              {/* Inner Circle Logo / Device */}
-              <div className="relative w-[180px] h-[180px] rounded-full overflow-hidden flex justify-center items-center">
+              {/* Inner Circle Logo / Device — rotates clockwise */}
+              <div className="relative w-[180px] h-[180px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px] rounded-full overflow-hidden flex justify-center items-center animate-[spin_60s_linear_infinite]">
                 <img
                   src="/wp-content/uploads/2026/05/Group-11.png"
                   alt="LeTRON Hub"
-                  className="w-full h-full object-contain p-4 filter drop-shadow-[0_0_15px_rgba(34,197,94,0.2)]"
+                  className="w-full h-full! object-contain p-4 filter drop-shadow-[0_0_15px_rgba(42,159,255,0.2)]"
                 />
               </div>
 
               {/* Decorative Pulse Rings */}
-              <div className="absolute inset-4 rounded-full border border-emerald-500/20 animate-pulse pointer-events-none" />
-              <div className="absolute inset-12 rounded-full border border-cyan-500/10 animate-ping [animation-duration:4s] pointer-events-none" />
+              <div className="absolute inset-4 rounded-full border border-[#2A9FFF]/20 animate-pulse pointer-events-none" />
+              <div className="absolute inset-12 rounded-full border border-[#4AB3FF]/10 animate-ping [animation-duration:4s] pointer-events-none" />
             </div>
+          </div>
+          {/* 3 Pillars ending */}
+          <div className="flex flex-row gap-6 sm:flex-col sm:gap-14 md:gap-20">
+            {pillars.slice(3, 6).map((pillar, index) => (
+              <div
+                key={pillar.id}
+                className={`relative flex items-center justify-center cursor-pointer ${
+                  index === 0 || index === 2
+                    ? "-translate-y-6 sm:translate-y-0 sm:-translate-x-6 md:-translate-x-10 lg:-translate-x-16"
+                    : ""
+                }`}
+                onMouseEnter={() => handleMouseEnter(pillar.id)}
+                onMouseLeave={handleMouseLeave}
+                onClick={(e) => handleCardClick(pillar.id, e)}
+              >
+                <img
+                  src={pillar.icon}
+                  alt={pillar.title}
+                  className="w-[100px] h-[100px] sm:w-[155px] sm:h-[155px] object-contain mb-2 transition-transform duration-300 hover:rotate-6"
+                />
+                <Hover
+                  title={pillar.title}
+                  tags={pillar.tags}
+                  active={activePillar === pillar.id}
+                  dataId={pillar.id}
+                  color={pillar.color}
+                  side={isMobile ? "top" : "right"}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

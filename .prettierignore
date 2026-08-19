@@ -1,0 +1,9 @@
+.next
+node_modules
+build
+out
+public
+src/app/sections-html
+.docs
+docs
+package-lock.json
