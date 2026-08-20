@@ -1,0 +1,353 @@
+{
+  "metadata": {
+    "title": "LeTRON - Công nghệ xanh, Vận hành thông minh",
+    "description": "Giải pháp công nghệ chuyển hóa rác thải và vật liệu xây dựng xanh hàng đầu Việt Nam."
+  },
+  "header": {
+    "nav": {
+      "aboutUs": "Giới thiệu",
+      "memberCompanies": "Công ty thành viên",
+      "products": "Sản phẩm",
+      "newsEvents": "Tin tức – Sự kiện",
+      "careers": "Tuyển dụng",
+      "contact": "Liên hệ"
+    },
+    "languageToggle": "Đổi ngôn ngữ",
+    "companies": {
+      "ledb": "Bộ não Số",
+      "lese": "Năng lượng Thông minh",
+      "legm": "Vật liệu Xanh",
+      "lesc": "Đô thị Thông minh",
+      "lesm": "Di chuyển Thông minh",
+      "lesb": "Xây dựng Thông Minh"
+    },
+    "products": {
+      "lesc": {
+        "name": "Đô thị Thông minh",
+        "features": [
+          "Le-ESCity ( Đô thị Sinh thái Thông minh)",
+          "Le-EIParks (Khu Công nghiệp Sinh thái Net Zero)"
+        ]
+      },
+      "lesm": {
+        "name": "Di chuyển Thông minh",
+        "features": [
+          "Le-GreenMobility (Vận tải xanh)",
+          "Le-GreenLogistics (Logistics Xanh)"
+        ]
+      },
+      "ledb": {
+        "name": "Bộ não Số",
+        "features": [
+          "LeTRON (Hệ điều hành ALL IN ONE)",
+          "LeLe AGI (Trợ lý ảo)",
+          "Le-CarbonRegistry (Tín chỉ Carbon)",
+          "Le-BatteryPassport (Hộ chiếu Pin)"
+        ]
+      },
+      "lese": {
+        "name": "Năng lượng Thông minh",
+        "features": [
+          "Le-SwapStation (Hạ tầng Trạm sạc)",
+          "Le-ChargeHub (Trạm thay Pin tự động)",
+          "Le-SolarFarm (Hạ tầng điện mặt trời Solar)",
+          "Le-BESS (Hệ thống lưu trữ BESS)",
+          "Le-WindFarm (Điện gió)"
+        ]
+      },
+      "lesb": {
+        "name": "Xây dựng Thông Minh",
+        "features": [
+          "Le-SmartRoads (Hạ tầng Giao thông)",
+          "Le-SmartMarine (Hạ tầng Cảng biển)",
+          "Le-SmartIndustrial (Hạ tầng Công nghiệp)",
+          "Le-SmartModular (Nhà lắp ghép Thông minh)"
+        ]
+      },
+      "legm": {
+        "name": "Vật liệu Xanh",
+        "features": [
+          "Le-GreenBrick (gạch không nung)",
+          "Le-GreenMix (bê tông tươi)",
+          "Le-GreenPrecast (cấu kiện đúc sẵn)",
+          "Le-GreenSteel (thép xanh)",
+          "Le-GreenCement (xi măng xanh)",
+          "Le-GreenAsphalt (nhựa đường tái chế)"
+        ]
+      }
+    }
+  },
+  "hero": {
+    "badge": "Mở màn Kỷ nguyên",
+    "titleLine1": "Tiên phong công nghệ",
+    "titleLine2Prefix": "Kiến tạo tương lai ",
+    "titleLine2Highlight": "tuần hoàn",
+    "description1": "Chúng tôi biến chất thải thành tài nguyên, dữ liệu thành giá trị,",
+    "description2": "và công nghệ thành nền tảng cho một hệ sinh thái Net Zero bền vững.",
+    "cta": "Kích hoạt Hệ sinh thái"
+  },
+  "leosAi": {
+    "eyebrow": "Kiến trúc đa tầng",
+    "titleLine1": "Hệ điều hành công nghiệp LeTRON",
+    "titleLine2Prefix": "& Trí tuệ nhân tạo ",
+    "titleLine2Highlight": "LeLe AI",
+    "description": "LeTRON vận hành trên một kiến trúc công nghệ đa tầng, nơi dữ liệu, AI và vật liệu xanh được kết nối thành một hệ thống thống nhất và tự động hóa.",
+    "feature1": "Phân tích dữ liệu vật liệu quy mô lớn",
+    "feature2": "Tối ưu cấp phối bê tông hiệu năng cao",
+    "feature3": "Cập nhật tín chỉ Carbon theo thời gian thực",
+    "appStoreAlt": "Tải trên App Store",
+    "googlePlayAlt": "Tải trên Google Play",
+    "mockupAlt": "Hệ điều hành công nghiệp LeTRON"
+  },
+  "culture": {
+    "eyebrow": "Văn hóa & Con người",
+    "titleLine1": "Công nghệ tạo nên hệ thống",
+    "titleLine2Prefix": "Con người tạo nên ",
+    "titleLine2Highlight": "tương lai",
+    "description": "LeTRON xây dựng mô hình kinh tế tuần hoàn khép kín, nơi mỗi mắt xích đều tạo ra giá trị."
+  },
+  "career": {
+    "eyebrow": "Gia nhập letron",
+    "titleHighlightPrefix": "hay ",
+    "titleLine1": "Xây sự nghiệp",
+    "titleHighlight": "kiến tạo tương lai?",
+    "description": "Chúng tôi luôn tìm kiếm những bộ óc sáng tạo, không ngừng bứt phá giới hạn và có tinh thần trách nhiệm cao để cùng cách mạng hóa ngành công nghiệp tuần hoàn tại Việt Nam.",
+    "cta": "Gia nhập đội ngũ Kiến trúc sư"
+  },
+  "partners": {
+    "title": "Đối tác LeTRON",
+    "description": "Chúng tôi không chỉ kết nối — chúng tôi cùng nhau tạo ra giá trị lâu dài và thúc đẩy chuyển đổi xanh toàn diện.",
+    "logoAlt": "Đối tác LeTRON {index}"
+  },
+  "pillars": {
+    "eyebrow": "Mô hình vận hành",
+    "titlePrefix": "Vòng Lặp Kép ",
+    "titleHighlight": "6 Trụ Cột",
+    "description": "LeTRON xây dựng mô hình kinh tế tuần hoàn khép kín, nơi mỗi mắt xích đều được kết nối số và tạo ra giá trị bền vững.",
+    "loopAlt": "Vòng lặp kép LeTRON",
+    "hubAlt": "LeTRON Hub",
+    "items": {
+      "ledb": {
+        "title": "Le DB - Bộ não Số",
+        "tags": [
+          "LeTRON (Hệ điều hành ALL IN ONE)",
+          "LeLe AGI (Trợ lý ảo)",
+          "Le-CarbonRegistry (Tín chỉ Carbon)",
+          "Le-BatteryPassport (Hộ chiếu Pin)"
+        ]
+      },
+      "lesm": {
+        "title": "Le SM - Di chuyển Thông minh",
+        "tags": ["Le-GreenMobility (Vận tải)", "Le-GreenLogistics (Logistics)", "Le-SmartFleet"]
+      },
+      "lese": {
+        "title": "Le SE - Năng lượng Thông minh",
+        "tags": [
+          "Le-SwapStation (Hạ tầng Trạm sạc)",
+          "Le-ChargeHub (Trạm thay Pin tự động)",
+          "Le-SolarFarm (Hạ tầng điện mặt trời Solar)",
+          "Le-BESS (Hệ thống lưu trữ BESS)",
+          "Le-WindFarm (Điện gió)"
+        ]
+      },
+      "legm": {
+        "title": "Le GM - Vật liệu Xanh",
+        "tags": [
+          "Le-GreenBrick",
+          "Le-GreenMix",
+          "Le-GreenPrecast",
+          "Le-GreenSteel",
+          "Le-GreenCement",
+          "Le-GreenAsphalt",
+          "Le-UHPC"
+        ]
+      },
+      "lesb": {
+        "title": "Le SB - Xây dựng Thông Minh",
+        "tags": ["Le-SmartRoads", "Le-SmartMarine", "Le-SmartIndustrial", "Le-SmartModular"]
+      },
+      "lesc": {
+        "title": "Le SC - Đô thị Thông minh",
+        "tags": ["Le-ESCity (Đô thị Sinh thái)", "Le-EIParks (KCN Net Zero)"]
+      }
+    }
+  },
+  "products": {
+    "titleLine1": "Sản phẩm LeTRON",
+    "titleLine2Prefix": "Vận hành toàn bộ ",
+    "titleLine2Highlight": "công nghiệp xanh",
+    "description1": "LeTRON xây dựng một hệ sinh thái tích hợp, nơi công nghệ, năng lượng, vật liệu và hạ tầng",
+    "description2": "được kết nối thành một vòng lặp giá trị khép kín.",
+    "ctaAll": "Xem tất cả sản phẩm",
+    "ctaDetail": "Chi tiết",
+    "items": {
+      "ledb": {
+        "title": "LeDB — BỘ NÃO SỐ",
+        "description": "Hệ quản trị dữ liệu tích hợp, kết nối toàn bộ hệ thống số hóa, thiết lập hộ chiếu sản phẩm tuần hoàn."
+      },
+      "lesb": {
+        "title": "LeSB — XÂY DỰNG THÔNG MINH",
+        "description": "Số hóa hạ tầng kỹ thuật xây dựng công trình giao thông, cảng biển và kết cấu công nghiệp lắp ghép."
+      },
+      "lese": {
+        "title": "LeSE — NĂNG LƯỢNG THÔNG MINH",
+        "description": "Tích hợp điện mặt trời, điện gió và trạm lưu trữ năng lượng BESS phục vụ vận hành Net Zero."
+      },
+      "lesm": {
+        "title": "LeSM — DI CHUYỂN THÔNG MINH",
+        "description": "Hạ tầng trạm sạc xe điện thông minh, trạm đổi pin tự động và tối ưu hóa hệ thống logistics xanh."
+      },
+      "legm": {
+        "title": "LeGM — VẬT LIỆU XANH",
+        "description": "Ứng dụng bê tông tươi cấp phối tối ưu, gạch không nung, thép xanh và bê tông chống xâm thực nước biển."
+      },
+      "lesc": {
+        "title": "LeSC — ĐÔ THỊ THÔNG MINH",
+        "description": "Mô hình quy hoạch đô thị sinh thái thông minh và phát triển khu công nghiệp sinh thái tuần hoàn."
+      }
+    }
+  },
+  "heartTab": {
+    "tabs": {
+      "heart": "H.E.A.R.T",
+      "way": "LETRON WAY",
+      "spirit": "TINH THẦN LE TRON"
+    },
+    "heartHeading": "H.E.A.R.T – Giá trị cốt lõi",
+    "slides": {
+      "humanity": {
+        "title": "H – Humanity",
+        "description": "\"Con người là Trung tâm.\nAn toàn là mệnh lệnh,\nHạnh phúc là đích đến.\""
+      },
+      "excellence": {
+        "title": "E – Excellence",
+        "description": "\"Vượt ngưỡng giới hạn.\nCam kết tiêu chuẩn cao nhất trong từng sản phẩm, từng dòng code.\""
+      },
+      "respect": {
+        "title": "H – Humanity",
+        "description": "\"Chính trực và Biết ơn. Tôn trọng Mẹ Thiên nhiên, Đối tác, và mọi Cam kết.\""
+      },
+      "action": {
+        "title": "A – Action",
+        "description": "\"Thần tốc và Linh hoạt. 'Vừa chạy vừa xếp hàng' Sai đâu sửa đó, không dừng lại.\""
+      },
+      "technology": {
+        "title": "T – Technology",
+        "description": "\"Dẫn dắt bằng Dữ liệu.\nDùng công nghệ để biến điều\nkhông thể thành có thể.\""
+      }
+    },
+    "wayHeading": "LETRON WAY – 09 Nguyên tắc vàng",
+    "wayRules": {
+      "rule1": "Không có rác\nchỉ có tài nguyên đặt sai chỗ",
+      "rule2": "Mọi dòng code phải tạo ra giá trị\n(ROI)",
+      "rule3": "Từ vật liệu thải → tài sản số",
+      "rule4": "Dữ liệu là mạch máu\nAI là trí não",
+      "rule5": "Con người là kiến trúc sư  AI là công cụ",
+      "rule6": "Vận hành bằng hệ thống\nKiểm soát bằng dữ liệu",
+      "rule7": "Minh bạch là tiêu chuẩn\nĐo lường là bắt buộc",
+      "rule8": "Tối ưu liên tục\nKhông có trạng thái hoàn thành",
+      "rule9": "Mỗi đầu ra đều phải tạo thêm\ngiá trị cho hệ sinh thái"
+    },
+    "spiritHeading": "Tinh thần LeTRON",
+    "spiritMainHeadingLine1": "Bộ óc không biên giới",
+    "spiritMainHeadingLine2Prefix": "Rễ sâu vào ",
+    "spiritMainHeadingLine2Highlight": "đất Việt",
+    "spiritText": "LeTRON kết nối tri thức toàn cầu để giải quyết những bài toán lớn của thế giới, nhưng luôn bắt đầu từ trách nhiệm với chính nơi mình thuộc về."
+  },
+  "about": {
+    "metaTitle": "Giới thiệu - LeTRON",
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Giới thiệu",
+    "heroTitlePrefix": "Giới thiệu ",
+    "heroTitleHighlight": "LeTRON",
+    "heroDescription": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+    "introBadge": "Giới thiệu chung",
+    "introHeadingLine1": "Hệ sinh thái công nghiệp",
+    "introHeadingLine2Prefix": "Vận hành bằng ",
+    "introHeadingLine2Highlight": "dữ liệu",
+    "introParagraph1": "LETRON là tập đoàn công nghiệp thế hệ mới, tiên phong ứng dụng công nghệ số để tái cấu trúc toàn bộ chuỗi giá trị từ tài nguyên, sản xuất đến hạ tầng và năng lượng.",
+    "introParagraph2": "Khác với mô hình doanh nghiệp truyền thống, LETRON được xây dựng như một nền tảng vận hành hợp nhất, nơi dữ liệu, trí tuệ nhân tạo và tài sản vật lý kết nối chặt chẽ thông qua hệ điều hành LeOS. Tại đây, những gì từng được xem là “chất thải” được tái định nghĩa thành tài nguyên có giá trị, tạo ra một vòng lặp kinh tế tuần hoàn bền vững và có khả năng mở rộng toàn cầu.",
+    "playVideoLabel": "Phát video",
+    "visionBadge": "Tầm nhìn",
+    "visionHeadingLine1": "Hệ sinh thái công nghiệp",
+    "visionHeadingLine2Prefix": "Vận hành bằng ",
+    "visionHeadingLine2Highlight": "dữ liệu",
+    "visionParagraph": "LETRON hướng tới việc đưa trí tuệ và công nghệ Việt Nam vươn ra toàn cầu, định hình một chuẩn mực mới cho ngành công nghiệp — nơi tăng trưởng kinh tế song hành với tái tạo môi trường.",
+    "missionBadge": "Sứ mệnh",
+    "missionHeadingLine1": "Người chữa lành Trái đất",
+    "missionHeadingHighlight": "bằng công nghệ",
+    "missionIntro": "Chúng tôi ứng dụng nền tảng LeOS và LeLe AI để:",
+    "missionPoints": [
+      "Biến chất thải công nghiệp thành vật liệu có giá trị cao",
+      "Tối ưu vận hành bằng dữ liệu thời gian thực",
+      "Giảm thiểu tác động môi trường một cách có thể đo lường"
+    ],
+    "orgChartHeading": "Sơ đồ tổ chức",
+    "orgChartAlt": "Sơ đồ tổ chức LeTRON",
+    "leadershipHeading": "Ban lãnh đạo"
+  },
+  "aboutHeartValues": {
+    "overlayTitleLine1": "Giá trị cốt lõi",
+    "overlayTitleHighlight": "H.E.A.R.T",
+    "overlayImageAlt": "Giá trị cốt lõi H.E.A.R.T",
+    "values": {
+      "excellence": {
+        "title": "E — Excellence",
+        "description": "Vượt ngưỡng giới hạn. Cam kết tiêu chuẩn cao nhất trong từng sản phẩm, từng dòng code."
+      },
+      "action": {
+        "title": "A — Action",
+        "description": "Thần tốc và Linh hoạt. 'Vừa chạy vừa xếp hàng' – Sai đâu sửa đó, không dừng lại."
+      },
+      "humanity": {
+        "title": "H — Humanity",
+        "description": "Con người là Trung tâm. An toàn là mệnh lệnh, Hạnh phúc là đích đến."
+      },
+      "technology": {
+        "title": "T — Technology",
+        "description": "Dẫn dắt bằng Dữ liệu. Dùng công nghệ để biến điều không thể thành có thể."
+      },
+      "respect": {
+        "title": "R — Respect",
+        "description": "Chính trực và Biết ơn. Tôn trọng Mẹ Thiên nhiên, Đối tác, và mọi Cam kết."
+      }
+    }
+  },
+  "leadership": {
+    "diagramAlt": "Sơ đồ tổ chức Ban lãnh đạo",
+    "openLabel": "Xem thông tin Ban lãnh đạo",
+    "closeLabel": "Đóng",
+    "members": {
+      "cfo": { "name": "Ông Nguyễn Văn Công", "title": "CFO" },
+      "chairman": { "name": "Ông Lê Minh Tiến", "title": "Chủ tịch HĐQT" },
+      "ceo": { "name": "Bà Hoàng Lệ Thủy", "title": "CEO" },
+      "lear": { "name": "Ông Lê Đức Anh", "title": "LeAR" }
+    }
+  },
+  "footer": {
+    "companyName": "Công ty cổ phần Tập đoàn LeTRON",
+    "copyright": "© 2026 LeTRON. Powered by SAOKIM Digital.",
+    "quickLinksHeading": "Liên kết nhanh",
+    "productsHeading": "Sản phẩm",
+    "contactHeading": "Liên hệ",
+    "quickLinks": {
+      "home": "Trang chủ",
+      "aboutUs": "Giới thiệu",
+      "memberCompanies": "Công ty thành viên",
+      "newsEvents": "Tin tức - Sự kiện",
+      "careers": "Tuyển dụng",
+      "contact": "Liên hệ"
+    },
+    "products": {
+      "ledb": "LeDB (Bộ não Số)",
+      "lesm": "LeSM ( Di chuyển Thông minh)",
+      "lese": "LeSE ( Năng lượng Thông minh)",
+      "legm": "LeGM ( Vật liệu Xanh)",
+      "lesb": "LeSB (Xây dựng Thông Minh)",
+      "lesc": "LeSC (Đô thị Thông minh)"
+    },
+    "address": "Trụ sở chính: Tầng 3, Tòa nhà Công Thành, số 295 đường Trần Nhân Tông, phường Uông Bí, tỉnh Quảng Ninh",
+    "downloadProfile": "Tải Profile",
+    "accordionAriaLabel": "Bộ gấp mở. Nhấn Enter hoặc Space để mở, Escape để đóng, dùng phím mũi tên để di chuyển"
+  }
+}

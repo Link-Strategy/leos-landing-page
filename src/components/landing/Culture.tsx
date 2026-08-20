@@ -1,4 +1,8 @@
-export default function Culture() {
+import { getTranslations } from "next-intl/server";
+
+export default async function Culture() {
+  const t = await getTranslations("culture");
+
   return (
     <section className="relative py-24 bg-transparent overflow-hidden">
       {/* Background glow */}
@@ -7,23 +11,22 @@ export default function Culture() {
       <div className="relative mx-auto max-w-3xl px-6 sm:px-8 text-center space-y-4">
         {/* Subtitle */}
         <div className="text-[#4AB3FF] text-xs tracking-widest uppercase font-semibold">
-          Văn hóa &amp; Con người
+          {t("eyebrow")}
         </div>
 
         {/* Heading */}
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight [text-shadow:4px_0px_20px_rgba(0,140,255,0.2)]">
-          Công nghệ tạo nên hệ thống
+          {t("titleLine1")}
           <br />
-          Con người tạo nên{" "}
+          {t("titleLine2Prefix")}
           <span className="text-[#2A9FFF]">
-            tương lai
+            {t("titleLine2Highlight")}
           </span>
         </h2>
 
         {/* Body text */}
         <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
-          LeTRON xây dựng mô hình kinh tế tuần hoàn khép kín, nơi mỗi mắt
-          xích đều tạo ra giá trị.
+          {t("description")}
         </p>
       </div>
     </section>

@@ -1,7 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import type * as React from "react";
 import { Play } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
 import Partners from "@/components/landing/Partners";
@@ -37,13 +38,12 @@ function InfoCard({ children, className }: { children: React.ReactNode; classNam
   );
 }
 
-const MISSION_POINTS = [
-  "Biến chất thải công nghiệp thành vật liệu có giá trị cao",
-  "Tối ưu vận hành bằng dữ liệu thời gian thực",
-  "Giảm thiểu tác động môi trường một cách có thể đo lường",
-];
-
 export default function AboutPage() {
+  const t = useTranslations("about");
+  const locale = useLocale();
+  const MISSION_POINTS = t.raw("missionPoints") as string[];
+  const orgChartSrc = locale === "en" ? "/wp-content/uploads/2026/05/so-do-en.svg" : "/wp-content/uploads/2026/05/so-do.svg";
+
   return (
     <div className="site-main post-723 page type-page status-publish hentry">
       <div
@@ -66,17 +66,16 @@ export default function AboutPage() {
           <div className="mx-auto w-full max-w-[1320px]">
             <nav aria-label="breadcrumbs" className="rank-math-breadcrumb text-sm text-zinc-400">
               <p>
-                <Link href="/">Home</Link>
+                <Link href="/">{t("breadcrumbHome")}</Link>
                 <span className="separator"> / </span>
-                <span className="last">Giới thiệu</span>
+                <span className="last">{t("breadcrumbCurrent")}</span>
               </p>
             </nav>
             <h1 className="elementor-heading-title elementor-size-default mt-4 font-archivo text-3xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-4xl">
-              Giới thiệu <span className="text-[#2A9FFF]">LeTRON</span>
+              {t("heroTitlePrefix")}<span className="text-[#2A9FFF]">{t("heroTitleHighlight")}</span>
             </h1>
             <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-zinc-400">
-              Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
-              industries for previewing layouts and visual mockups.
+              {t("heroDescription")}
             </p>
           </div>
         </section>
@@ -86,30 +85,25 @@ export default function AboutPage() {
           <div className="space-y-10">
             <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-16">
               <div>
-                <SubtitleBadge>Giới thiệu chung</SubtitleBadge>
+                <SubtitleBadge>{t("introBadge")}</SubtitleBadge>
                 <h2 className="elementor-heading-title elementor-size-default font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-3xl my-7!">
-                  Hệ sinh thái công nghiệp
+                  {t("introHeadingLine1")}
                   <br />
-                  Vận hành bằng <span className="text-[#2A9FFF]">dữ liệu</span>
+                  {t("introHeadingLine2Prefix")}<span className="text-[#2A9FFF]">{t("introHeadingLine2Highlight")}</span>
                 </h2>
               </div>
 
               <div className="space-y-4 text-base font-light leading-relaxed text-white">
                 <p>
-                  LETRON là tập đoàn công nghiệp thế hệ mới, tiên phong ứng dụng công nghệ số để tái
-                  cấu trúc toàn bộ chuỗi giá trị từ tài nguyên, sản xuất đến hạ tầng và năng lượng.
+                  {t("introParagraph1")}
                 </p>
                 <p>
-                  Khác với mô hình doanh nghiệp truyền thống, LETRON được xây dựng như một nền tảng
-                  vận hành hợp nhất, nơi dữ liệu, trí tuệ nhân tạo và tài sản vật lý kết nối chặt
-                  chẽ thông qua hệ điều hành LeOS. Tại đây, những gì từng được xem là “chất thải”
-                  được tái định nghĩa thành tài nguyên có giá trị, tạo ra một vòng lặp kinh tế tuần
-                  hoàn bền vững và có khả năng mở rộng toàn cầu.
+                  {t("introParagraph2")}
                 </p>
               </div>
             </div>
 
-            <div className="relative">
+            {/* <div className="relative">
               <div
                 className="elementor-element elementor-widget elementor-widget-video"
                 data-widget_type="video.default"
@@ -128,7 +122,7 @@ export default function AboutPage() {
                     }}
                   >
                     <div
-                      aria-label="Phát video"
+                      aria-label={t("playVideoLabel")}
                       className="elementor-custom-embed-play flex size-16 cursor-pointer items-center justify-center rounded-full bg-[#2A9FFF] text-white shadow-[0_2px_20px_rgba(12,178,255,0.4)] transition hover:bg-[#4AB3FF]"
                       role="button"
                       tabIndex={0}
@@ -138,36 +132,34 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Tầm nhìn / Sứ mệnh */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
             <InfoCard>
               <Image alt="" src="/about/Eye.png" width={82} height={82} />
-              <SubtitleBadge className="mt-4">Tầm nhìn</SubtitleBadge>
+              <SubtitleBadge className="mt-4">{t("visionBadge")}</SubtitleBadge>
               <h3 className="my-7! font-archivo text-xl font-bold leading-[1.3] text-white sm:text-2xl">
-                Hệ sinh thái công nghiệp
+                {t("visionHeadingLine1")}
                 <br />
-                Vận hành bằng <span className="text-[#2A9FFF]">dữ liệu</span>
+                {t("visionHeadingLine2Prefix")}<span className="text-[#2A9FFF]">{t("visionHeadingLine2Highlight")}</span>
               </h3>
               <p className="mt-4 text-base font-light leading-[1.5]! text-white">
-                LETRON hướng tới việc đưa trí tuệ và công nghệ Việt Nam vươn ra toàn cầu, định hình
-                một chuẩn mực mới cho ngành công nghiệp — nơi tăng trưởng kinh tế song hành với tái
-                tạo môi trường.
+                {t("visionParagraph")}
               </p>
             </InfoCard>
 
             <InfoCard>
               <Image alt="" src="/about/Target.png" width={82} height={82} />
-              <SubtitleBadge className="mt-4">Sứ mệnh</SubtitleBadge>
+              <SubtitleBadge className="mt-4">{t("missionBadge")}</SubtitleBadge>
               <h3 className="my-7! font-archivo text-xl font-bold leading-[1.3] text-white sm:text-2xl">
-                Người chữa lành Trái đất
+                {t("missionHeadingLine1")}
                 <br />
-                <span className="text-[#2A9FFF]">bằng công nghệ</span>
+                <span className="text-[#2A9FFF]">{t("missionHeadingHighlight")}</span>
               </h3>
               <p className="mt-4 text-base font-light leading-[150%] text-white">
-                Chúng tôi ứng dụng nền tảng LeOS và LeLe AI để:
+                {t("missionIntro")}
               </p>
               <ul className="mt-4 space-y-2.5">
                 {MISSION_POINTS.map((point) => (
@@ -192,12 +184,12 @@ export default function AboutPage() {
           {/* Sơ đồ tổ chức */}
           <div className="text-center">
             <h2 className="elementor-heading-title elementor-size-default font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-3xl">
-              Sơ đồ tổ chức
+              {t("orgChartHeading")}
             </h2>
             <div className="mt-8">
               <Image
-                alt="Sơ đồ tổ chức LeTRON"
-                src="/wp-content/uploads/2026/05/so-do.svg"
+                alt={t("orgChartAlt")}
+                src={orgChartSrc}
                 width={1681}
                 height={574}
                 className="mx-auto h-auto w-full max-w-full"
@@ -214,7 +206,7 @@ export default function AboutPage() {
         {/* Ban lãnh đạo */}
         <div className="mx-auto max-w-[1320px] px-6 py-16 sm:px-8">
           <h2 className="elementor-heading-title elementor-size-default mb-10! text-center font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-3xl">
-            Ban lãnh đạo
+            {t("leadershipHeading")}
           </h2>
           <LeadershipReveal />
         </div>

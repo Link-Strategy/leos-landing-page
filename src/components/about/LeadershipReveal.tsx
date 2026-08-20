@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils";
 import { LeadershipGrid } from "./LeadershipGrid";
@@ -9,6 +10,7 @@ import { LeadershipGrid } from "./LeadershipGrid";
 const HOVER_CLOSE_DELAY_MS = 200;
 
 export function LeadershipReveal() {
+  const t = useTranslations("leadership");
   const [open, setOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -37,7 +39,7 @@ export function LeadershipReveal() {
   return (
     <div className="relative mx-auto w-full max-w-[1396px]">
       <Image
-        alt="Sơ đồ tổ chức Ban lãnh đạo"
+        alt={t("diagramAlt")}
         src="/about/leader-ship-circle.png"
         width={1396}
         height={758}
@@ -50,7 +52,7 @@ export function LeadershipReveal() {
         onClick={openNow}
         onMouseEnter={openNow}
         onMouseLeave={scheduleClose}
-        aria-label="Xem thông tin Ban lãnh đạo"
+        aria-label={t("openLabel")}
         className="absolute left-1/2 top-1/2 aspect-square w-[17%] -translate-x-1/2 -translate-y-1/2 rounded-full"
       />
 

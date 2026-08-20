@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Card, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -20,6 +21,15 @@ interface ProductItem {
   bgImage: string;
   link: string;
 }
+
+const PRODUCT_META: { id: string; logo: string; bgImage: string; link: string }[] = [
+  { id: "ledb", logo: "/wp-content/uploads/2026/05/logo-12.svg", bgImage: "/wp-content/uploads/2026/05/img-10-1.jpg", link: "/san-pham/ledb-bo-nao-so-4" },
+  { id: "lesb", logo: "/wp-content/uploads/2026/05/logo-13.svg", bgImage: "/wp-content/uploads/2026/05/img-7-1.jpg", link: "/san-pham/lesb-xay-dung-thong-minh" },
+  { id: "lese", logo: "/wp-content/uploads/2026/05/logo-12.svg", bgImage: "/wp-content/uploads/2026/05/img-7-1.jpg", link: "/san-pham/lese-nang-luong-thong-minh" },
+  { id: "lesm", logo: "/wp-content/uploads/2026/05/logo.jpg", bgImage: "/wp-content/uploads/2026/05/img-8-1.jpg", link: "/san-pham/lesm-di-chuyen-thong-minh" },
+  { id: "legm", logo: "/wp-content/uploads/2026/05/logo-11.svg", bgImage: "/wp-content/uploads/2026/05/img-9-1.jpg", link: "/san-pham/legm-vat-lieu-xanh" },
+  { id: "lesc", logo: "/wp-content/uploads/2026/05/logo-8.svg", bgImage: "/wp-content/uploads/2026/05/img-6-1.jpg", link: "/san-pham/lesc-do-thi-thong-minh" },
+];
 
 /*
  * Chỉ giữ lại những gì Tailwind không handle được:
@@ -67,56 +77,15 @@ const productsCss = `
 `;
 
 export default function Products() {
-  const products: ProductItem[] = [
-    {
-      id: "ledb",
-      title: "LeDB — BỘ NÃO SỐ",
-      description: "Hệ quản trị dữ liệu tích hợp, kết nối toàn bộ hệ thống số hóa, thiết lập hộ chiếu sản phẩm tuần hoàn.",
-      logo: "/wp-content/uploads/2026/05/logo-12.svg",
-      bgImage: "/wp-content/uploads/2026/05/img-10-1.jpg",
-      link: "/san-pham/ledb-bo-nao-so-4/",
-    },
-    {
-      id: "lesb",
-      title: "LeSB — XÂY DỰNG THÔNG MINH",
-      description: "Số hóa hạ tầng kỹ thuật xây dựng công trình giao thông, cảng biển và kết cấu công nghiệp lắp ghép.",
-      logo: "/wp-content/uploads/2026/05/logo-13.svg",
-      bgImage: "/wp-content/uploads/2026/05/img-7-1.jpg",
-      link: "/san-pham/lesb-xay-dung-thong-minh/",
-    },
-    {
-      id: "lese",
-      title: "LeSE — NĂNG LƯỢNG THÔNG MINH",
-      description: "Tích hợp điện mặt trời, điện gió và trạm lưu trữ năng lượng BESS phục vụ vận hành Net Zero.",
-      logo: "/wp-content/uploads/2026/05/logo-12.svg",
-      bgImage: "/wp-content/uploads/2026/05/img-7-1.jpg",
-      link: "/san-pham/lese-nang-luong-thong-minh/",
-    },
-    {
-      id: "lesm",
-      title: "LeSM — DI CHUYỂN THÔNG MINH",
-      description: "Hạ tầng trạm sạc xe điện thông minh, trạm đổi pin tự động và tối ưu hóa hệ thống logistics xanh.",
-      logo: "/wp-content/uploads/2026/05/logo.jpg",
-      bgImage: "/wp-content/uploads/2026/05/img-8-1.jpg",
-      link: "/san-pham/lesm-di-chuyen-thong-minh/",
-    },
-    {
-      id: "legm",
-      title: "LeGM — VẬT LIỆU XANH",
-      description: "Ứng dụng bê tông tươi cấp phối tối ưu, gạch không nung, thép xanh và bê tông chống xâm thực nước biển.",
-      logo: "/wp-content/uploads/2026/05/logo-11.svg",
-      bgImage: "/wp-content/uploads/2026/05/img-9-1.jpg",
-      link: "/san-pham/legm-vat-lieu-xanh/",
-    },
-    {
-      id: "lesc",
-      title: "LeSC — ĐÔ THỊ THÔNG MINH",
-      description: "Mô hình quy hoạch đô thị sinh thái thông minh và phát triển khu công nghiệp sinh thái tuần hoàn.",
-      logo: "/wp-content/uploads/2026/05/logo-8.svg",
-      bgImage: "/wp-content/uploads/2026/05/img-6-1.jpg",
-      link: "/san-pham/lesc-do-thi-thong-minh/",
-    },
-  ];
+  const t = useTranslations("products");
+  const products: ProductItem[] = PRODUCT_META.map((meta) => ({
+    id: meta.id,
+    logo: meta.logo,
+    bgImage: meta.bgImage,
+    link: meta.link,
+    title: t(`items.${meta.id}.title`),
+    description: t(`items.${meta.id}.description`),
+  }));
 
   useEffect(() => {
     let cancelled = false;
@@ -176,10 +145,10 @@ export default function Products() {
           max-[767px]:text-[22px]
           [text-shadow:4px_0px_20px_rgba(0,140,255,0.2)]
         ">
-          Sản phẩm LeTRON
+          {t("titleLine1")}
           <br />
-          Vận hành toàn bộ{" "}
-          <span className="text-[#2A9FFF]">công nghiệp xanh</span>
+          {t("titleLine2Prefix")}
+          <span className="text-[#2A9FFF]">{t("titleLine2Highlight")}</span>
         </h2>
       </div>
 
@@ -191,9 +160,9 @@ export default function Products() {
           max-[1550px]:text-[16px]
           max-[1024px]:text-[14px]
         ">
-          LeTRON xây dựng một hệ sinh thái tích hợp, nơi công nghệ, năng lượng, vật liệu và hạ tầng
+          {t("description1")}
           <br />
-          được kết nối thành một vòng lặp giá trị khép kín.
+          {t("description2")}
         </p>
       </div>
 
@@ -221,7 +190,7 @@ export default function Products() {
                 <path clipRule="evenodd" d="M18.5303 12.5303C18.8232 12.2374 18.8232 11.7626 18.5303 11.4697L14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967C13.1768 7.76256 13.1768 8.23744 13.4697 8.53033L16.1893 11.25H6C5.58579 11.25 5.25 11.5858 5.25 12C5.25 12.4142 5.58579 12.75 6 12.75H16.1893L13.4697 15.4697C13.1768 15.7626 13.1768 16.2374 13.4697 16.5303C13.7626 16.8232 14.2374 16.8232 14.5303 16.5303L18.5303 12.5303Z" fill="white" fillRule="evenodd" />
               </svg>
             </span>
-            <span>Xem tất cả sản phẩm</span>
+            <span>{t("ctaAll")}</span>
           </span>
         </Link>
       </div>
@@ -316,7 +285,7 @@ export default function Products() {
                                   />
                                 </svg>
                               </span>
-                              <span>Chi tiết</span>
+                              <span>{t("ctaDetail")}</span>
                             </span>
                           </Link>
                         </Button>

@@ -1,11 +1,9 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
-export default function LeOsAi() {
-  const features = [
-    "Phân tích dữ liệu vật liệu quy mô lớn",
-    "Tối ưu cấp phối bê tông hiệu năng cao",
-    "Cập nhật tín chỉ Carbon theo thời gian thực",
-  ];
+export default async function LeOsAi() {
+  const t = await getTranslations("leosAi");
+  const features = [t("feature1"), t("feature2"), t("feature3")];
 
   return (
     <section className="relative py-16 md:py-20 lg:py-24 bg-transparent overflow-hidden">
@@ -28,15 +26,14 @@ export default function LeOsAi() {
             <div className="p-5 md:p-[30px] lg:pt-10 lg:pb-10 lg:px-[60px] space-y-8">
                 <div className="space-y-4">
                   <div className="text-[#4AB3FF] text-xs tracking-widest uppercase font-semibold">
-                    Kiến trúc đa tầng
+                    {t("eyebrow")}
                   </div>
                   <h2 className="text-[22px] md:text-[28px] lg:text-[32px] 2xl:text-[40px] font-extrabold tracking-tight text-white leading-[1.3] [text-shadow:4px_0px_20px_rgba(0,140,255,0.2)]">
-                    Hệ điều hành công nghiệp LeTRON <br />
-                    &amp; Trí tuệ nhân tạo <span className="text-[#2A9FFF]">LeLe AI</span>
+                    {t("titleLine1")} <br />
+                    {t("titleLine2Prefix")}<span className="text-[#2A9FFF]">{t("titleLine2Highlight")}</span>
                   </h2>
                   <p className="text-zinc-400 text-[14px] lg:text-[16px] 2xl:text-[18px] font-light leading-[1.3] mt-3 md:mt-[14px] 2xl:mt-4 mb-6 md:mb-7 2xl:mb-9 max-w-xl">
-                    LeTRON vận hành trên một kiến trúc công nghệ đa tầng, nơi dữ liệu, AI và vật
-                    liệu xanh được kết nối thành một hệ thống thống nhất và tự động hóa.
+                    {t("description")}
                   </p>
                 </div>
 
@@ -79,7 +76,7 @@ export default function LeOsAi() {
                     >
                       <Image
                         src="/wp-content/uploads/2026/05/Store-download-button.svg"
-                        alt="Tải trên App Store"
+                        alt={t("appStoreAlt")}
                         width={130}
                         height={42}
                         className="h-10 w-auto"
@@ -91,7 +88,7 @@ export default function LeOsAi() {
                     >
                       <Image
                         src="/wp-content/uploads/2026/05/Store-download-button-1.svg"
-                        alt="Tải trên Google Play"
+                        alt={t("googlePlayAlt")}
                         width={130}
                         height={42}
                         className="h-10 w-auto"
@@ -105,7 +102,7 @@ export default function LeOsAi() {
             <div className="relative flex justify-center p-[10px] md:pt-[30px] md:pb-[30px] md:pl-5 md:pr-[30px] lg:p-0 2xl:pt-5 2xl:pb-5 2xl:pl-0 2xl:pr-5">
               <Image
                 src="/wp-content/uploads/2026/05/img-3-1.png"
-                alt="Hệ điều hành công nghiệp LeTRON"
+                alt={t("mockupAlt")}
                 width={500}
                 height={350}
                 className="rounded-[20px] lg:rounded-none w-full h-auto object-cover"

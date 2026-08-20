@@ -1,0 +1,353 @@
+{
+  "metadata": {
+    "title": "LeTRON - Green Technology, Smart Operations",
+    "description": "Vietnam's leading technology solutions for waste-to-resource conversion and green construction materials."
+  },
+  "header": {
+    "nav": {
+      "aboutUs": "About Us",
+      "memberCompanies": "Member Companies",
+      "products": "Products",
+      "newsEvents": "News & Events",
+      "careers": "Careers",
+      "contact": "Contact"
+    },
+    "languageToggle": "Switch language",
+    "companies": {
+      "ledb": "Digital Brain",
+      "lese": "Smart Energy",
+      "legm": "Green Materials",
+      "lesc": "Smart City",
+      "lesm": "Smart Mobility",
+      "lesb": "Smart Construction"
+    },
+    "products": {
+      "lesc": {
+        "name": "Smart City",
+        "features": [
+          "Le-ESCity (Smart Eco City)",
+          "Le-EIParks (Net Zero Eco-Industrial Parks)"
+        ]
+      },
+      "lesm": {
+        "name": "Smart Mobility",
+        "features": [
+          "Le-GreenMobility (Green Transport)",
+          "Le-GreenLogistics (Green Logistics)"
+        ]
+      },
+      "ledb": {
+        "name": "Digital Brain",
+        "features": [
+          "LeTRON (ALL IN ONE Operating System)",
+          "LeLe AGI (AI Assistant)",
+          "Le-CarbonRegistry (Carbon Credits)",
+          "Le-BatteryPassport (Battery Passport)"
+        ]
+      },
+      "lese": {
+        "name": "Smart Energy",
+        "features": [
+          "Le-SwapStation (Charging Infrastructure)",
+          "Le-ChargeHub (Automated Battery-Swap Station)",
+          "Le-SolarFarm (Solar Power Infrastructure)",
+          "Le-BESS (Battery Energy Storage System)",
+          "Le-WindFarm (Wind Power)"
+        ]
+      },
+      "lesb": {
+        "name": "Smart Construction",
+        "features": [
+          "Le-SmartRoads (Transport Infrastructure)",
+          "Le-SmartMarine (Port Infrastructure)",
+          "Le-SmartIndustrial (Industrial Infrastructure)",
+          "Le-SmartModular (Modular Housing)"
+        ]
+      },
+      "legm": {
+        "name": "Green Materials",
+        "features": [
+          "Le-GreenBrick (unfired brick)",
+          "Le-GreenMix (ready-mix concrete)",
+          "Le-GreenPrecast (precast components)",
+          "Le-GreenSteel (green steel)",
+          "Le-GreenCement (green cement)",
+          "Le-GreenAsphalt (recycled asphalt)"
+        ]
+      }
+    }
+  },
+  "hero": {
+    "badge": "A New Era Begins",
+    "titleLine1": "Pioneering Technology",
+    "titleLine2Prefix": "Building a ",
+    "titleLine2Highlight": "Circular",
+    "description1": "We turn waste into resources, data into value,",
+    "description2": "and technology into the foundation of a sustainable Net Zero ecosystem.",
+    "cta": "Activate the Ecosystem"
+  },
+  "leosAi": {
+    "eyebrow": "Multi-Layer Architecture",
+    "titleLine1": "LeTRON Industrial Operating System",
+    "titleLine2Prefix": "& Artificial Intelligence ",
+    "titleLine2Highlight": "LeLe AI",
+    "description": "LeTRON runs on a multi-layer technology architecture, where data, AI, and green materials are connected into a single, automated system.",
+    "feature1": "Large-scale materials data analytics",
+    "feature2": "High-performance concrete mix optimization",
+    "feature3": "Real-time Carbon credit updates",
+    "appStoreAlt": "Download on the App Store",
+    "googlePlayAlt": "Get it on Google Play",
+    "mockupAlt": "LeTRON Industrial Operating System"
+  },
+  "culture": {
+    "eyebrow": "Culture & People",
+    "titleLine1": "Technology builds the system",
+    "titleLine2Prefix": "People build the ",
+    "titleLine2Highlight": "future",
+    "description": "LeTRON builds a closed-loop circular economy model, where every link in the chain creates value."
+  },
+  "career": {
+    "eyebrow": "Join LeTRON",
+    "titleHighlightPrefix": "or ",
+    "titleLine1": "Build a career",
+    "titleHighlight": "shape the future?",
+    "description": "We are always looking for creative minds who keep pushing boundaries and take ownership seriously, to help revolutionize the circular economy industry in Vietnam.",
+    "cta": "Join Our Team of Architects"
+  },
+  "partners": {
+    "title": "LeTRON Partners",
+    "description": "We don't just connect — we create lasting value together and drive a comprehensive green transformation.",
+    "logoAlt": "LeTRON Partner {index}"
+  },
+  "pillars": {
+    "eyebrow": "Operating Model",
+    "titlePrefix": "The Dual Loop of ",
+    "titleHighlight": "6 Pillars",
+    "description": "LeTRON builds a closed-loop circular economy model, where every link is digitally connected and creates sustainable value.",
+    "loopAlt": "LeTRON dual loop",
+    "hubAlt": "LeTRON Hub",
+    "items": {
+      "ledb": {
+        "title": "Le DB - Digital Brain",
+        "tags": [
+          "LeTRON (ALL IN ONE Operating System)",
+          "LeLe AGI (AI Assistant)",
+          "Le-CarbonRegistry (Carbon Credits)",
+          "Le-BatteryPassport (Battery Passport)"
+        ]
+      },
+      "lesm": {
+        "title": "Le SM - Smart Mobility",
+        "tags": ["Le-GreenMobility (Transport)", "Le-GreenLogistics (Logistics)", "Le-SmartFleet"]
+      },
+      "lese": {
+        "title": "Le SE - Smart Energy",
+        "tags": [
+          "Le-SwapStation (Charging Infrastructure)",
+          "Le-ChargeHub (Automated Battery-Swap Station)",
+          "Le-SolarFarm (Solar Power Infrastructure)",
+          "Le-BESS (BESS Storage System)",
+          "Le-WindFarm (Wind Power)"
+        ]
+      },
+      "legm": {
+        "title": "Le GM - Green Materials",
+        "tags": [
+          "Le-GreenBrick",
+          "Le-GreenMix",
+          "Le-GreenPrecast",
+          "Le-GreenSteel",
+          "Le-GreenCement",
+          "Le-GreenAsphalt",
+          "Le-UHPC"
+        ]
+      },
+      "lesb": {
+        "title": "Le SB - Smart Construction",
+        "tags": ["Le-SmartRoads", "Le-SmartMarine", "Le-SmartIndustrial", "Le-SmartModular"]
+      },
+      "lesc": {
+        "title": "Le SC - Smart City",
+        "tags": ["Le-ESCity (Eco City)", "Le-EIParks (Net Zero Industrial Parks)"]
+      }
+    }
+  },
+  "products": {
+    "titleLine1": "LeTRON Products",
+    "titleLine2Prefix": "Operating the entire ",
+    "titleLine2Highlight": "green industry",
+    "description1": "LeTRON builds an integrated ecosystem, where technology, energy, materials, and infrastructure",
+    "description2": "are connected into a single closed value loop.",
+    "ctaAll": "View All Products",
+    "ctaDetail": "Details",
+    "items": {
+      "ledb": {
+        "title": "LeDB — DIGITAL BRAIN",
+        "description": "An integrated data management system connecting the entire digitization stack, establishing circular product passports."
+      },
+      "lesb": {
+        "title": "LeSB — SMART CONSTRUCTION",
+        "description": "Digitizing technical infrastructure for transport works, seaports, and modular industrial structures."
+      },
+      "lese": {
+        "title": "LeSE — SMART ENERGY",
+        "description": "Integrating solar power, wind power, and BESS energy storage stations for Net Zero operations."
+      },
+      "lesm": {
+        "title": "LeSM — SMART MOBILITY",
+        "description": "Smart EV charging infrastructure, automated battery-swap stations, and optimized green logistics systems."
+      },
+      "legm": {
+        "title": "LeGM — GREEN MATERIALS",
+        "description": "Optimized-mix ready-mix concrete, unfired brick, green steel, and seawater-erosion-resistant concrete."
+      },
+      "lesc": {
+        "title": "LeSC — SMART CITY",
+        "description": "Smart eco-city planning models and circular eco-industrial park development."
+      }
+    }
+  },
+  "heartTab": {
+    "tabs": {
+      "heart": "H.E.A.R.T",
+      "way": "LETRON WAY",
+      "spirit": "LETRON SPIRIT"
+    },
+    "heartHeading": "H.E.A.R.T – Core Values",
+    "slides": {
+      "humanity": {
+        "title": "H – Humanity",
+        "description": "\"People are the Center.\nSafety is a mandate,\nHappiness is the destination.\""
+      },
+      "excellence": {
+        "title": "E – Excellence",
+        "description": "\"Beyond every limit.\nCommitted to the highest standard in every product, every line of code.\""
+      },
+      "respect": {
+        "title": "H – Humanity",
+        "description": "\"Integrity and Gratitude. Respect for Mother Nature, Partners, and every Commitment.\""
+      },
+      "action": {
+        "title": "A – Action",
+        "description": "\"Fast and Flexible. 'Building the plane while flying it' — Fix as we go, never stop.\""
+      },
+      "technology": {
+        "title": "T – Technology",
+        "description": "\"Led by Data.\nUsing technology to turn the\nimpossible into the possible.\""
+      }
+    },
+    "wayHeading": "LETRON WAY – 09 Golden Principles",
+    "wayRules": {
+      "rule1": "There is no waste,\nonly resources in the wrong place",
+      "rule2": "Every line of code must create value\n(ROI)",
+      "rule3": "From waste material → digital asset",
+      "rule4": "Data is the bloodstream,\nAI is the brain",
+      "rule5": "People are the architects, AI is the tool",
+      "rule6": "Operate by system,\nControl by data",
+      "rule7": "Transparency is the standard,\nMeasurement is mandatory",
+      "rule8": "Continuous optimization,\nnever a finished state",
+      "rule9": "Every output must create\nadded value for the ecosystem"
+    },
+    "spiritHeading": "LeTRON Spirit",
+    "spiritMainHeadingLine1": "A Mind Without Borders",
+    "spiritMainHeadingLine2Prefix": "Rooted in ",
+    "spiritMainHeadingLine2Highlight": "Vietnamese soil",
+    "spiritText": "LeTRON connects global knowledge to solve the world's biggest challenges, while always starting from a responsibility to the place it belongs to."
+  },
+  "about": {
+    "metaTitle": "About Us - LeTRON",
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "About Us",
+    "heroTitlePrefix": "About ",
+    "heroTitleHighlight": "LeTRON",
+    "heroDescription": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+    "introBadge": "About Us",
+    "introHeadingLine1": "An Industrial Ecosystem",
+    "introHeadingLine2Prefix": "Powered by ",
+    "introHeadingLine2Highlight": "Data",
+    "introParagraph1": "LETRON is a new-generation industrial group, pioneering the application of digital technology to restructure the entire value chain from resources and production to infrastructure and energy.",
+    "introParagraph2": "Unlike traditional business models, LETRON is built as a unified operating platform, where data, artificial intelligence, and physical assets are tightly connected through the LeOS operating system. Here, what was once considered \"waste\" is redefined as valuable resources, creating a sustainable, globally scalable circular economic loop.",
+    "playVideoLabel": "Play video",
+    "visionBadge": "Vision",
+    "visionHeadingLine1": "An Industrial Ecosystem",
+    "visionHeadingLine2Prefix": "Powered by ",
+    "visionHeadingLine2Highlight": "Data",
+    "visionParagraph": "LETRON aims to bring Vietnamese intelligence and technology to the global stage, shaping a new standard for the industry — where economic growth goes hand in hand with environmental restoration.",
+    "missionBadge": "Mission",
+    "missionHeadingLine1": "Healing the Earth",
+    "missionHeadingHighlight": "through technology",
+    "missionIntro": "We apply the LeOS and LeLe AI platforms to:",
+    "missionPoints": [
+      "Turn industrial waste into high-value materials",
+      "Optimize operations with real-time data",
+      "Measurably minimize environmental impact"
+    ],
+    "orgChartHeading": "Organizational Chart",
+    "orgChartAlt": "LeTRON organizational chart",
+    "leadershipHeading": "Leadership"
+  },
+  "aboutHeartValues": {
+    "overlayTitleLine1": "Core Values",
+    "overlayTitleHighlight": "H.E.A.R.T",
+    "overlayImageAlt": "H.E.A.R.T core values",
+    "values": {
+      "excellence": {
+        "title": "E — Excellence",
+        "description": "Beyond every limit. Committed to the highest standard in every product, every line of code."
+      },
+      "action": {
+        "title": "A — Action",
+        "description": "Fast and Flexible. 'Building the plane while flying it' – Fix as we go, never stop."
+      },
+      "humanity": {
+        "title": "H — Humanity",
+        "description": "People are the Center. Safety is a mandate, Happiness is the destination."
+      },
+      "technology": {
+        "title": "T — Technology",
+        "description": "Led by Data. Using technology to turn the impossible into the possible."
+      },
+      "respect": {
+        "title": "R — Respect",
+        "description": "Integrity and Gratitude. Respect for Mother Nature, Partners, and every Commitment."
+      }
+    }
+  },
+  "leadership": {
+    "diagramAlt": "Leadership organizational chart",
+    "openLabel": "View leadership information",
+    "closeLabel": "Close",
+    "members": {
+      "cfo": { "name": "Ông Nguyễn Văn Công", "title": "CFO" },
+      "chairman": { "name": "Ông Lê Minh Tiến", "title": "Chairman of the Board" },
+      "ceo": { "name": "Bà Hoàng Lệ Thủy", "title": "CEO" },
+      "lear": { "name": "Ông Lê Đức Anh", "title": "LeAR" }
+    }
+  },
+  "footer": {
+    "companyName": "LeTRON Group Joint Stock Company",
+    "copyright": "© 2026 LeTRON. Powered by SAOKIM Digital.",
+    "quickLinksHeading": "Quick Links",
+    "productsHeading": "Products",
+    "contactHeading": "Contact",
+    "quickLinks": {
+      "home": "Home",
+      "aboutUs": "About Us",
+      "memberCompanies": "Member Companies",
+      "newsEvents": "News - Events",
+      "careers": "Careers",
+      "contact": "Contact"
+    },
+    "products": {
+      "ledb": "LeDB (Digital Brain)",
+      "lesm": "LeSM (Smart Mobility)",
+      "lese": "LeSE (Smart Energy)",
+      "legm": "LeGM (Green Materials)",
+      "lesb": "LeSB (Smart Construction)",
+      "lesc": "LeSC (Smart City)"
+    },
+    "address": "Headquarters: Floor 3, Cong Thanh Building, 295 Tran Nhan Tong Street, Uong Bi Ward, Quang Ninh Province",
+    "downloadProfile": "Download Profile",
+    "accordionAriaLabel": "Accordion. Open links with Enter or Space, close with Escape, and navigate with Arrow Keys"
+  }
+}

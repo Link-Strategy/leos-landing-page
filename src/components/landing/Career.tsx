@@ -1,6 +1,9 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 
-export default function Career() {
+export default async function Career() {
+  const t = await getTranslations("career");
+
   return (
     <section className="relative py-24 bg-transparent overflow-hidden border-t border-white/10">
       
@@ -13,28 +16,28 @@ export default function Career() {
 
           {/* Subtitle */}
           <div className="text-[#4AB3FF] text-xs tracking-widest uppercase font-semibold">
-            Gia nhập letron
+            {t("eyebrow")}
           </div>
 
           {/* Heading */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight [text-shadow:4px_0px_20px_rgba(0,140,255,0.2)]">
-            Xây sự nghiệp <br className="sm:hidden" />
-            <span className="text-zinc-400">hay </span>
+            {t("titleLine1")} <br className="sm:hidden" />
+            <span className="text-zinc-400">{t("titleHighlightPrefix")}</span>
             <span className="text-[#2A9FFF]">
-              kiến tạo tương lai?
+              {t("titleHighlight")}
             </span>
           </h2>
 
           {/* Body Text */}
           <p className="text-zinc-400 text-sm sm:text-base md:text-lg max-w-2xl! mx-auto! leading-relaxed font-light text-center">
-            Chúng tôi luôn tìm kiếm những bộ óc sáng tạo, không ngừng bứt phá giới hạn và có tinh thần trách nhiệm cao để cùng cách mạng hóa ngành công nghiệp tuần hoàn tại Việt Nam.
+            {t("description")}
           </p>
 
           {/* Button */}
           <div className="pt-4 flex justify-center">
             <Link href="/tuyen-dung">
               <button className="relative group overflow-hidden px-8 py-4 rounded-full bg-[#2A9FFF] text-white font-bold hover:bg-[#4AB3FF] transition-all duration-300 shadow-[0_0_20px_rgba(42,159,255,0.2)] hover:shadow-[0_0_30px_rgba(42,159,255,0.4)] flex items-center gap-2">
-                Gia nhập đội ngũ Kiến trúc sư
+                {t("cta")}
                 <svg
                   className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
                   fill="none"

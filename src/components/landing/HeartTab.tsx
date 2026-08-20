@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useTranslations } from "next-intl";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { HeartCard } from "./HeartCard";
 import { WayCard } from "./WayCard";
@@ -16,179 +17,89 @@ type HeartSlide = {
   description: React.ReactNode;
 };
 
-// Cấu trúc dữ liệu cho Tab 1: H.E.A.R.T Slides
-const HEART_SLIDES: HeartSlide[] = [
+// Renders a translated string that uses "\n" to mark explicit line breaks.
+function renderMultiline(text: string): React.ReactNode {
+  const lines = text.split("\n");
+  return lines.map((line, idx) => (
+    <React.Fragment key={idx}>
+      {idx > 0 && <br />}
+      {line}
+    </React.Fragment>
+  ));
+}
+
+// Structural metadata for Tab 1: H.E.A.R.T Slides — text comes from the "heartTab.slides" messages.
+// Slide 3 intentionally reuses the "humanity" key (title "H – Humanity") to match the legacy HTML (05-heart.html),
+// even though its description content is about respect — this quirk predates the i18n migration and is preserved as-is.
+const HEART_SLIDE_META: {
+  slideIndex: number;
+  key: string;
+  messageKey: string;
+  iconPath: string;
+  titleColor: string;
+  hoverBackgroundColor: string;
+  hoverBorderColor: string;
+  hoverAngle?: "0deg" | "180deg" | "360deg";
+}[] = [
   {
     slideIndex: 1,
+    key: "humanity-1",
+    messageKey: "humanity",
     iconPath: "/assets/icons/heart/humanity.svg",
-    title: "H – Humanity",
     titleColor: "#1CBBB4",
     hoverBackgroundColor: "#1CBBB466",
     hoverBorderColor: "#1CBBB4",
     hoverAngle: "0deg",
-    description: (
-      <>
-        &quot;Con người là Trung tâm.
-        <br />
-        An toàn là mệnh lệnh,
-        <br />
-        Hạnh phúc là đích đến.&quot;
-      </>
-    ),
   },
   {
     slideIndex: 2,
+    key: "excellence",
+    messageKey: "excellence",
     iconPath: "/assets/icons/heart/excellence.svg",
-    title: "E – Excellence",
     titleColor: "#C8960C",
     hoverBackgroundColor: "#C8960C66",
     hoverBorderColor: "#C8960C",
-    description: (
-      <>
-        &quot;Vượt ngưỡng giới hạn.
-        <br />
-        Cam kết tiêu chuẩn cao nhất trong từng sản phẩm, từng dòng code.&quot;
-      </>
-    ),
   },
   {
     slideIndex: 3,
+    key: "humanity-2",
+    messageKey: "respect",
     iconPath: "/assets/icons/heart/respect.svg",
-    title: "H – Humanity", // Trùng khớp hoàn toàn với legacy HTML 05-heart.html
     titleColor: "#228B22",
     hoverBackgroundColor: "#228B2266",
     hoverBorderColor: "#228B22",
-    description: (
-      <>
-        &quot;Chính trực và Biết ơn.
-        Tôn trọng Mẹ Thiên nhiên, Đối tác,
-        và mọi Cam kết.&quot;
-      </>
-    ),
   },
   {
     slideIndex: 4,
+    key: "action",
+    messageKey: "action",
     iconPath: "/assets/icons/heart/action.svg",
-    title: "A – Action",
     titleColor: "#FF7E00",
     hoverBackgroundColor: "#FF800066",
     hoverBorderColor: "#FF7E00",
-    description: (
-      <>
-        &quot;Thần tốc và Linh hoạt.
-        &apos;Vừa chạy vừa xếp hàng&apos;
-        Sai đâu sửa đó, không dừng lại.&quot;
-      </>
-    ),
   },
   {
     slideIndex: 5,
+    key: "technology",
+    messageKey: "technology",
     iconPath: "/assets/icons/heart/technology.svg",
-    title: "T – Technology",
     titleColor: "#1CBBB4",
     hoverBackgroundColor: "#1CBBB466",
     hoverBorderColor: "#1CBBB4",
-    description: (
-      <>
-        &quot;Dẫn dắt bằng Dữ liệu.
-        <br />
-        Dùng công nghệ để biến điều
-        <br />
-        không thể thành có thể.&quot;
-      </>
-    ),
   },
 ];
 
-// Cấu trúc dữ liệu cho Tab 2: LETRON WAY Rules
-const WAY_RULES = [
-  {
-    id: "e37a62d",
-    iconPath: "/assets/icons/heart/way-1.svg",
-    title: (
-      <>
-        Không có rác
-        <br />
-        chỉ có tài nguyên đặt sai chỗ
-      </>
-    ),
-  },
-  {
-    id: "f8b09ea",
-    iconPath: "/assets/icons/heart/way-2.svg",
-    title: (
-      <>
-        Mọi dòng code phải tạo ra giá trị
-        <br />
-        (ROI)
-      </>
-    ),
-  },
-  {
-    id: "17572bf",
-    iconPath: "/assets/icons/heart/way-3.svg",
-    title: "Từ vật liệu thải → tài sản số",
-  },
-  {
-    id: "2b490e1",
-    iconPath: "/assets/icons/heart/way-4.svg",
-    title: (
-      <>
-        Dữ liệu là mạch máu
-        <br />
-        AI là trí não
-      </>
-    ),
-  },
-  {
-    id: "393bda3",
-    iconPath: "/assets/icons/heart/way-5.svg",
-    title: "Con người là kiến trúc sư  AI là công cụ",
-  },
-  {
-    id: "917b98f",
-    iconPath: "/assets/icons/heart/way-6.svg",
-    title: (
-      <>
-        Vận hành bằng hệ thống
-        <br />
-        Kiểm soát bằng dữ liệu
-      </>
-    ),
-  },
-  {
-    id: "101c489",
-    iconPath: "/assets/icons/heart/way-7.svg",
-    title: (
-      <>
-        Minh bạch là tiêu chuẩn
-        <br />
-        Đo lường là bắt buộc
-      </>
-    ),
-  },
-  {
-    id: "c13b4d7",
-    iconPath: "/assets/icons/heart/way-8.svg",
-    title: (
-      <>
-        Tối ưu liên tục
-        <br />
-        Không có trạng thái hoàn thành
-      </>
-    ),
-  },
-  {
-    id: "789d116",
-    iconPath: "/assets/icons/heart/way-9.svg",
-    title: (
-      <>
-        Mỗi đầu ra đều phải tạo thêm
-        <br />
-        giá trị cho hệ sinh thái
-      </>
-    ),
-  },
+// Structural metadata for Tab 2: LETRON WAY Rules — text comes from the "heartTab.wayRules" messages.
+const WAY_RULE_META: { id: string; messageKey: string; iconPath: string }[] = [
+  { id: "e37a62d", messageKey: "rule1", iconPath: "/assets/icons/heart/way-1.svg" },
+  { id: "f8b09ea", messageKey: "rule2", iconPath: "/assets/icons/heart/way-2.svg" },
+  { id: "17572bf", messageKey: "rule3", iconPath: "/assets/icons/heart/way-3.svg" },
+  { id: "2b490e1", messageKey: "rule4", iconPath: "/assets/icons/heart/way-4.svg" },
+  { id: "393bda3", messageKey: "rule5", iconPath: "/assets/icons/heart/way-5.svg" },
+  { id: "917b98f", messageKey: "rule6", iconPath: "/assets/icons/heart/way-6.svg" },
+  { id: "101c489", messageKey: "rule7", iconPath: "/assets/icons/heart/way-7.svg" },
+  { id: "c13b4d7", messageKey: "rule8", iconPath: "/assets/icons/heart/way-8.svg" },
+  { id: "789d116", messageKey: "rule9", iconPath: "/assets/icons/heart/way-9.svg" },
 ];
 
 const tabTriggerClass =
@@ -642,7 +553,25 @@ const spiritSectionCss = `
 
 
 export default function HeartTab() {
+  const t = useTranslations("heartTab");
   const [activeTab, setActiveTab] = React.useState("heart");
+
+  const HEART_SLIDES: HeartSlide[] = HEART_SLIDE_META.map((meta) => ({
+    slideIndex: meta.slideIndex,
+    iconPath: meta.iconPath,
+    titleColor: meta.titleColor,
+    hoverBackgroundColor: meta.hoverBackgroundColor,
+    hoverBorderColor: meta.hoverBorderColor,
+    hoverAngle: meta.hoverAngle,
+    title: t(`slides.${meta.messageKey}.title`),
+    description: renderMultiline(t(`slides.${meta.messageKey}.description`)),
+  }));
+
+  const WAY_RULES = WAY_RULE_META.map((meta) => ({
+    id: meta.id,
+    iconPath: meta.iconPath,
+    title: renderMultiline(t(`wayRules.${meta.messageKey}`)),
+  }));
 
   return (
     <section className="w-full bg-[#0D1B4B]">
@@ -661,21 +590,21 @@ export default function HeartTab() {
                 value="heart"
                 className={tabTriggerClass}
               >
-                <span className="flex items-center text-center">H.E.A.R.T</span>
+                <span className="flex items-center text-center">{t("tabs.heart")}</span>
               </TabsTrigger>
               <TabsTrigger
                 variant="elementor"
                 value="way"
                 className={tabTriggerClass}
               >
-                <span className="flex items-center text-center">LETRON WAY</span>
+                <span className="flex items-center text-center">{t("tabs.way")}</span>
               </TabsTrigger>
               <TabsTrigger
                 variant="elementor"
                 value="spirit"
                 className={tabTriggerClass}
               >
-                <span className="flex items-center text-center">TINH THẦN LE TRON</span>
+                <span className="flex items-center text-center">{t("tabs.spirit")}</span>
               </TabsTrigger>
             </TabsList>
 
@@ -688,7 +617,7 @@ export default function HeartTab() {
                 <div className="flex w-full flex-col gap-[60px] max-[1024px]:gap-10 max-[767px]:gap-5">
                   <div className="letron-heart-heading-widget">
                     <h2 className="letron-heart-heading-title">
-                      H.E.A.R.T – Giá trị cốt lõi
+                      {t("heartHeading")}
                     </h2>
                   </div>
                   <div aria-label="H.E.A.R.T values" className="w-full overflow-hidden" role="region">
@@ -716,7 +645,7 @@ export default function HeartTab() {
                 <div className="letron-way-inner">
                   <div className="letron-way-heading-widget">
                     <h2 className="letron-way-heading-title">
-                      LETRON WAY – 09 Nguyên tắc vàng
+                      {t("wayHeading")}
                     </h2>
                   </div>
                   <div className="letron-way-content">
@@ -755,20 +684,20 @@ export default function HeartTab() {
                 <div className="letron-spirit-panel">
                   <div className="letron-spirit-heading-widget">
                     <h2 className="letron-spirit-heading-title">
-                      Tinh thần LeTRON
+                      {t("spiritHeading")}
                     </h2>
                   </div>
                   <div className="letron-spirit-main-heading-widget">
                     <h2 className="letron-spirit-main-heading">
-                      Bộ óc không biên giới
+                      {t("spiritMainHeadingLine1")}
                       <br />
-                      Rễ sâu vào
-                      <span>đất Việt</span>
+                      {t("spiritMainHeadingLine2Prefix")}
+                      <span>{t("spiritMainHeadingLine2Highlight")}</span>
                     </h2>
                   </div>
                   <div className="letron-spirit-text">
                     <p>
-                      LeTRON kết nối tri thức toàn cầu để giải quyết những bài toán lớn của thế giới, nhưng luôn bắt đầu từ trách nhiệm với chính nơi mình thuộc về.
+                      {t("spiritText")}
                     </p>
                   </div>
                 </div>

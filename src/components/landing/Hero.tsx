@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
-export default function Hero() {
+export default async function Hero() {
+  const t = await getTranslations("hero");
+
   return (
     <section className="relative min-h-[450px] md:min-h-[550px] lg:min-h-screen flex items-center justify-center overflow-hidden bg-transparent pt-[calc(var(--header-height-mobile)+20px)] lg:pt-[calc(var(--header-height)+32px)]">
       {/* Video Background with fallback gradient */}
@@ -38,23 +41,23 @@ export default function Hero() {
           <div
             className="inline-flex items-center px-6! py-1 lg:px-[13px] lg:h-10 lg:py-0 rounded-full backdrop-blur-sm text-[#4AB3FF] text-sm 2xl:text-base font-normal font-display leading-[2]"
           >
-            Mở màn Kỷ nguyên
+            {t("badge")}
           </div>
         </div>
 
         {/* Title */}
         <h1 className="text-[26px]! md:text-[42px]! lg:text-[64px]! font-extrabold text-white tracking-tight leading-[1.5] mt-4 md:mt-5 lg:mt-[30px] 2xl:mt-10 mb-[26px] md:mb-[30px] lg:mb-8 2xl:mb-[35px] animate-fade-in-up [text-shadow:4px_0px_20px_rgba(0,140,255,0.2)]">
-          Tiên phong công nghệ
+          {t("titleLine1")}
           <span className="block mt-2">
-            Kiến tạo tương lai <span className="text-[#2A9FFF]">tuần hoàn</span>
+            {t("titleLine2Prefix")}<span className="text-[#2A9FFF]">{t("titleLine2Highlight")}</span>
           </span>
         </h1>
 
         {/* Description */}
         <p className="text-white text-[16px] md:text-[18px] font-normal font-display leading-[1.5] max-w-3xl mb-11! md:mb-[50px] lg:mb-[62px] 2xl:mb-20">
-          Chúng tôi biến chất thải thành tài nguyên, dữ liệu thành giá trị,
+          {t("description1")}
           <br />
-          và công nghệ thành nền tảng cho một hệ sinh thái Net Zero bền vững.
+          {t("description2")}
         </p>
 
         {/* Action Button */}
@@ -72,7 +75,7 @@ export default function Hero() {
                     "inset 0 -4px 16px 0 rgba(0,106,255,0.30), inset 0 -2px 6px 0 rgba(255,255,255,0.75), inset 0 -3px 0 0 rgba(30,154,255,0.18), 0 1px 10px 0 rgba(0,0,0,0.15)",
                 }}
               >
-                Kích hoạt Hệ sinh thái
+                {t("cta")}
                 <svg
                   className="w-5 h-5"
                   fill="none"

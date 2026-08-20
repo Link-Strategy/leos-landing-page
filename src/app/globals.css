@@ -50,8 +50,8 @@
   /* Layout & Geometry (Dựa trên HeaderTailwind.tsx) */
   --header-height: 99px;
   /* 81px container + 18px top padding */
-  --header-height-mobile: 78px;
-  /* 64px container + 14px top padding */
+  --header-height-mobile: 122px;
+  /* 64px container + 14px top padding + 44px mobile search row (h-9 + mt-2) */
   --container-width: 1400px;
 
   /* Semantic Colors bổ sung cho Shadcn */

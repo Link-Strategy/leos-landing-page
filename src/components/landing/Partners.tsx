@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
-export default function Partners() {
+export default async function Partners() {
+  const t = await getTranslations("partners");
   const partnerLogos = [
     "/landing/partners/saokim-logo.png",
   ];
@@ -17,10 +19,10 @@ export default function Partners() {
         {/* Title */}
         <div className="max-w-2xl mx-auto space-y-3">
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
-            Đối tác LeTRON
+            {t("title")}
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-            Chúng tôi không chỉ kết nối — chúng tôi cùng nhau tạo ra giá trị lâu dài và thúc đẩy chuyển đổi xanh toàn diện.
+            {t("description")}
           </p>
         </div>
 
@@ -38,7 +40,7 @@ export default function Partners() {
               >
                 <Image
                   src={logo}
-                  alt={`Đối tác LeTRON ${idx + 1}`}
+                  alt={t("logoAlt", { index: idx + 1 })}
                   fill
                   className="object-contain"
                 />

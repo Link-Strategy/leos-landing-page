@@ -1,18 +1,18 @@
 import Image from "next/image";
 import { X } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-type LeadershipMember = {
+type LeadershipMemberMeta = {
   id: string;
-  name: string;
-  title: string;
+  messageKey: string;
   photo: string;
 };
 
-const LEADERSHIP_MEMBERS: LeadershipMember[] = [
-  { id: "815", name: "Ông Nguyễn Văn Công", title: "CFO", photo: "/about/CFO.png" },
-  { id: "813", name: "Ông Lê Minh Tiến", title: "Chủ tịch HĐQT", photo: "/about/COB.png" },
-  { id: "811", name: "Bà Hoàng Lệ Thủy", title: "CEO", photo: "/about/CEO.png" },
-  { id: "809", name: "Ông Lê Đức Anh", title: "LeAR", photo: "/about/LeAR.png" },
+const LEADERSHIP_MEMBERS_META: LeadershipMemberMeta[] = [
+  { id: "815", messageKey: "cfo", photo: "/about/CFO.png" },
+  { id: "813", messageKey: "chairman", photo: "/about/COB.png" },
+  { id: "811", messageKey: "ceo", photo: "/about/CEO.png" },
+  { id: "809", messageKey: "lear", photo: "/about/LeAR.png" },
 ];
 
 type LeadershipGridProps = {
@@ -20,6 +20,14 @@ type LeadershipGridProps = {
 };
 
 export function LeadershipGrid({ onClose }: LeadershipGridProps) {
+  const t = useTranslations("leadership");
+  const LEADERSHIP_MEMBERS = LEADERSHIP_MEMBERS_META.map((meta) => ({
+    id: meta.id,
+    photo: meta.photo,
+    name: t(`members.${meta.messageKey}.name`),
+    title: t(`members.${meta.messageKey}.title`),
+  }));
+
   return (
     <div className="relative grid grid-cols-2 gap-x-3 gap-y-5 px-4 py-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-10 lg:px-20 lg:py-15 bg-white/20 rounded-2xl lg:rounded-[20px] shadow-[0_6px_8px_0_rgba(0,0,0,0.4)] backdrop-blur-[35px]">
       <div
@@ -39,7 +47,7 @@ export function LeadershipGrid({ onClose }: LeadershipGridProps) {
         <button
           type="button"
           onClick={onClose}
-          aria-label="Đóng"
+          aria-label={t("closeLabel")}
           className="absolute right-3 top-3 z-10 grid size-7 place-items-center rounded-full bg-white/20 text-white lg:hidden"
         >
           <X className="size-4" />

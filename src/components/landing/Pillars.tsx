@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import Hover from "./Hover";
 
 interface PillarItem {
@@ -11,109 +12,49 @@ interface PillarItem {
   color: string;
 }
 
+const PILLAR_META: { id: string; icon: string; color: string }[] = [
+  { id: "ledb", icon: "/landing/Pillars/LeDB.png", color: "#6FCBDC" },
+  { id: "lesm", icon: "/landing/Pillars/LeSM.png", color: "#7DC35A" },
+  { id: "lese", icon: "/landing/Pillars/LeSE.png", color: "#F78E20" },
+  { id: "legm", icon: "/landing/Pillars/LeGM.png", color: "#298C43" },
+  { id: "lesb", icon: "/landing/Pillars/LeSB.png", color: "#6E6F6F" },
+  { id: "lesc", icon: "/landing/Pillars/LeSC.png", color: "#038181" },
+];
+
 export default function Pillars() {
+  const t = useTranslations("pillars");
   const [activePillar, setActivePillar] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  const pillars: PillarItem[] = [
-    {
-      id: "ledb",
-      title: "Le DB - Bộ não Số",
-      icon: "/landing/Pillars/LeDB.png",
-      tags: [
-        "LeTRON (Hệ điều hành ALL IN ONE)",
-        "LeLe AGI (Trợ lý ảo)",
-        "Le-CarbonRegistry (Tín chỉ Carbon)",
-        "Le-BatteryPassport (Hộ chiếu Pin)",
-      ],
-      color: "#6FCBDC",
-    },
-    {
-      id: "lesm",
-      title: "Le SM - Di chuyển Thông minh",
-      icon: "/landing/Pillars/LeSM.png",
-      tags: ["Le-GreenMobility (Vận tải)", "Le-GreenLogistics (Logistics)", "Le-SmartFleet"],
-      color: "#7DC35A",
-    },
-    {
-      id: "lese",
-      title: "Le SE - Năng lượng Thông minh",
-      icon: "/landing/Pillars/LeSE.png",
-      tags: [
-        "Le-SwapStation (Hạ tầng Trạm sạc)",
-        "Le-ChargeHub (Trạm thay Pin tự động)",
-        "Le-SolarFarm (Hạ tầng điện mặt trời Solar)",
-        "Le-BESS (Hệ thống lưu trữ BESS)",
-        "Le-WindFarm (Điện gió)",
-      ],
-      color: "#F78E20",
-    },
-    {
-      id: "legm",
-      title: "Le GM - Vật liệu Xanh",
-      icon: "/landing/Pillars/LeGM.png",
-      tags: [
-        "Le-GreenBrick",
-        "Le-GreenMix",
-        "Le-GreenPrecast",
-        "Le-GreenSteel",
-        "Le-GreenCement",
-        "Le-GreenAsphalt",
-        "Le-UHPC",
-      ],
-      color: "#298C43",
-    },
-    {
-      id: "lesb",
-      title: "Le SB - Xây dựng Thông Minh",
-      icon: "/landing/Pillars/LeSB.png",
-      tags: ["Le-SmartRoads", "Le-SmartMarine", "Le-SmartIndustrial", "Le-SmartModular"],
-      color: "#6E6F6F",
-    },
-    {
-      id: "lesc",
-      title: "Le SC - Đô thị Thông minh",
-      icon: "/landing/Pillars/LeSC.png",
-      tags: ["Le-ESCity (Đô thị Sinh thái)", "Le-EIParks (KCN Net Zero)"],
-      color: "#038181",
-    },
-  ];
+  const pillars: PillarItem[] = PILLAR_META.map((meta) => ({
+    id: meta.id,
+    icon: meta.icon,
+    color: meta.color,
+    title: t(`items.${meta.id}.title`),
+    tags: t.raw(`items.${meta.id}.tags`) as string[],
+  }));
 
   useEffect(() => {
-    const checkIsMobile = () => setIsMobile(window.innerWidth < 640);
+    const checkIsMobile = () => setIsMobile(window.innerWidth <= 768);
     checkIsMobile();
     window.addEventListener("resize", checkIsMobile);
     return () => window.removeEventListener("resize", checkIsMobile);
   }, []);
 
-  useEffect(() => {
-    const handleOutsideClick = (e: MouseEvent) => {
-      if (typeof window !== "undefined" && window.innerWidth <= 768) {
-        const container = document.getElementById("pillars-grid-container");
-        if (container && !container.contains(e.target as Node)) {
-          setActivePillar(null);
-        }
-      }
-    };
-    document.addEventListener("click", handleOutsideClick);
-    return () => document.removeEventListener("click", handleOutsideClick);
-  }, []);
-
-  const handleCardClick = (id: string, e: React.MouseEvent) => {
-    if (typeof window !== "undefined" && window.innerWidth <= 768) {
-      e.stopPropagation();
+  const handleCardClick = (id: string) => {
+    if (isMobile) {
       setActivePillar((prev) => (prev === id ? null : id));
     }
   };
 
   const handleMouseEnter = (id: string) => {
-    if (typeof window !== "undefined" && window.innerWidth > 768) {
+    if (!isMobile) {
       setActivePillar(id);
     }
   };
 
   const handleMouseLeave = () => {
-    if (typeof window !== "undefined" && window.innerWidth > 768) {
+    if (!isMobile) {
       setActivePillar(null);
     }
   };
@@ -128,14 +69,13 @@ export default function Pillars() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 md:mb-8 space-y-4">
           <div className="text-[#4AB3FF] text-xs tracking-widest uppercase font-semibold">
-            Mô hình vận hành
+            {t("eyebrow")}
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white font-archivo [text-shadow:4px_0px_20px_rgba(0,140,255,0.2)]">
-            Vòng Lặp Kép <span className="text-[#4AB3FF]">6 Trụ Cột</span>
+            {t("titlePrefix")}<span className="text-[#4AB3FF]">{t("titleHighlight")}</span>
           </h2>
           <p className="text-zinc-400 text-base sm:text-lg">
-            LeTRON xây dựng mô hình kinh tế tuần hoàn khép kín, nơi mỗi mắt xích đều được kết nối số
-            và tạo ra giá trị bền vững.
+            {t("description")}
           </p>
         </div>
 
@@ -156,12 +96,14 @@ export default function Pillars() {
                 }`}
                 onMouseEnter={() => handleMouseEnter(pillar.id)}
                 onMouseLeave={handleMouseLeave}
-                onClick={(e) => handleCardClick(pillar.id, e)}
+                onClick={() => handleCardClick(pillar.id)}
               >
                 <img
                   src={pillar.icon}
                   alt={pillar.title}
-                  className="w-[100px] h-[100px] sm:w-[155px] sm:h-[155px] object-contain mb-2 transition-transform duration-300 hover:rotate-6"
+                  className={`w-[100px] h-[100px] sm:w-[155px] sm:h-[155px] object-contain mb-2 transition-transform duration-300 ${
+                    activePillar === pillar.id ? "rotate-6" : ""
+                  }`}
                 />
                 <Hover
                   title={pillar.title}
@@ -169,7 +111,9 @@ export default function Pillars() {
                   active={activePillar === pillar.id}
                   dataId={pillar.id}
                   color={pillar.color}
-                  side={isMobile ? "bottom" : "left"}
+                  side="left"
+                  mobile={isMobile}
+                  onClose={() => setActivePillar(null)}
                 />
               </div>
             ))}
@@ -181,7 +125,7 @@ export default function Pillars() {
               <div className="absolute inset-0 animate-[spin_60s_linear_infinite_reverse]">
                 <img
                   src="/wp-content/uploads/2026/05/Property-1Variant3-1.png"
-                  alt="Vòng lặp kép LeTRON"
+                  alt={t("loopAlt")}
                   className="w-full h-full! object-contain opacity-60 filter drop-shadow-[0_0_20px_rgba(42,159,255,0.15)]"
                 />
               </div>
@@ -190,7 +134,7 @@ export default function Pillars() {
               <div className="relative w-[180px] h-[180px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px] rounded-full overflow-hidden flex justify-center items-center animate-[spin_60s_linear_infinite]">
                 <img
                   src="/wp-content/uploads/2026/05/Group-11.png"
-                  alt="LeTRON Hub"
+                  alt={t("hubAlt")}
                   className="w-full h-full! object-contain p-4 filter drop-shadow-[0_0_15px_rgba(42,159,255,0.2)]"
                 />
               </div>
@@ -212,12 +156,14 @@ export default function Pillars() {
                 }`}
                 onMouseEnter={() => handleMouseEnter(pillar.id)}
                 onMouseLeave={handleMouseLeave}
-                onClick={(e) => handleCardClick(pillar.id, e)}
+                onClick={() => handleCardClick(pillar.id)}
               >
                 <img
                   src={pillar.icon}
                   alt={pillar.title}
-                  className="w-[100px] h-[100px] sm:w-[155px] sm:h-[155px] object-contain mb-2 transition-transform duration-300 hover:rotate-6"
+                  className={`w-[100px] h-[100px] sm:w-[155px] sm:h-[155px] object-contain mb-2 transition-transform duration-300 ${
+                    activePillar === pillar.id ? "rotate-6" : ""
+                  }`}
                 />
                 <Hover
                   title={pillar.title}
@@ -225,7 +171,9 @@ export default function Pillars() {
                   active={activePillar === pillar.id}
                   dataId={pillar.id}
                   color={pillar.color}
-                  side={isMobile ? "top" : "right"}
+                  side="right"
+                  mobile={isMobile}
+                  onClose={() => setActivePillar(null)}
                 />
               </div>
             ))}

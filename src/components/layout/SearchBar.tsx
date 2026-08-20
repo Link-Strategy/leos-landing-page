@@ -8,9 +8,10 @@ interface SearchBarProps {
   className?: string;
   defaultValue?: string;
   onSearch?: (query: string) => void;
+  fullWidth?: boolean;
 }
 
-export function SearchBar({ className, defaultValue = "", onSearch }: SearchBarProps) {
+export function SearchBar({ className, defaultValue = "", onSearch, fullWidth = false }: SearchBarProps) {
   const [searchQuery, setSearchQuery] = useState(defaultValue);
   const uniqueId = React.useId().replace(/:/g, "");
 
@@ -37,7 +38,7 @@ export function SearchBar({ className, defaultValue = "", onSearch }: SearchBarP
           outline: "none !important",
         }}
       >
-        <div className="relative w-full max-[1550px]:w-[190px] lg:w-[200px]">
+        <div className={fullWidth ? "relative w-full" : "relative w-full max-[1550px]:w-[190px] lg:w-[200px]"}>
           <Input
             type="text"
             variant="search"
