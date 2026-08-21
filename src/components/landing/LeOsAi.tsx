@@ -25,14 +25,11 @@ export default async function LeOsAi() {
             {/* Left Column: Text & App Download */}
             <div className="p-5 md:p-[30px] lg:pt-10 lg:pb-10 lg:px-[60px] space-y-8">
                 <div className="space-y-4">
-                  <div className="text-[#4AB3FF] text-xs tracking-widest uppercase font-semibold">
-                    {t("eyebrow")}
-                  </div>
-                  <h2 className="text-[22px] md:text-[28px] lg:text-[32px] 2xl:text-[40px] font-extrabold tracking-tight text-white leading-[1.3] [text-shadow:4px_0px_20px_rgba(0,140,255,0.2)]">
+                  <h2 className="text-[22px] md:text-[28px] lg:text-[32px] 2xl:text-[40px]! font-extrabold tracking-tight text-white leading-[1.3] [text-shadow:4px_0px_20px_rgba(0,140,255,0.2)]">
                     {t("titleLine1")} <br />
                     {t("titleLine2Prefix")}<span className="text-[#2A9FFF]">{t("titleLine2Highlight")}</span>
                   </h2>
-                  <p className="text-zinc-400 text-[14px] lg:text-[16px] 2xl:text-[18px] font-light leading-[1.3] mt-3 md:mt-[14px] 2xl:mt-4 mb-6 md:mb-7 2xl:mb-9 max-w-xl">
+                  <p className="text-white text-[14px] lg:text-[16px] 2xl:text-[18px] font-light leading-[1.3] mt-3 md:mt-[14px] 2xl:mt-4 mb-6 md:mb-7 2xl:mb-9 max-w-xl">
                     {t("description")}
                   </p>
                 </div>
@@ -56,9 +53,9 @@ export default async function LeOsAi() {
                 </ul>
 
                 {/* App Download Area */}
-                <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center gap-6">
+                <div className="pt-6 flex flex-row items-center gap-4 sm:gap-6">
                   {/* QR Code */}
-                  <div className="relative p-2 bg-white rounded-2xl shadow-lg shadow-black/50">
+                  <div className="relative p-2 bg-white rounded-2xl shadow-lg shadow-black/50 shrink-0">
                     <Image
                       src="/wp-content/uploads/2026/05/QRcode-02-2.svg"
                       alt="QR Code LeTRON App"
@@ -69,7 +66,7 @@ export default async function LeOsAi() {
                   </div>
 
                   {/* Download Buttons */}
-                  <div className="flex flex-col items-center gap-3 w-full sm:w-auto">
+                  <div className="flex flex-col items-start gap-3">
                     <a
                       href="#"
                       className="inline-block transition-transform hover:-translate-y-0.5 duration-200"

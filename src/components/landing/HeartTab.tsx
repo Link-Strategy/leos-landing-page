@@ -115,7 +115,7 @@ const heartHeadingCss = `
 .letron-heart-heading-title {
   margin: 0;
   font-family: var(--font-sans), Sans-serif;
-  font-size: 32px;
+  font-size: 40px !important;
   font-weight: 700;
   line-height: 1.3em;
   color: var(--e-global-color-primary);
@@ -180,7 +180,7 @@ const waySectionCss = `
 .letron-way-heading-title {
   margin: 0;
   font-family: var(--font-sans), Sans-serif;
-  font-size: 32px;
+  font-size: 40px !important;
   font-weight: 700;
   line-height: 1.3em;
   color: var(--e-global-color-primary);
@@ -413,7 +413,7 @@ const spiritSectionCss = `
 .letron-spirit-heading-title {
   margin: 0;
   font-family: var(--font-sans), Sans-serif;
-  font-size: 32px;
+  font-size: 40px !important;
   font-weight: 700;
   line-height: 1.3em;
   color: var(--e-global-color-primary);
@@ -460,7 +460,7 @@ const spiritSectionCss = `
 
 @media (min-width: 768px) {
   .letron-spirit-panel {
-    width: 719px;
+    width: 1100px;
   }
 }
 
@@ -469,6 +469,10 @@ const spiritSectionCss = `
     gap: 40px 0px;
     row-gap: 40px;
     column-gap: 0px;
+  }
+
+  .letron-spirit-panel {
+    width: 719px;
   }
 
   .letron-spirit-heading-title {
@@ -583,7 +587,7 @@ export default function HeartTab() {
           <Tabs value={activeTab} onValueChange={setActiveTab} className="flex w-full min-w-0 flex-col gap-[60px] px-20 pt-[60px] text-start max-[1550px]:gap-10 max-[1550px]:px-[60px] max-[1550px]:pt-[50px] max-[1024px]:px-[25px] max-[1024px]:pt-[50px] max-[767px]:gap-5 max-[767px]:px-4 max-[767px]:pt-10">
             <TabsList
               variant="elementor"
-              className="relative mx-auto flex w-fit items-center justify-center gap-1.5 overflow-hidden rounded-full bg-linear-to-b from-white/16 to-white/14 px-1.5 py-1 shadow-[inset_0_2px_16px_rgba(0,149,255,0.26)] backdrop-blur-xl before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-[#76c6ff66] max-[767px]:mx-0 max-[767px]:w-full max-[767px]:justify-start max-[767px]:overflow-x-auto max-[767px]:border max-[767px]:border-[#76c6ff66] max-[767px]:scrollbar-none max-[767px]:[&::-webkit-scrollbar]:hidden"
+              className="relative md:p-4! mx-auto flex w-fit items-center justify-center gap-1.5 overflow-hidden rounded-full bg-linear-to-b from-white/16 to-white/14 px-1.5 py-1 shadow-[inset_0_2px_16px_rgba(0,149,255,0.26)] backdrop-blur-xl before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-[#76c6ff66] max-[767px]:mx-0 max-[767px]:w-full max-[767px]:justify-start max-[767px]:overflow-x-auto max-[767px]:border max-[767px]:border-[#76c6ff66] max-[767px]:scrollbar-none max-[767px]:[&::-webkit-scrollbar]:hidden"
             >
               <TabsTrigger
                 variant="elementor"

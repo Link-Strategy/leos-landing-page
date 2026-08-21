@@ -1,60 +1,107 @@
 import { Link } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 export default async function Career() {
   const t = await getTranslations("career");
+  const locale = await getLocale();
 
   return (
-    <section className="relative py-24 bg-transparent overflow-hidden border-t border-white/10">
-      
-      {/* Decorative background blur shapes */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-[#2A9FFF]/5 rounded-full blur-[100px] pointer-events-none" />
+    <section
+      className="relative flex items-center py-24 sm:py-28 lg:min-h-165 overflow-hidden border-t border-white/10 bg-no-repeat bg-cover bg-center"
+      style={{ backgroundImage: "url('/landing/Career/CTA.png')" }}
+    >
+      {/* Frame — pinned to ~950px so the side accent lines line up with the border baked into CTA.png regardless of section width.
+          Grid (not absolute positioning) so the line images stretch to match the content column's actual height. */}
+      <div className="relative z-10 mx-auto grid w-full max-w-237.5 grid-cols-[auto_1fr_auto] items-stretch gap-3 px-6 sm:gap-6 sm:px-10">
+        <div className="relative w-8 sm:w-10 lg:w-13.75">
+          <Image src="/landing/Career/line-left.png" alt="" fill className="object-contain object-left" />
+        </div>
 
-      <div className="mx-auto max-w-5xl px-6 sm:px-8 relative z-10">
-        <div className="p-8 sm:p-12 rounded-3xl border border-white/10 bg-gradient-to-b from-[#132563]/60 to-[#0D1B4B]/80 backdrop-blur-md text-center space-y-8 shadow-2xl">
-
-
-          {/* Subtitle */}
-          <div className="text-[#4AB3FF] text-xs tracking-widest uppercase font-semibold">
-            {t("eyebrow")}
-          </div>
+        <div className="relative text-center space-y-3 sm:space-y-5 lg:space-y-8">
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight [text-shadow:4px_0px_20px_rgba(0,140,255,0.2)]">
-            {t("titleLine1")} <br className="sm:hidden" />
-            <span className="text-zinc-400">{t("titleHighlightPrefix")}</span>
-            <span className="text-[#2A9FFF]">
-              {t("titleHighlight")}
+          <h2 className="font-display font-extrabold! leading-[130%]! sm:leading-[140%]! lg:leading-[150%]! text-xl! sm:text-2xl! md:text-4xl! lg:text-[64px]!">
+            {locale === "vi" ? (
+              <Image
+                src="/landing/Career/carrer-header.svg"
+                alt={t("titleLine1")}
+                width={484}
+                height={102}
+                className="mx-auto h-8! w-auto sm:h-9! md:h-24!"
+              />
+            ) : (
+              <span
+                className="block text-transparent!"
+                style={{ WebkitTextStroke: "1px #FFFFFF" }}
+              >
+                {t("titleLine1")}
+              </span>
+            )}
+            <span className="block">
+              <span className="text-white/80">{t("titleHighlightPrefix")}</span>
+              <span className="text-[#2A9FFF]">{t("titleHighlightAccent")}</span>
             </span>
           </h2>
 
-          {/* Body Text */}
-          <p className="text-zinc-400 text-sm sm:text-base md:text-lg max-w-2xl! mx-auto! leading-relaxed font-light text-center">
-            {t("description")}
-          </p>
+          {/* Email input — 610x52 per design */}
+          <div className="pt-2 flex justify-center">
+            <div
+              className="relative w-full max-w-152.5 rounded-full p-px"
+              style={{
+                backgroundImage:
+                  "linear-gradient(90deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.36) 50%, rgba(255,255,255,0.16) 100%)",
+              }}
+            >
+              <input
+                type="email"
+                name="email"
+                placeholder={t("emailPlaceholder")}
+                className="w-full h-13 rounded-full bg-transparent px-6 text-white text-sm sm:text-base placeholder:text-white/70 outline-none"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(235,247,255,0.05) 100%)",
+                  boxShadow: "inset 0 2px 16px 0 rgba(0,149,255,0.26)",
+                  backdropFilter: "blur(26px)",
+                }}
+              />
+            </div>
+          </div>
 
           {/* Button */}
-          <div className="pt-4 flex justify-center">
+          <div className="pt-2 flex justify-center">
             <Link href="/tuyen-dung">
-              <button className="relative group overflow-hidden px-8 py-4 rounded-full bg-[#2A9FFF] text-white font-bold hover:bg-[#4AB3FF] transition-all duration-300 shadow-[0_0_20px_rgba(42,159,255,0.2)] hover:shadow-[0_0_30px_rgba(42,159,255,0.4)] flex items-center gap-2">
-                {t("cta")}
-                <svg
-                  className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2.5}
+              <div
+                className="p-px rounded-full hover:-translate-y-1 transition-transform duration-300"
+                style={{ backgroundImage: "linear-gradient(180deg, #31B0FF 0%, #81AEF2 100%)" }}
+              >
+                <button
+                  className="relative cursor-pointer overflow-hidden px-6 lg:py-1 h-[52px] rounded-full text-white text-sm lg:text-base 2xl:text-xl font-semibold font-display hover:brightness-110 transition-all duration-300 flex items-center gap-[10px]"
+                  style={{
+                    backgroundImage: "linear-gradient(180deg, #76C6FF 0%, #2A75F3 100%)",
+                    boxShadow:
+                      "inset 0 -4px 16px 0 rgba(0,106,255,0.30), inset 0 -2px 6px 0 rgba(255,255,255,0.75), inset 0 -3px 0 0 rgba(30,154,255,0.18), 0 1px 10px 0 rgba(0,0,0,0.15)",
+                  }}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </button>
+                  {t("cta")}
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </button>
+              </div>
             </Link>
           </div>
 
+        </div>
+
+        <div className="relative w-8 sm:w-10 lg:w-13.75">
+          <Image src="/landing/Career/line-right.png" alt="" fill className="object-contain object-right" />
         </div>
       </div>
     </section>

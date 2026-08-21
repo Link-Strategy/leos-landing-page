@@ -108,11 +108,12 @@
   },
   "career": {
     "eyebrow": "Join LeTRON",
-    "titleHighlightPrefix": "or ",
     "titleLine1": "Build a career",
-    "titleHighlight": "shape the future?",
+    "titleHighlightPrefix": "or shape ",
+    "titleHighlightAccent": "the future?",
     "description": "We are always looking for creative minds who keep pushing boundaries and take ownership seriously, to help revolutionize the circular economy industry in Vietnam.",
-    "cta": "Join Our Team of Architects"
+    "emailPlaceholder": "Your email",
+    "cta": "Join Our Team"
   },
   "partners": {
     "title": "LeTRON Partners",

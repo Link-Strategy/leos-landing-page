@@ -108,11 +108,12 @@
   },
   "career": {
     "eyebrow": "Gia nhập letron",
-    "titleHighlightPrefix": "hay ",
     "titleLine1": "Xây sự nghiệp",
-    "titleHighlight": "kiến tạo tương lai?",
+    "titleHighlightPrefix": "hay kiến tạo ",
+    "titleHighlightAccent": "tương lai?",
     "description": "Chúng tôi luôn tìm kiếm những bộ óc sáng tạo, không ngừng bứt phá giới hạn và có tinh thần trách nhiệm cao để cùng cách mạng hóa ngành công nghiệp tuần hoàn tại Việt Nam.",
-    "cta": "Gia nhập đội ngũ Kiến trúc sư"
+    "emailPlaceholder": "Email của bạn",
+    "cta": "Gia nhập đội ngũ"
   },
   "partners": {
     "title": "Đối tác LeTRON",

@@ -86,7 +86,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-16">
               <div>
                 <SubtitleBadge>{t("introBadge")}</SubtitleBadge>
-                <h2 className="elementor-heading-title elementor-size-default font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-3xl my-7!">
+                <h2 className="elementor-heading-title elementor-size-default font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]! my-7!">
                   {t("introHeadingLine1")}
                   <br />
                   {t("introHeadingLine2Prefix")}<span className="text-[#2A9FFF]">{t("introHeadingLine2Highlight")}</span>
@@ -183,7 +183,7 @@ export default function AboutPage() {
 
           {/* Sơ đồ tổ chức */}
           <div className="text-center">
-            <h2 className="elementor-heading-title elementor-size-default font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-3xl">
+            <h2 className="elementor-heading-title elementor-size-default font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
               {t("orgChartHeading")}
             </h2>
             <div className="mt-8">
@@ -205,7 +205,7 @@ export default function AboutPage() {
 
         {/* Ban lãnh đạo */}
         <div className="mx-auto max-w-[1320px] px-6 py-16 sm:px-8">
-          <h2 className="elementor-heading-title elementor-size-default mb-10! text-center font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-3xl">
+          <h2 className="elementor-heading-title elementor-size-default mb-10! text-center font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
             {t("leadershipHeading")}
           </h2>
           <LeadershipReveal />

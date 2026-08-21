@@ -34,29 +34,48 @@ export default function ScrollToTop() {
   };
 
   return (
-    <Button
-      variant="glass"
-      onClick={scrollToTop}
-      className={`fixed right-[30px] bottom-[30px] z-50 transition-all duration-500 ease-in-out
-        ${isVisible ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-[20px]"} h-[42px] w-[42px] rounded-full p-0 flex items-center justify-center outline-none`}
-      aria-label="Cuộn lên đầu trang"
-    >
-      <svg
-        fill="none"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        className="transition-all duration-300 group-hover:-translate-y-0.5"
-        xmlns="http://www.w3.org/2000/svg"
+    <>
+      {/* Scope override on top of the shared "glass" button variant — only this instance needs the white gradient + blue glow look */}
+      <style>{`
+        .scroll-to-top-btn.letron-button-glass {
+          background: linear-gradient(180deg, #EEF2FF 0%, #FFFFFF 100%);
+          box-shadow: 0px 4px 36px 0px #2A9FFF;
+        }
+        .scroll-to-top-btn.letron-button-glass::before {
+          background: transparent;
+        }
+        .scroll-to-top-btn.letron-button-glass:hover {
+          background: linear-gradient(180deg, #FFFFFF 0%, #EEF2FF 100%);
+          box-shadow: 0px 4px 40px 0px #2A9FFF;
+        }
+        .scroll-to-top-btn.letron-button-glass:hover::before {
+          background: transparent;
+        }
+      `}</style>
+      <Button
+        variant="glass"
+        onClick={scrollToTop}
+        className={`scroll-to-top-btn fixed right-[30px] bottom-[30px] z-50 transition-all duration-500 ease-in-out
+          ${isVisible ? "opacity-60 visible translate-y-0" : "opacity-0 invisible translate-y-[20px]"} h-[42px] w-[42px] rounded-full p-0 flex items-center justify-center outline-none`}
+        aria-label="Cuộn lên đầu trang"
       >
-        <path
-          d="M12 3L12 21M18 9L12 3L6 9"
-          className="stroke-white"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-        />
-      </svg>
-    </Button>
+        <svg
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          className="transition-all duration-300 group-hover:-translate-y-0.5"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 3L12 21M18 9L12 3L6 9"
+            stroke="#0D1B4B"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+          />
+        </svg>
+      </Button>
+    </>
   );
 }

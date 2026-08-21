@@ -68,13 +68,10 @@ export default function Pillars() {
       <div className="w-full px-2">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 md:mb-8 space-y-4">
-          <div className="text-[#4AB3FF] text-xs tracking-widest uppercase font-semibold">
-            {t("eyebrow")}
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white font-archivo [text-shadow:4px_0px_20px_rgba(0,140,255,0.2)]">
+          <h2 className="text-3xl sm:text-[40px]! font-bold tracking-tight text-white font-archivo [text-shadow:4px_0px_20px_rgba(0,140,255,0.2)]">
             {t("titlePrefix")}<span className="text-[#4AB3FF]">{t("titleHighlight")}</span>
           </h2>
-          <p className="text-zinc-400 text-base sm:text-lg">
+          <p className="text-white text-base sm:text-lg">
             {t("description")}
           </p>
         </div>

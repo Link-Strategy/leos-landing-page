@@ -284,7 +284,7 @@ export default function Header() {
             <div className="hidden lg:block">
               <SearchBar />
             </div>
-            <div className="relative z-1 hidden lg:block ml-4 mt-0.5!">
+            <div className="relative z-1 hidden lg:block ml-4 mt-1!">
               <LanguageSwitcher />
             </div>
             <div className="hidden w-full max-w-full items-center justify-end gap-3 pt-2 max-lg:flex">
@@ -293,18 +293,22 @@ export default function Header() {
                 type="button"
                 aria-expanded={isMobileMenuOpen}
                 aria-label="Menu Toggle"
-                className="inline-flex items-center justify-center text-white"
+                className="inline-flex h-9 w-9 shrink-0 items-center justify-center text-white"
                 onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               >
-                <img
-                  src="/assets/menu-hamburger-alt.svg"
+                <Image
+                  src="/about/Menu.png"
                   alt=""
-                  className={`${isMobileMenuOpen ? "hidden" : "block"} h-5 max-[1550px]:h-7 max-md:h-[18px]`}
+                  width={40}
+                  height={40}
+                  className={isMobileMenuOpen ? "hidden" : "block"}
                 />
-                <img
-                  src="/assets/menu-close.svg"
+                <Image
+                  src="/about/Close.png"
                   alt=""
-                  className={`${isMobileMenuOpen ? "block" : "hidden"} h-5 max-[1550px]:h-7 max-md:h-[18px]`}
+                  width={40}
+                  height={40}
+                  className={isMobileMenuOpen ? "block" : "hidden"}
                 />
               </button>
             </div>

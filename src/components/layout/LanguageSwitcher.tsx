@@ -16,7 +16,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
       href={pathname}
       locale={otherLocale}
       aria-label={t("languageToggle")}
-      className={`inline-flex h-10 w-10 shrink-0 items-center justify-center ${className ?? ""}`}
+      className={`inline-flex h-9 w-9 shrink-0 items-center justify-center ${className ?? ""}`}
     >
       <Image src="/icons/toggle-lang.png" alt="" width={40} height={40} />
     </Link>

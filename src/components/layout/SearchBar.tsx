@@ -43,6 +43,8 @@ export function SearchBar({ className, defaultValue = "", onSearch, fullWidth = 
             type="text"
             variant="search"
             size="sm"
+            containerClassName={fullWidth ? "h-12" : undefined}
+            className={fullWidth ? "h-12" : undefined}
             name="s"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}

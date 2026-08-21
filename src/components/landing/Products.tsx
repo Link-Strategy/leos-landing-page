@@ -139,7 +139,7 @@ export default function Products() {
       <div className="w-full text-center mb-5">
         <h2 className="
           m-0 font-archivo font-extrabold leading-[1.3] text-white
-          text-[40px]
+          text-[40px]!
           max-[1550px]:text-[32px]
           max-[1024px]:text-[28px]
           max-[767px]:text-[22px]
@@ -153,9 +153,9 @@ export default function Products() {
       </div>
 
       {/* ── Sub-copy ── */}
-      <div className="w-full text-center mb-[30px] flex align-center justify-center">
+      <div className="w-full text-center mb-[60px] flex align-center justify-center">
         <p className="
-          m-auto font-archivo font-normal leading-[1.3] text-zinc-300 max-w-[800px]
+          m-auto font-archivo font-normal leading-[1.3] text-white max-w-[800px]
           text-[18px]
           max-[1550px]:text-[16px]
           max-[1024px]:text-[14px]
@@ -172,26 +172,31 @@ export default function Products() {
         flex justify-center self-center
         mb-[60px] max-[1550px]:mb-[40px]
       ">
-        <Link
-          href="/san-pham"
-          className="
-            inline-flex items-center gap-1 no-underline
-            font-archivo font-semibold leading-[1.3] text-white
-            text-[20px] max-[1550px]:text-[16px] max-[1024px]:text-[14px]
-            rounded-full px-[21px] py-[10px] max-[1024px]:px-[18px] max-[1024px]:py-2
-            bg-transparent border border-white/15
-            transition-all duration-300
-            hover:bg-[#132563] hover:border-white/30
-          "
-        >
-          <span className="inline-flex items-center gap-2">
-            <span className="inline-flex items-center">
-              <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                <path clipRule="evenodd" d="M18.5303 12.5303C18.8232 12.2374 18.8232 11.7626 18.5303 11.4697L14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967C13.1768 7.76256 13.1768 8.23744 13.4697 8.53033L16.1893 11.25H6C5.58579 11.25 5.25 11.5858 5.25 12C5.25 12.4142 5.58579 12.75 6 12.75H16.1893L13.4697 15.4697C13.1768 15.7626 13.1768 16.2374 13.4697 16.5303C13.7626 16.8232 14.2374 16.8232 14.5303 16.5303L18.5303 12.5303Z" fill="white" fillRule="evenodd" />
+        <Link href="/san-pham">
+          <div
+            className="p-px rounded-full hover:-translate-y-1 transition-transform duration-300"
+            style={{ backgroundImage: "linear-gradient(180deg, #31B0FF 0%, #81AEF2 100%)" }}
+          >
+            <button
+              className="relative cursor-pointer overflow-hidden px-6 lg:py-1 h-[52px] rounded-full text-white text-sm lg:text-base 2xl:text-xl font-semibold font-display hover:brightness-110 transition-all duration-300 flex items-center gap-[10px]"
+              style={{
+                backgroundImage: "linear-gradient(180deg, #76C6FF 0%, #2A75F3 100%)",
+                boxShadow:
+                  "inset 0 -4px 16px 0 rgba(0,106,255,0.30), inset 0 -2px 6px 0 rgba(255,255,255,0.75), inset 0 -3px 0 0 rgba(30,154,255,0.18), 0 1px 10px 0 rgba(0,0,0,0.15)",
+              }}
+            >
+              {t("ctaAll")}
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
-            </span>
-            <span>{t("ctaAll")}</span>
-          </span>
+            </button>
+          </div>
         </Link>
       </div>
 
