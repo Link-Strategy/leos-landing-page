@@ -208,6 +208,94 @@
       }
     }
   },
+  "productsPage": {
+    "metaTitle": "Sản phẩm - LeTRON",
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Sản phẩm",
+    "heroTitlePrefix": "Sản phẩm ",
+    "heroTitleHighlight": "LeTRON",
+    "heroDescription": "Bộ giải pháp công nghệ LeTRON cho từng ngành công nghiệp — từ dữ liệu, năng lượng, vật liệu đến đô thị và di chuyển thông minh, vận hành trên cùng một nền tảng LeOS.",
+    "introHeadingLine1": "Sản phẩm được vận hành",
+    "introHeadingLine2": "theo hệ thống",
+    "introParagraph": "LETRON xây dựng môi trường nơi con người, công nghệ và dữ liệu phối hợp để giải quyết những bài toán công nghiệp quy mô lớn.",
+    "statOptimizeCost": "Tối ưu chi phí",
+    "statOperationEfficiency": "Tăng hiệu quả vận hành",
+    "statEnvironmentImpact": "Giảm tác động môi trường",
+    "faqBadge": "FAQ",
+    "faqHeadingPrefix": "Câu hỏi ",
+    "faqHeadingHighlight": "thường gặp",
+    "faqItems": [
+      {
+        "question": "Tự động hóa bằng LeTRON có thể giúp ích gì cho doanh nghiệp của tôi?",
+        "answer": "Nền tảng LeOS giúp doanh nghiệp số hóa toàn bộ quy trình vận hành, thu thập và phân tích dữ liệu theo thời gian thực để tối ưu chi phí, nâng cao hiệu suất và giảm thiểu sai sót do thao tác thủ công."
+      },
+      {
+        "question": "Việc tích hợp trí tuệ nhân tạo LeTRON vào hệ thống hiện tại của tôi có khó không?",
+        "answer": "LeOS được thiết kế để tích hợp linh hoạt với hạ tầng và phần mềm sẵn có thông qua API mở. Đội ngũ kỹ thuật LeTRON sẽ đồng hành cùng bạn trong suốt quá trình triển khai để đảm bảo chuyển đổi diễn ra suôn sẻ."
+      },
+      {
+        "question": "Những ngành nào có thể hưởng lợi từ tự động hóa bằng trí tuệ nhân tạo?",
+        "answer": "Các giải pháp của LeTRON phù hợp với nhiều lĩnh vực công nghiệp như năng lượng, vật liệu xây dựng, đô thị và di chuyển thông minh — bất kỳ ngành nào cần tối ưu vận hành dựa trên dữ liệu đều có thể ứng dụng."
+      },
+      {
+        "question": "Việc thiết lập LeTRON mất bao lâu?",
+        "answer": "Thời gian triển khai phụ thuộc vào quy mô và độ phức tạp của hệ thống hiện tại. Thông thường, một dự án thí điểm có thể đưa vào vận hành chỉ sau vài tuần làm việc cùng đội ngũ kỹ thuật LeTRON."
+      },
+      {
+        "question": "Tôi có thể yêu cầu một giải pháp LeTRON tùy chỉnh không?",
+        "answer": "Có. Bên cạnh các sản phẩm sẵn có, LeTRON cung cấp dịch vụ tư vấn và phát triển giải pháp riêng theo đặc thù vận hành của từng doanh nghiệp."
+      }
+    ],
+    "detail": {
+      "featuresHeadingPrefix": "Nền tảng dữ liệu và",
+      "featuresHeadingHighlight": "trí tuệ nhân tạo",
+      "featuresIntro": "LeDB là trung tâm dữ liệu của LETRON, nơi mọi thông tin từ tài nguyên, sản xuất, năng lượng đến tài chính được thu thập, xử lý và chuyển hóa thành quyết định.",
+      "features": [
+        {
+          "name": "LeOS",
+          "subtitle": "Hệ điều hành ALL IN ONE",
+          "bullets": ["Tích hợp dữ liệu đa nguồn", "Đồng bộ vận hành theo thời gian thực", "Quản lý tài sản và quy trình"]
+        },
+        {
+          "name": "LeLe AGI",
+          "subtitle": "Trợ lý ảo",
+          "bullets": ["Phân tích dữ liệu lớn", "Đưa ra khuyến nghị tối ưu", "Tự học và cải thiện theo thời gian"]
+        },
+        {
+          "name": "Le-Carbon Registry",
+          "subtitle": "Tín chỉ Carbon",
+          "bullets": ["Ghi nhận lượng phát thải", "Tính toán tín chỉ carbon", "Hỗ trợ giao dịch và minh bạch dữ liệu"]
+        },
+        {
+          "name": "Le-Battery Passport",
+          "subtitle": "Hộ chiếu Pin",
+          "bullets": ["Truy xuất nguồn gốc", "Theo dõi vòng đời sản phẩm", "Tối ưu tái sử dụng và tái chế"]
+        }
+      ],
+      "processHeadingPrefix": "Cách LeDB",
+      "processHeadingHighlight": "vận hành",
+      "processHeadingLine2": "Từ dữ liệu đến hành động",
+      "processIntro": "Không chỉ là nền tảng lưu trữ, LeDB đóng vai trò như \"bộ não số\", giúp hệ sinh thái vận hành thông minh, đồng bộ và có khả năng tự tối ưu.",
+      "processSteps": [
+        "Thu thập dữ liệu từ hệ sinh thái",
+        "Phân tích bằng LeLe AGI",
+        "Đồng bộ qua LeOS",
+        "Tạo giá trị (tối ưu, giảm chi phí, ESG)"
+      ],
+      "reviewHeadingPrefix": "Khách hàng của chúng tôi",
+      "reviewHeadingHighlight": "nói gì?",
+      "reviewQuote": "“LETRON không chỉ cung cấp giải pháp, mà giúp chúng tôi tái cấu trúc toàn bộ cách vận hành. Từ dữ liệu rời rạc, giờ mọi thứ được kết nối và tối ưu theo thời gian thực.”",
+      "reviewName": "Mila S.",
+      "reviewRole": "Giám đốc vận hành, Doanh nghiệp sản xuất",
+      "consultHeadingPrefix": "Nhận tư vấn",
+      "consultHeadingHighlight": "sản phẩm",
+      "consultNamePlaceholder": "Họ & tên*",
+      "consultEmailPlaceholder": "Email*",
+      "consultPhonePlaceholder": "Số điện thoại",
+      "consultMessagePlaceholder": "Nội dung*",
+      "consultSubmitLabel": "Gửi ngay"
+    }
+  },
   "heartTab": {
     "tabs": {
       "heart": "H.E.A.R.T",
@@ -261,7 +349,7 @@
     "breadcrumbCurrent": "Giới thiệu",
     "heroTitlePrefix": "Giới thiệu ",
     "heroTitleHighlight": "LeTRON",
-    "heroDescription": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+    "heroDescription": "LETRON là tập đoàn công nghiệp thế hệ mới, kết nối dữ liệu, trí tuệ nhân tạo và tài sản vật lý để tái định nghĩa chuỗi giá trị công nghiệp theo hướng tuần hoàn và bền vững.",
     "introBadge": "Giới thiệu chung",
     "introHeadingLine1": "Hệ sinh thái công nghiệp",
     "introHeadingLine2Prefix": "Vận hành bằng ",
@@ -286,6 +374,27 @@
     "orgChartHeading": "Sơ đồ tổ chức",
     "orgChartAlt": "Sơ đồ tổ chức LeTRON",
     "leadershipHeading": "Ban lãnh đạo"
+  },
+  "contact": {
+    "metaTitle": "Liên hệ - LeTRON",
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Liên hệ",
+    "heroTitlePrefix": "Kết nối với ",
+    "heroTitleHighlight": "LeTRON",
+    "heroDescription": "Đội ngũ LeTRON luôn sẵn sàng lắng nghe và đồng hành cùng bạn. Để lại thông tin, chúng tôi sẽ liên hệ tư vấn giải pháp phù hợp trong thời gian sớm nhất.",
+    "formHeadingLine1": "Để lại thông tin của bạn",
+    "formHeadingLine2Prefix": "Chúng tôi sẽ sớm ",
+    "formHeadingLine2Highlight": "liên hệ tư vấn!",
+    "formNamePlaceholder": "Họ & tên*",
+    "formEmailPlaceholder": "Email*",
+    "formPhonePlaceholder": "Số điện thoại*",
+    "formMessagePlaceholder": "Nội dung*",
+    "formSubmitLabel": "Gửi ngay",
+    "addressLabel": "Trụ sở chính: Tầng 3, Tòa nhà Công Thành, số 295 đường Trần Nhân Tông, phường Uông Bí, tỉnh Quảng Ninh",
+    "mapLinkLabel": "[Bản đồ đường đi]",
+    "phone1": "02033.668.838",
+    "phone2": "02033.669.966",
+    "email": "office@letrongroup.com"
   },
   "aboutHeartValues": {
     "overlayTitleLine1": "Giá trị cốt lõi",

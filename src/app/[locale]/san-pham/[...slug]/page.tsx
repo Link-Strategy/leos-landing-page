@@ -1,7 +1,24 @@
-import { getLandingDirectories, StaticLandingPage } from "@/lib/static-landing";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+
+import ProductDetailPage from "@/components/products/ProductDetailPage";
+import { PRODUCT_SLUG_TO_ID } from "@/lib/products";
 
 export function generateStaticParams() {
-  return getLandingDirectories(["san-pham"]).map((slug) => ({ slug: [slug] }));
+  return Object.keys(PRODUCT_SLUG_TO_ID).map((slug) => ({ slug: [slug] }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string[] }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const productId = PRODUCT_SLUG_TO_ID[slug[0]];
+  if (!productId) return {};
+
+  const t = await getTranslations({ locale, namespace: "products" });
+  return { title: `${t(`items.${productId}.title`)} - LeTRON` };
 }
 
 export default async function SanPhamDetailPage({
@@ -11,10 +28,5 @@ export default async function SanPhamDetailPage({
 }) {
   const { slug } = await params;
 
-  return (
-    <StaticLandingPage
-      className="site-main product type-product status-publish hentry"
-      segments={["san-pham", ...slug]}
-    />
-  );
+  return <ProductDetailPage slug={slug[0]} />;
 }

@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-import { StaticLandingPage } from "@/lib/static-landing";
+import ContactPage from "@/components/contact/ContactPage";
 
-export const metadata: Metadata = {
-  title: "Liên hệ - LeTRON",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "contact" });
+  return { title: t("metaTitle") };
+}
 
 export default function LienHePage() {
-  return <StaticLandingPage className="site-main post-36 page type-page status-publish hentry" segments={["lien-he"]} />;
+  return <ContactPage />;
 }

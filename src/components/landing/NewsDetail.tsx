@@ -8,36 +8,31 @@ import { FaXTwitter } from "react-icons/fa6";
 const relatedNews = [
     {
         image: "/figmaAssets/b-i-tin-1.png",
-        title:
-            "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+        title: "LeOS chính thức tích hợp module dự báo bảo trì bằng trí tuệ nhân tạo",
         day: "25",
         month: "tháng 3",
     },
     {
         image: "/figmaAssets/b-i-tin-1-1.png",
-        title:
-            "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+        title: "LeTRON khánh thành trạm sạc xe điện thông minh đầu tiên tại Quảng Ninh",
         day: "25",
         month: "tháng 3",
     },
     {
         image: "/figmaAssets/b-i-tin-1-2.png",
-        title:
-            "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+        title: "Báo cáo ESG 2026: LeTRON cắt giảm 30% phát thải carbon trong vận hành",
         day: "25",
         month: "tháng 3",
     },
     {
         image: "/figmaAssets/b-i-tin-1.png",
-        title:
-            "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+        title: "LeGM ra mắt dòng vật liệu bê tông xanh chống xâm thực nước biển",
         day: "25",
         month: "tháng 3",
     },
     {
         image: "/figmaAssets/b-i-tin-1-1.png",
-        title:
-            "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+        title: "LeTRON tham gia Diễn đàn Kinh tế tuần hoàn Việt Nam 2026",
         day: "25",
         month: "tháng 3",
     },

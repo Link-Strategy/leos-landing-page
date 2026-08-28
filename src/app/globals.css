@@ -145,6 +145,10 @@
   --font-sans: var(--font-outfit);
   --font-display: var(--font-archivo);
   --font-mono: var(--font-geist-mono);
+
+  /* Registers animate-accordion-down/up as real utilities so they can be combined with data-[state=] variants */
+  --animate-accordion-down: accordion-down 0.3s ease-out;
+  --animate-accordion-up: accordion-up 0.3s ease-out;
 }
 
 /* 2. Base & Reset Overrides */
@@ -319,6 +323,26 @@ a:hover {
 
   100% {
     transform: translateX(-420px);
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
   }
 }
 

@@ -38,22 +38,11 @@ function HeaderFeatureItem({ children }: { children: React.ReactNode }) {
 
 const NAV_ITEMS: { key: string; href: string; hasDropdown?: boolean }[] = [
   { key: "aboutUs", href: "/gioi-thieu" },
-  { key: "memberCompanies", href: "/cong-ty-thanh-vien", hasDropdown: true },
   { key: "products", href: "/san-pham", hasDropdown: true },
   { key: "newsEvents", href: "/blog" },
   { key: "careers", href: "/tuyen-dung" },
   { key: "contact", href: "/lien-he" },
 ];
-
-const COMPANY_MEMBERS_META = [
-  { key: "ledb", logo: "/assets/logos/ledb-logo.svg", alt: "LeDB", indicator: "/assets/company-indicator-blue.svg", href: "/san-pham/ledb-bo-nao-so" },
-  { key: "lese", logo: "/assets/logos/lese-logo.svg", alt: "LeSE", indicator: "/assets/company-indicator-blue.svg", href: "/san-pham/lese-nang-luong-thong-minh" },
-  { key: "legm", logo: "/assets/logos/legm-logo.svg", alt: "LeGM", indicator: "/assets/company-indicator-green.svg", href: "/san-pham/legm-vat-lieu-xanh" },
-  { key: "lesc", logo: "/assets/logos/lesc-logo.svg", alt: "LeSC", indicator: "/assets/company-indicator-blue.svg", href: "/san-pham/lesc-do-thi-thong-minh" },
-  { key: "lesm", logo: "/assets/logos/lesm-logo.svg", alt: "LeSM", indicator: "/assets/company-indicator-blue.svg", href: "/san-pham/lesm-di-chuyen-thong-minh" },
-  { key: "lesb", logo: "/assets/logos/lesb-logo.svg", alt: "LeSB", indicator: "/assets/company-indicator-blue.svg", href: "/san-pham/lesb-xay-dung-thong-minh" },
-];
-
 
 const PRODUCTS_META = [
   {
@@ -121,10 +110,6 @@ const PRODUCTS_META = [
 
 export default function Header() {
   const t = useTranslations("header");
-  const COMPANY_MEMBERS = COMPANY_MEMBERS_META.map((meta) => ({
-    ...meta,
-    desc: t(`companies.${meta.key}`),
-  }));
   const PRODUCTS = PRODUCTS_META.map((meta) => ({
     ...meta,
     name: t(`products.${meta.key}.name`),
@@ -177,90 +162,49 @@ export default function Header() {
                             </a>
                           </NavigationMenuPrimitive.Trigger>
                           <NavigationMenuContent className="w-full">
-                            {item.href === "/cong-ty-thanh-vien" ? (
-                              <div className="header-dropdown-glass header-dropdown">
-                                <div className="relative z-6 grid grid-cols-6 gap-6 w-full">
-                                  {COMPANY_MEMBERS.map((comp, compIdx) => (
-                                    <div key={compIdx} className="relative z-2">
-                                      <Link href={comp.href}>
-                                        <Card variant="glass" hover="lift" size="mini" className="p-0! rounded-[20px]! h-[100px] text-start shadow-[0_4px_30px_rgba(0,0,0,0.1)] flex flex-col overflow-hidden relative justify-center cursor-pointer">
-                                          {/* Indicator on the left edge */}
-                                          <div className="absolute left-0 top-0 bottom-0 w-[10px] overflow-hidden rounded-l-[inherit]">
-                                            <Image
-                                              src={comp.indicator}
-                                              alt=""
-                                              fill
-                                              className="object-cover"
-                                            />
-                                          </div>
+                            <div className="header-dropdown-glass products-dropdown">
+                              <div className="relative z-6 grid grid-cols-4 gap-6 w-full">
+                                {PRODUCTS.map((prod, prodIdx) => (
+                                  <div key={prodIdx} className="relative z-2">
+                                    <Card variant="glass" hover="lift" size="mini" className="p-0! rounded-[20px]! h-[200px] text-start shadow-[0_4px_30px_rgba(0,0,0,0.1)] flex flex-col overflow-hidden relative">
+                                      {/* Background Image Container (Full Card Size) */}
+                                      <div className="absolute inset-0 z-0 overflow-hidden rounded-[inherit]">
+                                        <img
+                                          alt={prod.name}
+                                          className="w-full! h-full! object-cover! rounded-none! transition-all duration-700 group-hover/card:scale-110"
+                                          src={prod.img}
+                                        />
+                                        {/* Dark Gradient Overlay for Typography Readability */}
+                                        <div className="absolute inset-0 bg-linear-to-b from-[#0d1b4b]/90 via-[#0d1b4b]/60 to-[#0d1b4b]/95 transition-opacity duration-500 group-hover/card:opacity-90" />
+                                      </div>
 
-                                          {/* Content inside the card */}
-                                          <div className="pl-6 pr-4 py-3 flex flex-col gap-2 relative z-10">
-                                            <div>
-                                              <span className="relative block h-[20px] w-[90px] transition duration-600">
-                                                <Image
-                                                  src={comp.logo}
-                                                  alt={comp.alt}
-                                                  fill
-                                                  className="object-contain object-left"
-                                                />
+                                      {/* Card content overlay - Starting from top */}
+                                      <div className="relative z-10 flex flex-col gap-3 p-4 w-full h-full justify-start overflow-hidden">
+                                        <CardHeader className="p-0 gap-1">
+                                          <CardTitle className={`font-sans text-lg font-bold uppercase leading-[1.3em] ${prod.textClass} max-[1550px]:mb-0`}>
+                                            <Link href={prod.href} className="flex items-end gap-2 hover:opacity-90">
+                                              <div className="relative h-[20px] w-[80px]"><Image src={prod.logo} alt={prod.prefix + prod.suffix} className="object-contain object-left" fill /></div>
+                                              <span className="font-sans text-sm font-semibold normal-case leading-[1.4em] text-white/95">
+                                                {prod.name}
                                               </span>
-                                            </div>
-                                            <div>
-                                              <p className="font-sans text-xs font-semibold leading-[1.3em] text-white/90">{comp.desc}</p>
-                                            </div>
-                                          </div>
-                                        </Card>
-                                      </Link>
-                                    </div>
-                                  ))}
-                                </div>
+                                            </Link>
+                                          </CardTitle>
+                                        </CardHeader>
+                                        <CardContent className="p-0">
+                                          <ul className="pl-3 space-y-0.5 border-l border-white/20">
+                                            {prod.features.map((feat, featIdx) => (
+                                              <HeaderFeatureItem key={featIdx}>
+                                                {feat}
+                                              </HeaderFeatureItem>
+                                            ))}
+                                          </ul>
+                                        </CardContent>
+                                      </div>
+                                    </Card>
+                                  </div>
+                                ))}
                               </div>
-                            ) : (
-                              <div className="header-dropdown-glass products-dropdown">
-                                <div className="relative z-6 grid grid-cols-4 gap-6 w-full">
-                                  {PRODUCTS.map((prod, prodIdx) => (
-                                    <div key={prodIdx} className="relative z-2">
-                                      <Card variant="glass" hover="lift" size="mini" className="p-0! rounded-[20px]! h-[200px] text-start shadow-[0_4px_30px_rgba(0,0,0,0.1)] flex flex-col overflow-hidden relative">
-                                        {/* Background Image Container (Full Card Size) */}
-                                        <div className="absolute inset-0 z-0 overflow-hidden rounded-[inherit]">
-                                          <img
-                                            alt={prod.name}
-                                            className="w-full! h-full! object-cover! rounded-none! transition-all duration-700 group-hover/card:scale-110"
-                                            src={prod.img}
-                                          />
-                                          {/* Dark Gradient Overlay for Typography Readability */}
-                                          <div className="absolute inset-0 bg-linear-to-b from-[#0d1b4b]/90 via-[#0d1b4b]/60 to-[#0d1b4b]/95 transition-opacity duration-500 group-hover/card:opacity-90" />
-                                        </div>
-
-                                        {/* Card content overlay - Starting from top */}
-                                        <div className="relative z-10 flex flex-col gap-3 p-4 w-full h-full justify-start overflow-hidden">
-                                          <CardHeader className="p-0 gap-1">
-                                            <CardTitle className={`font-sans text-lg font-bold uppercase leading-[1.3em] ${prod.textClass} max-[1550px]:mb-0`}>
-                                              <Link href={prod.href} className="flex items-end gap-2 hover:opacity-90">
-                                                <div className="relative h-[20px] w-[80px]"><Image src={prod.logo} alt={prod.prefix + prod.suffix} className="object-contain object-left" fill /></div>
-                                                <span className="font-sans text-sm font-semibold normal-case leading-[1.4em] text-white/95">
-                                                  {prod.name}
-                                                </span>
-                                              </Link>
-                                            </CardTitle>
-                                          </CardHeader>
-                                          <CardContent className="p-0">
-                                            <ul className="pl-3 space-y-0.5 border-l border-white/20">
-                                              {prod.features.map((feat, featIdx) => (
-                                                <HeaderFeatureItem key={featIdx}>
-                                                  {feat}
-                                                </HeaderFeatureItem>
-                                              ))}
-                                            </ul>
-                                          </CardContent>
-                                        </div>
-                                      </Card>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
+                            </div>
                           </NavigationMenuContent>
                         </NavigationMenuItem>
                       );
@@ -329,33 +273,6 @@ export default function Header() {
                 <Link className="block py-2 font-sans text-base font-medium text-white" href="/gioi-thieu" tabIndex={-1}>
                   {t(`nav.aboutUs`)}
                 </Link>
-              </li>
-              <li>
-                <div className="flex items-center justify-between">
-                  <Link className="block py-2 font-sans text-base font-medium text-white" href="/cong-ty-thanh-vien" tabIndex={-1}>
-                    {t(`nav.memberCompanies`)}
-                  </Link>
-                  <button className="flex h-8 w-8 items-center justify-center text-white" type="button" onClick={(e) => toggleSubMenu('company', e)}>
-                    <ChevronDownIcon className={`h-3 w-3 fill-current transition-transform ${openSubMenus["company"] ? "rotate-180" : ""}`} />
-                  </button>
-                </div>
-                <ul className={`${openSubMenus['company'] ? 'grid' : 'hidden'} pl-4 py-2 grid-cols-2 gap-3`}>
-                  {COMPANY_MEMBERS.map((comp, compIdx) => (
-                    <li key={compIdx}>
-                      <Link className="flex flex-col items-start gap-1 rounded-xl bg-white/3 p-3 hover:bg-white/8 transition-all duration-300 border border-white/10" href="/cong-ty-thanh-vien" tabIndex={-1}>
-                        <div className="relative h-[20px] w-[80px]">
-                          <Image
-                            src={comp.logo}
-                            alt={comp.alt}
-                            fill
-                            className="object-contain object-left"
-                          />
-                        </div>
-                        <span className="text-[10px] text-white/60 font-sans leading-none">{comp.desc}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
               </li>
               <li>
                 <div className="flex items-center justify-between">
