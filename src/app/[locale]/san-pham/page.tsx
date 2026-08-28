@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-import { StaticLandingPage } from "@/lib/static-landing";
+import SanPhamPage from "@/components/products/SanPhamPage";
 
-export const metadata: Metadata = {
-  title: "Sản phẩm - LeTRON",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "productsPage" });
+  return { title: t("metaTitle") };
+}
 
-export default function SanPhamPage() {
-  return <StaticLandingPage className="site-main post-423 page type-page status-publish hentry" segments={["san-pham"]} />;
+export default function SanPham() {
+  return <SanPhamPage />;
 }

@@ -4,7 +4,7 @@ import * as React from "react"
 import { Accordion as AccordionPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
-import { ChevronDownIcon, ChevronUpIcon } from "lucide-react"
+import { MinusIcon, PlusIcon } from "lucide-react"
 
 function Accordion({
   className,
@@ -47,18 +47,22 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "group/accordion-trigger flex flex-1 items-center justify-between py-5 text-left text-[14px] font-bold tracking-tight text-white/90 transition-all hover:text-brand-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-primary/30 disabled:pointer-events-none disabled:opacity-50",
+          "group/accordion-trigger flex flex-1 items-center justify-between gap-4 py-5 text-left text-[14px] font-bold tracking-tight text-white/90 transition-all hover:text-brand-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand-primary/30 disabled:pointer-events-none disabled:opacity-50",
           className
         )}
         {...props}
       >
         {children}
-        <div className="flex size-7 items-center justify-center rounded-full bg-white/5 border border-white/5 transition-all group-hover/accordion-trigger:bg-brand-primary/10 group-hover/accordion-trigger:border-brand-primary/30 group-data-[state=open]/accordion-trigger:bg-brand-primary/20 group-data-[state=open]/accordion-trigger:border-brand-primary/50 group-data-[state=open]/accordion-trigger:shadow-[0_0_15px_rgba(250,175,76,0.2)]">
-            <ChevronDownIcon
+        <span className="relative flex size-6 shrink-0 items-center justify-center">
+          <PlusIcon
             data-slot="accordion-trigger-icon"
-            className="size-3.5 shrink-0 text-text-muted transition-transform duration-500 group-hover/accordion-trigger:text-brand-primary group-data-[state=open]/accordion-trigger:rotate-180 group-data-[state=open]/accordion-trigger:text-brand-primary"
-            />
-        </div>
+            className="absolute size-full text-white transition-opacity duration-300 group-data-[state=open]/accordion-trigger:opacity-0"
+          />
+          <MinusIcon
+            data-slot="accordion-trigger-icon"
+            className="absolute size-full text-white opacity-0 transition-opacity duration-300 group-data-[state=open]/accordion-trigger:opacity-100"
+          />
+        </span>
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )

@@ -110,7 +110,7 @@ export default function Products() {
           navigation: { nextEl: ".sp-next", prevEl: ".sp-prev" },
           breakpoints: {
             768: { slidesPerView: 2.2 },
-            1024: { slidesPerView: 3.6, spaceBetween: 24 },
+            1024: { slidesPerView: 3, spaceBetween: 24 },
           },
         });
       } else {
@@ -210,7 +210,7 @@ export default function Products() {
                 <div className="swiper-slide" key={product.id}>
                   <Card
                     variant="glass"
-                    className="rounded-[26px] p-0 gap-0 cursor-pointer h-[320px]"
+                    className="rounded-[26px] p-0 gap-0 cursor-pointer h-[544px] max-[1550px]:h-[460px] max-[767px]:h-[320px]"
                     style={{
                       "--card-glass-bg-start": "transparent",
                       "--card-glass-bg-end": "transparent",
@@ -274,13 +274,13 @@ export default function Products() {
                           asChild
                           variant="glass"
                           size={null}
-                          className="px-3 py-1 text-xs"
+                          className="h-11 gap-[10px] rounded-full px-5 text-sm font-semibold lg:h-[52px] lg:px-6 lg:text-base"
                         >
                           <Link href={product.link}
                             onClick={(e) => e.stopPropagation()}
                           >
-                            <span className="relative z-10 flex flex-row-reverse items-center gap-1">
-                              <span className="[&_svg]:size-4">
+                            <span className="relative z-10 flex flex-row-reverse items-center gap-[10px]">
+                              <span className="[&_svg]:size-4 lg:[&_svg]:size-5">
                                 <svg fill="none" height={24} viewBox="0 0 24 24" width={24} xmlns="http://www.w3.org/2000/svg">
                                   <path
                                     clipRule="evenodd"

@@ -208,6 +208,87 @@
       }
     }
   },
+  "productsPage": {
+    "metaTitle": "Products - LeTRON",
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Products",
+    "heroTitlePrefix": "LeTRON ",
+    "heroTitleHighlight": "Products",
+    "heroDescription": "LeTRON's technology solutions for every industry — from data, energy, and materials to smart cities and mobility, all running on a single LeOS platform.",
+    "introHeadingLine1": "Products operated",
+    "introHeadingLine2": "as one system",
+    "introParagraph": "LETRON builds an environment where people, technology, and data work together to solve large-scale industrial problems.",
+    "statOptimizeCost": "Optimize costs",
+    "statOperationEfficiency": "Increase operational efficiency",
+    "statEnvironmentImpact": "Reduce environmental impact",
+    "faqBadge": "FAQ",
+    "faqHeadingPrefix": "Frequently asked ",
+    "faqHeadingHighlight": "questions",
+    "faqItems": [
+      {
+        "question": "How can automation by LeTRON help my business?",
+        "answer": "The LeOS platform digitizes your entire operating workflow, collecting and analyzing data in real time to optimize costs, boost efficiency, and reduce errors from manual processes."
+      },
+      {
+        "question": "Is it difficult to integrate LeTRON AI into my current system?",
+        "answer": "LeOS is built to integrate flexibly with your existing infrastructure and software through open APIs. LeTRON's technical team works alongside you throughout deployment to ensure a smooth transition."
+      },
+      {
+        "question": "Which industries can benefit from AI-driven automation?",
+        "answer": "LeTRON's solutions apply to a wide range of industries — energy, construction materials, smart cities, and mobility — any field that needs data-driven operations can benefit."
+      },
+      {
+        "question": "How long does it take to set up LeTRON?",
+        "answer": "Setup time depends on the scale and complexity of your existing systems. A pilot project can typically go live within just a few weeks, working alongside LeTRON's technical team."
+      },
+      {
+        "question": "Can I request a customized LeTRON solution?",
+        "answer": "Yes. Beyond our existing products, LeTRON offers consulting and custom solution development tailored to each business's specific operations."
+      }
+    ],
+    "detail": {
+      "featuresHeadingPrefix": "A data platform with",
+      "featuresHeadingHighlight": "artificial intelligence",
+      "featuresIntro": "LeDB is LETRON's data hub, where information from resources, production, energy, and finance is collected, processed, and turned into decisions.",
+      "features": [
+        {
+          "name": "LeOS",
+          "subtitle": "ALL-IN-ONE operating system",
+          "bullets": ["Multi-source data integration", "Real-time operation sync", "Asset and process management"]
+        },
+        {
+          "name": "LeLe AGI",
+          "subtitle": "Virtual assistant",
+          "bullets": ["Big data analysis", "Optimal recommendations", "Self-learning and improvement over time"]
+        },
+        {
+          "name": "Le-Carbon Registry",
+          "subtitle": "Carbon credits",
+          "bullets": ["Emission tracking", "Carbon credit calculation", "Transaction support and data transparency"]
+        },
+        {
+          "name": "Le-Battery Passport",
+          "subtitle": "Battery passport",
+          "bullets": ["Origin traceability", "Product lifecycle tracking", "Reuse and recycling optimization"]
+        }
+      ],
+      "processHeadingPrefix": "How LeDB",
+      "processHeadingHighlight": "operates",
+      "processHeadingLine2": "From data to action",
+      "processIntro": "More than just a storage platform, LeDB acts as a \"digital brain\", helping the ecosystem run smart, in sync, and self-optimizing.",
+      "processSteps": [
+        "Collect data from the ecosystem",
+        "Analyze with LeLe AGI",
+        "Sync through LeOS",
+        "Create value (optimize, cut costs, ESG)"
+      ],
+      "reviewHeadingPrefix": "What our customers",
+      "reviewHeadingHighlight": "say",
+      "reviewQuote": "“LETRON didn't just provide a solution — it helped us restructure how we operate entirely. From scattered data, everything is now connected and optimized in real time.”",
+      "reviewName": "Mila S.",
+      "reviewRole": "Operations Director, Manufacturing Enterprise"
+    }
+  },
   "heartTab": {
     "tabs": {
       "heart": "H.E.A.R.T",
@@ -261,7 +342,7 @@
     "breadcrumbCurrent": "About Us",
     "heroTitlePrefix": "About ",
     "heroTitleHighlight": "LeTRON",
-    "heroDescription": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+    "heroDescription": "LETRON is a new-generation industrial group connecting data, artificial intelligence, and physical assets to redefine the industrial value chain around circularity and sustainability.",
     "introBadge": "About Us",
     "introHeadingLine1": "An Industrial Ecosystem",
     "introHeadingLine2Prefix": "Powered by ",
@@ -286,6 +367,27 @@
     "orgChartHeading": "Organizational Chart",
     "orgChartAlt": "LeTRON organizational chart",
     "leadershipHeading": "Leadership"
+  },
+  "contact": {
+    "metaTitle": "Contact - LeTRON",
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Contact",
+    "heroTitlePrefix": "Connect with ",
+    "heroTitleHighlight": "LeTRON",
+    "heroDescription": "The LeTRON team is always ready to listen and work with you. Leave your details and we'll reach out with the right solution as soon as possible.",
+    "formHeadingLine1": "Leave your information",
+    "formHeadingLine2Prefix": "We will ",
+    "formHeadingLine2Highlight": "get in touch shortly!",
+    "formNamePlaceholder": "Full name*",
+    "formEmailPlaceholder": "Email*",
+    "formPhonePlaceholder": "Phone number*",
+    "formMessagePlaceholder": "Message*",
+    "formSubmitLabel": "Send now",
+    "addressLabel": "Headquarters: 3rd Floor, Cong Thanh Building, 295 Tran Nhan Tong Street, Uong Bi Ward, Quang Ninh Province",
+    "mapLinkLabel": "[Get directions]",
+    "phone1": "02033.668.838",
+    "phone2": "02033.669.966",
+    "email": "office@letrongroup.com"
   },
   "aboutHeartValues": {
     "overlayTitleLine1": "Core Values",

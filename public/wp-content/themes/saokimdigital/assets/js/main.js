@@ -97,40 +97,45 @@ jQuery(function ($) {
 jQuery(function ($) {
 
 
-    new Swiper('.letron-sp-slider', {
+    const letronSlider = document.querySelector('.letron-sp-slider');
+    if (letronSlider && !letronSlider.classList.contains('swiper-initialized')) {
+        new Swiper('.letron-sp-slider', {
 
-        loop: true,
-        centeredSlides: true,
+            loop: true,
+            centeredSlides: true,
 
-        slidesPerView: 1.2,
-        spaceBetween: 20,
-        autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-        },
-        navigation: {
-            nextEl: '.letron-next',
-            prevEl: '.letron-prev',
-        },
-
-        breakpoints: {
-
-            768: {
-                slidesPerView: 2.2,
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.letron-next',
+                prevEl: '.letron-prev',
             },
 
-            1024: {
-                slidesPerView: 3.6,
-                spaceBetween: 24,
+            breakpoints: {
+
+                768: {
+                    slidesPerView: 2.2,
+                },
+
+                1024: {
+                    slidesPerView: 3.6,
+                    spaceBetween: 24,
+                }
+
             }
 
-        }
-
-    });
-
+        });
+    }
 
 
 
+
+    const customerReviewSlider = document.querySelector('.customer-review-slider');
+    if (customerReviewSlider && !customerReviewSlider.classList.contains('swiper-initialized')) {
     new Swiper(".customer-review-slider", {
         loop: true,
         slidesPerView: "auto",
@@ -156,6 +161,7 @@ jQuery(function ($) {
         }
 
     });
+    }
 
 });
 

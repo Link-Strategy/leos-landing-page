@@ -12,15 +12,15 @@ const tabs = [
 ];
 
 const newsItems = [
-    { image: "/figmaAssets/b-i-tin-1.png", title: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", day: "25", month: "tháng 3" },
-    { image: "/figmaAssets/b-i-tin-1-1.png", title: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", day: "25", month: "tháng 3" },
-    { image: "/figmaAssets/b-i-tin-1-2.png", title: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", day: "25", month: "tháng 3" },
-    { image: "/figmaAssets/b-i-tin-1.png", title: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", day: "25", month: "tháng 3" },
-    { image: "/figmaAssets/b-i-tin-1-1.png", title: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", day: "25", month: "tháng 3" },
-    { image: "/figmaAssets/b-i-tin-1-2.png", title: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", day: "25", month: "tháng 3" },
-    { image: "/figmaAssets/b-i-tin-1.png", title: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", day: "25", month: "tháng 3" },
-    { image: "/figmaAssets/b-i-tin-1-1.png", title: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", day: "25", month: "tháng 3" },
-    { image: "/figmaAssets/b-i-tin-1-2.png", title: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.", day: "25", month: "tháng 3" },
+    { image: "/figmaAssets/b-i-tin-1.png", title: "LeOS chính thức tích hợp module dự báo bảo trì bằng trí tuệ nhân tạo", day: "25", month: "tháng 3" },
+    { image: "/figmaAssets/b-i-tin-1-1.png", title: "LeTRON khánh thành trạm sạc xe điện thông minh đầu tiên tại Quảng Ninh", day: "25", month: "tháng 3" },
+    { image: "/figmaAssets/b-i-tin-1-2.png", title: "Báo cáo ESG 2026: LeTRON cắt giảm 30% phát thải carbon trong vận hành", day: "25", month: "tháng 3" },
+    { image: "/figmaAssets/b-i-tin-1.png", title: "LeGM ra mắt dòng vật liệu bê tông xanh chống xâm thực nước biển", day: "25", month: "tháng 3" },
+    { image: "/figmaAssets/b-i-tin-1-1.png", title: "LeTRON tham gia Diễn đàn Kinh tế tuần hoàn Việt Nam 2026", day: "25", month: "tháng 3" },
+    { image: "/figmaAssets/b-i-tin-1-2.png", title: "Đội ngũ LeTRON hoàn thành khóa đào tạo vận hành hệ thống LeOS", day: "25", month: "tháng 3" },
+    { image: "/figmaAssets/b-i-tin-1.png", title: "LeSC công bố mô hình quy hoạch khu công nghiệp sinh thái tuần hoàn", day: "25", month: "tháng 3" },
+    { image: "/figmaAssets/b-i-tin-1-1.png", title: "LeSE triển khai hệ thống lưu trữ năng lượng BESS cho nhà máy đối tác", day: "25", month: "tháng 3" },
+    { image: "/figmaAssets/b-i-tin-1-2.png", title: "LeTRON ký kết hợp tác chiến lược với đối tác công nghệ dữ liệu", day: "25", month: "tháng 3" },
 ];
 
 const pagination = [1, 2, 3, "...", 8];
@@ -64,10 +64,10 @@ export const NewsList = (): React.JSX.Element => {
                 <div className="flex w-full flex-col-reverse items-stretch gap-6 overflow-hidden rounded-[20px] border border-white/36white/[0.06] p-6 shadow-[0px_2px_20px_0px_rgba(12,178,255,0.12)] backdrop-blur-[18px] lg:flex-row lg:items-center lg:gap-16 lg:p-[36px]">
                     <div className="flex w-full flex-col gap-[34px] lg:max-w-[751px]">
                         <h2 className="font-['Archivo',Helvetica] text-[24px] font-bold leading-normal text-white lg:text-[32px]">
-                            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+                            LeTRON hoàn tất giai đoạn 1 dự án chuyển hóa 1 triệu tấn xỉ thải thành vật liệu xây dựng xanh
                         </h2>
                         <p className="font-['Archivo',Helvetica] text-[16px] font-normal leading-normal text-white lg:text-[24px]">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Nhà máy xử lý xỉ thải công nghiệp đầu tiên của LeTRON chính thức đi vào vận hành, đánh dấu bước tiến quan trọng trong hành trình xây dựng nền kinh tế tuần hoàn tại Việt Nam.
                         </p>
                         <Link
                             href="/tin-tuc/letron-chuyen-hoa-1-trieu-tan-xi-thai-1"
