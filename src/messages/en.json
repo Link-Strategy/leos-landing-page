@@ -421,10 +421,11 @@
     "openLabel": "View leadership information",
     "closeLabel": "Close",
     "members": {
-      "cfo": { "name": "Ông Nguyễn Văn Công", "title": "CFO" },
-      "chairman": { "name": "Ông Lê Minh Tiến", "title": "Chairman of the Board" },
-      "ceo": { "name": "Bà Hoàng Lệ Thủy", "title": "CEO" },
-      "lear": { "name": "Ông Lê Đức Anh", "title": "LeAR" }
+      "HR": { "name": "Ms Nguyễn Thị Mai Liên", "title": "HR & GA" },
+      "cfo": { "name": "Mr Nguyễn Văn Công", "title": "CFO" },
+      "chairman": { "name": "Mr Lê Minh Tiến", "title": "Chairman of the Board" },
+      "ceo": { "name": "Ms Hoàng Lệ Thủy", "title": "CEO" },
+      "lear": { "name": "Mr Lê Đức Anh", "title": "LeAR" }
     }
   },
   "footer": {

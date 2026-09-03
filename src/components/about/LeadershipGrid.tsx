@@ -9,10 +9,11 @@ type LeadershipMemberMeta = {
 };
 
 const LEADERSHIP_MEMBERS_META: LeadershipMemberMeta[] = [
+  { id: "816", messageKey: "HR", photo: "/about/HR.png" },
   { id: "815", messageKey: "cfo", photo: "/about/CFO.png" },
   { id: "813", messageKey: "chairman", photo: "/about/COB.png" },
   { id: "811", messageKey: "ceo", photo: "/about/CEO.png" },
-  { id: "809", messageKey: "lear", photo: "/about/LeAR.png" },
+  { id: "809", messageKey: "lear", photo: "/about/LeAR.png" }
 ];
 
 type LeadershipGridProps = {
@@ -29,7 +30,7 @@ export function LeadershipGrid({ onClose }: LeadershipGridProps) {
   }));
 
   return (
-    <div className="relative grid grid-cols-2 gap-x-3 gap-y-5 px-4 py-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-10 lg:px-20 lg:py-15 bg-white/20 rounded-2xl lg:rounded-[20px] shadow-[0_6px_8px_0_rgba(0,0,0,0.4)] backdrop-blur-[35px]">
+    <div className="relative grid grid-cols-2 gap-x-3 gap-y-5 px-4 py-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-x-4 lg:gap-y-8 lg:px-10 lg:py-15 bg-white/20 rounded-2xl lg:rounded-[20px] shadow-[0_6px_8px_0_rgba(0,0,0,0.4)] backdrop-blur-[35px]">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 rounded-[inherit] p-px"
@@ -61,15 +62,15 @@ export function LeadershipGrid({ onClose }: LeadershipGridProps) {
               alt={member.name}
               src={member.photo}
               fill
-              sizes="(max-width: 767px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              sizes="(max-width: 767px) 50vw, (max-width: 1024px) 33vw, 20vw"
               className="object-cover"
             />
           </div>
-          <div className="mt-2 flex flex-col items-center text-center rounded-lg p-2 bg-white/25 lg:mt-3 lg:rounded-[8px] lg:p-3.5">
-            <h3 className="font-archivo font-semibold leading-[1.3] text-white text-sm! whitespace-nowrap lg:text-xl!">
+          <div className="mt-2 flex flex-col items-center text-center rounded-lg p-2 bg-white/25 lg:mt-3 lg:rounded-[8px] lg:p-2.5">
+            <h3 className="font-archivo font-semibold leading-[1.3] text-white text-sm! whitespace-nowrap lg:whitespace-normal lg:text-base!">
               {member.name}
             </h3>
-            <p className="mt-1 font-archivo text-xs! font-normal leading-[1.3] text-white lg:text-base!">
+            <p className="mt-1 font-archivo text-xs! font-normal leading-[1.3] text-white lg:text-sm!">
               {member.title}
             </p>
           </div>
