@@ -42,7 +42,7 @@ export default function AboutPage() {
   const t = useTranslations("about");
   const locale = useLocale();
   const MISSION_POINTS = t.raw("missionPoints") as string[];
-  const orgChartSrc = locale === "en" ? "/wp-content/uploads/2026/05/so-do-en.svg" : "/wp-content/uploads/2026/05/so-do.svg";
+  const orgChartSrc = locale === "en" ? "/about/so-do-en.svg" : "/about/so-do.svg";
 
   return (
     <div className="site-main post-723 page type-page status-publish hentry">
