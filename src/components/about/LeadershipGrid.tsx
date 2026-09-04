@@ -9,8 +9,8 @@ type LeadershipMemberMeta = {
 };
 
 const LEADERSHIP_MEMBERS_META: LeadershipMemberMeta[] = [
-  { id: "816", messageKey: "HR", photo: "/about/HR.png" },
   { id: "815", messageKey: "cfo", photo: "/about/CFO.png" },
+  { id: "816", messageKey: "HR", photo: "/about/HR.png" },
   { id: "813", messageKey: "chairman", photo: "/about/COB.png" },
   { id: "811", messageKey: "ceo", photo: "/about/CEO.png" },
   { id: "809", messageKey: "lear", photo: "/about/LeAR.png" }
