@@ -78,13 +78,13 @@
     }
   },
   "hero": {
-    "badge": "A New Era Begins",
-    "titleLine1": "Pioneering Technology",
-    "titleLine2Prefix": "Building a ",
-    "titleLine2Highlight": "Circular",
-    "description1": "We turn waste into resources, data into value,",
-    "description2": "and technology into the foundation of a sustainable Net Zero ecosystem.",
-    "cta": "Activate the Ecosystem"
+    "badge": "LeTRON Group · Uong Bi · Quang Ninh, Vietnam",
+    "title": "Perceptive Edge Network",
+    "subtitle": "The Perceptive Edge Network",
+    "features": ["Autonomous infrastructure", "Millimeter-precise field processing", "Edge-executed AI"],
+    "description": "LeTRON builds a comprehensive edge-device ecosystem — spanning transport vehicles, factories, and charging stations to humanoid robots — running fully offline, with hardware-grade security, and automatically minting carbon certificates. Ready for the Net-Zero and CBAM era.",
+    "ctaPrimary": "Explore Whitepaper",
+    "ctaSecondary": "Register for Demo Sandbox"
   },
   "leosAi": {
     "eyebrow": "Multi-Layer Architecture",

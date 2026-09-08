@@ -144,6 +144,8 @@
   --font-sans: var(--font-outfit);
   --font-display: var(--font-archivo);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+  --font-open-sans: var(--font-open-sans);
 
   /* Registers animate-accordion-down/up as real utilities so they can be combined with data-[state=] variants */
   --animate-accordion-down: accordion-down 0.3s ease-out;
