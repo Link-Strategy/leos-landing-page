@@ -78,13 +78,13 @@
     }
   },
   "hero": {
-    "badge": "Mở màn Kỷ nguyên",
-    "titleLine1": "Tiên phong công nghệ",
-    "titleLine2Prefix": "Kiến tạo tương lai ",
-    "titleLine2Highlight": "tuần hoàn",
-    "description1": "Chúng tôi biến chất thải thành tài nguyên, dữ liệu thành giá trị,",
-    "description2": "và công nghệ thành nền tảng cho một hệ sinh thái Net Zero bền vững.",
-    "cta": "Kích hoạt Hệ sinh thái"
+    "badge": "Tập đoàn LeTRON · Uông Bí · Quảng Ninh, Việt Nam",
+    "title": "Mạng lưới Biên tri giác",
+    "subtitle": "The Perceptive Edge Network",
+    "features": ["Hạ tầng tự chủ", "Xử lý tại milimét thực địa", "AI biên thực thi"],
+    "description": "LeTRON kiến tạo hệ sinh thái thiết bị biên toàn diện — từ xe vận tải, nhà máy, trạm sạc đến robot nhân hình — vận hành hoàn toàn offline, bảo mật cấp phần cứng và tự động đúc chứng thư carbon. Sẵn sàng cho kỷ nguyên Net-Zero và CBAM.",
+    "ctaPrimary": "Khám phá Sách trắng",
+    "ctaSecondary": "Đăng ký nhận Demo Sandbox"
   },
   "leosAi": {
     "eyebrow": "Kiến trúc đa tầng",

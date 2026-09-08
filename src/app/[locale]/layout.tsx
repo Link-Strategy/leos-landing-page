@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Outfit } from "next/font/google";
+import { Archivo, Outfit, Inter, Open_Sans } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -19,6 +19,18 @@ const archivo = Archivo({
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin", "vietnamese"],
+  display: "swap",
+});
+
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
+  subsets: ["latin", "vietnamese"],
   display: "swap",
 });
 
@@ -83,7 +95,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${archivo.variable} ${outfit.variable}`}>
+    <html lang={locale} className={`${archivo.variable} ${outfit.variable} ${inter.variable} ${openSans.variable}`}>
       <head>
 
         <link href="/wp-content/themes/saokimdigital/style.css" rel="stylesheet" />
