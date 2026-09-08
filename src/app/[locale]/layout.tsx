@@ -4,7 +4,6 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import "../globals.css";
-import Header from "@/components/layout/Header";
 import HeaderTailwind from "@/components/layout/HeaderTailwind";
 import Footer from "@/components/layout/Footer";
 import ClientScripts from "@/components/layout/ClientScripts";

@@ -48,7 +48,7 @@ export default function CustomerReviews() {
   }, []);
 
   return (
-    <section className="customer-review-section px-6 py-16 sm:px-8">
+    <section className="customer-review-section py-16">
       {/*
         - Only the active (fully opaque) slide shows the reviewer avatar/name/role.
         - Swiper equalizes every slide to the tallest slide's height; without an explicit
@@ -69,7 +69,7 @@ export default function CustomerReviews() {
           `,
         }}
       />
-      <div className="mx-auto max-w-[1500px]">
+      <div className="container-le">
         <div className="review-top">
           <h2 className="review-title">
             {t("reviewHeadingPrefix")} <span>{t("reviewHeadingHighlight")}</span>

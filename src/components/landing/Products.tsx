@@ -128,10 +128,10 @@ export default function Products() {
   return (
     /* Section container */
     <section className="
-      flex flex-col w-full relative items-center box-border bg-transparent
-      px-[80px] py-[90px]
-      max-[1550px]:px-[60px] max-[1550px]:py-[60px]
-      max-[767px]:px-4 max-[767px]:py-10
+      container-le flex flex-col relative items-center box-border bg-transparent
+      py-[90px]
+      max-[1550px]:py-[60px]
+      max-[767px]:py-10
     ">
       <style dangerouslySetInnerHTML={{ __html: productsCss }} />
 

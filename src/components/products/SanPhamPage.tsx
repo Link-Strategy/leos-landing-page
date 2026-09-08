@@ -44,7 +44,7 @@ export default function SanPhamPage() {
         data-elementor-type="wp-page"
       >
         {/* Hero */}
-        <section className="relative isolate flex min-h-[350px] flex-col justify-end overflow-hidden px-6 pb-8 sm:min-h-[620px] sm:px-8 sm:pb-14">
+        <section className="relative isolate flex min-h-[350px] flex-col justify-end overflow-hidden pb-8 sm:min-h-[620px] sm:pb-14">
           <Image
             alt=""
             src="/wp-content/uploads/2026/05/image-23-1.jpg"
@@ -54,7 +54,7 @@ export default function SanPhamPage() {
             className="absolute inset-0 -z-20 object-cover"
           />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(13,27,75,0.1)_0%,rgba(13,27,75,0.3)_50%,#0D1B4B_100%)]" />
-          <div className="mx-auto w-full max-w-[1320px]">
+          <div className="container-le">
             <nav aria-label="breadcrumbs" className="rank-math-breadcrumb text-sm text-zinc-400">
               <p>
                 <Link href="/">{t("breadcrumbHome")}</Link>
@@ -73,7 +73,7 @@ export default function SanPhamPage() {
 
         {/* Sản phẩm được vận hành theo hệ thống */}
         <section className="bg-[#0D1B4B]">
-          <div className="mx-auto grid max-w-[1320px] grid-cols-1 items-center gap-10 px-6 py-16 sm:px-8 lg:grid-cols-2 lg:gap-16">
+          <div className="container-le grid grid-cols-1 items-center gap-10 py-16 lg:grid-cols-2 lg:gap-16">
             <div>
               <h2 className="elementor-heading-title elementor-size-default font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
                 {t("introHeadingLine1")}
@@ -120,7 +120,7 @@ export default function SanPhamPage() {
         </div>
 
         {/* FAQ */}
-        <section className="bg-[#0D1B4B] px-6 py-16 sm:px-8 lg:py-24">
+        <section className="container-le bg-[#0D1B4B] py-16 lg:py-24">
           <div className="mx-auto max-w-[820px] text-center">
             <SubtitleBadge>{t("faqBadge")}</SubtitleBadge>
             <h2 className="elementor-heading-title elementor-size-default mt-5! font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">

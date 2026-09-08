@@ -117,7 +117,7 @@ export default function Counters() {
       {/* Background decoration */}
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[#2A9FFF]/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
+      <div className="container-le">
 
         {/* Section Header */}
         <div className="max-w-3xl mb-16 space-y-4">
