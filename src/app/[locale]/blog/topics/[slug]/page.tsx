@@ -28,8 +28,8 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
   if (posts.length === 0) notFound();
 
   return (
-    <div className="w-full bg-[#0d1b4b] px-20 max-[1550px]:px-[60px] max-lg:px-[25px] max-md:px-4 py-[60px] min-h-screen text-white">
-      <div className="mx-auto flex w-full max-w-full flex-col gap-10">
+    <div className="container-le bg-[#0d1b4b] py-[60px] min-h-screen text-white">
+      <div className="flex flex-col gap-10">
         <section className="space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#2a9fff]">Chủ đề</p>
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">

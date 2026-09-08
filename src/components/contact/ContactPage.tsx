@@ -21,7 +21,7 @@ export default function ContactPage() {
         data-elementor-type="wp-page"
       >
         {/* Header */}
-        <section className="relative isolate flex min-h-[350px] flex-col overflow-hidden px-6 pb-8 pt-[calc(var(--header-height-mobile)+24px)]! sm:min-h-[620px] sm:justify-end sm:px-8 sm:pb-14 lg:min-h-[720px] lg:pt-[calc(var(--header-height)+32px)]!">
+        <section className="relative isolate flex min-h-[350px] flex-col overflow-hidden pb-8 pt-[calc(var(--header-height-mobile)+24px)]! sm:min-h-[620px] sm:justify-end sm:pb-14 lg:min-h-[720px] lg:pt-[calc(var(--header-height)+32px)]!">
           <Image
             alt=""
             src="/contact/banner-contact.png"
@@ -31,7 +31,7 @@ export default function ContactPage() {
             className="absolute inset-0 -z-20 object-cover"
           />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(13,27,75,0.1)_0%,rgba(13,27,75,0.3)_50%,#0D1B4B_100%)]" />
-          <div className="mx-auto w-full max-w-[1680px]">
+          <div className="container-le">
             <nav aria-label="breadcrumbs" className="rank-math-breadcrumb text-sm text-zinc-400">
               <p>
                 <Link href="/">{t("breadcrumbHome")}</Link>
@@ -49,7 +49,7 @@ export default function ContactPage() {
         </section>
 
         {/* Form + thông tin liên hệ */}
-        <section className="mx-auto w-full max-w-[1680px] px-6 py-16 sm:px-8">
+        <section className="container-le py-16">
           <div
             className="relative isolate overflow-hidden rounded-[20px] bg-no-repeat shadow-[0px_2px_20px_0px_rgba(12,178,255,0.12)] backdrop-blur-[36px]"
             style={{

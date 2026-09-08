@@ -17,7 +17,7 @@ export default async function Partners() {
       className="relative py-20 bg-[var(--letron-background)]/20 border-t border-white/10 overflow-hidden bg-no-repeat bg-cover bg-center"
       style={{ backgroundImage: "url('/landing/Partners/partners-bg.png')" }}
     >
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 text-center space-y-12">
+      <div className="container-le text-center space-y-12">
         {/* Title */}
         <div className="max-w-2xl mx-auto space-y-3">
           <h2 className="text-2xl sm:text-[40px]! font-bold tracking-tight text-white">

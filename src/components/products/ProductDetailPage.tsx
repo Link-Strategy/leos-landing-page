@@ -34,7 +34,7 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
     <div className="site-main product type-product status-publish hentry">
       <div className="elementor elementor-1360">
         {/* Hero */}
-        <section className="relative isolate flex min-h-[350px] flex-col items-center justify-end overflow-hidden px-6 pb-8 sm:min-h-[620px] sm:px-8 sm:pb-14">
+        <section className="relative isolate flex min-h-[350px] flex-col items-center justify-end overflow-hidden pb-8 sm:min-h-[620px] sm:pb-14">
           <Image
             alt=""
             src="/wp-content/uploads/2026/05/image-22-1.jpg"
@@ -44,7 +44,7 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
             className="absolute inset-0 -z-20 object-cover"
           />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(13,27,75,0.1)_0%,rgba(13,27,75,0.3)_50%,#0D1B4B_100%)]" />
-          <div className="mx-auto mb-[60px] w-full max-w-[1500px]">
+          <div className="container-le mb-[60px]">
             <nav aria-label="breadcrumbs" className="rank-math-breadcrumb text-sm text-white">
               <p>
                 <Link href="/">{t("breadcrumbHome")}</Link>
@@ -61,7 +61,7 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
           </div>
 
           {/* Sub-nav: jump between products */}
-          <nav className="absolute inset-x-0 bottom-0 z-10 rounded-t-[20px] bg-[#2A9FFF]/[0.56] px-6 pt-2 pb-0 shadow-[0px_2px_20px_0px_rgba(12,178,255,0.26)] sm:px-8 lg:px-20">
+          <nav className="container-le absolute inset-x-0 bottom-0 z-10 rounded-t-[20px] bg-[#2A9FFF]/[0.56] pt-2 pb-0 shadow-[0px_2px_20px_0px_rgba(12,178,255,0.26)]">
             <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 sm:gap-x-10">
               {CANONICAL_PRODUCT_IDS.map((id) => {
                 const isActive = id === productId;
@@ -87,7 +87,7 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
 
         {/* Nền tảng dữ liệu và trí tuệ nhân tạo */}
         <section
-          className="bg-[#0D1B4B] bg-[url('/wp-content/uploads/2026/05/S1-1.jpg')] bg-[position:bottom_center] bg-cover bg-no-repeat px-6 py-16 sm:px-8"
+          className="bg-[#0D1B4B] bg-[url('/wp-content/uploads/2026/05/S1-1.jpg')] bg-[position:bottom_center] bg-cover bg-no-repeat py-16"
         >
           <style
             dangerouslySetInnerHTML={{
@@ -105,7 +105,7 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
               `,
             }}
           />
-          <div className="mx-auto max-w-[1500px]">
+          <div className="container-le">
             <h2 className="elementor-heading-title elementor-size-default font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
               {t("detail.featuresHeadingPrefix")}{" "}
               <span className="text-[#2A9FFF]">{t("detail.featuresHeadingHighlight")}</span>
@@ -136,8 +136,8 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
         </section>
 
         {/* Cách vận hành */}
-        <section className="bg-[#0D1B4B] px-6 py-16 sm:px-8">
-          <div className="mx-auto grid max-w-[1500px] grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <section className="bg-[#0D1B4B] py-16">
+          <div className="container-le grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <h2 className="elementor-heading-title elementor-size-default font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
                 {t("detail.processHeadingPrefix")}{" "}
@@ -183,7 +183,7 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
 
         {/* Nhận tư vấn sản phẩm */}
         <section
-          className="flex flex-col items-center gap-9 bg-[#0D1B4B] bg-[url('/wp-content/uploads/2026/05/S2-1.jpg')] bg-[position:bottom_center] bg-cover bg-no-repeat px-6 py-16 sm:px-8 lg:py-[90px]"
+          className="container-le flex flex-col items-center gap-9 bg-[#0D1B4B] bg-[url('/wp-content/uploads/2026/05/S2-1.jpg')] bg-[position:bottom_center] bg-cover bg-no-repeat py-16 lg:py-[90px]"
         >
           <h2 className="elementor-heading-title elementor-size-default text-center font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
             {tDetail("consultHeadingPrefix")}{" "}

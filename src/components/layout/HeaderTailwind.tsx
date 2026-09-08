@@ -13,7 +13,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { SearchBar } from "./SearchBar";
 import { cn } from "@/lib/utils";
 
@@ -28,7 +28,7 @@ function GradientBorder() {
 
 function HeaderFeatureItem({ children }: { children: React.ReactNode }) {
   return (
-    <li className="font-sans text-[11px] font-normal leading-[140%] text-white/80! hover:text-white transition-colors duration-200 list-none relative pl-2 before:absolute before:left-0 before:top-1.5 before:h-1 before:w-1 before:rounded-full before:bg-white/40">
+    <li className="font-sans text-[11px] font-normal leading-[132%] text-white/85! hover:text-white transition-colors duration-200 list-none relative pl-2 before:absolute before:left-0 before:top-1 before:h-0.75 before:w-0.75 before:rounded-full before:bg-white/40">
       {children}
     </li>
   );
@@ -128,8 +128,8 @@ export default function Header() {
   };
   return (
     <header className="sticky top-0 z-50 w-full" onMouseLeave={() => setActiveMegaMenu(null)}>
-      <div className="fixed left-0 top-0 z-999 flex w-full flex-col px-20 pb-0 pt-[18px] max-[1550px]:px-[60px] max-[1550px]:pt-[14px] max-lg:px-[25px] max-lg:pt-[10px] max-md:px-4 max-md:pt-[10px]">
-        <NavigationMenuPrimitive.Root className="relative w-full">
+      <div className="fixed left-0 top-0 z-999 flex w-full flex-col pb-0 pt-[18px] max-[1550px]:pt-[14px] max-lg:pt-[10px] max-md:pt-[10px]">
+        <NavigationMenuPrimitive.Root className="container-le relative">
           <div className="header-glass-container relative z-20 flex flex-row items-center justify-around overflow-hidden px-[35px] py-[22px] max-[1550px]:justify-between max-[1550px]:px-6 max-[1550px]:py-[13.5px] max-lg:px-5 max-lg:pb-[14px] max-lg:pt-[10px] max-md:items-end max-md:px-[14px] max-md:pb-[10px] max-md:pt-[6px]">
             <GradientBorder />
 
@@ -163,42 +163,42 @@ export default function Header() {
                           </NavigationMenuPrimitive.Trigger>
                           <NavigationMenuContent className="w-full">
                             <div className="header-dropdown-glass products-dropdown">
-                              <div className="relative z-6 grid grid-cols-4 gap-6 w-full">
+                              <div className="relative z-6 grid grid-cols-6 gap-2 w-full">
                                 {PRODUCTS.map((prod, prodIdx) => (
-                                  <div key={prodIdx} className="relative z-2">
-                                    <Card variant="glass" hover="lift" size="mini" className="p-0! rounded-[20px]! h-[200px] text-start shadow-[0_4px_30px_rgba(0,0,0,0.1)] flex flex-col overflow-hidden relative">
-                                      {/* Background Image Container (Full Card Size) */}
-                                      <div className="absolute inset-0 z-0 overflow-hidden rounded-[inherit]">
-                                        <img
-                                          alt={prod.name}
-                                          className="w-full! h-full! object-cover! rounded-none! transition-all duration-700 group-hover/card:scale-110"
-                                          src={prod.img}
-                                        />
-                                        {/* Dark Gradient Overlay for Typography Readability */}
-                                        <div className="absolute inset-0 bg-linear-to-b from-[#0d1b4b]/90 via-[#0d1b4b]/60 to-[#0d1b4b]/95 transition-opacity duration-500 group-hover/card:opacity-90" />
-                                      </div>
+                                  <div key={prodIdx} className="relative z-2 min-w-0">
+                                    <Card variant="glass" hover="lift" size="mini" className="p-0! gap-0! rounded-2xl! w-full h-40 text-start shadow-[0_4px_30px_rgba(0,0,0,0.1)] flex flex-col overflow-hidden relative">
+                                      {/* Header: logo + name on a solid, darker background */}
+                                      <Link
+                                        href={prod.href}
+                                        className="relative z-10 flex shrink-0 items-center gap-1.5 h-10.5 px-2.5 bg-[#0d1b4b] border-b border-white/10 hover:opacity-95 transition-opacity"
+                                      >
+                                        <div className="relative h-4 w-13 shrink-0">
+                                          <Image src={prod.logo} alt={prod.prefix + prod.suffix} className="object-contain object-left" fill />
+                                        </div>
+                                        <span className="min-w-0 flex-1 truncate font-sans text-xs font-semibold normal-case leading-[1.3em] text-white/95">
+                                          {prod.name}
+                                        </span>
+                                      </Link>
 
-                                      {/* Card content overlay - Starting from top */}
-                                      <div className="relative z-10 flex flex-col gap-3 p-4 w-full h-full justify-start overflow-hidden">
-                                        <CardHeader className="p-0 gap-1">
-                                          <CardTitle className={`font-sans text-lg font-bold uppercase leading-[1.3em] ${prod.textClass} max-[1550px]:mb-0`}>
-                                            <Link href={prod.href} className="flex items-end gap-2 hover:opacity-90">
-                                              <div className="relative h-[20px] w-[80px]"><Image src={prod.logo} alt={prod.prefix + prod.suffix} className="object-contain object-left" fill /></div>
-                                              <span className="font-sans text-sm font-semibold normal-case leading-[1.4em] text-white/95">
-                                                {prod.name}
-                                              </span>
-                                            </Link>
-                                          </CardTitle>
-                                        </CardHeader>
-                                        <CardContent className="p-0">
-                                          <ul className="pl-3 space-y-0.5 border-l border-white/20">
+                                      {/* Body: background image + lighter overlay + feature list */}
+                                      <div className="relative flex-1 min-h-0 overflow-hidden">
+                                        <div className="absolute inset-0 z-0 overflow-hidden">
+                                          <img
+                                            alt={prod.name}
+                                            className="w-full! h-full! object-cover! rounded-none! transition-all duration-700 group-hover/card:scale-110"
+                                            src={prod.img}
+                                          />
+                                          <div className="absolute inset-0 bg-[#0d1b4b]/70 transition-colors duration-500 group-hover/card:bg-[#0d1b4b]/80" />
+                                        </div>
+                                        <div className="relative z-10 h-full overflow-hidden px-2.5 py-1.5">
+                                          <ul className="space-y-0">
                                             {prod.features.map((feat, featIdx) => (
                                               <HeaderFeatureItem key={featIdx}>
                                                 {feat}
                                               </HeaderFeatureItem>
                                             ))}
                                           </ul>
-                                        </CardContent>
+                                        </div>
                                       </div>
                                     </Card>
                                   </div>

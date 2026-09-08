@@ -82,8 +82,8 @@ export default function BlogClient({ articles, categories }: Props) {
   };
 
   return (
-    <section className="w-full bg-[#0d1b4b] px-20 max-[1550px]:px-[60px] max-lg:px-[25px] max-md:px-4 py-[60px]">
-      <div className="mx-auto flex w-full max-w-full flex-col items-center gap-[60px]">
+    <section className="container-le bg-[#0d1b4b] py-[60px]">
+      <div className="flex flex-col items-center gap-[60px]">
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full flex justify-center">
           <TabsList

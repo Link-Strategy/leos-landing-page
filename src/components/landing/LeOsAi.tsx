@@ -7,7 +7,7 @@ export default async function LeOsAi() {
 
   return (
     <section className="relative py-16 md:py-20 lg:py-24 bg-transparent overflow-hidden">
-      <div className="w-full px-4 md:px-8 lg:px-16">
+      <div className="container-le">
         <div
           className="relative rounded-[20px] backdrop-blur-[36px] shadow-[0px_2px_20px_0px_rgba(12,178,255,0.12)] overflow-hidden bg-no-repeat"
           style={{

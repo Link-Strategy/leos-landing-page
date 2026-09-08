@@ -13,11 +13,11 @@ export default async function News() {
   if (articles.length === 0) return null;
 
   return (
-    <section className="relative w-full bg-[#0d1b4b] px-4 py-[60px] sm:px-6 lg:px-10 overflow-hidden">
+    <section className="relative w-full bg-[#0d1b4b] py-[60px] overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-10 -translate-y-1/2 w-[350px] h-[350px] bg-[#2a9fff]/5 rounded-full blur-[110px] pointer-events-none" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1704px] flex-col items-center gap-[60px]">
+      <div className="container-le relative z-10 flex flex-col items-center gap-[60px]">
         <header className="flex w-full flex-col items-center gap-[60px]">
           <div className="flex w-full flex-col items-center gap-2.5">
             <div className="flex w-full flex-col items-center gap-[26px]">
