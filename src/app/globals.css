@@ -200,65 +200,71 @@ body e-page-transition {
 }
 
 /* Default Headings styling - Sử dụng Archivo Font và tỷ lệ chuẩn có tính Responsive */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-display), sans-serif;
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--foreground);
-}
-
-h1 {
-  font-size: 2rem;
-}
-
-h2 {
-  font-size: 1.75rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-h4 {
-  font-size: 1.25rem;
-}
-
-h5 {
-  font-size: 1.1rem;
-}
-
-h6 {
-  font-size: 1rem;
-}
-
-@media (min-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
+/* Wrapped in @layer base so Tailwind utility classes (layer: utilities) always win the
+   cascade over these defaults, without needing `!important` at every call site. Plain
+   unlayered CSS sits above every @layer in priority, which is what made text-size /
+   leading utilities on h1-h6 get silently overridden before this was wrapped. */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display), sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--foreground);
   }
 
-  h2 {
+  h1 {
     font-size: 2rem;
   }
 
-  h3 {
+  h2 {
     font-size: 1.75rem;
   }
 
-  h4 {
+  h3 {
     font-size: 1.5rem;
   }
 
-  h5 {
+  h4 {
     font-size: 1.25rem;
   }
 
-  h6 {
+  h5 {
     font-size: 1.1rem;
+  }
+
+  h6 {
+    font-size: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+    }
+
+    h4 {
+      font-size: 1.5rem;
+    }
+
+    h5 {
+      font-size: 1.25rem;
+    }
+
+    h6 {
+      font-size: 1.1rem;
+    }
   }
 }
 
