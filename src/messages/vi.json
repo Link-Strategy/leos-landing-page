@@ -86,6 +86,91 @@
     "ctaPrimary": "Khám phá Sách trắng",
     "ctaSecondary": "Đăng ký nhận Demo Sandbox"
   },
+  "vision": {
+    "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
+    "title": "Vì một nền kinh tế tuần hoàn toàn cầu",
+    "centerIconAlt": "LeTRON",
+    "mission": {
+      "iconAlt": "Sứ mệnh",
+      "header": "SỨ MỆNH — MISSION",
+      "content": "Kiến tạo Mạng lưới Biên Tri giác, biến mọi tài sản vật lý thành tài sản số, mọi hành trình thành tín chỉ xanh, thúc đẩy nền kinh tế tuần hoàn toàn cầu.",
+      "footer": "Building the Perceptive Edge Network — turning every physical asset into a digital asset, every journey into a green credit."
+    },
+    "vision": {
+      "iconAlt": "Tầm nhìn",
+      "header": "TẦM NHÌN — VISION",
+      "content": "Trở thành nhà cung cấp giải pháp điện toán biên & dữ liệu xanh hàng đầu Thế giới, dẫn dắt cuộc cách mạng công nghiệp 5.0.",
+      "footer": "To become the world's leading edge-computing & green-data solutions provider, driving Industry 5.0."
+    }
+  },
+  "heart": {
+    "eyebrow": "GIÁ TRỊ CỐT LÕI · CORE VALUES",
+    "titleHighlight": "H.E.A.R.T",
+    "titleSuffix": "Values",
+    "cards": {
+      "humanity": {
+        "title": "H — Humanity",
+        "content": "Con người là trung tâm. An toàn là mệnh lệnh, hạnh phúc là đích đến."
+      },
+      "excellence": {
+        "title": "E — Excellence",
+        "content": "Vượt ngưỡng giới hạn. Cam kết tiêu chuẩn cao nhất trong mọi sản phẩm và dòng code."
+      },
+      "appreciation": {
+        "title": "A — Appreciation",
+        "content": "Chính trực và biết ơn. Tôn trọng thiên nhiên, đối tác và mọi cam kết."
+      },
+      "rapidAction": {
+        "title": "R — Rapid Action",
+        "content": "Thần tốc và linh hoạt. Sai đâu sửa đó, chủ động tiến lên và không dừng lại."
+      },
+      "technology": {
+        "title": "T — Technology",
+        "content": "Dẫn dắt bằng dữ liệu. Dùng công nghệ để biến điều không thể thành có thể."
+      }
+    },
+    "footer": "Humanity at the center. Intelligence at the edge. Evidence in every decision."
+  },
+  "serviceModel": {
+    "eyebrow": "MÔ HÌNH DỊCH VỤ 4 TRỤ · CAPEX → OPEX",
+    "titleLine1": "Không đầu tư ban đầu —",
+    "titleLine2Prefix": "chỉ trả theo ",
+    "titleLine2Highlight": "vận hành",
+    "cards": {
+      "haas": {
+        "title": "HaaS",
+        "subTitle": "Hardware-as-a-Service",
+        "content": "Cho thuê thiết bị biên",
+        "badge": "PHẦN CỨNG"
+      },
+      "saas": {
+        "title": "SaaS",
+        "subTitle": "Software-as-a-Service",
+        "content": "Cho thuê phần mềm",
+        "badge": "PHẦN MỀM"
+      },
+      "caas": {
+        "title": "CaaS",
+        "subTitle": "Charging-as-a-Service",
+        "content": "Dịch vụ trạm sạc",
+        "badge": "NĂNG LƯỢNG"
+      },
+      "aaas": {
+        "title": "AaaS",
+        "subTitle": "Attestation-as-a-Service",
+        "content": "Chứng thực dữ liệu",
+        "badge": "CHỨNG THỰC"
+      }
+    },
+    "priceFrom": "Từ",
+    "pricePerMonth": "/tháng",
+    "caasPrefix": "Theo ",
+    "caasUnit": "kWh",
+    "caasSuffix": " + phí dịch vụ",
+    "contactQuote": "Liên hệ báo giá",
+    "footerNote": "Bảng giá được cấu hình theo quy mô đội xe, công suất trạm và mức chứng thực dữ liệu.",
+    "cta": "NHẬN BẢNG GIÁ"
+  },
   "leosAi": {
     "eyebrow": "Kiến trúc đa tầng",
     "titleLine1": "Hệ điều hành công nghiệp LeTRON",

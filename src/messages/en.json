@@ -86,6 +86,91 @@
     "ctaPrimary": "Explore Whitepaper",
     "ctaSecondary": "Register for Demo Sandbox"
   },
+  "vision": {
+    "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
+    "title": "For a global circular economy",
+    "centerIconAlt": "LeTRON",
+    "mission": {
+      "iconAlt": "Mission",
+      "header": "SỨ MỆNH — MISSION",
+      "content": "Building the Perceptive Edge Network, turning every physical asset into a digital asset, every journey into a green credit, driving a global circular economy.",
+      "footer": "Building the Perceptive Edge Network — turning every physical asset into a digital asset, every journey into a green credit."
+    },
+    "vision": {
+      "iconAlt": "Vision",
+      "header": "TẦM NHÌN — VISION",
+      "content": "Become the world's leading edge-computing & green-data solutions provider, driving Industry 5.0.",
+      "footer": "To become the world's leading edge-computing & green-data solutions provider, driving Industry 5.0."
+    }
+  },
+  "heart": {
+    "eyebrow": "GIÁ TRỊ CỐT LÕI · CORE VALUES",
+    "titleHighlight": "H.E.A.R.T",
+    "titleSuffix": "Values",
+    "cards": {
+      "humanity": {
+        "title": "H — Humanity",
+        "content": "People come first. Safety is mandatory, happiness is the destination."
+      },
+      "excellence": {
+        "title": "E — Excellence",
+        "content": "Pushing beyond limits. Committed to the highest standards in every product and every line of code."
+      },
+      "appreciation": {
+        "title": "A — Appreciation",
+        "content": "Integrity and gratitude. Respecting nature, partners, and every commitment."
+      },
+      "rapidAction": {
+        "title": "R — Rapid Action",
+        "content": "Fast and agile. Fix what's wrong, move forward proactively, and never stop."
+      },
+      "technology": {
+        "title": "T — Technology",
+        "content": "Leading with data. Using technology to turn the impossible into possible."
+      }
+    },
+    "footer": "Humanity at the center. Intelligence at the edge. Evidence in every decision."
+  },
+  "serviceModel": {
+    "eyebrow": "4-PILLAR SERVICE MODEL · CAPEX → OPEX",
+    "titleLine1": "No upfront investment —",
+    "titleLine2Prefix": "pay only for ",
+    "titleLine2Highlight": "operations",
+    "cards": {
+      "haas": {
+        "title": "HaaS",
+        "subTitle": "Hardware-as-a-Service",
+        "content": "Edge device rental",
+        "badge": "HARDWARE"
+      },
+      "saas": {
+        "title": "SaaS",
+        "subTitle": "Software-as-a-Service",
+        "content": "Software rental",
+        "badge": "SOFTWARE"
+      },
+      "caas": {
+        "title": "CaaS",
+        "subTitle": "Charging-as-a-Service",
+        "content": "Charging station service",
+        "badge": "ENERGY"
+      },
+      "aaas": {
+        "title": "AaaS",
+        "subTitle": "Attestation-as-a-Service",
+        "content": "Data attestation",
+        "badge": "ATTESTATION"
+      }
+    },
+    "priceFrom": "From",
+    "pricePerMonth": "/mo",
+    "caasPrefix": "Per ",
+    "caasUnit": "kWh",
+    "caasSuffix": " + service fee",
+    "contactQuote": "Contact for pricing",
+    "footerNote": "Pricing is configured based on fleet size, station capacity, and data attestation level.",
+    "cta": "GET PRICING"
+  },
   "leosAi": {
     "eyebrow": "Multi-Layer Architecture",
     "titleLine1": "LeTRON Industrial Operating System",
