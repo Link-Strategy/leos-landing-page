@@ -84,7 +84,8 @@
     "features": ["Hạ tầng tự chủ", "Xử lý tại milimét thực địa", "AI biên thực thi"],
     "description": "LeTRON kiến tạo hệ sinh thái thiết bị biên toàn diện — từ xe vận tải, nhà máy, trạm sạc đến robot nhân hình — vận hành hoàn toàn offline, bảo mật cấp phần cứng và tự động đúc chứng thư carbon. Sẵn sàng cho kỷ nguyên Net-Zero và CBAM.",
     "ctaPrimary": "Khám phá Sách trắng",
-    "ctaSecondary": "Đăng ký nhận Demo Sandbox"
+    "ctaSecondary": "Đăng ký nhận Demo Sandbox",
+    "footerTags": ["Autonomous infrastructure", "Edge AI in action", "Intelligence at the last millimeter"]
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
@@ -170,6 +171,13 @@
     "contactQuote": "Liên hệ báo giá",
     "footerNote": "Bảng giá được cấu hình theo quy mô đội xe, công suất trạm và mức chứng thực dữ liệu.",
     "cta": "NHẬN BẢNG GIÁ"
+  },
+  "techArchitecture": {
+    "tabs": {
+      "coreTech": "Công nghệ lõi",
+      "zeroTrust": "Bảo mật Zero Trust",
+      "standards": "Tiêu chuẩn"
+    }
   },
   "leosAi": {
     "eyebrow": "Kiến trúc đa tầng",

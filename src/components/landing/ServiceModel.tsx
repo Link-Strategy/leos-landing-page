@@ -243,7 +243,7 @@ export default function ServiceModel() {
       <SectionEdgeFade position="top" />
       <SectionEdgeFade position="bottom" />
 
-      <div className="container-le flex h-full flex-col lg:pt-[60px] lg:pb-[50px]">
+      <div className="container-le relative z-10 flex h-full flex-col lg:pt-[60px] lg:pb-[50px]">
         <span
           className="font-inter mb-4 text-[12px] font-bold uppercase leading-[16px] tracking-[2.2px] text-[#63D9FF] [text-shadow:0px_0px_6px_rgba(99,217,255,0.18)]"
         >

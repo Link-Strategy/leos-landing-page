@@ -4,6 +4,7 @@ import Hero from "@/components/landing/Hero";
 import Vision from "@/components/landing/Vision";
 import Heart from "@/components/landing/Heart";
 import ServiceModel from "@/components/landing/ServiceModel";
+import TechArchitecture from "@/components/landing/TechArchitecture";
 // import LeOsAi from "@/components/landing/LeOsAi";
 // import Pillars from "@/components/landing/Pillars";
 // import Culture from "@/components/landing/Culture";
@@ -28,6 +29,7 @@ export default function Home() {
         <Vision />
         <Heart />
         <ServiceModel />
+        <TechArchitecture />
         {/* <LeOsAi /> */}
         {/* <Pillars /> */}
         {/* <Culture /> */}

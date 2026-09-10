@@ -17,15 +17,6 @@ import { Card } from "@/components/ui/card";
 import { SearchBar } from "./SearchBar";
 import { cn } from "@/lib/utils";
 
-function GradientBorder() {
-  return (
-    <span
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0 rounded-[inherit] p-px gradient-border-span"
-    />
-  );
-}
-
 function HeaderFeatureItem({ children }: { children: React.ReactNode }) {
   return (
     <li className="font-sans text-[11px] font-normal leading-[132%] text-white/85! hover:text-white transition-colors duration-200 list-none relative pl-2 before:absolute before:left-0 before:top-1 before:h-0.75 before:w-0.75 before:rounded-full before:bg-white/40">
@@ -128,11 +119,9 @@ export default function Header() {
   };
   return (
     <header className="sticky top-0 z-50 w-full" onMouseLeave={() => setActiveMegaMenu(null)}>
-      <div className="fixed left-0 top-0 z-999 flex w-full flex-col pb-0 pt-[18px] max-[1550px]:pt-[14px] max-lg:pt-[10px] max-md:pt-[10px]">
-        <NavigationMenuPrimitive.Root className="container-le relative">
-          <div className="header-glass-container relative z-20 flex flex-row items-center justify-around overflow-hidden px-[35px] py-[22px] max-[1550px]:justify-between max-[1550px]:px-6 max-[1550px]:py-[13.5px] max-lg:px-5 max-lg:pb-[14px] max-lg:pt-[10px] max-md:items-end max-md:px-[14px] max-md:pb-[10px] max-md:pt-[6px]">
-            <GradientBorder />
-
+      <div className="fixed left-0 top-0 z-999 w-full bg-[#0D1B4B]/60 px-6 py-5 backdrop-blur-sm">
+        <NavigationMenuPrimitive.Root className="relative w-full">
+          <div className="header-glass-container relative z-20 flex h-20 w-full flex-row items-center justify-around overflow-hidden px-[35px] max-[1550px]:justify-between max-[1550px]:px-6 max-lg:px-5 max-md:px-[14px]">
             {/* Logo */}
             <div className="h-full relative z-1 m-0 flex w-[15%] max-w-[15%] items-center justify-start overflow-visible p-0 max-[1550px]:w-[15%] max-[1550px]:max-w-[15%] max-lg:w-[20%] max-lg:max-w-[20%] max-md:w-[50%] max-md:max-w-[50%]">
               {/* Đã đổi h-[50px] thành h-[37px] để khớp tỷ lệ 248x57 của logo khi rộng 162px */}

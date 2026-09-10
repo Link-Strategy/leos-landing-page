@@ -96,7 +96,7 @@ export default async function Heart() {
       <SectionEdgeFade position="top" />
       <SectionEdgeFade position="bottom" />
 
-      <div className="container-le flex h-full flex-col">
+      <div className="container-le relative z-10 flex h-full flex-col">
         <span className="font-inter text-[12px] font-bold uppercase leading-[18px] tracking-[1.8px] text-[#63D9FF] [text-shadow:0px_0px_6px_rgba(99,217,255,0.18)] lg:mb-4 lg:text-[14px] lg:leading-[20px] lg:tracking-[2.2px]">
           {t("eyebrow")}
         </span>
@@ -114,10 +114,8 @@ export default async function Heart() {
           </div>
         </div>
 
-        <div className="mt-8 flex min-h-[100px] w-full items-center justify-center rounded-2xl border border-[#2A9FFF2E] bg-[#132563] px-6 py-6 lg:mt-[60px]">
-          <p className="font-inter max-w-[900px] text-center text-[18px] font-bold leading-[26px] tracking-[-0.2px] text-white lg:text-[24px] lg:leading-[32px] lg:tracking-[-0.3px]">
-            {t("footer")}
-          </p>
+        <div className="font-inter mx-auto mt-[60px] max-w-[900px] text-center text-[18px] font-bold leading-[26px] tracking-[-0.2px] text-white lg:text-[24px] lg:leading-[32px] lg:tracking-[-0.3px]">
+          {t("footer")}
         </div>
       </div>
     </section>

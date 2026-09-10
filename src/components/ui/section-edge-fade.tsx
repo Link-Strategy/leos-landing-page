@@ -11,7 +11,7 @@ export default function SectionEdgeFade({ position, className = "" }: SectionEdg
   return (
     <div
       aria-hidden="true"
-      className={`pointer-events-none absolute inset-x-0 z-20 h-24 ${position === "top" ? "top-0" : "bottom-0"} ${className}`}
+      className={`pointer-events-none absolute inset-x-0 z-0 h-24 ${position === "top" ? "top-0" : "bottom-0"} ${className}`}
       style={{
         background: "linear-gradient(180deg, #010B28 15.62%, rgba(2, 14, 48, 0.6) 50.74%, rgba(13, 27, 75, 0) 100%)",
         transform: position === "bottom" ? "rotate(180deg)" : undefined,

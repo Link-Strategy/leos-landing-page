@@ -85,7 +85,7 @@ export default async function Vision() {
       <SectionEdgeFade position="top" />
       <SectionEdgeFade position="bottom" />
 
-      <div className="container-le flex h-full flex-col items-center">
+      <div className="container-le relative z-10 flex h-full flex-col items-center">
         <div className="flex flex-col items-center gap-4 text-center lg:gap-6">
           <span className="font-inter text-[12px] font-bold uppercase leading-[18px] tracking-[2.6px] text-[#63D9FF] [text-shadow:0px_0px_6px_rgba(99,217,255,0.18)] lg:text-[14px] lg:leading-[20px] lg:tracking-[3.4px]">
             {t("eyebrow")}
