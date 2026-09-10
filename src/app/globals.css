@@ -48,10 +48,10 @@
   --brand-orange-deep: #F78E20;
 
   /* Layout & Geometry (Dựa trên HeaderTailwind.tsx) */
-  --header-height: 99px;
-  /* 81px container + 18px top padding */
-  --header-height-mobile: 122px;
-  /* 64px container + 14px top padding + 44px mobile search row (h-9 + mt-2) */
+  --header-height: 120px;
+  /* 20px top padding + 80px pill + 20px bottom padding (lg+, no mobile search row) */
+  --header-height-mobile: 176px;
+  /* 20px top padding + 80px pill + 8px gap + 48px mobile search row + 20px bottom padding */
 
   /* Semantic Colors bổ sung cho Shadcn */
   --secondary: #162A6B;
@@ -397,14 +397,6 @@ a:hover {
   -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
-.gradient-border-span {
-  background: linear-gradient(90deg, hsl(0deg 0% 100% / 40%) 0%, transparent 12%, transparent 88%, hsl(0deg 0% 100% / 60%) 100%);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-
 .leosai-glow-border-span {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 35%, rgba(125, 229, 255, 0.4) 75%, hsl(218.52deg 100% 84.12% / 40%) 100%);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -422,12 +414,8 @@ a:hover {
 }
 
 .header-glass-container {
-  background-color: var(--dark-translucent) !important;
-  border: var(--border-width-default) solid var(--border) !important;
-  box-shadow: var(--shadow-glow) !important;
+  background-color: #041337 !important;
   border-radius: var(--radius-header) !important;
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
 }
 
 

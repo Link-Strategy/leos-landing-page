@@ -84,7 +84,8 @@
     "features": ["Autonomous infrastructure", "Millimeter-precise field processing", "Edge-executed AI"],
     "description": "LeTRON builds a comprehensive edge-device ecosystem — spanning transport vehicles, factories, and charging stations to humanoid robots — running fully offline, with hardware-grade security, and automatically minting carbon certificates. Ready for the Net-Zero and CBAM era.",
     "ctaPrimary": "Explore Whitepaper",
-    "ctaSecondary": "Register for Demo Sandbox"
+    "ctaSecondary": "Register for Demo Sandbox",
+    "footerTags": ["Autonomous infrastructure", "Edge AI in action", "Intelligence at the last millimeter"]
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
@@ -170,6 +171,13 @@
     "contactQuote": "Contact for pricing",
     "footerNote": "Pricing is configured based on fleet size, station capacity, and data attestation level.",
     "cta": "GET PRICING"
+  },
+  "techArchitecture": {
+    "tabs": {
+      "coreTech": "Core Technology",
+      "zeroTrust": "Zero Trust Security",
+      "standards": "Standards"
+    }
   },
   "leosAi": {
     "eyebrow": "Multi-Layer Architecture",

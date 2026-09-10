@@ -26,23 +26,25 @@ const CIRCLE_CENTER_OFFSET_Y = -7.25;
 export default function Hero() {
   const t = useTranslations("hero");
   const features = t.raw("features") as string[];
+  const footerTags = t.raw("footerTags") as string[];
 
   return (
     <section
-      className="relative flex min-h-[600px] items-center overflow-hidden bg-cover bg-center bg-no-repeat pt-[calc(var(--header-height-mobile)+20px)] lg:h-[800px] lg:pt-0"
+      className="relative flex min-h-[600px] items-center overflow-hidden bg-cover bg-center bg-no-repeat pt-[calc(var(--header-height-mobile)+20px)] lg:min-h-[800px] lg:items-start lg:pt-[calc(var(--header-height)+40px)]"
       style={{ backgroundImage: "url('/landing/Hero/Hero_bg.png')" }}
     >
+      <SectionEdgeFade position="top" />
       <SectionEdgeFade position="bottom" />
 
       <div className="container-le relative z-10 flex w-full flex-col items-center gap-16 py-16 lg:grid lg:grid-cols-2 lg:items-center lg:gap-10 lg:py-0">
         {/* Left content */}
-        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+        <div className="flex flex-col items-center text-center lg:items-start lg:self-start lg:text-left">
           <div className="flex flex-col items-center gap-[14px] lg:items-start">
             <span className="font-inter text-[14px] font-bold uppercase leading-[16px] tracking-[2.2px] text-[#63D9FF] [text-shadow:0px_0px_6px_rgba(99,217,255,0.18)]">
               {t("badge")}
             </span>
 
-            <h1 className="font-inter whitespace-nowrap text-[40px] font-extrabold leading-[1.2] tracking-[-1.5px] text-white sm:text-[60px] sm:leading-[76px] sm:tracking-[-2.2px]">
+            <h1 className="font-inter text-[40px] font-extrabold leading-[1.2] tracking-[-1.5px] text-white sm:text-[60px] sm:leading-[76px] sm:tracking-[-2.2px] lg:whitespace-nowrap">
               {t("title")}
             </h1>
 
@@ -110,6 +112,18 @@ export default function Hero() {
             />
           </div>
         </div>
+      </div>
+
+      {/* Bottom tagline row — desktop only, 40px above the section's bottom edge */}
+      <div className="absolute inset-x-0 bottom-10 z-10 hidden items-center justify-center gap-[46px] lg:flex">
+        {footerTags.map((tag) => (
+          <span
+            key={tag}
+            className="font-inter text-[14px] font-bold leading-[16px] tracking-[2.2px] text-white"
+          >
+            {tag}
+          </span>
+        ))}
       </div>
     </section>
   );
