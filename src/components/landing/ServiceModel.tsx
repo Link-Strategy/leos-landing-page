@@ -288,7 +288,7 @@ export default function ServiceModel() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-start gap-6 lg:mt-auto lg:flex-row lg:items-center lg:justify-between">
+        <div className="relative z-30 mt-8 flex flex-col items-start gap-6 lg:mt-auto lg:flex-row lg:items-center lg:justify-between">
           <div className="flex w-full items-center gap-[14px] rounded-xl border border-[#38D1F247] bg-[#09193E85] px-4 py-3 lg:w-auto lg:border-0 lg:bg-transparent lg:p-0">
             <Image
               src="/landing/ServiceModel/service_info_icon.png"
