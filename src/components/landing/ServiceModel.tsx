@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import MobileCardCarousel from "@/components/landing/MobileCardCarousel";
+import MasterButton from "@/components/ui/master-button";
+import SectionEdgeFade from "@/components/ui/section-edge-fade";
 
 // Same mask/xor ring technique as Heart.tsx — border-image ignores border-radius
 // on its corner tiles, which is wrong for a rounded card.
@@ -22,6 +26,7 @@ type ServiceCardData = {
   badgeBorder: string;
   footerType: FooterType;
   price?: string;
+  hoverBorderColor: string;
 };
 
 function ServiceCardFooter({
@@ -107,8 +112,11 @@ function ServiceCard({
           }}
         />
       </div>
-      {/* Hover state: solid glass card with a solid blue border */}
-      <div className="absolute inset-0 rounded-[20px] border-2 border-[#2A9FFF] bg-[#FFFFFF66] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      {/* Hover state: same glass background, only the border color switches to the card's own color */}
+      <div
+        className="absolute inset-0 rounded-[20px] border-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        style={{ borderColor: card.hoverBorderColor }}
+      />
 
       {/* Badge — top-right corner */}
       <div
@@ -163,8 +171,8 @@ function ServiceCard({
   );
 }
 
-export default async function ServiceModel() {
-  const t = await getTranslations("serviceModel");
+export default function ServiceModel() {
+  const t = useTranslations("serviceModel");
 
   const CARDS: ServiceCardData[] = [
     {
@@ -180,6 +188,7 @@ export default async function ServiceModel() {
       badgeBorder: "#2ED1FF5C",
       footerType: "price",
       price: "3.990.000",
+      hoverBorderColor: "#2A9FFF",
     },
     {
       key: "saas",
@@ -194,6 +203,7 @@ export default async function ServiceModel() {
       badgeBorder: "#708CFF5C",
       footerType: "price",
       price: "2.990.000",
+      hoverBorderColor: "#708CFFCC",
     },
     {
       key: "caas",
@@ -207,6 +217,7 @@ export default async function ServiceModel() {
       badgeBg: "#052140D1",
       badgeBorder: "#61DBED5C",
       footerType: "kwh",
+      hoverBorderColor: "#61DBEDCC",
     },
     {
       key: "aaas",
@@ -220,6 +231,7 @@ export default async function ServiceModel() {
       badgeBg: "#1A0F38D1",
       badgeBorder: "#A366FF5C",
       footerType: "contact",
+      hoverBorderColor: "#A366FFCC",
     },
   ];
 
@@ -228,6 +240,9 @@ export default async function ServiceModel() {
       className="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat py-10 lg:h-[900px] lg:py-0"
       style={{ backgroundImage: "url('/landing/ServiceModel/Service_bg.png')" }}
     >
+      <SectionEdgeFade position="top" />
+      <SectionEdgeFade position="bottom" />
+
       <div className="container-le flex h-full flex-col lg:pt-[60px] lg:pb-[50px]">
         <span
           className="font-inter mb-4 text-[12px] font-bold uppercase leading-[16px] tracking-[2.2px] text-[#63D9FF] [text-shadow:0px_0px_6px_rgba(99,217,255,0.18)]"
@@ -288,18 +303,7 @@ export default async function ServiceModel() {
             </p>
           </div>
 
-          <button
-            type="button"
-            className="flex h-[58px] w-full items-center justify-center gap-2 rounded-xl border border-[#4FDBFFB8] shadow-[0px_8px_22px_0px_#1AA1FF42] transition-all duration-300 hover:-translate-y-1 hover:opacity-80 lg:w-[308px]"
-            style={{
-              background: "linear-gradient(90deg, #088CFF 0%, #1A6BED 58%, #3D5CDB 100%)",
-            }}
-          >
-            <span className="font-inter text-[16px] font-bold leading-[22px] text-white">{t("cta")}</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 12h14M13 5l7 7-7 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+          <MasterButton type="full-fill" isShowIcon content={t("cta")} onClick={() => {}} />
         </div>
       </div>
     </section>

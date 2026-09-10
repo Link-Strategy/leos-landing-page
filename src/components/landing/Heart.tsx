@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import MobileCardCarousel from "@/components/landing/MobileCardCarousel";
+import SectionEdgeFade from "@/components/ui/section-edge-fade";
 
 // Diagonal gradient stroke from the design spec. Painted with the mask/xor ring
 // technique (not border-image) because border-image ignores border-radius on its
@@ -92,6 +93,9 @@ export default async function Heart() {
       className="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat py-10 lg:h-[650px] lg:py-[60px]"
       style={{ backgroundImage: "url('/landing/Heart/Heart_bg.png')" }}
     >
+      <SectionEdgeFade position="top" />
+      <SectionEdgeFade position="bottom" />
+
       <div className="container-le flex h-full flex-col">
         <span className="font-inter text-[12px] font-bold uppercase leading-[18px] tracking-[1.8px] text-[#63D9FF] [text-shadow:0px_0px_6px_rgba(99,217,255,0.18)] lg:mb-4 lg:text-[14px] lg:leading-[20px] lg:tracking-[2.2px]">
           {t("eyebrow")}
