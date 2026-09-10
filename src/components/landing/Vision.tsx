@@ -9,7 +9,11 @@ import SectionEdgeFade from "@/components/ui/section-edge-fade";
 // mission_card_fill.png / vision_card_fill.png are pre-cropped to the shape's
 // bounding box (498x402) so the artwork covers the container edge-to-edge,
 // matching the design's "background fills first, padding applies inside" intent.
-const CARD_ASPECT = "500/390";
+// This aspect ratio must match that 498x402 exactly — any mismatch forces
+// object-cover to crop, and since the file's own margin isn't symmetric
+// top-to-bottom, a centered crop eats the thin top margin before the thicker
+// bottom one, which is what caused the missing top gap.
+const CARD_ASPECT = "498/402";
 
 type VisionCardProps = {
   cardBg: string;
