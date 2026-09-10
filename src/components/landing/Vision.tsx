@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import SectionEdgeFade from "@/components/ui/section-edge-fade";
 
 // mission_card.png / vision_card.png ship with a soft drop-shadow bleed baked
 // into their canvas (568x458), so the solid card shape sits well inside the
@@ -77,6 +78,9 @@ export default async function Vision() {
       className="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat pt-10 lg:h-[800px] lg:pt-[60px]"
       style={{ backgroundImage: "url('/landing/Virsion/Vision_bg.png')" }}
     >
+      <SectionEdgeFade position="top" />
+      <SectionEdgeFade position="bottom" />
+
       <div className="container-le flex h-full flex-col items-center">
         <div className="flex flex-col items-center gap-4 text-center lg:gap-6">
           <span className="font-inter text-[12px] font-bold uppercase leading-[18px] tracking-[2.6px] text-[#63D9FF] [text-shadow:0px_0px_6px_rgba(99,217,255,0.18)] lg:text-[14px] lg:leading-[20px] lg:tracking-[3.4px]">
