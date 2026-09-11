@@ -177,6 +177,97 @@
       "coreTech": "Công nghệ lõi",
       "zeroTrust": "Bảo mật Zero Trust",
       "standards": "Tiêu chuẩn"
+    },
+    "tabsMobile": {
+      "coreTech": "Công nghệ lõi",
+      "zeroTrust": "Zero Trust",
+      "standards": "Tiêu chuẩn"
+    },
+    "header": {
+      "coreTech": {
+        "eyebrow": "Công nghệ lõi · Core Technology",
+        "title": "LeOS × LeLe ERE"
+      },
+      "zeroTrust": {
+        "eyebrow": "Công nghệ lõi · Core Technology",
+        "title": "LeOS × LeLe ERE"
+      },
+      "standards": {
+        "eyebrow": "Công nghệ lõi · Core Technology",
+        "title": "LeOS × LeLe ERE"
+      }
+    },
+    "coreTech": {
+      "topLabel": "Trí tuệ vận hành tại biên",
+      "badge": ["LeOS vận hành", "LeLe ERE suy luận", "AI tại edge"],
+      "circles": {
+        "leos": "LeOS",
+        "lele": "LeLe ERE"
+      },
+      "cards": {
+        "leos": {
+          "title": "Hệ điều hành không gian LeOS",
+          "logoText": "LeOS",
+          "content": [
+            "Application Layer — LeOS Super App",
+            "Cognitive Layer — LeLe ERE (Embedded Reasoning Engine)",
+            "Infrastructure Layer — Kernel, Load Balancing",
+            "Hardware Network Layer — Wi-Fi 7 · Thread Mesh · Private 5G"
+          ],
+          "footer": "LeOS vận hành"
+        },
+        "lele": {
+          "title": "Lõi suy luận nhúng LeLe ERE",
+          "logoText": "LeLe ERE",
+          "content": [
+            "Multimodal Small Language Model — quantized transformer",
+            "Vận hành trên chip NPU chuyên dụng",
+            "Suy luận 100% offline — tương thích ONNX Runtime"
+          ],
+          "footer": "Benchmark hiệu năng đang được Viện LeAR kiểm chứng."
+        }
+      }
+    },
+    "zeroTrust": {
+      "steps": [
+        {
+          "title": "Secure Hardware",
+          "content": "Thiết bị phần cứng được ký số và bảo vệ toàn vẹn ngay từ gốc."
+        },
+        {
+          "title": "Token Validation",
+          "content": "Token động được kiểm tra hợp lệ và chưa bị thu hồi."
+        },
+        {
+          "title": "Identity Verification",
+          "content": "Danh tính và thiết bị được xác minh theo chính sách Zero Trust."
+        },
+        {
+          "title": "Trust Granted",
+          "content": "Quyền truy cập được cấp với mức độ tin cậy cao và có kiểm soát."
+        }
+      ],
+      "footer": "Zero Trust đảm bảo chỉ những thiết bị và người dùng đáng tin cậy mới được truy cập vào tài nguyên hệ thống — mọi truy cập đều được xác minh, giám sát và kiểm soát liên tục."
+    },
+    "standards": {
+      "cards": [
+        {
+          "title": "HARDWARE EVIDENCE",
+          "subTitle": "Nền tảng phần cứng",
+          "content": ["NVIDIA Jetson Orin", "Chip HSM · FIPS 140-3 L3", "NPU chuyên dụng tại thiết bị"]
+        },
+        {
+          "title": "READINESS CORE",
+          "subTitle": "Tiêu chuẩn hướng tới",
+          "content": ["Kiểm toán khí thải logistics", "Sẵn sàng khung CBAM (EU)", "Chứng chỉ năng lượng tái tạo I-REC"]
+        },
+        {
+          "title": "NETWORK EVIDENCE",
+          "subTitle": "Hạ tầng mạng",
+          "content": ["Private 5G công nghiệp", "Wi-Fi 7 · Thread Mesh", "TSN Ethernet"]
+        }
+      ],
+      "footer": "Đối so với chứng nhận chỉ đáp ứng tối thiểu ở từng chứng chỉ hoặc thỏa thuận đơn lẻ, LeTRON hợp nhất thành một chuẩn vận hành."
     }
   },
   "leosAi": {
@@ -211,6 +302,13 @@
   "partners": {
     "title": "Đối tác LeTRON",
     "description": "Chúng tôi không chỉ kết nối — chúng tôi cùng nhau tạo ra giá trị lâu dài và thúc đẩy chuyển đổi xanh toàn diện.",
+    "logoAlt": "Đối tác LeTRON {index}"
+  },
+  "partnerShowcase": {
+    "eyebrow": "ĐỐI TÁC LeTRON · TRUSTED COLLABORATION",
+    "headerWhite": "Cùng kiến tạo",
+    "headerAccent": "giá trị dài hạn",
+    "description": "Hệ sinh thái được xây dựng trên quan hệ hợp tác có kiểm chứng, minh bạch và cùng tạo giá trị.",
     "logoAlt": "Đối tác LeTRON {index}"
   },
   "pillars": {
