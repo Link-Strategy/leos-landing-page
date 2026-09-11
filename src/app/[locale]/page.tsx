@@ -5,13 +5,14 @@ import Vision from "@/components/landing/Vision";
 import Heart from "@/components/landing/Heart";
 import ServiceModel from "@/components/landing/ServiceModel";
 import TechArchitecture from "@/components/landing/TechArchitecture";
+import PartnerShowcase from "@/components/landing/PartnerShowcase";
 // import LeOsAi from "@/components/landing/LeOsAi";
 // import Pillars from "@/components/landing/Pillars";
 // import Culture from "@/components/landing/Culture";
 // import HeartTab from "@/components/landing/HeartTab";
 import Products from "@/components/landing/Products";
 // import Counters from "@/components/landing/Counters";
-import Partners from "@/components/landing/Partners";
+// import Partners from "@/components/landing/Partners";
 import News from "@/components/landing/News";
 import Career from "@/components/landing/Career";
 
@@ -30,12 +31,13 @@ export default function Home() {
         <Heart />
         <ServiceModel />
         <TechArchitecture />
+        <PartnerShowcase />
         {/* <LeOsAi /> */}
         {/* <Pillars /> */}
         {/* <Culture /> */}
         {/* <HeartTab /> */}
+        {/* <Partners /> */}
         <Products />
-        <Partners />
         <News />
         <Career />
       </div>

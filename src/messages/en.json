@@ -177,6 +177,97 @@
       "coreTech": "Core Technology",
       "zeroTrust": "Zero Trust Security",
       "standards": "Standards"
+    },
+    "tabsMobile": {
+      "coreTech": "Core Tech",
+      "zeroTrust": "Zero Trust",
+      "standards": "Standards"
+    },
+    "header": {
+      "coreTech": {
+        "eyebrow": "Core Technology",
+        "title": "LeOS × LeLe ERE"
+      },
+      "zeroTrust": {
+        "eyebrow": "Core Technology",
+        "title": "LeOS × LeLe ERE"
+      },
+      "standards": {
+        "eyebrow": "Core Technology",
+        "title": "LeOS × LeLe ERE"
+      }
+    },
+    "coreTech": {
+      "topLabel": "Edge-native operational intelligence",
+      "badge": ["LeOS runtime", "LeLe ERE reasoning", "AI at the edge"],
+      "circles": {
+        "leos": "LeOS",
+        "lele": "LeLe ERE"
+      },
+      "cards": {
+        "leos": {
+          "title": "LeOS space operating system",
+          "logoText": "LeOS",
+          "content": [
+            "Application Layer — LeOS Super App",
+            "Cognitive Layer — LeLe ERE (Embedded Reasoning Engine)",
+            "Infrastructure Layer — Kernel, Load Balancing",
+            "Hardware Network Layer — Wi-Fi 7 · Thread Mesh · Private 5G"
+          ],
+          "footer": "LeOS runtime"
+        },
+        "lele": {
+          "title": "LeLe ERE embedded reasoning core",
+          "logoText": "LeLe ERE",
+          "content": [
+            "Multimodal Small Language Model — quantized transformer",
+            "Runs on a dedicated NPU chip",
+            "100% offline inference — ONNX Runtime compatible"
+          ],
+          "footer": "Performance benchmarks are being verified by LeAR Institute."
+        }
+      }
+    },
+    "zeroTrust": {
+      "steps": [
+        {
+          "title": "Secure Hardware",
+          "content": "Hardware devices are digitally signed and protected for integrity from the ground up."
+        },
+        {
+          "title": "Token Validation",
+          "content": "Dynamic tokens are checked for validity and revocation status."
+        },
+        {
+          "title": "Identity Verification",
+          "content": "Identity and devices are verified according to Zero Trust policy."
+        },
+        {
+          "title": "Trust Granted",
+          "content": "Access is granted with a high level of trust and control."
+        }
+      ],
+      "footer": "Zero Trust ensures that only trusted devices and users can access system resources — every access is continuously verified, monitored, and controlled."
+    },
+    "standards": {
+      "cards": [
+        {
+          "title": "HARDWARE EVIDENCE",
+          "subTitle": "Hardware foundation",
+          "content": ["NVIDIA Jetson Orin", "HSM chip · FIPS 140-3 L3", "Dedicated on-device NPU"]
+        },
+        {
+          "title": "READINESS CORE",
+          "subTitle": "Standards in progress",
+          "content": ["Logistics emissions auditing", "CBAM (EU) framework ready", "I-REC renewable energy certificate"]
+        },
+        {
+          "title": "NETWORK EVIDENCE",
+          "subTitle": "Network infrastructure",
+          "content": ["Industrial private 5G", "Wi-Fi 7 · Thread Mesh", "TSN Ethernet"]
+        }
+      ],
+      "footer": "Compared to certifications that only meet the minimum bar with isolated certificates or one-off agreements, LeTRON unifies them into a single operating standard."
     }
   },
   "leosAi": {
@@ -211,6 +302,13 @@
   "partners": {
     "title": "LeTRON Partners",
     "description": "We don't just connect — we create lasting value together and drive a comprehensive green transformation.",
+    "logoAlt": "LeTRON Partner {index}"
+  },
+  "partnerShowcase": {
+    "eyebrow": "LeTRON PARTNERS · TRUSTED COLLABORATION",
+    "headerWhite": "Building",
+    "headerAccent": "long-term value together",
+    "description": "An ecosystem built on proven, transparent partnerships that create shared value.",
     "logoAlt": "LeTRON Partner {index}"
   },
   "pillars": {
