@@ -2,18 +2,22 @@ import Image from "next/image";
 import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
+import { getSiteUrl } from "@/lib/blog/seo";
+
 type LeadershipMemberMeta = {
   id: string;
   messageKey: string;
   photo: string;
 };
 
+// Descriptive filenames (name + title + brand) matter for Google Images ranking,
+// not just alt text.
 const LEADERSHIP_MEMBERS_META: LeadershipMemberMeta[] = [
-  { id: "815", messageKey: "cfo", photo: "/about/CFO.png" },
-  { id: "816", messageKey: "HR", photo: "/about/HR.png" },
-  { id: "813", messageKey: "chairman", photo: "/about/COB.png" },
-  { id: "811", messageKey: "ceo", photo: "/about/CEO.png" },
-  { id: "809", messageKey: "lear", photo: "/about/LeAR.png" }
+  { id: "815", messageKey: "cfo", photo: "/about/nguyen-van-cong-cfo-letron.png" },
+  { id: "816", messageKey: "HR", photo: "/about/nguyen-thi-mai-lien-hr-ga-letron.png" },
+  { id: "813", messageKey: "chairman", photo: "/about/le-minh-tien-chu-tich-hdqt-letron.png" },
+  { id: "811", messageKey: "ceo", photo: "/about/hoang-le-thuy-ceo-letron.png" },
+  { id: "809", messageKey: "lear", photo: "/about/le-duc-anh-lear-letron.png" }
 ];
 
 type LeadershipGridProps = {
@@ -22,6 +26,7 @@ type LeadershipGridProps = {
 
 export function LeadershipGrid({ onClose }: LeadershipGridProps) {
   const t = useTranslations("leadership");
+  const siteUrl = getSiteUrl();
   const LEADERSHIP_MEMBERS = LEADERSHIP_MEMBERS_META.map((meta) => ({
     id: meta.id,
     photo: meta.photo,
@@ -29,8 +34,28 @@ export function LeadershipGrid({ onClose }: LeadershipGridProps) {
     title: t(`members.${meta.messageKey}.title`),
   }));
 
+  // Person schema helps Google associate each photo with a name/title so it can
+  // surface the photos directly in Google Images / knowledge results.
+  const peopleJsonLd = LEADERSHIP_MEMBERS.map((member) => ({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: member.name,
+    jobTitle: member.title,
+    image: `${siteUrl}${member.photo}`,
+    worksFor: {
+      "@type": "Organization",
+      name: "LeTRON Group",
+      url: siteUrl,
+    },
+  }));
+
   return (
     <div className="relative grid grid-cols-2 gap-x-3 gap-y-5 px-4 py-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-x-4 lg:gap-y-8 lg:px-10 lg:py-15 bg-white/20 rounded-2xl lg:rounded-[20px] shadow-[0_6px_8px_0_rgba(0,0,0,0.4)] backdrop-blur-[35px]">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(peopleJsonLd) }}
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 rounded-[inherit] p-px"
@@ -59,7 +84,7 @@ export function LeadershipGrid({ onClose }: LeadershipGridProps) {
         <div key={member.id} className="flex flex-col">
           <div className="relative aspect-[304/308] w-full overflow-hidden rounded-2xl">
             <Image
-              alt={member.name}
+              alt={`${member.name} – ${member.title} | LeTRON Group`}
               src={member.photo}
               fill
               sizes="(max-width: 767px) 50vw, (max-width: 1024px) 33vw, 20vw"

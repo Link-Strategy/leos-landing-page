@@ -6,6 +6,9 @@ import Heart from "@/components/landing/Heart";
 import ServiceModel from "@/components/landing/ServiceModel";
 import TechArchitecture from "@/components/landing/TechArchitecture";
 import PartnerShowcase from "@/components/landing/PartnerShowcase";
+import AppDownload from "@/components/landing/AppDownload";
+import RoadMap from "@/components/landing/RoadMap";
+import PartnerAccess from "@/components/landing/PartnerAccess";
 // import LeOsAi from "@/components/landing/LeOsAi";
 // import Pillars from "@/components/landing/Pillars";
 // import Culture from "@/components/landing/Culture";
@@ -14,7 +17,7 @@ import Products from "@/components/landing/Products";
 // import Counters from "@/components/landing/Counters";
 // import Partners from "@/components/landing/Partners";
 import News from "@/components/landing/News";
-import Career from "@/components/landing/Career";
+// import Career from "@/components/landing/Career";
 
 export default function Home() {
   return (
@@ -32,6 +35,9 @@ export default function Home() {
         <ServiceModel />
         <TechArchitecture />
         <PartnerShowcase />
+        <AppDownload />
+        <RoadMap />
+        <PartnerAccess />
         {/* <LeOsAi /> */}
         {/* <Pillars /> */}
         {/* <Culture /> */}
@@ -39,7 +45,7 @@ export default function Home() {
         {/* <Partners /> */}
         <Products />
         <News />
-        <Career />
+        {/* <Career /> */}
       </div>
 
       {/* Interactions and hooks */}

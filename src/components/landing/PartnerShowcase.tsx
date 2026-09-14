@@ -21,7 +21,7 @@ function PartnerCard({ logo, alt }: { logo: string; alt: string }) {
     <div
       className="relative flex aspect-[236/132] w-[calc((100vw-56px)/3)] shrink-0 items-center justify-center rounded-[12px] p-2 backdrop-blur-[3.1px] lg:aspect-auto lg:h-[132px] lg:w-[236px] lg:rounded-[20px] lg:p-7"
       style={{
-        background: "#13256333",
+        background: "#13256333", 
         boxShadow: "0px 0px 24px 0px #0073FF2E",
       }}
     >
@@ -49,13 +49,13 @@ export default async function PartnerShowcase() {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat lg:h-[300px]"
+      className="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('/landing/Partners/Partner_bg.png')" }}
     >
       <SectionEdgeFade position="top" />
       <SectionEdgeFade position="bottom" />
 
-      <div className="container-le relative z-10 flex h-full flex-col gap-10 py-14 lg:flex-row lg:items-center lg:gap-0 lg:py-0">
+      <div className="container-le relative z-10 flex flex-col gap-10 py-14 lg:flex-row lg:items-center lg:gap-0">
         {/* Text column */}
         <div className="w-full lg:w-[33%]">
           <p
@@ -76,15 +76,29 @@ export default async function PartnerShowcase() {
         {/* Partner cards column */}
         <div className="w-full lg:w-[67%]">
           {isMarquee ? (
-            <div className="relative w-full overflow-hidden mask-gradient">
-              <div className="flex w-max animate-marquee gap-2 lg:gap-4">
-                {displayLogos.map((logo, idx) => (
-                  <PartnerCard
-                    key={idx}
-                    logo={logo}
-                    alt={t("logoAlt", { index: (idx % partnerLogos.length) + 1 })}
-                  />
-                ))}
+            <div className="flex flex-col gap-2 lg:gap-4">
+              {/* Row 1 slides left-to-right (reverse), row 2 slides right-to-left, per Figma */}
+              <div className="relative w-full overflow-hidden mask-gradient">
+                <div className="flex w-max animate-marquee-reverse gap-2 lg:gap-4">
+                  {displayLogos.map((logo, idx) => (
+                    <PartnerCard
+                      key={`row1-${idx}`}
+                      logo={logo}
+                      alt={t("logoAlt", { index: (idx % partnerLogos.length) + 1 })}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="relative w-full overflow-hidden mask-gradient">
+                <div className="flex w-max animate-marquee gap-2 lg:gap-4">
+                  {displayLogos.map((logo, idx) => (
+                    <PartnerCard
+                      key={`row2-${idx}`}
+                      logo={logo}
+                      alt={t("logoAlt", { index: (idx % partnerLogos.length) + 1 })}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           ) : (

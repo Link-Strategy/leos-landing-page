@@ -311,6 +311,74 @@
     "description": "An ecosystem built on proven, transparent partnerships that create shared value.",
     "logoAlt": "LeTRON Partner {index}"
   },
+  "appDownload": {
+    "eyebrow": "LeOS SUPER APP · MOBILE OPERATIONS",
+    "headerWhite": "Take operations data",
+    "headerAccent": "with you",
+    "description": "Track status, receive alerts, and coordinate operations in one unified mobile experience.",
+    "phoneAlt": "LeOS app on mobile",
+    "storeGooglePlayAlt": "Get it on Google Play",
+    "storeAppStoreAlt": "Download on the App Store",
+    "panel": {
+      "eyebrow": "LEOS / LIVE OPERATIONS",
+      "heading": "One window for all operations",
+      "features": [
+        {
+          "title": "Real-time status",
+          "description": "Track device health and performance"
+        },
+        {
+          "title": "Alerts and prioritization",
+          "description": "Early triage by impact level"
+        },
+        {
+          "title": "End-to-end operation log",
+          "description": "Full record of every operational activity"
+        }
+      ]
+    }
+  },
+  "roadMap": {
+    "eyebrow": "DEVELOPMENT ROADMAP",
+    "headingAccent": "From Sandbox ",
+    "headingWhite": "to international listing",
+    "steps": [
+      {
+        "phaseLabel": "PHASE 1 · Q3–Q4 2026",
+        "title": "Uông Bí Sandbox",
+        "description": "Live demo of the Le-Node network · logistics MOU signed."
+      },
+      {
+        "phaseLabel": "PHASE 2 · Q1 2027",
+        "title": "Phoenix Residence",
+        "description": "Butler robot · first DC charging station at Eco-Smart City."
+      },
+      {
+        "phaseLabel": "PHASE 3 · 2028–2030",
+        "title": "Nationwide commercialization",
+        "description": "Scale to four devices · targeting an international listing."
+      }
+    ],
+    "milestone": {
+      "label": "STRATEGIC TARGET",
+      "year": "2030",
+      "heading": "A verified national edge network",
+      "description": "Built on a foundation of verified data, an OpEx service model, and field deployment capability — without compromising autonomy or safety."
+    }
+  },
+  "partnerAccess": {
+    "eyebrow": "INVESTOR & PARTNER ACCESS",
+    "badge": "UÔNG BÍ SANDBOX — Q4/2026",
+    "headingBefore": "Where the",
+    "headingAccent": "Perceptive Edge Network",
+    "headingAfter": "runs for real",
+    "description": "For investors and partners:",
+    "descriptionDetail": "Series A deck under NDA, public whitepaper, and Sandbox site visit scheduling.",
+    "descriptionMobile": "For investors and partners: Series A deck under NDA, public whitepaper, and Sandbox site visit scheduling.",
+    "ctaPrimary": "Contact Investor Relations",
+    "ctaSecondary": "Schedule a Sandbox Visit",
+    "mobileDisclaimer": "The full Series A deck and whitepaper are shared only after NDA. The website carries the public edition."
+  },
   "pillars": {
     "eyebrow": "Operating Model",
     "titlePrefix": "The Dual Loop of ",
@@ -398,6 +466,16 @@
         "description": "Smart eco-city planning models and circular eco-industrial park development."
       }
     }
+  },
+  "news": {
+    "eyebrow": "NEWS & EVENTS",
+    "headingBefore": "The",
+    "headingAccent": "latest moves",
+    "headingLine2": "on the journey to Net Zero",
+    "ctaAll": "See all articles",
+    "cardCta": "Read article",
+    "defaultTag": "LeTRON",
+    "dateMonthPrefix": "MONTH"
   },
   "productsPage": {
     "metaTitle": "Products - LeTRON",
@@ -621,7 +699,8 @@
   },
   "footer": {
     "companyName": "LeTRON Group Joint Stock Company",
-    "copyright": "© 2026 LeTRON. Powered by SAOKIM Digital.",
+    "copyright": "© 2026 LeTRON Group · Quang Ninh, Vietnam",
+    "tagline": "Green technology · Smart operations",
     "quickLinksHeading": "Quick Links",
     "productsHeading": "Products",
     "contactHeading": "Contact",
@@ -642,7 +721,10 @@
       "lesc": "LeSC (Smart City)"
     },
     "address": "Headquarters: Floor 3, Cong Thanh Building, 295 Tran Nhan Tong Street, Uong Bi Ward, Quang Ninh Province",
+    "phone": "02033.668.838 · 02033.669.966",
+    "email": "office@letrongroup.com",
     "downloadProfile": "Download Profile",
+    "socialZaloAlt": "Zalo",
     "accordionAriaLabel": "Accordion. Open links with Enter or Space, close with Escape, and navigate with Arrow Keys"
   }
 }
