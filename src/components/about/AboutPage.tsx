@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type * as React from "react";
 import { Play } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
@@ -40,9 +40,7 @@ function InfoCard({ children, className }: { children: React.ReactNode; classNam
 
 export default function AboutPage() {
   const t = useTranslations("about");
-  const locale = useLocale();
   const MISSION_POINTS = t.raw("missionPoints") as string[];
-  const orgChartSrc = locale === "en" ? "/about/so-do-en.svg" : "/about/so-do.svg";
 
   return (
     <div className="site-main post-723 page type-page status-publish hentry">
@@ -179,22 +177,6 @@ export default function AboutPage() {
                 ))}
               </ul>
             </InfoCard>
-          </div>
-
-          {/* Sơ đồ tổ chức */}
-          <div className="text-center">
-            <h2 className="elementor-heading-title elementor-size-default font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
-              {t("orgChartHeading")}
-            </h2>
-            <div className="mt-8">
-              <Image
-                alt={t("orgChartAlt")}
-                src={orgChartSrc}
-                width={1681}
-                height={574}
-                className="mx-auto h-auto w-full max-w-full"
-              />
-            </div>
           </div>
         </div>
 
