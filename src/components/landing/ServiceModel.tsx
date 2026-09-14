@@ -178,7 +178,7 @@ export default function ServiceModel() {
     {
       key: "haas",
       circleBg: "/landing/ServiceModel/HaaS_bg.png",
-      icon: "/landing/ServiceModel/HaaS.png",
+      icon: "/landing/ServiceModel/HaaS.svg",
       title: t("cards.haas.title"),
       subTitle: t("cards.haas.subTitle"),
       content: t("cards.haas.content"),
@@ -193,7 +193,7 @@ export default function ServiceModel() {
     {
       key: "saas",
       circleBg: "/landing/ServiceModel/SaaS_bg.png",
-      icon: "/landing/ServiceModel/SaaS.png",
+      icon: "/landing/ServiceModel/SaaS.svg",
       title: t("cards.saas.title"),
       subTitle: t("cards.saas.subTitle"),
       content: t("cards.saas.content"),
@@ -208,7 +208,7 @@ export default function ServiceModel() {
     {
       key: "caas",
       circleBg: "/landing/ServiceModel/CaaS_bg.png",
-      icon: "/landing/ServiceModel/CaaS.png",
+      icon: "/landing/ServiceModel/CaaS.svg",
       title: t("cards.caas.title"),
       subTitle: t("cards.caas.subTitle"),
       content: t("cards.caas.content"),
@@ -222,7 +222,7 @@ export default function ServiceModel() {
     {
       key: "aaas",
       circleBg: "/landing/ServiceModel/AaaS_bg.png",
-      icon: "/landing/ServiceModel/AaaS.png",
+      icon: "/landing/ServiceModel/AaaS.svg",
       title: t("cards.aaas.title"),
       subTitle: t("cards.aaas.subTitle"),
       content: t("cards.aaas.content"),

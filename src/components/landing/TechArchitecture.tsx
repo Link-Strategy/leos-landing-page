@@ -67,7 +67,7 @@ type ZeroTrustStep = { title: string; content: string };
 function ZeroTrustCard({ index, title, icon, content }: { index: number; title: string; icon: string; content: string }) {
   return (
     <div
-      className="relative flex h-[330px] w-[250px] shrink-0 flex-col items-center px-6 pt-9 rounded-[14px] border"
+      className="relative flex h-[330px] w-[250px] shrink-0 flex-col items-center px-6 pt-9 rounded-[14px] border transition-all duration-300 hover:border-2 hover:border-[#2A9FFF]! hover:bg-[rgba(6,26,64,0.20)]! hover:shadow-[0_10px_28px_0_rgba(13,115,255,0.16)]! hover:backdrop-blur-[20px]"
       style={{
         background: "linear-gradient(90deg, rgba(6,26,64,0.98) 0%, rgba(9,33,82,0.98) 100%)",
         borderColor: "#1FA1FFC7",
@@ -135,7 +135,7 @@ type StandardsCardStep = { title: string; subTitle: string; content: string[] };
 function StandardsCard({ index, title, subTitle, icon, content }: { index: number } & StandardsCardStep & { icon: string }) {
   return (
     <div
-      className="flex h-auto w-full shrink-0 flex-col rounded-[14px] border px-7 py-[26px] lg:h-[310px] lg:w-[350px]"
+      className="flex h-auto w-full shrink-0 flex-col rounded-[14px] border px-7 py-[26px] transition-all duration-300 hover:border-2 hover:border-[#2A9FFF]! hover:bg-[rgba(6,26,64,0.20)]! hover:shadow-[0_10px_28px_0_rgba(13,115,255,0.16)]! hover:backdrop-blur-[20px] lg:h-[310px] lg:w-[350px]"
       style={{
         background: "linear-gradient(90deg, rgba(5,23,59,0.96) 0%, rgba(8,31,77,0.98) 100%)",
         borderColor: "#1FA1FFAD",
@@ -407,10 +407,7 @@ export default function TechArchitecture() {
                   </div>
                 </div>
 
-                <div
-                  className="flex h-[74px] w-full max-w-[1120px] items-center gap-[22px] rounded-xl border px-6"
-                  style={{ background: "#061A40B8", borderColor: "#1FA1FF94" }}
-                >
+                <div className="flex h-[74px] w-full max-w-[1120px] items-center gap-[22px] px-6">
                   <Image src="/landing/TechArchitecture/shield_check.png" alt="" width={34} height={34} className="h-[34px]! w-[34px]! shrink-0 object-contain" />
                   <p className="font-open-sans text-[14px] leading-[22px]! font-normal text-white">
                     {t("zeroTrust.footer")}
@@ -447,10 +444,7 @@ export default function TechArchitecture() {
                   })}
                 </div>
 
-                <div
-                  className="flex w-full items-center gap-3 rounded-xl border px-4 py-3"
-                  style={{ background: "#061A40B8", borderColor: "#1FA1FF94" }}
-                >
+                <div className="flex w-full items-center gap-3 px-4 py-3">
                   <Image src="/landing/TechArchitecture/shield_check.png" alt="" width={28} height={28} className="h-7! w-7! shrink-0 object-contain" />
                   <p className="font-open-sans text-[13px] leading-[20px]! font-normal text-white">
                     {t("zeroTrust.footer")}
@@ -497,10 +491,7 @@ export default function TechArchitecture() {
                   ))}
                 </div>
 
-                <div
-                  className="flex h-[74px] w-full max-w-[1170px] items-center gap-[22px] rounded-xl border px-6"
-                  style={{ background: "#061A40B8", borderColor: "#1FA1FF94" }}
-                >
+                <div className="flex h-[74px] w-full max-w-[1170px] items-center gap-[22px] px-6">
                   <Image src="/landing/TechArchitecture/Infomation.png" alt="" width={34} height={34} className="h-[34px]! w-[34px]! shrink-0 object-contain" />
                   <p className="font-open-sans text-[14px] leading-[22px]! font-normal text-white">
                     {t("standards.footer")}
@@ -523,10 +514,7 @@ export default function TechArchitecture() {
                   ))}
                 </div>
 
-                <div
-                  className="flex w-full items-center gap-3 rounded-xl border px-4 py-3"
-                  style={{ background: "#061A40B8", borderColor: "#1FA1FF94" }}
-                >
+                <div className="flex w-full items-center gap-3 px-4 py-3">
                   <Image src="/landing/TechArchitecture/Infomation.png" alt="" width={28} height={28} className="h-7! w-7! shrink-0 object-contain" />
                   <p className="font-open-sans text-[13px] leading-[20px]! font-normal text-white">
                     {t("standards.footer")}
