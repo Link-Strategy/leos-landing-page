@@ -379,6 +379,14 @@ a:hover {
   animation-play-state: paused;
 }
 
+.animate-marquee-reverse {
+  animation: marquee 30s linear infinite reverse;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
 }

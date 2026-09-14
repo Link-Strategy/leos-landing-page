@@ -12,6 +12,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Button } from "@/ui/button";
+import SectionEdgeFade from "@/components/ui/section-edge-fade";
 
 interface ProductItem {
   id: string;
@@ -127,12 +128,16 @@ export default function Products() {
 
   return (
     /* Section container */
-    <section className="
-      container-le flex flex-col relative items-center box-border bg-transparent
-      py-[90px]
-      max-[1550px]:py-[60px]
-      max-[767px]:py-10
-    ">
+    <section className="relative w-full overflow-hidden bg-transparent">
+      <SectionEdgeFade position="top" />
+      <SectionEdgeFade position="bottom" />
+
+      <div className="
+        container-le relative z-10 flex flex-col items-center box-border
+        py-[90px]
+        max-[1550px]:py-[60px]
+        max-[767px]:py-10
+      ">
       <style dangerouslySetInnerHTML={{ __html: productsCss }} />
 
       {/* ── Heading ── */}
@@ -337,6 +342,7 @@ export default function Products() {
             </svg>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

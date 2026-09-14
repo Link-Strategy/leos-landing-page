@@ -311,6 +311,74 @@
     "description": "Hệ sinh thái được xây dựng trên quan hệ hợp tác có kiểm chứng, minh bạch và cùng tạo giá trị.",
     "logoAlt": "Đối tác LeTRON {index}"
   },
+  "appDownload": {
+    "eyebrow": "LeOS SUPER APP · MOBILE OPERATIONS",
+    "headerWhite": "Mang dữ liệu vận hành",
+    "headerAccent": "theo bạn",
+    "description": "Theo dõi trạng thái, nhận cảnh báo và phối hợp tác nghiệp trên một trải nghiệm di động thống nhất.",
+    "phoneAlt": "Ứng dụng LeOS trên điện thoại",
+    "storeGooglePlayAlt": "Tải về từ Google Play",
+    "storeAppStoreAlt": "Tải về từ App Store",
+    "panel": {
+      "eyebrow": "LEOS / LIVE OPERATIONS",
+      "heading": "Một cửa sổ cho toàn bộ vận hành",
+      "features": [
+        {
+          "title": "Trạng thái thời gian thực",
+          "description": "Theo dõi sức khỏe thiết bị và hiệu suất"
+        },
+        {
+          "title": "Cảnh báo và ưu tiên xử lý",
+          "description": "Phân loại sớm theo mức độ ảnh hưởng"
+        },
+        {
+          "title": "Nhật ký tác nghiệp xuyên suốt",
+          "description": "Ghi nhận đầy đủ mọi hoạt động vận hành"
+        }
+      ]
+    }
+  },
+  "roadMap": {
+    "eyebrow": "LỘ TRÌNH PHÁT TRIỂN · ROADMAP",
+    "headingAccent": "Từ Sandbox ",
+    "headingWhite": "đến niêm yết quốc tế",
+    "steps": [
+      {
+        "phaseLabel": "GIAI ĐOẠN 1 · Q3–Q4 2026",
+        "title": "Sandbox Uông Bí",
+        "description": "Live Demo mạng lưới Le‑Node · ký MOU logistics."
+      },
+      {
+        "phaseLabel": "GIAI ĐOẠN 2 · Q1 2027",
+        "title": "Dinh thự Phoenix",
+        "description": "Robot quản gia · trạm sạc DC đầu tiên tại Eco‑Smart City."
+      },
+      {
+        "phaseLabel": "GIAI ĐOẠN 3 · 2028–2030",
+        "title": "Thương mại hóa toàn quốc",
+        "description": "Nhân rộng bốn thiết bị · mục tiêu niêm yết quốc tế."
+      }
+    ],
+    "milestone": {
+      "label": "MỤC TIÊU CHIẾN LƯỢC",
+      "year": "2030",
+      "heading": "A verified national edge network",
+      "description": "Mở rộng trên nền tảng dữ liệu chứng thực, mô hình dịch vụ OpEx và năng lực triển khai thực địa — không đánh đổi tính tự chủ hay an toàn."
+    }
+  },
+  "partnerAccess": {
+    "eyebrow": "INVESTOR & PARTNER ACCESS",
+    "badge": "SANDBOX UÔNG BÍ — Q4/2026",
+    "headingBefore": "Nơi Mạng lưới",
+    "headingAccent": "Biên Tri giác",
+    "headingAfter": "vận hành thật",
+    "description": "Dành cho nhà đầu tư và đối tác:",
+    "descriptionDetail": "Hồ sơ Series A theo NDA, Public Whitepaper và lịch tham quan Sandbox.",
+    "descriptionMobile": "Dành cho nhà đầu tư và đối tác: hồ sơ Series A theo NDA, Public Whitepaper và lịch tham quan Sandbox.",
+    "ctaPrimary": "Liên hệ đầu tư",
+    "ctaSecondary": "Đặt lịch Sandbox",
+    "mobileDisclaimer": "Hồ sơ Series A và Sách trắng đầy đủ chỉ gửi sau NDA. Website phát hành Public Edition."
+  },
   "pillars": {
     "eyebrow": "Mô hình vận hành",
     "titlePrefix": "Vòng Lặp Kép ",
@@ -398,6 +466,16 @@
         "description": "Mô hình quy hoạch đô thị sinh thái thông minh và phát triển khu công nghiệp sinh thái tuần hoàn."
       }
     }
+  },
+  "news": {
+    "eyebrow": "TIN TỨC · SỰ KIỆN",
+    "headingBefore": "Chuyển động",
+    "headingAccent": "mới nhất",
+    "headingLine2": "từ hành trình Net Zero",
+    "ctaAll": "Xem tất cả bài tin",
+    "cardCta": "Đọc bài viết",
+    "defaultTag": "LeTRON",
+    "dateMonthPrefix": "THÁNG"
   },
   "productsPage": {
     "metaTitle": "Sản phẩm - LeTRON",
@@ -628,7 +706,8 @@
   },
   "footer": {
     "companyName": "Công ty cổ phần Tập đoàn LeTRON",
-    "copyright": "© 2026 LeTRON. Powered by SAOKIM Digital.",
+    "copyright": "© 2026 LeTRON Group · Quảng Ninh, Việt Nam",
+    "tagline": "Công nghệ xanh · Vận hành thông minh",
     "quickLinksHeading": "Liên kết nhanh",
     "productsHeading": "Sản phẩm",
     "contactHeading": "Liên hệ",
@@ -649,7 +728,10 @@
       "lesc": "LeSC (Đô thị Thông minh)"
     },
     "address": "Trụ sở chính: Tầng 3, Tòa nhà Công Thành, số 295 đường Trần Nhân Tông, phường Uông Bí, tỉnh Quảng Ninh",
+    "phone": "02033.668.838 · 02033.669.966",
+    "email": "office@letrongroup.com",
     "downloadProfile": "Tải Profile",
+    "socialZaloAlt": "Zalo",
     "accordionAriaLabel": "Bộ gấp mở. Nhấn Enter hoặc Space để mở, Escape để đóng, dùng phím mũi tên để di chuyển"
   }
 }

@@ -31,6 +31,11 @@ const nextConfig: NextConfig = {
         destination: "/blog/:path*",
         permanent: true,
       },
+      {
+        source: "/sitemap.xml",
+        destination: "/sitemap",
+        permanent: true,
+      },
     ];
   },
 };
