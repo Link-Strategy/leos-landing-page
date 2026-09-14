@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
-import Partners from "@/components/landing/Partners";
+import PartnerShowcase from "@/components/landing/PartnerShowcase";
 import Career from "@/components/landing/Career";
 import { AboutHeartValues } from "./AboutHeartValues";
 import { LeadershipReveal } from "./LeadershipReveal";
@@ -193,7 +193,7 @@ export default function AboutPage() {
           <LeadershipReveal />
         </div>
 
-        <Partners />
+        <PartnerShowcase />
         <Career />
       </div>
       <LandingElementorHooks />
