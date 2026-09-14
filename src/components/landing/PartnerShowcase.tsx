@@ -19,7 +19,7 @@ const CARD_BORDER_GRADIENT =
 function PartnerCard({ logo, alt }: { logo: string; alt: string }) {
   return (
     <div
-      className="relative flex aspect-[236/132] w-[calc((100vw-56px)/3)] shrink-0 items-center justify-center rounded-[12px] p-2 backdrop-blur-[3.1px] lg:aspect-auto lg:h-[132px] lg:w-[236px] lg:rounded-[20px] lg:p-7"
+      className="relative flex aspect-[236/132] w-[calc((100vw-56px)/3)] shrink-0 items-center justify-center rounded-[12px] p-2 backdrop-blur-[3.1px] lg:aspect-auto lg:h-[132px] lg:w-[236px] lg:rounded-[20px] lg:p-7 lg:backdrop-blur-[1.55px]"
       style={{
         background: "#13256333", 
         boxShadow: "0px 0px 24px 0px #0073FF2E",
@@ -55,9 +55,9 @@ export default async function PartnerShowcase() {
       <SectionEdgeFade position="top" />
       <SectionEdgeFade position="bottom" />
 
-      <div className="container-le relative z-10 flex flex-col gap-10 py-14 lg:flex-row lg:items-center lg:gap-0">
-        {/* Text column */}
-        <div className="w-full lg:w-[33%]">
+      <div className="container-le relative z-10 flex flex-col gap-10 py-14">
+        {/* Text block */}
+        <div className="w-full lg:text-center">
           <p
             className="font-inter mb-5! inline-block text-[14px] leading-[20px]! font-bold tracking-[2.2px] text-white uppercase"
             style={{ boxShadow: "0px 0px 6px 0px #63D9FF2E" }}
@@ -73,10 +73,10 @@ export default async function PartnerShowcase() {
           </p>
         </div>
 
-        {/* Partner cards column */}
-        <div className="w-full lg:w-[67%]">
+        {/* Partner cards */}
+        <div className="w-full">
           {isMarquee ? (
-            <div className="flex flex-col gap-2 lg:gap-4">
+            <div className="flex flex-col gap-2 lg:gap-5">
               {/* Row 1 slides left-to-right (reverse), row 2 slides right-to-left, per Figma */}
               <div className="relative w-full overflow-hidden mask-gradient">
                 <div className="flex w-max animate-marquee-reverse gap-2 lg:gap-4">
