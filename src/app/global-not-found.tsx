@@ -2,6 +2,7 @@
 // (it lives under app/[locale]), so Next's default blank 404 was shown. Bypasses layouts: import what it needs.
 import "./globals.css";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Archivo, Outfit } from "next/font/google";
 
 const archivo = Archivo({ subsets: ["latin", "vietnamese"], display: "swap", variable: "--font-archivo" });
@@ -40,18 +41,18 @@ export default function GlobalNotFound() {
             Trang bạn tìm không tồn tại hoặc đã được chuyển đi. Hãy quay về trang chủ hoặc xem các sản phẩm của LeTRON.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <a
+            <Link
               href="/"
               style={{ padding: "12px 28px", borderRadius: 999, background: "linear-gradient(180deg,#76c6ff,#2a75f3)", color: "#fff", fontWeight: 600, textDecoration: "none" }}
             >
               Về trang chủ
-            </a>
-            <a
+            </Link>
+            <Link
               href="/san-pham"
               style={{ padding: "12px 28px", borderRadius: 999, border: "1px solid rgba(255,255,255,.4)", color: "#fff", fontWeight: 600, textDecoration: "none" }}
             >
               Xem sản phẩm
-            </a>
+            </Link>
           </div>
         </main>
       </body>

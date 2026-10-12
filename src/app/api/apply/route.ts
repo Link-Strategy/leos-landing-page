@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 import { after, NextRequest, NextResponse } from "next/server";
 import { buildCvKey, CV_MAX_BYTES, detectCvType } from "@/lib/cv-file";
 import { leadRateLimiter, saveLead } from "@/lib/lead-storage";
-import { isHoneypotTriggered } from "@/lib/lead-validation";
+import { isHoneypotTriggered, normalizeLeadInput } from "@/lib/lead-validation";
 import { notifyLead } from "@/lib/notify";
 import { getClientIp } from "@/lib/rate-limit";
 import { getPresignedDownloadUrl, putPrivateObject } from "@/lib/s3";
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
   }
 
   const data: Record<string, unknown> = {};
-  for (const key of ["name", "email", "phone", "job_title", "job_slug", "website"]) {
+  for (const key of ["name", "email", "phone", "job_title", "job_slug", "website", "consent"]) {
     const value = form.get(key);
     if (typeof value === "string") data[key] = value;
   }
@@ -64,6 +64,7 @@ export async function POST(request: NextRequest) {
   const jobTitle = String(data.job_title ?? "").trim().slice(0, 200);
   const jobSlug = String(data.job_slug ?? "").trim().slice(0, 120);
   const leadInput = {
+    consent: data.consent,
     name: data.name,
     email: data.email,
     phone: data.phone,
@@ -71,6 +72,15 @@ export async function POST(request: NextRequest) {
     source: jobSlug ? `tuyen-dung/${jobSlug}` : "tuyen-dung",
     lead_type: "job_application",
   };
+
+  // Validate the form before touching S3: a rejected submission must not leave an orphan CV behind.
+  const check = normalizeLeadInput(leadInput, { requirePhone: true });
+  if (!check.lead) {
+    return NextResponse.json(
+      { success: false, error: "VALIDATION_ERROR", message: "Vui lòng kiểm tra lại thông tin.", fields: check.errors },
+      { status: 400 },
+    );
+  }
 
   const cvKey = buildCvKey(file.name, randomUUID());
   try {

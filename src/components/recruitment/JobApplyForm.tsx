@@ -2,6 +2,7 @@
 
 import { useState, useRef, FormEvent } from "react";
 import { Loader2 } from "lucide-react";
+import ConsentCheckbox from "@/components/legal/ConsentCheckbox";
 
 interface Props {
   jobTitle: string;
@@ -16,6 +17,7 @@ export function JobApplyForm({ jobTitle, jobSlug }: Props) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [cvName, setCvName] = useState("Không có tệp nào được chọn");
+  const [consent, setConsent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -57,6 +59,12 @@ export function JobApplyForm({ jobTitle, jobSlug }: Props) {
       return;
     }
 
+    if (!consent) {
+      setError("Vui lòng đồng ý với Chính sách bảo mật để gửi hồ sơ");
+      setLoading(false);
+      return;
+    }
+
     const cvFile = fileInputRef.current?.files?.[0];
     if (!cvFile) {
       setError("Vui lòng đính kèm CV");
@@ -81,6 +89,7 @@ export function JobApplyForm({ jobTitle, jobSlug }: Props) {
     body.set("job_title", jobTitle);
     body.set("job_slug", jobSlug);
     body.set("website", websiteRef.current?.value ?? "");
+    body.set("consent", consent ? "true" : "");
     body.set("cv_file", cvFile);
 
     try {
@@ -206,6 +215,10 @@ export function JobApplyForm({ jobTitle, jobSlug }: Props) {
               accept=".pdf,.doc,.docx"
               onChange={handleFileChange}
             />
+          </div>
+
+          <div className="elementor-field-group elementor-column elementor-col-100">
+            <ConsentCheckbox id="apply-consent" onChange={setConsent} />
           </div>
 
           <div className="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">

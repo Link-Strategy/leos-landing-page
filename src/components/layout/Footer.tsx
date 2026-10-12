@@ -249,7 +249,7 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center justify-between">
-              <p className="font-open-sans text-[14px] leading-[22px]! text-white opacity-65">{t("copyright")}</p>
+              <p className="font-open-sans text-[14px] leading-[22px]! text-white opacity-65">{t("copyright")} · <Link href="/chinh-sach-bao-mat" className="underline underline-offset-2 hover:opacity-100">{t("privacy")}</Link></p>
               <p className="font-open-sans text-[14px] leading-[22px]! text-white opacity-65">{t("tagline")}</p>
             </div>
           </div>
@@ -280,7 +280,7 @@ export default function Footer() {
             <div className="h-px w-full" style={{ background: "rgba(42,159,255,0.18)" }} />
 
             <div className="flex flex-col gap-1">
-              <p className="font-open-sans text-[14px] leading-[22px]! text-white opacity-65">{t("copyright")}</p>
+              <p className="font-open-sans text-[14px] leading-[22px]! text-white opacity-65">{t("copyright")} · <Link href="/chinh-sach-bao-mat" className="underline underline-offset-2 hover:opacity-100">{t("privacy")}</Link></p>
               <p className="font-open-sans text-[14px] leading-[22px]! text-white opacity-65">{t("tagline")}</p>
             </div>
           </div>
