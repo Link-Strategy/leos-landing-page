@@ -7,6 +7,7 @@ import { LeadForm } from "@/components/subpage/LeadForm";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
+  const v2 = useTranslations("v2.contactV2");
 
   const phone1 = t("phone1");
   const phone2 = t("phone2");
@@ -84,9 +85,17 @@ export default function ContactPage() {
                 <LeadForm
                   buttonLabel={t("formSubmitLabel")}
                   namePlaceholder={t("formNamePlaceholder")}
-                  emailPlaceholder={t("formEmailPlaceholder")}
-                  phonePlaceholder={t("formPhonePlaceholder")}
-                  messagePlaceholder={t("formMessagePlaceholder")}
+                  emailPlaceholder={v2("emailPlaceholder")}
+                  phonePlaceholder={v2("phonePlaceholder")}
+                  phoneRequired={false}
+                  messagePlaceholder={v2("problemPlaceholder") + "*"}
+                  organizationPlaceholder={v2("organizationPlaceholder")}
+                  interestLabel={v2("interest")}
+                  interestPlaceholder={v2("interestPlaceholder")}
+                  interestOptions={v2.raw("interestOptions") as string[]}
+                  maxMessage={1000}
+                  counterSuffix={v2("counter")}
+                  notice={v2("notice")}
                   source="lien-he"
                   lead_type="contact"
                 />

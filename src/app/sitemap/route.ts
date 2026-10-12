@@ -33,7 +33,13 @@ export async function GET() {
     { url: "lien-he", priority: "0.7", changefreq: "monthly" as const, lastmod: undefined },
     { url: "tuyen-dung", priority: "0.8", changefreq: "weekly" as const, lastmod: undefined },
     { url: "blog", priority: "0.9", changefreq: "daily" as const, lastmod: undefined },
+    { url: "giai-phap", priority: "0.8", changefreq: "monthly" as const, lastmod: undefined },
+    { url: "nen-tang", priority: "0.7", changefreq: "monthly" as const, lastmod: undefined },
+    { url: "cong-nghe", priority: "0.7", changefreq: "monthly" as const, lastmod: undefined },
+    { url: "nha-may", priority: "0.7", changefreq: "monthly" as const, lastmod: undefined },
+    { url: "thanh-pho-so", priority: "0.7", changefreq: "monthly" as const, lastmod: undefined },
     { url: "chinh-sach-bao-mat", priority: "0.3", changefreq: "yearly" as const, lastmod: undefined },
+    { url: "dieu-khoan-su-dung", priority: "0.3", changefreq: "yearly" as const, lastmod: undefined },
   ];
 
   let blogUrls: Array<{ url: string; priority: string; changefreq: string; lastmod?: string }> = [];

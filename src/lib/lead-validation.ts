@@ -10,6 +10,8 @@ export type NormalizedLead = {
   email: string;
   phone?: string;
   company?: string;
+  /** Area of interest picked on the contact form (V2). */
+  interest?: string;
   message?: string;
   source: string;
   lead_type: string;
@@ -20,6 +22,7 @@ export const LEAD_LIMITS = {
   email: 200,
   phone: 30,
   company: 200,
+  interest: 100,
   message: 3000,
   source: 120,
   lead_type: 50,
@@ -58,6 +61,7 @@ export function normalizeLeadInput(
   const email = text(data.email);
   const phone = text(data.phone);
   const company = text(data.company);
+  const interest = text(data.interest);
   const message = text(data.message);
   const source = text(data.source) || "landing";
   const leadType = text(data.lead_type) || "contact";
@@ -99,6 +103,7 @@ export function normalizeLeadInput(
       email: email.toLowerCase(),
       phone: phone || undefined,
       company: company || undefined,
+      interest: interest ? interest.slice(0, LEAD_LIMITS.interest) : undefined,
       message: message || undefined,
       source: source.slice(0, LEAD_LIMITS.source),
       lead_type: leadType.slice(0, LEAD_LIMITS.lead_type),

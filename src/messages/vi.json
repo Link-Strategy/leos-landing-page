@@ -10,7 +10,9 @@
       "products": "Sản phẩm",
       "newsEvents": "Tin tức – Sự kiện",
       "careers": "Tuyển dụng",
-      "contact": "Liên hệ"
+      "contact": "Liên hệ",
+      "solutions": "Giải pháp",
+      "technology": "Công nghệ & R&D"
     },
     "languageToggle": "Đổi ngôn ngữ",
     "companies": {
@@ -87,8 +89,8 @@
       "Kết quả có thể đối soát"
     ],
     "description": "LeTRON kết nối hệ quản trị, thiết bị biên và robot công nghiệp trong một giải pháp theo dịch vụ.",
-    "ctaPrimary": "Khám phá Sách trắng",
-    "ctaSecondary": "Đăng ký nhận Demo Sandbox",
+    "ctaPrimary": "Khám phá giải pháp",
+    "ctaSecondary": "Trao đổi thử nghiệm",
     "footerTags": [
       "Tin cậy",
       "Kiểm soát",
@@ -137,19 +139,19 @@
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
-    "title": "Vì một nền kinh tế tuần hoàn toàn cầu",
+    "title": "Công nghệ đi cùng trách nhiệm",
     "centerIconAlt": "LeTRON",
     "mission": {
       "iconAlt": "Sứ mệnh",
       "header": "SỨ MỆNH — MISSION",
-      "content": "Kiến tạo Mạng lưới Biên Tri giác, biến mọi tài sản vật lý thành tài sản số, mọi hành trình thành tín chỉ xanh, thúc đẩy nền kinh tế tuần hoàn toàn cầu.",
-      "footer": "Building the Perceptive Edge Network — turning every physical asset into a digital asset, every journey into a green credit."
+      "content": "Kết nối nghiên cứu, hệ quản trị và thiết bị hiện trường; nghiệm thu bằng kết quả có thể đối soát.",
+      "footer": "Research, management systems and field devices, accepted on results that can be reconciled."
     },
     "vision": {
       "iconAlt": "Tầm nhìn",
       "header": "TẦM NHÌN — VISION",
-      "content": "Trở thành nhà cung cấp giải pháp điện toán biên & dữ liệu xanh hàng đầu Thế giới, dẫn dắt cuộc cách mạng công nghiệp 5.0.",
-      "footer": "To become the world's leading edge-computing & green-data solutions provider, driving Industry 5.0."
+      "content": "Phát triển hạ tầng tin cậy để tổ chức tự chủ vận hành trong phạm vi kiểm soát.",
+      "footer": "Trusted infrastructure for autonomy within the scope of control."
     }
   },
   "heart": {
@@ -694,7 +696,7 @@
     "visionHeadingLine1": "Hệ sinh thái công nghiệp",
     "visionHeadingLine2Prefix": "Vận hành bằng ",
     "visionHeadingLine2Highlight": "dữ liệu",
-    "visionParagraph": "LETRON hướng tới việc đưa trí tuệ và công nghệ Việt Nam vươn ra toàn cầu, định hình một chuẩn mực mới cho ngành công nghiệp — nơi tăng trưởng kinh tế song hành với tái tạo môi trường.",
+    "visionParagraph": "Phát triển hạ tầng tin cậy để tổ chức tự chủ vận hành trong phạm vi kiểm soát.",
     "missionBadge": "Sứ mệnh",
     "missionHeadingLine1": "Người chữa lành Trái đất",
     "missionHeadingHighlight": "bằng công nghệ",
@@ -772,7 +774,7 @@
     "companyName": "Công ty cổ phần Tập đoàn LeTRON",
     "copyright": "© 2026 LeTRON Group · Quảng Ninh, Việt Nam",
     "privacy": "Chính sách bảo mật",
-    "tagline": "Công nghệ xanh · Vận hành thông minh",
+    "tagline": "Tin cậy · Kiểm soát · Trách nhiệm",
     "quickLinksHeading": "Liên kết nhanh",
     "productsHeading": "Sản phẩm",
     "contactHeading": "Liên hệ",
@@ -782,7 +784,10 @@
       "memberCompanies": "Công ty thành viên",
       "newsEvents": "Tin tức - Sự kiện",
       "careers": "Tuyển dụng",
-      "contact": "Liên hệ"
+      "contact": "Liên hệ",
+      "solutions": "Giải pháp",
+      "platform": "Nền tảng",
+      "technology": "Công nghệ & R&D"
     },
     "products": {
       "ledb": "LeDB (Bộ não Số)",
@@ -797,6 +802,418 @@
     "email": "office@letrongroup.com",
     "downloadProfile": "Tải Profile",
     "socialZaloAlt": "Zalo",
-    "accordionAriaLabel": "Bộ gấp mở. Nhấn Enter hoặc Space để mở, Escape để đóng, dùng phím mũi tên để di chuyển"
+    "accordionAriaLabel": "Bộ gấp mở. Nhấn Enter hoặc Space để mở, Escape để đóng, dùng phím mũi tên để di chuyển",
+    "terms": "Điều khoản sử dụng"
+  },
+  "v2": {
+    "common": {
+      "explore": "Khám phá định hướng",
+      "viewSolution": "Xem giải pháp",
+      "contactCta": "Trao đổi dự án",
+      "home": "Về trang chủ",
+      "contactLink": "Liên hệ LeTRON",
+      "status": "Trạng thái",
+      "component": "Thành phần",
+      "updated": "Cập nhật",
+      "stepLabel": "BƯỚC",
+      "readinessTitle": "TRẠNG THÁI THIẾT KẾ"
+    },
+    "principles": [
+      {
+        "eyebrow": "01 / TIN CẬY",
+        "title": "Biết dữ liệu đến từ đâu",
+        "body": "Nguồn dữ liệu, điều kiện sử dụng và phạm vi kiểm chứng được làm rõ trước khi quyết định."
+      },
+      {
+        "eyebrow": "02 / KIỂM SOÁT",
+        "title": "Tự chủ trong giới hạn",
+        "body": "Con người xác lập quyền, giới hạn và điều kiện can thiệp cho từng phạm vi vận hành."
+      },
+      {
+        "eyebrow": "03 / TRÁCH NHIỆM",
+        "title": "Kết quả có thể đối soát",
+        "body": "Nhiệm vụ, chủ thể thực hiện, nghiệm thu và việc khắc phục gắn với hồ sơ vận hành."
+      }
+    ],
+    "factory": {
+      "eyebrow": "TỪ NHIỆM VỤ ĐẾN XƯỞNG",
+      "title": "Nhà máy tự vận hành.\nCó kiểm soát.",
+      "body": "Kết nối LeASO, Le-NodeFactory và Le-ORION theo một phạm vi vận hành rõ ràng. Giao việc, thao tác và QC cùng được đối soát.",
+      "tag": "Định hướng giải pháp / R&D",
+      "cta": "Khám phá nhà máy",
+      "imageAlt": "Minh họa nhà máy với robot Le-ORION đầu vuông, mái tóc quang học và thiết bị biên cạnh máy gia công.",
+      "caption": "Le-ORION + Le-NodeFactory · Hình minh họa định hướng, chưa phải công trình đã triển khai."
+    },
+    "city": {
+      "eyebrow": "TỪ HẠ TẦNG ĐẾN ĐIỀU HÀNH",
+      "title": "Thành phố Số.\nPhối hợp từ hiện trường.",
+      "body": "LeASO kết nối điều hành với thiết bị biên di động và định hướng ứng dụng trên không. Từng miền dữ liệu có quyền và trách nhiệm riêng.",
+      "tag": "Định hướng giải pháp / R&D",
+      "cta": "Khám phá Thành phố Số",
+      "imageAlt": "Minh họa Thành phố Số với phương tiện di động, drone và trung tâm điều hành.",
+      "caption": "LeASO + Le-NodeMobility + Le-NodeAir · Hình minh họa định hướng, chưa phải công trình đã triển khai."
+    },
+    "loop": {
+      "eyebrow": "VÒNG VẬN HÀNH",
+      "title": "Tác vụ khép kín. Kết quả có thể đối soát.",
+      "lead": "Một nhiệm vụ đi qua từng bước, có chủ thể chịu trách nhiệm và điều kiện hoàn thành rõ ràng.",
+      "ariaLabel": "Vòng vận hành",
+      "stages": [
+        {
+          "name": "Giao việc",
+          "body": "Chốt nhiệm vụ, người chịu trách nhiệm, phạm vi và tiêu chí hoàn thành."
+        },
+        {
+          "name": "Thực hiện",
+          "body": "Thiết bị và robot thực hiện trong phạm vi đã xác lập; ghi nhận ngoại lệ."
+        },
+        {
+          "name": "QC đối soát",
+          "body": "Đối chiếu kết quả thực tế với tiêu chí đã thống nhất; giữ trạng thái chưa xác định khi bằng chứng thiếu."
+        },
+        {
+          "name": "Lưu bằng chứng",
+          "body": "Gắn hồ sơ với nhiệm vụ, phiên bản cấu hình và kết quả nghiệm thu."
+        },
+        {
+          "name": "Bảo trì",
+          "body": "Chuyển dữ liệu tình trạng thành công việc kiểm tra, khắc phục và theo dõi tiếp."
+        }
+      ],
+      "stamp": "Giao việc → Thực hiện → QC → Bằng chứng → Bảo trì",
+      "stampNote": "Luồng minh họa định hướng, chưa kết nối hệ thống vận hành."
+    },
+    "portfolio": {
+      "number": "20",
+      "metricTitle": "Họ sáng chế trong danh mục nghiên cứu",
+      "metricCaption": "Số lượng phản ánh danh mục R&D, không phải số bằng đã được cấp. Tên từng Họ và chi tiết bảo hộ được giữ riêng.",
+      "eyebrow": "NGHIÊN CỨU & PHÁT TRIỂN",
+      "title": "Một nền tảng.\nNhiều ứng dụng.",
+      "lead": "LeTRON phát triển danh mục công nghệ phối hợp cho dữ liệu tin cậy, vận hành có kiểm soát và kết quả có thể kiểm lại.",
+      "caption": "Thông tin trên trang tập trung vào bài toán và giá trị ứng dụng. Hồ sơ chuyên sâu được chia sẻ theo phạm vi hợp tác và thỏa thuận bảo mật.",
+      "cta": "Khám phá định hướng R&D"
+    },
+    "proof": {
+      "eyebrow": "S.a.a.S",
+      "title": "Giải pháp theo dịch vụ.\nNghiệm thu bằng kết quả đo được.",
+      "lead": "LeTRON cùng khách hàng xác lập phạm vi, trách nhiệm và cách đo trước khi triển khai.",
+      "items": [
+        {
+          "eyebrow": "01 / KHẢO SÁT",
+          "title": "Hiểu bài toán",
+          "body": "Xác định thiết bị, nhiệm vụ, dữ liệu và những giới hạn tại hiện trường."
+        },
+        {
+          "eyebrow": "02 / THỬ NGHIỆM",
+          "title": "Kiểm chứng tại chỗ",
+          "body": "Chốt đường cơ sở, cấu hình và tiêu chí nghiệm thu; giữ cả ngoại lệ và kết quả chưa đạt."
+        },
+        {
+          "eyebrow": "03 / VẬN HÀNH",
+          "title": "Mở rộng sau nghiệm thu",
+          "body": "Làm rõ kết quả cam kết, hỗ trợ, bảo trì và nghĩa vụ khắc phục trong hợp đồng."
+        }
+      ]
+    },
+    "philosophy": {
+      "quote": "DÁM NGHĨ - DÁM LÀM - DÁM KHÁC BIỆT",
+      "attribution": "Triết lý của Chủ tịch LÊ MINH TIẾN",
+      "lead": "Đặt con người và trách nhiệm ở trung tâm; kết nối các năng lực công nghệ để cùng tạo giá trị."
+    },
+    "cta": {
+      "eyebrow": "BẮT ĐẦU TỪ PHẠM VI PHÙ HỢP",
+      "title": "Cùng xác định kết quả cần đạt.",
+      "body": "Trao đổi bài toán, đường cơ sở và tiêu chí nghiệm thu với LeTRON.",
+      "button": "Trao đổi dự án"
+    },
+    "products": [
+      {
+        "id": "leaso",
+        "eyebrow": "01 / QUẢN TRỊ",
+        "title": "LeASO + LeLe",
+        "body": "Giao việc, phối hợp, hỗ trợ quyết định và đối soát kết quả trong môi trường quản trị của tổ chức.",
+        "status": "Đang phát triển",
+        "route": "platform"
+      },
+      {
+        "id": "nodefactory",
+        "eyebrow": "02 / TẠI CƠ SỞ",
+        "title": "Le-NodeFactory",
+        "body": "Kết nối dữ liệu thiết bị và hoạt động tại xưởng với hệ quản trị; chọn cấu hình theo phạm vi triển khai.",
+        "status": "Đang phát triển",
+        "route": "factory"
+      },
+      {
+        "id": "nodemobility",
+        "eyebrow": "03 / DI ĐỘNG",
+        "title": "Le-NodeMobility",
+        "body": "Kết nối thiết bị, tác vụ di động và hồ sơ bàn giao theo điều kiện hiện trường.",
+        "status": "Đang phát triển",
+        "route": "city"
+      },
+      {
+        "id": "nodeair",
+        "eyebrow": "04 / TRÊN KHÔNG",
+        "title": "Le-NodeAir",
+        "body": "Định hướng ứng dụng thiết bị biên trên không cho khảo sát và giám sát theo nhiệm vụ được giao.",
+        "status": "Ý tưởng ứng dụng",
+        "route": "city"
+      },
+      {
+        "id": "orion",
+        "eyebrow": "05 / ROBOT",
+        "title": "Le-ORION",
+        "body": "Định hướng robot cho thao tác vật liệu, cấp phôi và kiểm tra trực quan trong phạm vi nhiệm vụ được giao.",
+        "status": "Thiết kế & R&D",
+        "route": "factory"
+      },
+      {
+        "id": "lecapm",
+        "eyebrow": "06 / TIN CẬY",
+        "title": "LeCAP-M",
+        "body": "Phát triển nền tảng phần cứng hỗ trợ xác thực và kiểm quyền thực hiện. Phạm vi sử dụng cần được kiểm thử.",
+        "status": "Thiết kế & R&D",
+        "route": "technology"
+      }
+    ],
+    "sectors": [
+      {
+        "eyebrow": "NHÀ MÁY",
+        "title": "Sản xuất có truy xuất",
+        "body": "Kết nối quản trị, thiết bị và robot để phối hợp giao việc, QC và bảo trì.",
+        "route": "factory"
+      },
+      {
+        "eyebrow": "THÀNH PHỐ SỐ",
+        "title": "Hạ tầng phối hợp",
+        "body": "Kết nối LeASO, Le-NodeMobility và định hướng Le-NodeAir theo từng miền vận hành.",
+        "route": "city"
+      },
+      {
+        "eyebrow": "MỎ · CẢNG · LOGISTICS",
+        "title": "Di chuyển & bàn giao",
+        "body": "Liên kết tài sản, tác vụ và hồ sơ bàn giao theo điều kiện hiện trường.",
+        "route": "contact"
+      },
+      {
+        "eyebrow": "NĂNG LƯỢNG",
+        "title": "Nguồn đo & tài sản",
+        "body": "Theo dõi nguồn đo, thiết bị và bảo trì trong phạm vi được xác lập.",
+        "route": "contact"
+      },
+      {
+        "eyebrow": "THỰC PHẨM · CHUỖI LẠNH",
+        "title": "Điều kiện & truy xuất",
+        "body": "Theo dõi điều kiện bảo quản, nguồn hàng và bàn giao theo quy trình khách hàng.",
+        "route": "contact"
+      },
+      {
+        "eyebrow": "NÔNG NGHIỆP CÔNG NGHỆ CAO",
+        "title": "Theo dõi & phối hợp",
+        "body": "Xác định bài toán quan sát, vận hành và kiểm tra theo từng cơ sở.",
+        "route": "contact"
+      }
+    ],
+    "pages": {
+      "solutions": {
+        "eyebrow": "GIẢI PHÁP THEO BỐI CẢNH",
+        "title": "Bắt đầu từ bài toán.\nĐo bằng kết quả.",
+        "body": "Mỗi cơ sở có điều kiện vận hành khác nhau. LeTRON cùng khách hàng xác lập phạm vi, đường cơ sở và cách nghiệm thu trước khi triển khai.",
+        "metaTitle": "Giải pháp theo bối cảnh"
+      },
+      "platform": {
+        "eyebrow": "HỆ SINH THÁI LeTRON",
+        "title": "Từ quản trị\nđến hiện trường.",
+        "body": "Các sản phẩm được phát triển để phối hợp trong một giải pháp. Cấu hình và phạm vi tự chủ được xác định theo bài toán.",
+        "metaTitle": "Nền tảng"
+      },
+      "technology": {
+        "eyebrow": "CÔNG NGHỆ & R&D",
+        "title": "Một nền tảng.\nNhiều ứng dụng.",
+        "body": "Nghiên cứu cho dữ liệu tin cậy, vận hành có kiểm soát và kết quả có thể đối soát. Thông tin công khai tập trung vào giá trị ứng dụng.",
+        "metaTitle": "Công nghệ & R&D"
+      },
+      "factory": {
+        "eyebrow": "ĐỊNH HƯỚNG GIẢI PHÁP / NHÀ MÁY",
+        "title": "Nhà máy tự vận hành\ncó kiểm soát.",
+        "body": "LeASO phối hợp giao việc; Le-NodeFactory kết nối hiện trường; Le-ORION hỗ trợ thao tác trong phạm vi đã xác lập. Nghiệm thu bằng kết quả đo được.",
+        "metaTitle": "Nhà máy tự vận hành có kiểm soát"
+      },
+      "city": {
+        "eyebrow": "ĐỊNH HƯỚNG GIẢI PHÁP / THÀNH PHỐ SỐ",
+        "title": "Một đô thị.\nNhiều miền phối hợp.",
+        "body": "LeASO kết nối điều hành với Le-NodeMobility và định hướng Le-NodeAir; quyền truy cập, dữ liệu và trách nhiệm được xác định theo từng phạm vi.",
+        "metaTitle": "Thành phố Số"
+      },
+      "terms": {
+        "eyebrow": "ĐIỀU KHOẢN",
+        "title": "Điều khoản sử dụng.",
+        "body": "Các điều khoản áp dụng khi bạn truy cập và sử dụng website letrongroup.com.",
+        "metaTitle": "Điều khoản sử dụng"
+      }
+    },
+    "solutionsPage": {
+      "sectorsEyebrow": "BỐI CẢNH ỨNG DỤNG",
+      "sectorsTitle": "Một giải pháp phối hợp.\nMột phạm vi trách nhiệm rõ.",
+      "noticeTitle": "Dữ liệu thuộc khách hàng.",
+      "noticeBody": "Quyền truy cập, sử dụng và lưu trữ được thỏa thuận. Phạm vi tự chủ và trách nhiệm vận hành được xác định trong hợp đồng."
+    },
+    "platformPage": {
+      "componentsEyebrow": "CÁC THÀNH PHẦN PHỐI HỢP",
+      "componentsTitle": "Chọn cấu hình theo bài toán.",
+      "softwareEyebrow": "NỀN TẢNG PHẦN MỀM",
+      "softwareTitle": "LeOS và LeZTP.",
+      "softwareBody": "Hỗ trợ môi trường phần mềm, danh tính và quyền thực hiện theo cấu hình được kiểm thử. Trạng thái phát hành được xác nhận trong hồ sơ riêng.",
+      "readinessNote": "Nhãn trạng thái phục vụ bản thiết kế nội bộ, cần xác nhận trước khi công bố. Cấu hình và kết quả thử nghiệm được trao đổi trong hồ sơ riêng.",
+      "tableHeadStatus": "TRẠNG THÁI THIẾT KẾ",
+      "tableHeadComponent": "THÀNH PHẦN",
+      "tableHeadUpdated": "CẬP NHẬT",
+      "updatedDate": "03.10.2026"
+    },
+    "technologyPage": {
+      "capEyebrow": "NĂNG LỰC NGHIÊN CỨU",
+      "capTitle": "Bài toán công khai.\nHồ sơ chuyên sâu theo phạm vi.",
+      "capabilities": [
+        {
+          "eyebrow": "DỮ LIỆU",
+          "title": "Nguồn và điều kiện sử dụng",
+          "body": "Làm rõ dữ liệu, điều kiện áp dụng và phạm vi kiểm chứng.",
+          "route": "platform"
+        },
+        {
+          "eyebrow": "VẬN HÀNH",
+          "title": "Quyền và trách nhiệm",
+          "body": "Xác định quyền thực hiện, giới hạn và điều kiện can thiệp.",
+          "route": "solutions"
+        },
+        {
+          "eyebrow": "ĐỐI SOÁT",
+          "title": "Truy xuất và kiểm lại",
+          "body": "Gắn kết quả với nhiệm vụ, trách nhiệm và hồ sơ vận hành để hỗ trợ đối soát.",
+          "route": "factory"
+        }
+      ],
+      "honestEyebrow": "CÔNG BỐ TRUNG THỰC",
+      "honestTitle": "Bằng chứng trước cam kết.",
+      "honestBody": "Nêu giai đoạn phát triển và ngày cập nhật. Kết quả thử chỉ công bố khi có dữ liệu và phạm vi đo cụ thể.",
+      "docsTitle": "Tài liệu có phiên bản.",
+      "docsBody": "Đề xuất bổ sung số phiên bản, ngày phát hành và thông tin kiểm tra tính toàn vẹn cho tài liệu công khai. Các tài liệu sẽ xuất hiện tại đây sau khi được duyệt."
+    },
+    "factoryPage": {
+      "threeEyebrow": "BA THÀNH PHẦN PHỐI HỢP",
+      "threeTitle": "Quản trị. Thiết bị biên. Robot.",
+      "robotEyebrow": "Le-ORION / MẪU NGOẠI THẤT MỚI",
+      "robotTitle": "L1 bạc. H1 trắng ngà.",
+      "robotBody": "Đầu vuông, hai mắt camera, mái tóc quang học đen, viền cyan và đai cảm biến. Hình ảnh thể hiện thiết kế ngoại thất.",
+      "robotAlt": "Bốn góc trước và sau của Le-ORION L1 bạc và H1 trắng ngà theo mẫu Chủ tịch cung cấp",
+      "robotCaption": "Mẫu Le-ORION do Chủ tịch cung cấp · Thiết kế ngoại thất, chưa phải mô hình cơ khí được nghiệm thu."
+    },
+    "cityPage": {
+      "domainEyebrow": "THÀNH PHỐ SỐ LeASO",
+      "domainTitle": "Điều hành theo từng miền.",
+      "domainBody": "Chọn bài toán, phạm vi dữ liệu và quyền can thiệp cho giao thông, logistics, năng lượng và hạ tầng.",
+      "scopeEyebrow": "TRIỂN KHAI THEO PHẠM VI",
+      "scopeTitle": "Từ một cơ sở đến một mạng lưới.",
+      "steps": [
+        {
+          "eyebrow": "01 / BÀI TOÁN",
+          "title": "Chọn miền thí điểm",
+          "body": "Xác định nhiệm vụ tại một khu vực; không mở rộng quyền truy cập ngoài phạm vi đã thống nhất."
+        },
+        {
+          "eyebrow": "02 / DỮ LIỆU",
+          "title": "Xác định trách nhiệm",
+          "body": "Làm rõ chủ thể quản lý dữ liệu, quyền truy cập, thời gian lưu và quy trình can thiệp."
+        },
+        {
+          "eyebrow": "03 / ĐỐI SOÁT",
+          "title": "Mở rộng có điều kiện",
+          "body": "So sánh trước và sau, nghiệm thu kết quả rồi quyết định phạm vi mở rộng."
+        }
+      ]
+    },
+    "aboutV2": {
+      "visionEyebrow": "TẦM NHÌN",
+      "visionTitle": "Công nghệ đi cùng trách nhiệm",
+      "visionBody": "Phát triển hạ tầng tin cậy để tổ chức tự chủ vận hành trong phạm vi kiểm soát.",
+      "missionEyebrow": "SỨ MỆNH",
+      "missionTitle": "Từ công nghệ đến bài toán thực",
+      "missionBody": "Kết nối nghiên cứu, hệ quản trị và thiết bị hiện trường; nghiệm thu bằng kết quả có thể đối soát.",
+      "ecoEyebrow": "HỆ SINH THÁI NĂNG LỰC",
+      "ecoTitle": "Nghiên cứu. Vận hành. Sản xuất.",
+      "eco": [
+        {
+          "eyebrow": "LeAR",
+          "title": "Nghiên cứu & sở hữu trí tuệ",
+          "body": "Phát triển công nghệ lõi và quản lý danh mục nghiên cứu, hồ sơ kỹ thuật và sở hữu trí tuệ."
+        },
+        {
+          "eyebrow": "LeDB",
+          "title": "Môi trường kỹ thuật & vận hành",
+          "body": "Phát triển và vận hành môi trường kỹ thuật, nền tảng số và công cụ triển khai."
+        },
+        {
+          "eyebrow": "LeHS",
+          "title": "LeTRON Hardware Solutions",
+          "body": "Thiết kế triển khai, sản xuất và phối hợp kiểm tra chất lượng phần cứng."
+        }
+      ]
+    },
+    "contactV2": {
+      "organization": "Tổ chức / doanh nghiệp",
+      "organizationPlaceholder": "Tên tổ chức",
+      "interest": "Nhu cầu quan tâm",
+      "interestPlaceholder": "Chọn nhu cầu",
+      "interestOptions": [
+        "Giải pháp nhà máy",
+        "Nền tảng, sản phẩm",
+        "Hợp tác R&D",
+        "Khác"
+      ],
+      "problem": "Mô tả bài toán",
+      "problemPlaceholder": "Hiện trạng, nhiệm vụ và kết quả mong muốn",
+      "counter": "/ 1.000",
+      "required": "* Trường bắt buộc",
+      "notice": "LeTRON không tiếp nhận ý tưởng hoặc tài liệu kỹ thuật chưa được yêu cầu qua biểu mẫu này. Vui lòng không gửi tài liệu mật.",
+      "infoEyebrow": "KẾT NỐI",
+      "infoTitle": "Trao đổi với đội ngũ LeTRON.",
+      "infoNote": "Chỉ gửi thông tin tổng quan. Tài liệu chuyên sâu được trao đổi qua kênh và phạm vi bảo mật đã thống nhất.",
+      "phonePlaceholder": "Số điện thoại (không bắt buộc)",
+      "emailPlaceholder": "Email công việc*",
+      "messageLabel": "Mô tả bài toán*"
+    },
+    "terms": [
+      {
+        "title": "Phạm vi sử dụng website",
+        "body": "Website letrongroup.com do Công ty Cổ phần Tập đoàn LeTRON vận hành để giới thiệu về công ty, sản phẩm, giải pháp và cơ hội nghề nghiệp. Khi truy cập, bạn đồng ý sử dụng website đúng pháp luật và không gây ảnh hưởng đến hoạt động của website."
+      },
+      {
+        "title": "Tài liệu và quyền sở hữu",
+        "body": "Nội dung, hình ảnh, nhãn hiệu và tài liệu trên website thuộc quyền của LeTRON hoặc bên cấp phép. Bạn không được sao chép, chỉnh sửa hay sử dụng cho mục đích thương mại khi chưa có sự đồng ý bằng văn bản."
+      },
+      {
+        "title": "Giới hạn của thông tin công khai",
+        "body": "Thông tin trên website mang tính giới thiệu và định hướng, không phải là cam kết, báo giá hay chào hàng ràng buộc. Trạng thái phát triển của từng sản phẩm được ghi rõ khi công bố; kết quả cụ thể chỉ có giá trị khi được xác lập trong thỏa thuận bằng văn bản."
+      },
+      {
+        "title": "Liên kết và yêu cầu hợp tác",
+        "body": "Website có thể dẫn tới trang của bên thứ ba; LeTRON không chịu trách nhiệm về nội dung của các trang đó. Các yêu cầu hợp tác gửi qua biểu mẫu được xử lý theo Chính sách bảo mật; vui lòng không gửi tài liệu mật hoặc ý tưởng chưa được yêu cầu."
+      },
+      {
+        "title": "Liên hệ và cập nhật",
+        "body": "Điều khoản có thể được cập nhật; phiên bản mới có hiệu lực kể từ khi đăng tải. Mọi thắc mắc xin gửi tới office@letrongroup.com."
+      }
+    ],
+    "termsUi": {
+      "toc": "Mục lục",
+      "updatedLabel": "Cập nhật lần cuối",
+      "updated": "13/10/2026"
+    },
+    "nav": {
+      "solutions": "Giải pháp",
+      "technology": "Công nghệ & R&D",
+      "platform": "Nền tảng",
+      "terms": "Điều khoản sử dụng"
+    }
   }
 }

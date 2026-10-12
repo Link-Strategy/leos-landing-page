@@ -10,7 +10,9 @@
       "products": "Products",
       "newsEvents": "News & Events",
       "careers": "Careers",
-      "contact": "Contact"
+      "contact": "Contact",
+      "solutions": "Solutions",
+      "technology": "Technology & R&D"
     },
     "languageToggle": "Switch language",
     "companies": {
@@ -87,8 +89,8 @@
       "Verifiable results"
     ],
     "description": "LeTRON connects management systems, edge devices and industrial robots in one service-based solution.",
-    "ctaPrimary": "Explore Whitepaper",
-    "ctaSecondary": "Register for Demo Sandbox",
+    "ctaPrimary": "Explore solutions",
+    "ctaSecondary": "Discuss a pilot",
     "footerTags": [
       "Trust",
       "Control",
@@ -137,19 +139,19 @@
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
-    "title": "For a global circular economy",
+    "title": "Technology alongside accountability",
     "centerIconAlt": "LeTRON",
     "mission": {
       "iconAlt": "Mission",
       "header": "SỨ MỆNH — MISSION",
-      "content": "Building the Perceptive Edge Network, turning every physical asset into a digital asset, every journey into a green credit, driving a global circular economy.",
-      "footer": "Building the Perceptive Edge Network — turning every physical asset into a digital asset, every journey into a green credit."
+      "content": "Connect research, management systems and field devices; accept work on results that can be reconciled.",
+      "footer": "Research, management systems and field devices, accepted on results that can be reconciled."
     },
     "vision": {
       "iconAlt": "Vision",
       "header": "TẦM NHÌN — VISION",
-      "content": "Become the world's leading edge-computing & green-data solutions provider, driving Industry 5.0.",
-      "footer": "To become the world's leading edge-computing & green-data solutions provider, driving Industry 5.0."
+      "content": "Develop trusted infrastructure so organizations can operate autonomously within their scope of control.",
+      "footer": "Trusted infrastructure for autonomy within the scope of control."
     }
   },
   "heart": {
@@ -694,7 +696,7 @@
     "visionHeadingLine1": "An Industrial Ecosystem",
     "visionHeadingLine2Prefix": "Powered by ",
     "visionHeadingLine2Highlight": "Data",
-    "visionParagraph": "LETRON aims to bring Vietnamese intelligence and technology to the global stage, shaping a new standard for the industry — where economic growth goes hand in hand with environmental restoration.",
+    "visionParagraph": "Develop trusted infrastructure so organizations can operate autonomously within their scope of control.",
     "missionBadge": "Mission",
     "missionHeadingLine1": "Healing the Earth",
     "missionHeadingHighlight": "through technology",
@@ -772,7 +774,7 @@
     "companyName": "LeTRON Group Joint Stock Company",
     "copyright": "© 2026 LeTRON Group · Quang Ninh, Vietnam",
     "privacy": "Privacy policy",
-    "tagline": "Green technology · Smart operations",
+    "tagline": "Trust · Control · Accountability",
     "quickLinksHeading": "Quick Links",
     "productsHeading": "Products",
     "contactHeading": "Contact",
@@ -782,7 +784,10 @@
       "memberCompanies": "Member Companies",
       "newsEvents": "News - Events",
       "careers": "Careers",
-      "contact": "Contact"
+      "contact": "Contact",
+      "solutions": "Solutions",
+      "platform": "Platform",
+      "technology": "Technology & R&D"
     },
     "products": {
       "ledb": "LeDB (Digital Brain)",
@@ -797,6 +802,418 @@
     "email": "office@letrongroup.com",
     "downloadProfile": "Download Profile",
     "socialZaloAlt": "Zalo",
-    "accordionAriaLabel": "Accordion. Open links with Enter or Space, close with Escape, and navigate with Arrow Keys"
+    "accordionAriaLabel": "Accordion. Open links with Enter or Space, close with Escape, and navigate with Arrow Keys",
+    "terms": "Terms of use"
+  },
+  "v2": {
+    "common": {
+      "explore": "Explore the direction",
+      "viewSolution": "View the solution",
+      "contactCta": "Discuss a project",
+      "home": "Back to home",
+      "contactLink": "Contact LeTRON",
+      "status": "Status",
+      "component": "Component",
+      "updated": "Updated",
+      "stepLabel": "STEP",
+      "readinessTitle": "DESIGN STATUS"
+    },
+    "principles": [
+      {
+        "eyebrow": "01 / TRUST",
+        "title": "Know where data comes from",
+        "body": "Data sources, conditions of use and the scope of verification are made clear before a decision is made."
+      },
+      {
+        "eyebrow": "02 / CONTROL",
+        "title": "Autonomy within limits",
+        "body": "People set the rights, limits and conditions for intervention in each operating scope."
+      },
+      {
+        "eyebrow": "03 / ACCOUNTABILITY",
+        "title": "Verifiable results",
+        "body": "Tasks, who performed them, acceptance and remediation are tied to the operating record."
+      }
+    ],
+    "factory": {
+      "eyebrow": "FROM TASK TO SHOP FLOOR",
+      "title": "A self-operating factory.\nUnder control.",
+      "body": "Connect LeASO, Le-NodeFactory and Le-ORION within a clearly defined operating scope. Task assignment, handling and QC are all reconciled.",
+      "tag": "Solution direction / R&D",
+      "cta": "Explore the factory",
+      "imageAlt": "Illustration of a factory with a square-headed Le-ORION robot, optical hair and edge devices next to a machining station.",
+      "caption": "Le-ORION + Le-NodeFactory · Directional illustration, not a deployed facility."
+    },
+    "city": {
+      "eyebrow": "FROM INFRASTRUCTURE TO OPERATIONS",
+      "title": "A digital city.\nCoordinated from the field.",
+      "body": "LeASO links operations with mobile edge devices and the airborne application direction. Each data domain has its own rights and responsibilities.",
+      "tag": "Solution direction / R&D",
+      "cta": "Explore the Digital City",
+      "imageAlt": "Illustration of a Digital City with mobile vehicles, drones and an operations center.",
+      "caption": "LeASO + Le-NodeMobility + Le-NodeAir · Directional illustration, not a deployed facility."
+    },
+    "loop": {
+      "eyebrow": "OPERATING LOOP",
+      "title": "A closed task loop. Verifiable results.",
+      "lead": "A task passes through each step, with a responsible party and clear completion conditions.",
+      "ariaLabel": "Operating loop",
+      "stages": [
+        {
+          "name": "Assign",
+          "body": "Fix the task, the responsible person, the scope and the completion criteria."
+        },
+        {
+          "name": "Execute",
+          "body": "Devices and robots work within the agreed scope; exceptions are recorded."
+        },
+        {
+          "name": "QC reconcile",
+          "body": "Compare actual results with the agreed criteria; keep the status undetermined when evidence is missing."
+        },
+        {
+          "name": "Keep evidence",
+          "body": "Link records to the task, the configuration version and the acceptance result."
+        },
+        {
+          "name": "Maintain",
+          "body": "Turn condition data into inspection, remediation and follow-up work."
+        }
+      ],
+      "stamp": "Assign → Execute → QC → Evidence → Maintain",
+      "stampNote": "Directional illustration of the flow, not connected to an operating system."
+    },
+    "portfolio": {
+      "number": "20",
+      "metricTitle": "patent families in the research portfolio",
+      "metricCaption": "The number reflects the R&D portfolio, not the number of patents granted. Individual families and protection details are kept confidential.",
+      "eyebrow": "RESEARCH & DEVELOPMENT",
+      "title": "One platform.\nMany applications.",
+      "lead": "LeTRON develops a coordinated technology portfolio for trusted data, controlled operations and verifiable results.",
+      "caption": "This page focuses on problems and application value. In-depth records are shared within the scope of a partnership and a confidentiality agreement.",
+      "cta": "Explore the R&D direction"
+    },
+    "proof": {
+      "eyebrow": "S.a.a.S",
+      "title": "Solutions as a service.\nAccepted on measured results.",
+      "lead": "LeTRON works with the customer to set the scope, responsibilities and how results are measured before deployment.",
+      "items": [
+        {
+          "eyebrow": "01 / SURVEY",
+          "title": "Understand the problem",
+          "body": "Identify the devices, tasks, data and limits on site."
+        },
+        {
+          "eyebrow": "02 / PILOT",
+          "title": "Verify on site",
+          "body": "Fix the baseline, configuration and acceptance criteria; keep exceptions and results that fall short."
+        },
+        {
+          "eyebrow": "03 / OPERATE",
+          "title": "Expand after acceptance",
+          "body": "Clarify committed results, support, maintenance and remediation duties in the contract."
+        }
+      ]
+    },
+    "philosophy": {
+      "quote": "DARE TO THINK - DARE TO DO - DARE TO BE DIFFERENT",
+      "attribution": "Philosophy of Chairman LÊ MINH TIẾN",
+      "lead": "Put people and accountability at the center; connect technology capabilities to create value together."
+    },
+    "cta": {
+      "eyebrow": "START WITH THE RIGHT SCOPE",
+      "title": "Let's define the outcome you need.",
+      "body": "Discuss the problem, the baseline and the acceptance criteria with LeTRON.",
+      "button": "Discuss a project"
+    },
+    "products": [
+      {
+        "id": "leaso",
+        "eyebrow": "01 / MANAGEMENT",
+        "title": "LeASO + LeLe",
+        "body": "Task assignment, coordination, decision support and result reconciliation within an organization's management environment.",
+        "status": "In development",
+        "route": "platform"
+      },
+      {
+        "id": "nodefactory",
+        "eyebrow": "02 / ON SITE",
+        "title": "Le-NodeFactory",
+        "body": "Connects device and shop-floor data to the management system; configuration is chosen to fit the deployment scope.",
+        "status": "In development",
+        "route": "factory"
+      },
+      {
+        "id": "nodemobility",
+        "eyebrow": "03 / MOBILE",
+        "title": "Le-NodeMobility",
+        "body": "Connects devices, mobile tasks and handover records under field conditions.",
+        "status": "In development",
+        "route": "city"
+      },
+      {
+        "id": "nodeair",
+        "eyebrow": "04 / AIRBORNE",
+        "title": "Le-NodeAir",
+        "body": "A direction for airborne edge devices for survey and monitoring tasks assigned to them.",
+        "status": "Application concept",
+        "route": "city"
+      },
+      {
+        "id": "orion",
+        "eyebrow": "05 / ROBOT",
+        "title": "Le-ORION",
+        "body": "A direction for robots handling materials, feeding workpieces and visual inspection within an assigned scope.",
+        "status": "Design & R&D",
+        "route": "factory"
+      },
+      {
+        "id": "lecapm",
+        "eyebrow": "06 / TRUST",
+        "title": "LeCAP-M",
+        "body": "Developing a hardware platform that supports authentication and execution-rights checks. Its scope of use must be tested.",
+        "status": "Design & R&D",
+        "route": "technology"
+      }
+    ],
+    "sectors": [
+      {
+        "eyebrow": "FACTORY",
+        "title": "Traceable manufacturing",
+        "body": "Connect management, devices and robots to coordinate task assignment, QC and maintenance.",
+        "route": "factory"
+      },
+      {
+        "eyebrow": "DIGITAL CITY",
+        "title": "Coordination infrastructure",
+        "body": "Connect LeASO, Le-NodeMobility and the Le-NodeAir direction by operating domain.",
+        "route": "city"
+      },
+      {
+        "eyebrow": "MINING · PORTS · LOGISTICS",
+        "title": "Movement & handover",
+        "body": "Link assets, tasks and handover records under field conditions.",
+        "route": "contact"
+      },
+      {
+        "eyebrow": "ENERGY",
+        "title": "Measurement sources & assets",
+        "body": "Track measurement sources, equipment and maintenance within the agreed scope.",
+        "route": "contact"
+      },
+      {
+        "eyebrow": "FOOD · COLD CHAIN",
+        "title": "Conditions & traceability",
+        "body": "Track storage conditions, sourcing and handover according to the customer's process.",
+        "route": "contact"
+      },
+      {
+        "eyebrow": "HIGH-TECH AGRICULTURE",
+        "title": "Monitoring & coordination",
+        "body": "Define the observation, operation and inspection problem for each site.",
+        "route": "contact"
+      }
+    ],
+    "pages": {
+      "solutions": {
+        "eyebrow": "SOLUTIONS BY CONTEXT",
+        "title": "Start from the problem.\nMeasure by results.",
+        "body": "Every site operates under different conditions. LeTRON works with the customer to set the scope, baseline and acceptance method before deployment.",
+        "metaTitle": "Solutions by context"
+      },
+      "platform": {
+        "eyebrow": "THE LeTRON ECOSYSTEM",
+        "title": "From management\nto the field.",
+        "body": "The products are developed to work together in one solution. Configuration and the scope of autonomy are set according to the problem.",
+        "metaTitle": "Platform"
+      },
+      "technology": {
+        "eyebrow": "TECHNOLOGY & R&D",
+        "title": "One platform.\nMany applications.",
+        "body": "Research for trusted data, controlled operations and verifiable results. Public information focuses on application value.",
+        "metaTitle": "Technology & R&D"
+      },
+      "factory": {
+        "eyebrow": "SOLUTION DIRECTION / FACTORY",
+        "title": "A self-operating factory\nunder control.",
+        "body": "LeASO coordinates task assignment; Le-NodeFactory connects the shop floor; Le-ORION supports handling within the agreed scope. Acceptance is based on measured results.",
+        "metaTitle": "A self-operating factory under control"
+      },
+      "city": {
+        "eyebrow": "SOLUTION DIRECTION / DIGITAL CITY",
+        "title": "One city.\nMany coordinated domains.",
+        "body": "LeASO links operations with Le-NodeMobility and the Le-NodeAir direction; access rights, data and responsibilities are set for each scope.",
+        "metaTitle": "Digital City"
+      },
+      "terms": {
+        "eyebrow": "TERMS",
+        "title": "Terms of use.",
+        "body": "The terms that apply when you access and use letrongroup.com.",
+        "metaTitle": "Terms of use"
+      }
+    },
+    "solutionsPage": {
+      "sectorsEyebrow": "APPLICATION CONTEXTS",
+      "sectorsTitle": "One coordinated solution.\nOne clear scope of responsibility.",
+      "noticeTitle": "The data belongs to the customer.",
+      "noticeBody": "Access, use and storage rights are agreed. The scope of autonomy and operating responsibility are defined in the contract."
+    },
+    "platformPage": {
+      "componentsEyebrow": "COMPONENTS THAT WORK TOGETHER",
+      "componentsTitle": "Choose a configuration to fit the problem.",
+      "softwareEyebrow": "SOFTWARE PLATFORM",
+      "softwareTitle": "LeOS and LeZTP.",
+      "softwareBody": "Supports the software environment, identity and execution rights in a tested configuration. Release status is confirmed in separate records.",
+      "readinessNote": "Status labels serve the internal design and must be confirmed before publication. Configurations and pilot results are discussed in separate records.",
+      "tableHeadStatus": "DESIGN STATUS",
+      "tableHeadComponent": "COMPONENT",
+      "tableHeadUpdated": "UPDATED",
+      "updatedDate": "03.10.2026"
+    },
+    "technologyPage": {
+      "capEyebrow": "RESEARCH CAPABILITIES",
+      "capTitle": "Public problems.\nIn-depth records by scope.",
+      "capabilities": [
+        {
+          "eyebrow": "DATA",
+          "title": "Sources and conditions of use",
+          "body": "Clarify the data, the conditions that apply and the scope of verification.",
+          "route": "platform"
+        },
+        {
+          "eyebrow": "OPERATIONS",
+          "title": "Rights and responsibilities",
+          "body": "Define execution rights, limits and the conditions for intervention.",
+          "route": "solutions"
+        },
+        {
+          "eyebrow": "RECONCILIATION",
+          "title": "Trace and re-check",
+          "body": "Link results to tasks, responsibilities and operating records to support reconciliation.",
+          "route": "factory"
+        }
+      ],
+      "honestEyebrow": "TRUTHFUL DISCLOSURE",
+      "honestTitle": "Evidence before commitment.",
+      "honestBody": "State the stage of development and the update date. Pilot results are published only when there is data and a specific measurement scope.",
+      "docsTitle": "Versioned documents.",
+      "docsBody": "We propose adding a version number, release date and integrity-check information to public documents. Documents will appear here once approved."
+    },
+    "factoryPage": {
+      "threeEyebrow": "THREE COMPONENTS WORKING TOGETHER",
+      "threeTitle": "Management. Edge devices. Robots.",
+      "robotEyebrow": "Le-ORION / NEW EXTERIOR DESIGN",
+      "robotTitle": "Silver L1. Ivory H1.",
+      "robotBody": "A square head, two camera eyes, black optical hair, a cyan trim and a sensor band. The image shows the exterior design.",
+      "robotAlt": "Four front and rear views of the silver L1 and ivory H1 Le-ORION as supplied by the Chairman",
+      "robotCaption": "Le-ORION design supplied by the Chairman · Exterior design, not an accepted mechanical model."
+    },
+    "cityPage": {
+      "domainEyebrow": "DIGITAL CITY LeASO",
+      "domainTitle": "Operate by domain.",
+      "domainBody": "Choose the problem, the data scope and the intervention rights for transport, logistics, energy and infrastructure.",
+      "scopeEyebrow": "SCOPED DEPLOYMENT",
+      "scopeTitle": "From one site to a network.",
+      "steps": [
+        {
+          "eyebrow": "01 / PROBLEM",
+          "title": "Choose a pilot domain",
+          "body": "Define the task in one area; do not extend access rights beyond the agreed scope."
+        },
+        {
+          "eyebrow": "02 / DATA",
+          "title": "Define responsibilities",
+          "body": "Clarify who manages the data, access rights, retention time and the intervention process."
+        },
+        {
+          "eyebrow": "03 / RECONCILE",
+          "title": "Expand with conditions",
+          "body": "Compare before and after, accept the results, then decide the scope of expansion."
+        }
+      ]
+    },
+    "aboutV2": {
+      "visionEyebrow": "VISION",
+      "visionTitle": "Technology alongside accountability",
+      "visionBody": "Develop trusted infrastructure so organizations can operate autonomously within their scope of control.",
+      "missionEyebrow": "MISSION",
+      "missionTitle": "From technology to real problems",
+      "missionBody": "Connect research, management systems and field devices; accept work on results that can be reconciled.",
+      "ecoEyebrow": "CAPABILITY ECOSYSTEM",
+      "ecoTitle": "Research. Operations. Manufacturing.",
+      "eco": [
+        {
+          "eyebrow": "LeAR",
+          "title": "Research & intellectual property",
+          "body": "Develop core technology and manage the research portfolio, technical records and intellectual property."
+        },
+        {
+          "eyebrow": "LeDB",
+          "title": "Technical & operating environment",
+          "body": "Develop and run the technical environment, digital platform and deployment tools."
+        },
+        {
+          "eyebrow": "LeHS",
+          "title": "LeTRON Hardware Solutions",
+          "body": "Deployment design, manufacturing and coordinated hardware quality inspection."
+        }
+      ]
+    },
+    "contactV2": {
+      "organization": "Organization / company",
+      "organizationPlaceholder": "Organization name",
+      "interest": "Area of interest",
+      "interestPlaceholder": "Choose an area",
+      "interestOptions": [
+        "Factory solutions",
+        "Platform and products",
+        "R&D partnership",
+        "Other"
+      ],
+      "problem": "Describe the problem",
+      "problemPlaceholder": "Current situation, tasks and desired results",
+      "counter": "/ 1,000",
+      "required": "* Required field",
+      "notice": "LeTRON does not accept unsolicited ideas or technical documents through this form. Please do not send confidential documents.",
+      "infoEyebrow": "CONNECT",
+      "infoTitle": "Talk with the LeTRON team.",
+      "infoNote": "Send overview information only. In-depth documents are exchanged through an agreed confidential channel and scope.",
+      "phonePlaceholder": "Phone number (optional)",
+      "emailPlaceholder": "Work email*",
+      "messageLabel": "Describe the problem*"
+    },
+    "terms": [
+      {
+        "title": "Scope of use of the website",
+        "body": "letrongroup.com is operated by LeTRON Group Joint Stock Company to present the company, its products, solutions and career opportunities. By accessing it you agree to use the website lawfully and not to disrupt its operation."
+      },
+      {
+        "title": "Materials and ownership",
+        "body": "Content, images, trademarks and materials on the website belong to LeTRON or its licensors. You may not copy, modify or use them commercially without written consent."
+      },
+      {
+        "title": "Limits of public information",
+        "body": "Information on the website is introductory and directional; it is not a commitment, quotation or binding offer. The development status of each product is stated when published; specific results are valid only when set out in a written agreement."
+      },
+      {
+        "title": "Links and partnership requests",
+        "body": "The website may link to third-party sites; LeTRON is not responsible for their content. Partnership requests sent through the form are handled under the Privacy Policy; please do not send confidential documents or unsolicited ideas."
+      },
+      {
+        "title": "Contact and updates",
+        "body": "These terms may be updated; a new version takes effect once published. Questions can be sent to office@letrongroup.com."
+      }
+    ],
+    "termsUi": {
+      "toc": "Contents",
+      "updatedLabel": "Last updated",
+      "updated": "13/10/2026"
+    },
+    "nav": {
+      "solutions": "Solutions",
+      "technology": "Technology & R&D",
+      "platform": "Platform",
+      "terms": "Terms of use"
+    }
   }
 }

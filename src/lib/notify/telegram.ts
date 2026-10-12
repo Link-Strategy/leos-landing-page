@@ -10,6 +10,7 @@ type LeadForNotification = {
   email: string;
   phone?: string;
   company?: string;
+  interest?: string;
   message?: string;
   source?: string;
   lead_type?: string;
@@ -30,6 +31,7 @@ export function formatLeadMessage(lead: LeadForNotification, extra: { cvUrl?: st
   ];
   if (lead.phone) lines.push(`📞 ${e(lead.phone)}`);
   if (lead.company) lines.push(`🏢 ${e(lead.company)}`);
+  if (lead.interest) lines.push(`🎯 ${e(lead.interest)}`);
   if (lead.source) lines.push(`🔗 Nguồn: ${e(lead.source)}`);
   if (lead.message) lines.push("", e(lead.message.slice(0, 1500)));
   if (extra.cvUrl) lines.push("", `📎 <a href="${e(extra.cvUrl)}">Tải CV</a> (link hết hạn sau 7 ngày)`);
