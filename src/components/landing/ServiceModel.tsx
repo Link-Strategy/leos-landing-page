@@ -238,7 +238,7 @@ export default function ServiceModel() {
   return (
     <section
       className="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat py-10 lg:h-[900px] lg:py-0"
-      style={{ backgroundImage: "url('/landing/ServiceModel/Service_bg.png')" }}
+      style={{ backgroundImage: "url('/landing/ServiceModel/Service_bg.webp')" }}
     >
       <SectionEdgeFade position="top" />
       <SectionEdgeFade position="bottom" />

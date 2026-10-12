@@ -31,7 +31,7 @@ export default function Hero() {
   return (
     <section
       className="relative flex min-h-[600px] items-center overflow-hidden bg-cover bg-center bg-no-repeat pt-[calc(var(--header-height-mobile)+20px)] lg:min-h-[800px] lg:items-start lg:pt-[calc(var(--header-height)+40px)]"
-      style={{ backgroundImage: "url('/landing/Hero/Hero_bg.png')" }}
+      style={{ backgroundImage: "url('/landing/Hero/Hero_bg.webp')" }}
     >
       <SectionEdgeFade position="top" />
       <SectionEdgeFade position="bottom" />
