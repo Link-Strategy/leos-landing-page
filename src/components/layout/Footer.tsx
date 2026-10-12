@@ -170,7 +170,6 @@ export default function Footer() {
   const quickLinks: FooterLink[] = [
     { href: "/", label: t("quickLinks.home") },
     { href: "/gioi-thieu", label: t("quickLinks.aboutUs") },
-    { href: "/cong-ty-thanh-vien", label: t("quickLinks.memberCompanies") },
     { href: "/blog", label: t("quickLinks.newsEvents") },
     { href: "/tuyen-dung", label: t("quickLinks.careers") },
   ];
