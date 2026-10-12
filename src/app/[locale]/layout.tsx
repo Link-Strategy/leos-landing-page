@@ -4,6 +4,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import JsonLd from "@/components/seo/JsonLd";
 import { getSiteUrl } from "@/lib/blog/seo";
 import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/jsonld";
@@ -170,6 +171,7 @@ export default async function RootLayout({
           <Footer />
           <ScrollToTop />
           <ClientScripts />
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>
