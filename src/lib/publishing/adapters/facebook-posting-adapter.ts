@@ -167,9 +167,14 @@ export class FacebookPostingAdapter implements PostingAdapter {
         // Continue without insights - we still have basic metrics
       }
 
-      const likes = basicData.reactions?.summary?.total_count ?? 0;
-      const comments = basicData.comments?.summary?.total_count ?? 0;
-      const shares = basicData.shares?.count ?? 0;
+      // Reactions/comments need `pages_read_user_content`; without it Graph returns an error object.
+      // Report null (unknown) rather than 0 so missing permissions don't look like zero engagement.
+      if (basicData.error) {
+        console.warn("[Facebook] Failed to fetch reactions/comments/shares:", basicData.error.message);
+      }
+      const likes: number | null = basicData.error ? null : (basicData.reactions?.summary?.total_count ?? 0);
+      const comments: number | null = basicData.error ? null : (basicData.comments?.summary?.total_count ?? 0);
+      const shares: number | null = basicData.error ? null : (basicData.shares?.count ?? 0);
 
       // Return normalized metrics
       return {
@@ -178,7 +183,7 @@ export class FacebookPostingAdapter implements PostingAdapter {
         shares,
         impressions: this.extractInsightValue(insightData, "post_media_view"),
         reach: this.extractInsightValue(insightData, "post_total_media_view_unique"),
-        engagement: likes + comments + shares,
+        engagement: basicData.error ? null : likes! + comments! + shares!,
       };
     } catch (error) {
       console.error("[Facebook] getMetrics error:", error);
