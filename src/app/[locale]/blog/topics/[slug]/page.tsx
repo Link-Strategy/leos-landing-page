@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { formatBlogDate } from "@/lib/blog-utils";
+import CoverImage from "@/components/ui/cover-image";
 import { getCachedPublicBlogArticles } from "@/lib/blog/queries";
 import { localeAlternates } from "@/lib/seo-alternates";
 
@@ -48,7 +49,9 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
             <Link key={post.slug} href={`/blog/${post.slug}`}
               className="group rounded-xl border border-white/10 p-6 transition hover:border-[#2a9fff]/30 hover:shadow-sm">
               {post.coverImage && (
-                <img src={post.coverImage} alt="" className="mb-4 h-40 w-full rounded-lg object-cover" />
+                <div className="relative mb-4 h-40 w-full overflow-hidden rounded-lg">
+                  <CoverImage src={post.coverImage} alt="" sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
+                </div>
               )}
               <p className="text-xs uppercase tracking-[0.3em] text-[#2a9fff]">{post.category}</p>
               <h2 className="mt-2 text-xl font-semibold group-hover:text-[#2a9fff]">{post.title}</h2>

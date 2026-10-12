@@ -5,18 +5,18 @@ import { useTranslations } from "next-intl";
 import MasterButton from "@/components/ui/master-button";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 
-// Design reference box matching the native size of Pillars_items.png (the 6-hexagon
+// Design reference box matching the native size of Pillars_items.webp (the 6-hexagon
 // cluster + connecting orbit lines, 613x633px), so every % below preserves true
 // circularity and lines up with that image regardless of rendered breakpoint size.
 const VISUAL_W = 613;
 const VISUAL_H = 633;
 
-// Size of the ring+core group (Property-1Variant3-1.png + Group-11.png), tuned so its
-// visible outer edge lines up with the solid orbit line baked into Pillars_items.png.
+// Size of the ring+core group (Property-1Variant3-1.webp + Group-11.png), tuned so its
+// visible outer edge lines up with the solid orbit line baked into Pillars_items.webp.
 const RING_WRAPPER_SIZE = 530;
 const CORE_SIZE = (RING_WRAPPER_SIZE * 120) / 315;
 
-// The solid orbit circle drawn inside Pillars_items.png is not centered on its own
+// The solid orbit circle drawn inside Pillars_items.webp is not centered on its own
 // canvas (measured via a radius scan: ~182px at the top vs ~168px at the bottom) — it
 // sits about 7px above true canvas center. Shift the ring+core group by the same
 // amount so it lines up with that orbit line instead of the plain geometric center.
@@ -80,7 +80,7 @@ export default function Hero() {
           style={{ aspectRatio: `${VISUAL_W} / ${VISUAL_H}` }}
         >
           <img
-            src="/landing/Hero/Pillars_items.png"
+            src="/landing/Hero/Pillars_items.webp"
             alt=""
             className="absolute inset-0 h-full! w-full object-contain"
           />
@@ -97,7 +97,7 @@ export default function Hero() {
             }}
           >
             <img
-              src="/wp-content/uploads/2026/05/Property-1Variant3-1.png"
+              src="/wp-content/uploads/2026/05/Property-1Variant3-1.webp"
               alt=""
               className="absolute inset-0 h-full! w-full animate-[spin_60s_linear_infinite_reverse] object-contain opacity-60 drop-shadow-[0_0_20px_rgba(42,159,255,0.15)]"
             />

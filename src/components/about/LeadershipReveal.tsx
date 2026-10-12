@@ -41,14 +41,14 @@ export function LeadershipReveal() {
     <div className="relative mx-auto w-full max-w-[1396px]">
       <Image
         alt={t("diagramAlt")}
-        src="/about/LeaderShipCircle.png"
+        src="/about/LeaderShipCircle.webp"
         width={1676}
         height={865}
         className="h-auto w-full"
       />
 
       {/* Hotspot over the center "CHỦ TỊCH" circle: hover reveal on desktop mice, tap toggle on mobile.
-          Position measured from the circle's actual pixel bounds in LeaderShipCircle.png (center ~864,403 of 1676x865). */}
+          Position measured from the circle's actual pixel bounds in LeaderShipCircle.webp (center ~864,403 of 1676x865). */}
       <button
         type="button"
         onClick={openNow}

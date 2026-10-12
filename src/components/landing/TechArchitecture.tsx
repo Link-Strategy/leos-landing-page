@@ -227,7 +227,7 @@ export default function TechArchitecture() {
   return (
     <section
       className="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat lg:h-[860px]"
-      style={{ backgroundImage: "url('/landing/TechArchitecture/TechArchitecture_bg.png')" }}
+      style={{ backgroundImage: "url('/landing/TechArchitecture/TechArchitecture_bg.webp')" }}
     >
       <SectionEdgeFade position="top" />
       <SectionEdgeFade position="bottom" />
@@ -272,11 +272,11 @@ export default function TechArchitecture() {
               {/* Desktop layout (>=1024px): bg_line background spanning the full tab, ball centered
                   over it, and 2 cards pinned to the left/right edges. */}
               <div className="hidden h-full w-full lg:block">
-                {/* bg_line.png's line pattern doesn't cross dead-center in its own canvas (measured
+                {/* bg_line.webp's line pattern doesn't cross dead-center in its own canvas (measured
                     offset: +39px x, -25px y out of 1540x624) — nudge it so the crossing point lands
                     on the ball, which sits at the container's true geometric center. */}
                 <Image
-                  src="/landing/TechArchitecture/bg_line.png"
+                  src="/landing/TechArchitecture/bg_line.webp"
                   alt=""
                   fill
                   className="object-contain"
@@ -331,7 +331,7 @@ export default function TechArchitecture() {
 
                   <div className="relative flex w-full items-center justify-between">
                     <Image
-                      src="/landing/TechArchitecture/bg_line.png"
+                      src="/landing/TechArchitecture/bg_line.webp"
                       alt=""
                       fill
                       className="object-contain"

@@ -79,7 +79,7 @@ export default function Pillars() {
         {/* Grid & Loop Visual */}
         <div
           id="pillars-grid-container"
-          className="flex items-center justify-center flex-col sm:flex-row min-h-[420px] py-10 sm:py-0 sm:h-[420px] md:h-[890px] bg-[url('/landing/Pillars/pillars_bg.png')] bg-cover bg-center bg-no-repeat"
+          className="flex items-center justify-center flex-col sm:flex-row min-h-[420px] py-10 sm:py-0 sm:h-[420px] md:h-[890px] bg-[url('/landing/Pillars/pillars_bg.webp')] bg-cover bg-center bg-no-repeat"
         >
           {/* 3 Pillars beginning */}
           <div className="flex flex-row gap-6 sm:flex-col sm:gap-14 md:gap-20">
@@ -121,7 +121,7 @@ export default function Pillars() {
               {/* Outer mechanical ring — rotates counter-clockwise */}
               <div className="absolute inset-0 animate-[spin_60s_linear_infinite_reverse]">
                 <img
-                  src="/wp-content/uploads/2026/05/Property-1Variant3-1.png"
+                  src="/wp-content/uploads/2026/05/Property-1Variant3-1.webp"
                   alt={t("loopAlt")}
                   className="w-full h-full! object-contain opacity-60 filter drop-shadow-[0_0_20px_rgba(42,159,255,0.15)]"
                 />

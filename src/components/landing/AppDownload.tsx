@@ -3,8 +3,8 @@ import { getTranslations } from "next-intl/server";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 
 const CIRCLE = "/landing/AppDownload/Circle.png";
-const PHONE_DEVICE = "/landing/AppDownload/PhoneDevice.png";
-const PHONE_DEVICE_MOBILE = "/landing/AppDownload/PhoneDeviceMobile.png";
+const PHONE_DEVICE = "/landing/AppDownload/PhoneDevice.webp";
+const PHONE_DEVICE_MOBILE = "/landing/AppDownload/PhoneDeviceMobile.webp";
 const CH_PLAY = "/landing/AppDownload/CH_Play.png";
 const APP_STORE = "/landing/AppDownload/AppStore.png";
 
@@ -64,8 +64,8 @@ export default async function AppDownload() {
           <StoreButtons googlePlayAlt={t("storeGooglePlayAlt")} appStoreAlt={t("storeAppStoreAlt")} />
         </div>
 
-        {/* Phone — desktop layers Circle.png (glow) + PhoneDevice.png; mobile uses the flattened
-            PhoneDeviceMobile.png, which already bakes in the glow rings and feature badges. */}
+        {/* Phone — desktop layers Circle.png (glow) + PhoneDevice.webp; mobile uses the flattened
+            PhoneDeviceMobile.webp, which already bakes in the glow rings and feature badges. */}
         <div className="w-full max-w-[350px] lg:h-[432px] lg:w-[360px] lg:max-w-none lg:shrink-0">
           <div className="relative aspect-[382/400] w-full lg:hidden">
             <Image src={PHONE_DEVICE_MOBILE} alt={t("phoneAlt")} fill className="object-contain" />
@@ -76,7 +76,7 @@ export default async function AppDownload() {
           </div>
         </div>
 
-        {/* Feature panel — desktop only; mobile hides it in favor of the badges baked into PhoneDeviceMobile.png */}
+        {/* Feature panel — desktop only; mobile hides it in favor of the badges baked into PhoneDeviceMobile.webp */}
         <div
           className="hidden w-[420px] shrink-0 flex-col gap-6 rounded-[28px] border p-8 lg:flex"
           style={{

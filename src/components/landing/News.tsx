@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { getCachedLatestPublishedBlogArticles } from "@/lib/blog/queries";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 import MobileCardCarousel from "@/components/landing/MobileCardCarousel";
+import CoverImage from "@/components/ui/cover-image";
 
 type NewsArticle = Awaited<ReturnType<typeof getCachedLatestPublishedBlogArticles>>[number];
 
@@ -33,10 +34,11 @@ function NewsCard({
     >
       <div className="relative h-[208px] w-full shrink-0 overflow-hidden bg-[#071332]">
         {article.coverImage && (
-          <img
+          <CoverImage
             src={article.coverImage}
             alt={article.title}
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(min-width: 1024px) 33vw, 100vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         )}
         <span

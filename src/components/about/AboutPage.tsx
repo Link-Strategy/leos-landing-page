@@ -54,7 +54,7 @@ export default function AboutPage() {
         <section className="relative isolate flex h-[350px] items-end overflow-hidden pb-8 sm:h-[620px] sm:pb-14">
           <Image
             alt=""
-            src="/about/Banner.png"
+            src="/about/Banner.webp"
             fill
             priority
             sizes="100vw"
