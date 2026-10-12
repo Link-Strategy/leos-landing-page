@@ -1,79 +1,112 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-import { HeartCard } from "@/components/landing/HeartCard";
+import { cn } from "@/lib/utils";
+import { HeartValueCard } from "./HeartValueCard";
 
 type HeartValueMeta = {
   id: string;
-  iconPath: string;
   titleColor: string;
-  hoverBackgroundColor: string;
-  hoverBorderColor: string;
 };
 
-const LEFT_VALUES_META: HeartValueMeta[] = [
-  { id: "excellence", iconPath: "/assets/icons/heart/excellence.svg", titleColor: "#C8960C", hoverBackgroundColor: "#C8960C66", hoverBorderColor: "#C8960C" },
-  { id: "action", iconPath: "/assets/icons/heart/action.svg", titleColor: "#FF7E00", hoverBackgroundColor: "#FF800066", hoverBorderColor: "#FF7E00" },
+const VALUES_META: HeartValueMeta[] = [
+  { id: "excellence", titleColor: "#C8960C" },
+  { id: "action", titleColor: "#FF7E00" },
+  { id: "humanity", titleColor: "#1CBBB4" },
+  { id: "technology", titleColor: "#1CBBB4" },
+  { id: "respect", titleColor: "#228B22" },
 ];
 
-const CENTER_VALUE_META: HeartValueMeta = {
-  id: "humanity",
-  iconPath: "/assets/icons/heart/humanity.svg",
-  titleColor: "#1CBBB4",
-  hoverBackgroundColor: "#1CBBB466",
-  hoverBorderColor: "#1CBBB4",
+// Connector line + dot bridging a card to its matching icon on the center diagram.
+// Position/size are estimates tuned against the design mockup — expect to need
+// visual tweaks once checked live, since layout can't be screenshotted here.
+const CONNECTOR_GRADIENT = "linear-gradient(90deg, #2A9FFF 38.39%, #17479C 122.71%)";
+
+type ConnectorProps = {
+  orientation: "horizontal" | "vertical";
+  dotSide: "start" | "end";
+  className: string;
 };
 
-const RIGHT_VALUES_META: HeartValueMeta[] = [
-  { id: "technology", iconPath: "/assets/icons/heart/technology.svg", titleColor: "#1CBBB4", hoverBackgroundColor: "#1CBBB466", hoverBorderColor: "#1CBBB4" },
-  { id: "respect", iconPath: "/assets/icons/heart/respect.svg", titleColor: "#228B22", hoverBackgroundColor: "#228B2266", hoverBorderColor: "#228B22" },
-];
+function Connector({ orientation, dotSide, className }: ConnectorProps) {
+  return (
+    <div aria-hidden className={cn("absolute", className)}>
+      <div
+        className={cn("rounded-full", orientation === "horizontal" ? "h-0.75 w-full" : "h-full w-0.75")}
+        style={{ background: CONNECTOR_GRADIENT }}
+      />
+      <span
+        className={cn(
+          "absolute size-2 rounded-full bg-[#2A9FFF]",
+          orientation === "horizontal"
+            ? cn("top-1/2 -translate-y-1/2", dotSide === "start" ? "-left-1" : "-right-1")
+            : cn("left-1/2 -translate-x-1/2", dotSide === "start" ? "-top-1" : "-bottom-1"),
+        )}
+      />
+    </div>
+  );
+}
 
 export function AboutHeartValues() {
   const t = useTranslations("aboutHeartValues");
 
-  const toValue = (meta: HeartValueMeta) => ({
-    ...meta,
-    title: t(`values.${meta.id}.title`),
-    description: t(`values.${meta.id}.description`),
-  });
+  const values = VALUES_META.reduce<Record<string, { title: string; titleColor: string; description: string }>>(
+    (acc, meta) => {
+      acc[meta.id] = {
+        titleColor: meta.titleColor,
+        title: t(`values.${meta.id}.title`),
+        description: t(`values.${meta.id}.description`),
+      };
+      return acc;
+    },
+    {},
+  );
 
-  const LEFT_VALUES = LEFT_VALUES_META.map(toValue);
-  const CENTER_VALUE = toValue(CENTER_VALUE_META);
-  const RIGHT_VALUES = RIGHT_VALUES_META.map(toValue);
+  const image = (
+    <Image
+      alt={t("overlayImageAlt")}
+      src="/wp-content/uploads/2026/05/noi-dung-1.png"
+      width={707}
+      height={695}
+      className="h-auto w-full object-contain"
+    />
+  );
 
   return (
-    <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-3 lg:gap-10">
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:mt-28">
-        {LEFT_VALUES.map((value) => (
-          <HeartCard key={value.id} {...value} />
-        ))}
+    <div>
+      {/* Mobile / tablet: simple vertical stack, no connectors. */}
+      <div className="flex flex-col gap-6 lg:hidden">
+        <HeartValueCard {...values.excellence} />
+        <HeartValueCard {...values.humanity} />
+        <HeartValueCard {...values.technology} />
+        <div className="mx-auto w-full max-w-[420px]">{image}</div>
+        <HeartValueCard {...values.action} />
+        <HeartValueCard {...values.respect} />
       </div>
 
-      <div className="flex flex-col items-center gap-6">
-        <div className="w-full">
-          <HeartCard {...CENTER_VALUE} />
-        </div>
-        <div className="relative w-full max-w-[500px]">
-          <Image
-            alt={t("overlayImageAlt")}
-            src="/wp-content/uploads/2026/05/noi-dung-1.png"
-            width={707}
-            height={695}
-            className="h-auto w-full object-contain"
-          />
-          <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center font-archivo text-2xl font-extrabold leading-[1.3] text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-3xl">
-            {t("overlayTitleLine1")}
-            <br />
-            <span className="text-[#2A9FFF]">{t("overlayTitleHighlight")}</span>
-          </h3>
-        </div>
-      </div>
+      {/*
+        Desktop: cards connected to the circle diagram via lines.
+        Every card is the same 320x140 box. Each connector anchors at its
+        own card's BOTTOM edge + 25px gap (per design feedback), running
+        horizontal (E/A/T/R, dot at the icon end) or vertical (H, straight down).
+      */}
+      <div className="relative hidden h-175 w-full lg:block">
+        <div className="absolute left-1/2 top-47.5 w-115 -translate-x-1/2">{image}</div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:mt-28">
-        {RIGHT_VALUES.map((value) => (
-          <HeartCard key={value.id} {...value} />
-        ))}
+        <HeartValueCard {...values.humanity} className="absolute left-1/2 top-0 h-35 w-80 -translate-x-1/2" />
+        <Connector orientation="vertical" dotSide="end" className="left-1/2 top-41.25 h-5 w-0.75 -translate-x-1/2" />
+
+        <HeartValueCard {...values.excellence} className="absolute left-15 top-52 h-35 w-80" />
+        <Connector orientation="horizontal" dotSide="end" className="left-15 top-92.25 w-80" />
+
+        <HeartValueCard {...values.action} className="absolute left-22 top-107.5 h-35 w-80" />
+        <Connector orientation="horizontal" dotSide="end" className="left-22 top-148.75 w-80" />
+
+        <HeartValueCard {...values.technology} className="absolute right-15 top-52 h-35 w-80" />
+        <Connector orientation="horizontal" dotSide="start" className="right-15 top-92.25 w-80" />
+
+        <HeartValueCard {...values.respect} className="absolute right-22 top-107.5 h-35 w-80" />
+        <Connector orientation="horizontal" dotSide="start" className="right-22 top-148.75 w-80" />
       </div>
     </div>
   );

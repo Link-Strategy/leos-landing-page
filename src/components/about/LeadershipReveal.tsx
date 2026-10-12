@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils";
 import { LeadershipGrid } from "./LeadershipGrid";
+import { LeadershipDiamond } from "./LeadershipDiamond";
 
 const HOVER_CLOSE_DELAY_MS = 200;
 
@@ -40,20 +41,21 @@ export function LeadershipReveal() {
     <div className="relative mx-auto w-full max-w-[1396px]">
       <Image
         alt={t("diagramAlt")}
-        src="/about/leader-ship-circle.png"
-        width={1396}
-        height={758}
+        src="/about/LeaderShipCircle.png"
+        width={1676}
+        height={865}
         className="h-auto w-full"
       />
 
-      {/* Hotspot over the center "CHỦ TỊCH" circle: hover reveal on desktop mice, tap toggle on mobile */}
+      {/* Hotspot over the center "CHỦ TỊCH" circle: hover reveal on desktop mice, tap toggle on mobile.
+          Position measured from the circle's actual pixel bounds in LeaderShipCircle.png (center ~864,403 of 1676x865). */}
       <button
         type="button"
         onClick={openNow}
         onMouseEnter={openNow}
         onMouseLeave={scheduleClose}
         aria-label={t("openLabel")}
-        className="absolute left-1/2 top-1/2 aspect-square w-[17%] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        className="absolute left-[51.55%] top-[46.6%] aspect-square w-[15%] -translate-x-1/2 -translate-y-1/2 rounded-full"
       />
 
       <div
@@ -65,9 +67,15 @@ export function LeadershipReveal() {
         <div
           onMouseEnter={openNow}
           onMouseLeave={scheduleClose}
-          className="w-full max-w-[380px] lg:max-w-[1320px]"
+          className="w-full max-w-[380px] lg:max-w-[820px]"
         >
-          <LeadershipGrid onClose={closeNow} />
+          {/* Mobile keeps the existing row-of-5 grid; desktop shows the new Figma diamond layout. */}
+          <div className="lg:hidden">
+            <LeadershipGrid onClose={closeNow} />
+          </div>
+          <div className="hidden lg:block">
+            <LeadershipDiamond />
+          </div>
         </div>
       </div>
     </div>

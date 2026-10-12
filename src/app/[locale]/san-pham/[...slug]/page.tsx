@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { getLandingDirectories, StaticLandingPage } from "@/lib/static-landing";
+import { getTranslations } from "next-intl/server";
+
+import ProductDetailPage from "@/components/products/ProductDetailPage";
+import { CANONICAL_PRODUCT_SLUGS, PRODUCT_SLUG_TO_ID } from "@/lib/products";
 import { localeAlternates } from "@/lib/seo-alternates";
 
 export function generateStaticParams() {
-  return getLandingDirectories(["san-pham"]).map((slug) => ({ slug: [slug] }));
+  return Object.keys(PRODUCT_SLUG_TO_ID).map((slug) => ({ slug: [slug] }));
 }
 
 export async function generateMetadata({
@@ -12,7 +15,15 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string[] }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  return { alternates: localeAlternates(locale, `/san-pham/${slug.join("/")}`) };
+  const productId = PRODUCT_SLUG_TO_ID[slug[0]];
+  if (!productId) return {};
+
+  const t = await getTranslations({ locale, namespace: "products" });
+  // Duplicate WordPress slugs (e.g. ledb-bo-nao-so, -2) declare the product's canonical slug.
+  return {
+    title: `${t(`items.${productId}.title`)} - LeTRON`,
+    alternates: localeAlternates(locale, `/san-pham/${CANONICAL_PRODUCT_SLUGS[productId]}`),
+  };
 }
 
 export default async function SanPhamDetailPage({
@@ -22,11 +33,5 @@ export default async function SanPhamDetailPage({
 }) {
   const { slug } = await params;
 
-  return (
-    <StaticLandingPage
-      className="site-main product type-product status-publish hentry"
-      segments={["san-pham", ...slug]}
-      leadForm={{ widgetDataId: "e0a2831", source: `san-pham/${slug.join("/")}`, leadType: "product_inquiry" }}
-    />
-  );
+  return <ProductDetailPage slug={slug[0]} />;
 }

@@ -1,16 +1,25 @@
 import HomeElementorInteractions from "@/components/landing/HomeElementorInteractions";
 import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
 import Hero from "@/components/landing/Hero";
-import LeOsAi from "@/components/landing/LeOsAi";
-import Pillars from "@/components/landing/Pillars";
-import Culture from "@/components/landing/Culture";
-import HeartTab from "@/components/landing/HeartTab";
+import Vision from "@/components/landing/Vision";
+import Heart from "@/components/landing/Heart";
+import ServiceModel from "@/components/landing/ServiceModel";
+import TechArchitecture from "@/components/landing/TechArchitecture";
+import PartnerShowcase from "@/components/landing/PartnerShowcase";
+import AppDownload from "@/components/landing/AppDownload";
+import RoadMap from "@/components/landing/RoadMap";
+import PartnerAccess from "@/components/landing/PartnerAccess";
+// import LeOsAi from "@/components/landing/LeOsAi";
+// import Pillars from "@/components/landing/Pillars";
+// import Culture from "@/components/landing/Culture";
+// import HeartTab from "@/components/landing/HeartTab";
 import Products from "@/components/landing/Products";
-import Partners from "@/components/landing/Partners";
+// import Counters from "@/components/landing/Counters";
+// import Partners from "@/components/landing/Partners";
 import News from "@/components/landing/News";
-import Career from "@/components/landing/Career";
 import type { Metadata } from "next";
 import { localeAlternates } from "@/lib/seo-alternates";
+// import Career from "@/components/landing/Career";
 
 export async function generateMetadata({
   params,
@@ -32,14 +41,22 @@ export default function Home() {
         data-elementor-type="wp-page"
       >
         <Hero />
-        <LeOsAi />
-        <Pillars />
-        <Culture />
-        <HeartTab />
+        <Vision />
+        <Heart />
+        <ServiceModel />
+        <TechArchitecture />
+        <PartnerShowcase />
+        <AppDownload />
+        <RoadMap />
+        <PartnerAccess />
+        {/* <LeOsAi /> */}
+        {/* <Pillars /> */}
+        {/* <Culture /> */}
+        {/* <HeartTab /> */}
+        {/* <Partners /> */}
         <Products />
-        <Partners />
         <News />
-        <Career />
+        {/* <Career /> */}
       </div>
 
       {/* Interactions and hooks */}

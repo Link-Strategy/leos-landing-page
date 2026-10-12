@@ -12,6 +12,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Button } from "@/ui/button";
+import SectionEdgeFade from "@/components/ui/section-edge-fade";
 
 // Swiper is loaded globally from the CDN in the root layout (window.Swiper is declared in HomeElementorInteractions.tsx).
 type SwiperInstance = { destroy?: (deleteInstance?: boolean, cleanStyles?: boolean) => void };
@@ -26,7 +27,7 @@ interface ProductItem {
 }
 
 const PRODUCT_META: { id: string; logo: string; bgImage: string; link: string }[] = [
-  { id: "ledb", logo: "/wp-content/uploads/2026/05/logo-12.svg", bgImage: "/wp-content/uploads/2026/05/img-10-1.jpg", link: "/san-pham/ledb-bo-nao-so" },
+  { id: "ledb", logo: "/wp-content/uploads/2026/05/logo-12.svg", bgImage: "/wp-content/uploads/2026/05/img-10-1.jpg", link: "/san-pham/ledb-bo-nao-so-4" },
   { id: "lesb", logo: "/wp-content/uploads/2026/05/logo-13.svg", bgImage: "/wp-content/uploads/2026/05/img-7-1.jpg", link: "/san-pham/lesb-xay-dung-thong-minh" },
   { id: "lese", logo: "/wp-content/uploads/2026/05/logo-12.svg", bgImage: "/wp-content/uploads/2026/05/img-7-1.jpg", link: "/san-pham/lese-nang-luong-thong-minh" },
   { id: "lesm", logo: "/wp-content/uploads/2026/05/logo.jpg", bgImage: "/wp-content/uploads/2026/05/img-8-1.jpg", link: "/san-pham/lesm-di-chuyen-thong-minh" },
@@ -114,7 +115,7 @@ export default function Products() {
           navigation: { nextEl: ".sp-next", prevEl: ".sp-prev" },
           breakpoints: {
             768: { slidesPerView: 2.2 },
-            1024: { slidesPerView: 3.6, spaceBetween: 24 },
+            1024: { slidesPerView: 3, spaceBetween: 24 },
           },
         }) as SwiperInstance;
       } else {
@@ -131,12 +132,16 @@ export default function Products() {
 
   return (
     /* Section container */
-    <section className="
-      flex flex-col w-full relative items-center box-border bg-transparent
-      px-[80px] py-[90px]
-      max-[1550px]:px-[60px] max-[1550px]:py-[60px]
-      max-[767px]:px-4 max-[767px]:py-10
-    ">
+    <section className="relative w-full overflow-hidden bg-transparent">
+      <SectionEdgeFade position="top" />
+      <SectionEdgeFade position="bottom" />
+
+      <div className="
+        container-le relative z-10 flex flex-col items-center box-border
+        py-[90px]
+        max-[1550px]:py-[60px]
+        max-[767px]:py-10
+      ">
       <style dangerouslySetInnerHTML={{ __html: productsCss }} />
 
       {/* ── Heading ── */}
@@ -214,7 +219,7 @@ export default function Products() {
                 <div className="swiper-slide" key={product.id}>
                   <Card
                     variant="glass"
-                    className="rounded-[26px] p-0 gap-0 cursor-pointer h-[320px]"
+                    className="rounded-[26px] p-0 gap-0 cursor-pointer h-[544px] max-[1550px]:h-[460px] max-[767px]:h-[320px]"
                     style={{
                       "--card-glass-bg-start": "transparent",
                       "--card-glass-bg-end": "transparent",
@@ -278,13 +283,13 @@ export default function Products() {
                           asChild
                           variant="glass"
                           size={null}
-                          className="px-3 py-1 text-xs"
+                          className="h-11 gap-[10px] rounded-full px-5 text-sm font-semibold lg:h-[52px] lg:px-6 lg:text-base"
                         >
                           <Link href={product.link}
                             onClick={(e) => e.stopPropagation()}
                           >
-                            <span className="relative z-10 flex flex-row-reverse items-center gap-1">
-                              <span className="[&_svg]:size-4">
+                            <span className="relative z-10 flex flex-row-reverse items-center gap-[10px]">
+                              <span className="[&_svg]:size-4 lg:[&_svg]:size-5">
                                 <svg fill="none" height={24} viewBox="0 0 24 24" width={24} xmlns="http://www.w3.org/2000/svg">
                                   <path
                                     clipRule="evenodd"
@@ -341,6 +346,7 @@ export default function Products() {
             </svg>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

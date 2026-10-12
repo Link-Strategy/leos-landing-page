@@ -65,7 +65,7 @@ export default function Pillars() {
       <div className="absolute top-10 left-10 w-[300px] h-[300px] bg-[#4AB3FF]/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-[300px] h-[300px] bg-[#2A9FFF]/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="w-full px-2">
+      <div className="container-le">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20 md:mb-8 space-y-4">
           <h2 className="text-3xl sm:text-[40px]! font-bold tracking-tight text-white font-archivo [text-shadow:4px_0px_20px_rgba(0,140,255,0.2)]">
@@ -79,7 +79,7 @@ export default function Pillars() {
         {/* Grid & Loop Visual */}
         <div
           id="pillars-grid-container"
-          className="flex items-center justify-center flex-col sm:flex-row max-w-[1680px] min-h-[420px] py-10 sm:py-0 sm:h-[420px] md:h-[890px] mx-auto bg-[url('/landing/Pillars/pillars_bg.png')] bg-cover bg-center bg-no-repeat"
+          className="flex items-center justify-center flex-col sm:flex-row min-h-[420px] py-10 sm:py-0 sm:h-[420px] md:h-[890px] bg-[url('/landing/Pillars/pillars_bg.png')] bg-cover bg-center bg-no-repeat"
         >
           {/* 3 Pillars beginning */}
           <div className="flex flex-row gap-6 sm:flex-col sm:gap-14 md:gap-20">

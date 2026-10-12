@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-import { StaticLandingPage } from "@/lib/static-landing";
+import SanPhamPage from "@/components/products/SanPhamPage";
 import { localeAlternates } from "@/lib/seo-alternates";
 
 export async function generateMetadata({
@@ -9,12 +10,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: "Sản phẩm - LeTRON",
-    alternates: localeAlternates(locale, "/san-pham"),
-  };
+  const t = await getTranslations({ locale, namespace: "productsPage" });
+  return { title: t("metaTitle"), alternates: localeAlternates(locale, "/san-pham") };
 }
 
-export default function SanPhamPage() {
-  return <StaticLandingPage className="site-main post-423 page type-page status-publish hentry" segments={["san-pham"]} />;
+export default function SanPham() {
+  return <SanPhamPage />;
 }

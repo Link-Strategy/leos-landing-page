@@ -42,7 +42,7 @@ export default function RecruitmentPage({ jobs }: Props) {
             </div>
             <div className="elementor-element elementor-element-e96aabb elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="e96aabb" data-widget_type="text-editor.default">
               <p>
-                Cùng LeTRON kiến tạo nền công nghiệp xanh và tương lai Net Zero. Chúng tôi tìm kiếm những người muốn dùng công nghệ và dữ liệu để giải quyết các bài toán thật về tài nguyên, năng lượng và môi trường.
+                Cùng LeTRON kiến tạo những giải pháp công nghệ tái định hình ngành công nghiệp xanh — nơi bạn được trao cơ hội phát triển và tạo ra tác động thực sự.
               </p>
             </div>
           </div>

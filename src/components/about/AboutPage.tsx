@@ -1,11 +1,11 @@
 import Image from "next/image";
 import type * as React from "react";
 import { Play } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
-import Partners from "@/components/landing/Partners";
+import PartnerShowcase from "@/components/landing/PartnerShowcase";
 import Career from "@/components/landing/Career";
 import { AboutHeartValues } from "./AboutHeartValues";
 import { LeadershipReveal } from "./LeadershipReveal";
@@ -40,9 +40,7 @@ function InfoCard({ children, className }: { children: React.ReactNode; classNam
 
 export default function AboutPage() {
   const t = useTranslations("about");
-  const locale = useLocale();
   const MISSION_POINTS = t.raw("missionPoints") as string[];
-  const orgChartSrc = locale === "en" ? "/wp-content/uploads/2026/05/so-do-en.svg" : "/wp-content/uploads/2026/05/so-do.svg";
 
   return (
     <div className="site-main post-723 page type-page status-publish hentry">
@@ -53,7 +51,7 @@ export default function AboutPage() {
         data-elementor-type="wp-page"
       >
         {/* Hero */}
-        <section className="relative isolate flex h-[350px] items-end overflow-hidden px-6 pb-8 sm:h-[620px] sm:px-8 sm:pb-14">
+        <section className="relative isolate flex h-[350px] items-end overflow-hidden pb-8 sm:h-[620px] sm:pb-14">
           <Image
             alt=""
             src="/about/Banner.png"
@@ -63,7 +61,7 @@ export default function AboutPage() {
             className="absolute inset-0 -z-20 object-cover"
           />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(13,27,75,0.1)_0%,rgba(13,27,75,0.3)_50%,#0D1B4B_100%)]" />
-          <div className="mx-auto w-full max-w-[1320px]">
+          <div className="container-le">
             <nav aria-label="breadcrumbs" className="rank-math-breadcrumb text-sm text-zinc-400">
               <p>
                 <Link href="/">{t("breadcrumbHome")}</Link>
@@ -81,7 +79,7 @@ export default function AboutPage() {
         </section>
 
         {/* Giới thiệu chung */}
-        <div className="mx-auto max-w-[1320px] space-y-16 px-6 py-16 sm:px-8">
+        <div className="container-le space-y-16 py-16">
           <div className="space-y-10">
             <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-16">
               <div>
@@ -180,38 +178,22 @@ export default function AboutPage() {
               </ul>
             </InfoCard>
           </div>
-
-          {/* Sơ đồ tổ chức */}
-          <div className="text-center">
-            <h2 className="elementor-heading-title elementor-size-default font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
-              {t("orgChartHeading")}
-            </h2>
-            <div className="mt-8">
-              <Image
-                alt={t("orgChartAlt")}
-                src={orgChartSrc}
-                width={1681}
-                height={574}
-                className="mx-auto h-auto w-full max-w-full"
-              />
-            </div>
-          </div>
         </div>
 
         {/* Giá trị cốt lõi H.E.A.R.T */}
-        <div className="mx-auto max-w-[1320px] px-6 py-16 sm:px-8">
+        <div className="container-le py-16">
           <AboutHeartValues />
         </div>
 
         {/* Ban lãnh đạo */}
-        <div className="mx-auto max-w-[1320px] px-6 py-16 sm:px-8">
+        <div className="container-le py-16">
           <h2 className="elementor-heading-title elementor-size-default mb-10! text-center font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
             {t("leadershipHeading")}
           </h2>
           <LeadershipReveal />
         </div>
 
-        <Partners />
+        <PartnerShowcase />
         <Career />
       </div>
       <LandingElementorHooks />

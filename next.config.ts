@@ -30,9 +30,9 @@ const nextConfig: NextConfig = {
   async redirects() {
     const greenPost = "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh";
     return [
-      // Duplicate WordPress pages removed from public/landing.
-      { source: "/san-pham/ledb-bo-nao-so-2", destination: "/san-pham/ledb-bo-nao-so", permanent: true },
-      { source: "/san-pham/ledb-bo-nao-so-4", destination: "/san-pham/ledb-bo-nao-so", permanent: true },
+      // Duplicate WordPress pages.
+      // LeDB's canonical slug is ledb-bo-nao-so-4 (src/lib/products.ts); plain ledb-bo-nao-so stays (header/footer link it, canonical tag points to -4).
+      { source: "/san-pham/ledb-bo-nao-so-2", destination: "/san-pham/ledb-bo-nao-so-4", permanent: true },
       { source: "/san-pham/lesm-di-chuyen-thong-minh-2", destination: "/san-pham/lese-nang-luong-thong-minh", permanent: true },
       ...[2, 3, 4, 5, 6, 7, 8].map((n) => ({ source: `${greenPost}-${n}`, destination: greenPost, permanent: true })),
       // Raw static exports must not be indexed or browsed directly.
