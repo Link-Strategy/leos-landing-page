@@ -215,7 +215,7 @@ export default async function JobDetailPage({ params }: PageProps) {
                     <li>Chọn nút “nộp đơn ứng tuyển” để gửi đơn</li>
                   </ul>
                 </div>
-                <JobApplyForm jobTitle={job.title} />
+                <JobApplyForm jobTitle={job.title} jobSlug={job.slug} />
               </div>
             </div>
           </div>

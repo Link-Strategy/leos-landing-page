@@ -4,6 +4,8 @@ import path from "node:path";
 import { notFound } from "next/navigation";
 
 import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
+import LeadFormPortal from "@/components/subpage/LeadFormPortal";
+import { LEAD_FORM_SLOT_ID } from "@/components/subpage/lead-form-slot";
 
 const landingRoot = path.join(process.cwd(), "public", "landing");
 
@@ -31,6 +33,21 @@ function normalizeInternalLinks(html: string) {
 
 export function normalizeLandingHtml(html: string) {
   return normalizeInternalLinks(normalizeAssetPaths(html));
+}
+
+/**
+ * Replace the (dead) Elementor <form> inside the widget with `data-id={widgetDataId}` by an empty slot
+ * that <LeadFormPortal> fills on the client. The widget wrapper stays, so its scoped CSS still applies.
+ */
+export function replaceWidgetFormWithSlot(html: string, widgetDataId: string) {
+  const widgetIndex = html.indexOf(`data-id="${widgetDataId}"`);
+  if (widgetIndex === -1) return html;
+
+  const formStart = html.indexOf("<form", widgetIndex);
+  const formEnd = html.indexOf("</form>", formStart);
+  if (formStart === -1 || formEnd === -1) return html;
+
+  return `${html.slice(0, formStart)}<div id="${LEAD_FORM_SLOT_ID}"></div>${html.slice(formEnd + "</form>".length)}`;
 }
 
 export function getLandingMainHtml(segments: string[] = []) {
@@ -74,17 +91,33 @@ export function getLandingDirectories(segments: string[] = []) {
     .sort();
 }
 
+type LeadFormSlot = {
+  /** data-id of the Elementor form widget to replace (e.g. "0287d46" on /lien-he). */
+  widgetDataId: string;
+  source: string;
+  leadType?: "contact" | "product_inquiry";
+  messageRows?: number;
+};
+
 export function StaticLandingPage({
   className = "site-main page type-page status-publish hentry",
   segments = [],
+  leadForm,
 }: {
   className?: string;
   segments?: string[];
+  leadForm?: LeadFormSlot;
 }) {
+  let html = getLandingMainHtml(segments);
+  if (leadForm) html = replaceWidgetFormWithSlot(html, leadForm.widgetDataId);
+
   return (
     <div className={className}>
-      <div dangerouslySetInnerHTML={{ __html: getLandingMainHtml(segments) }} />
+      <div dangerouslySetInnerHTML={{ __html: html }} />
       <LandingElementorHooks />
+      {leadForm && (
+        <LeadFormPortal source={leadForm.source} leadType={leadForm.leadType} messageRows={leadForm.messageRows} />
+      )}
     </div>
   );
 }

@@ -26,6 +26,7 @@ export default async function SanPhamDetailPage({
     <StaticLandingPage
       className="site-main product type-product status-publish hentry"
       segments={["san-pham", ...slug]}
+      leadForm={{ widgetDataId: "e0a2831", source: `san-pham/${slug.join("/")}`, leadType: "product_inquiry" }}
     />
   );
 }

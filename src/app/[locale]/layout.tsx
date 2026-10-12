@@ -138,6 +138,8 @@ export default async function RootLayout({
         {/* ====== GLOBAL beforeInteractive SCRIPTS — must be in a Server Component (root layout) ====== */}
         <Script src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" strategy="beforeInteractive" />
         <Script src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" strategy="beforeInteractive" />
+        {/* Swiper must exist before the theme's main.js (afterInteractive) runs `new Swiper(...)`. */}
+        <Script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" strategy="beforeInteractive" />
         {/* wp hooks/i18n (public/wp-includes/js/dist/) are not shipped — a 404 beforeInteractive script aborts React hydration. Add the files back before re-enabling. */}
         <Script id="set-locale-data" strategy="beforeInteractive">
           {`if (typeof window !== "undefined" && window.wp?.i18n) {

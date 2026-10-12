@@ -16,5 +16,11 @@ export async function generateMetadata({
 }
 
 export default function LienHePage() {
-  return <StaticLandingPage className="site-main post-36 page type-page status-publish hentry" segments={["lien-he"]} />;
+  return (
+    <StaticLandingPage
+      className="site-main post-36 page type-page status-publish hentry"
+      segments={["lien-he"]}
+      leadForm={{ widgetDataId: "0287d46", source: "lien-he", messageRows: 10 }}
+    />
+  );
 }

@@ -64,7 +64,6 @@ export default function ClientScripts() {
     <>
       {/* ====== GLOBAL SCRIPTS (load on ALL pages) ====== */}
       {/* beforeInteractive scripts (jQuery, wp hooks/i18n) live in the root layout — they must be rendered by a Server Component */}
-      <Script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?ver=11" strategy="afterInteractive" />
 
       {/* ====== ELEMENTOR SCRIPTS (chỉ trên routes cần Elementor) — chỉ render sau mount ====== */}
       {showElementor && (
