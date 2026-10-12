@@ -2,11 +2,11 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 
-// mission_card.png / vision_card.png ship with a soft drop-shadow bleed baked
+// mission_card.webp / vision_card.webp ship with a soft drop-shadow bleed baked
 // into their canvas (568x458), so the solid card shape sits well inside the
 // PNG rather than touching its edges. object-cover on the raw file therefore
 // left a visible gap between the padded content and the card's visible frame.
-// mission_card_fill.png / vision_card_fill.png are pre-cropped to the shape's
+// mission_card_fill.webp / vision_card_fill.webp are pre-cropped to the shape's
 // bounding box (498x402) so the artwork covers the container edge-to-edge,
 // matching the design's "background fills first, padding applies inside" intent.
 // This aspect ratio must match that 498x402 exactly — any mismatch forces
@@ -100,7 +100,7 @@ export default async function Vision() {
 
         <div className="mt-10 flex w-full flex-1 flex-col items-center gap-8 lg:mt-12 lg:flex-row lg:justify-center lg:gap-10">
           <VisionCard
-            cardBg="/landing/Virsion/mission_card_fill.png"
+            cardBg="/landing/Virsion/mission_card_fill.webp"
             icon="/landing/Virsion/mission_icon.png"
             iconAlt={t("mission.iconAlt")}
             header={t("mission.header")}
@@ -118,7 +118,7 @@ export default async function Vision() {
           />
 
           <VisionCard
-            cardBg="/landing/Virsion/vision_card_fill.png"
+            cardBg="/landing/Virsion/vision_card_fill.webp"
             icon="/landing/Virsion/vision_icon.png"
             iconAlt={t("vision.iconAlt")}
             header={t("vision.header")}

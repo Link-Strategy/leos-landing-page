@@ -93,7 +93,7 @@ export default async function LeOsAi() {
             {/* Right Column: Interactive Mockup/Image */}
             <div className="relative flex justify-center p-[10px] md:pt-[30px] md:pb-[30px] md:pl-5 md:pr-[30px] lg:p-0 2xl:pt-5 2xl:pb-5 2xl:pl-0 2xl:pr-5">
               <Image
-                src="/wp-content/uploads/2026/05/img-3-1.png"
+                src="/wp-content/uploads/2026/05/img-3-1.webp"
                 alt={t("mockupAlt")}
                 width={500}
                 height={350}

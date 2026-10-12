@@ -9,9 +9,9 @@ export default async function Career() {
   return (
     <section
       className="relative flex items-center py-24 sm:py-28 lg:min-h-165 overflow-hidden border-t border-white/10 bg-no-repeat bg-cover bg-center"
-      style={{ backgroundImage: "url('/landing/Career/CTA.png')" }}
+      style={{ backgroundImage: "url('/landing/Career/CTA.webp')" }}
     >
-      {/* Frame — pinned to ~950px so the side accent lines line up with the border baked into CTA.png regardless of section width.
+      {/* Frame — pinned to ~950px so the side accent lines line up with the border baked into CTA.webp regardless of section width.
           Grid (not absolute positioning) so the line images stretch to match the content column's actual height. */}
       <div className="relative z-10 mx-auto grid w-full max-w-237.5 grid-cols-[auto_1fr_auto] items-stretch gap-3 px-6 sm:gap-6 sm:px-10">
         <div className="relative w-8 sm:w-10 lg:w-13.75">

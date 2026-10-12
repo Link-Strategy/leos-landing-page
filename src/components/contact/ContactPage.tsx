@@ -24,7 +24,7 @@ export default function ContactPage() {
         <section className="relative isolate flex min-h-[350px] flex-col overflow-hidden pb-8 pt-[calc(var(--header-height-mobile)+24px)]! sm:min-h-[620px] sm:justify-end sm:pb-14 lg:min-h-[720px] lg:pt-[calc(var(--header-height)+32px)]!">
           <Image
             alt=""
-            src="/contact/banner-contact.png"
+            src="/contact/banner-contact.webp"
             fill
             priority
             sizes="100vw"
@@ -66,7 +66,7 @@ export default function ContactPage() {
               className="absolute inset-0 -z-30 hidden object-cover object-right lg:block"
               fill
               sizes="100vw"
-              src="/contact/MAP.png"
+              src="/contact/MAP.webp"
             />
 
             {/* Lớp giữa: gradient phủ toàn khung, chuyển màu mượt xuyên qua ranh giới 2 cột nên không còn đường ngăn cách — chỉ desktop */}
@@ -101,7 +101,7 @@ export default function ContactPage() {
                   className="absolute inset-0 -z-20 object-cover lg:hidden"
                   fill
                   sizes="100vw"
-                  src="/contact/MAP.png"
+                  src="/contact/MAP.webp"
                 />
                 <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(13,27,75,0.92)_0%,rgba(13,27,75,0.55)_22%,rgba(13,27,75,0.1)_55%,rgba(13,27,75,0)_75%)] lg:hidden" />
 

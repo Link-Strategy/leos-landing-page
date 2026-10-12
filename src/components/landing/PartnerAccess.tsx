@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 import MasterButton from "@/components/ui/master-button";
 
-const BG_IMAGE = "/landing/PartnerAccess/PartnerAccess_bg.png";
+const BG_IMAGE = "/landing/PartnerAccess/PartnerAccess_bg.webp";
 
 export default function PartnerAccess() {
   const t = useTranslations("partnerAccess");

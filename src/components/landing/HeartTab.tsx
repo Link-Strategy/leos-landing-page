@@ -661,8 +661,8 @@ export default function HeartTab() {
                           height="613"
                           loading="lazy"
                           sizes="(max-width: 651px) 100vw, 651px"
-                          src="/wp-content/uploads/2026/05/Group-1-1.png"
-                          srcSet="/wp-content/uploads/2026/05/Group-1-1.png 651w, /wp-content/uploads/2026/05/Group-1-1-300x282.png 300w"
+                          src="/wp-content/uploads/2026/05/Group-1-1.webp"
+                          srcSet="/wp-content/uploads/2026/05/Group-1-1.webp 651w, /wp-content/uploads/2026/05/Group-1-1-300x282.webp 300w"
                           width="651"
                         />
                       </div>
