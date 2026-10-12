@@ -10,6 +10,7 @@ import {
   buildErrorResponse
 } from "./validation.mjs";
 import { scheduleAssetPost, unscheduleAssetPost } from "./qstash.mjs";
+import { BLOG_SLUG_PATTERN, deriveExcerpt } from "./blog-article.mjs";
 
 function isValidObjectIdString(value) {
   return typeof value === "string" && /^[a-fA-F0-9]{24}$/.test(value.trim());
@@ -243,6 +244,34 @@ export async function saveAsset(runtime, { db }, rawPayload) {
       message: "platform=blog requires format=article",
       received_value: normalized.format
     });
+  }
+
+  // Blog assets become `articles` documents (POST /api/blog/articles) — enforce that API's rules up front.
+  if (normalized.platform === "blog") {
+    const meta = normalized.platform_metadata || {};
+    if (typeof meta.slug !== "string" || !BLOG_SLUG_PATTERN.test(meta.slug)) {
+      errors.push({
+        field: "platform_metadata.slug",
+        code: "BLOG_REQUIRES_SLUG",
+        message: "platform=blog requires platform_metadata.slug (lowercase-hyphen, e.g. kinh-te-tuan-hoan)",
+        received_value: meta.slug
+      });
+    }
+    const excerpt = typeof meta.excerpt === "string" ? meta.excerpt.trim() : deriveExcerpt(normalized.body || "");
+    if (excerpt.length < 20 || excerpt.length > 220) {
+      errors.push({
+        field: "platform_metadata.excerpt",
+        code: "BLOG_EXCERPT_LENGTH",
+        message: "Blog excerpt must be 20-220 characters (set platform_metadata.excerpt or start the body with a paragraph)",
+        received_value: excerpt.length
+      });
+    }
+    if (!isNonEmptyString(normalized.title) || normalized.title.length < 10 || normalized.title.length > 120) {
+      errors.push({ field: "title", code: "BLOG_TITLE_LENGTH", message: "Blog title must be 10-120 characters" });
+    }
+    if (!isNonEmptyString(normalized.body) || normalized.body.trim().length < 120) {
+      errors.push({ field: "body", code: "BLOG_BODY_TOO_SHORT", message: "Blog body must be at least 120 characters" });
+    }
   }
 
   if (normalized.format === "article") {

@@ -1,4 +1,5 @@
 import { ObjectId } from "mongodb";
+import { assetToBlogPayload, BLOG_SLUG_PATTERN } from "./blog-article.mjs";
 
 const PLATFORMS = ["linkedin", "facebook", "threads", "instagram", "tiktok", "youtube", "zalo"];
 
@@ -42,6 +43,34 @@ async function triggerReindex(slug) {
   }
 }
 
+async function postJson(path, body) {
+  const res = await fetch(`${getSiteUrl()}${path}`, {
+    method: "POST",
+    headers: jsonHeaders(),
+    body: JSON.stringify(body),
+  });
+  let data = null;
+  try { data = await res.json(); } catch { /* non-JSON error page */ }
+  return { status: res.status, data };
+}
+
+/** Blog assets are written into `articles` (the collection the site reads) via /api/blog/articles. */
+async function publishBlogArticle(asset) {
+  const payload = assetToBlogPayload(asset);
+  if (!payload.slug || !BLOG_SLUG_PATTERN.test(payload.slug)) {
+    return { ok: false, platform: "blog", error: "platform_metadata.slug is missing or invalid (use lowercase-hyphen-slug)" };
+  }
+  try {
+    const { status, data } = await postJson("/api/blog/articles", payload);
+    if (status === 200 && data?.success) {
+      return { ok: true, platform: "blog", status: "published", url: data.url, warnings: data.warnings };
+    }
+    return { ok: false, platform: "blog", status: "failed", error: (data?.errors || [`HTTP ${status}`]).join("; ") };
+  } catch (err) {
+    return { ok: false, platform: "blog", status: "failed", error: err.message };
+  }
+}
+
 export async function publishAsset(runtime, { db }, assetId) {
   if (!assetId) throw new Error("Missing required argument --asset-id");
 
@@ -57,52 +86,42 @@ export async function publishAsset(runtime, { db }, assetId) {
   }
 
   const now = new Date();
-  const slug = asset.platform_metadata?.slug
-    || asset.title?.toLowerCase().replace(/[^a-z0-9]+/g, "-")
-    || assetId;
-  const blogUrl = `${getSiteUrl()}/blog/${slug}`;
-
-  // Publish to social platforms
-  const results = [];
+  const isBlog = asset.platform === "blog";
   const platforms = asset.platform === "multi"
     ? PLATFORMS
     : [asset.platform].filter(p => p !== "blog" && p !== "multi");
 
+  const results = [];
+  if (isBlog) {
+    results.push(await publishBlogArticle(asset));
+  }
   for (const platform of platforms) {
-    const result = await publishToPlatform(platform, asset);
-    results.push(result);
+    results.push(await publishToPlatform(platform, asset));
   }
 
-  // Social publish attempted but every platform failed → keep current status so it can be retried
-  if (platforms.length > 0 && !results.some(r => r.ok)) {
+  // Nothing went out → keep current status so it can be retried
+  if (results.length > 0 && !results.some(r => r.ok)) {
     await collection.updateOne({ _id: queryId }, { $set: { publish_results: results, updated_at: now } });
     return {
       ok: false,
-      message: `Publish failed on all ${platforms.length} platform(s); asset status left as "${asset.status}"`,
+      message: `Publish failed on all ${results.length} target(s); asset status left as "${asset.status}"`,
       data: { asset_id: assetId, platform: asset.platform, platforms: results },
     };
   }
 
-  // Update MongoDB
-  const updateDoc = { status: "published", published_at: now, url: blogUrl, updated_at: now, publish_results: results };
-  await collection.updateOne({ _id: queryId }, { $set: updateDoc });
+  const url = results.find(r => r.ok && r.url)?.url || results.find(r => r.ok && r.permalink)?.permalink || null;
+  await collection.updateOne(
+    { _id: queryId },
+    { $set: { status: "published", published_at: now, url, updated_at: now, publish_results: results } },
+  );
 
-  // Re-index: revalidate cache + submit sitemap to Google
-  const reindex = await triggerReindex(slug);
+  // Blog: submit sitemap to Google Search Console (cache was already revalidated by /api/blog/articles)
+  const reindex = isBlog ? await triggerReindex(asset.platform_metadata.slug) : undefined;
 
   return {
     ok: true,
-    message: results.some(r => r.ok)
-      ? `Asset published to ${results.filter(r => r.ok).length} platform(s)`
-      : "Asset published to blog only (no social tokens configured)",
-    data: {
-      asset_id: assetId,
-      platform: asset.platform,
-      url: blogUrl,
-      status: "published",
-      platforms: results,
-      reindex,
-    },
+    message: `Asset published to ${results.filter(r => r.ok).length}/${results.length} target(s)`,
+    data: { asset_id: assetId, platform: asset.platform, url, status: "published", platforms: results, reindex },
   };
 }
 
@@ -113,17 +132,11 @@ export async function fetchMetrics(runtime, { db }, assetId) {
   const asset = await db.collection("assets").findOne({ _id: queryId });
   if (!asset) return { ok: false, message: `Asset not found with id: ${assetId}` };
   if (asset.status !== "published") return { ok: false, message: `Asset is not published yet (status: ${asset.status})` };
-  return {
-    ok: true,
-    data: {
-      asset_id: assetId,
-      platform: asset.platform,
-      // MOCK: random numbers, not real platform data — do not use for signal mining decisions.
-      mock: true,
-      metrics: {
-        impressions: Math.floor(Math.random() * 1000) + 100,
-        clicks: Math.floor(Math.random() * 50) + 1,
-      },
-    },
-  };
+
+  // Real numbers from each platform via the app (it holds the platform tokens).
+  const { status, data } = await postJson("/api/metrics", { assetId: String(assetId) });
+  if (status !== 200 || !data?.ok) {
+    return { ok: false, message: `Fetching metrics failed: ${data?.error || `HTTP ${status}`}` };
+  }
+  return { ok: true, data: { asset_id: assetId, platform: asset.platform, metrics: data.metrics, fetched_at: data.fetched_at } };
 }

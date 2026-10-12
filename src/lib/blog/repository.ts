@@ -25,7 +25,8 @@ function getMongoUri() {
 }
 
 function getMongoDbName() {
-  return process.env.MONGODB_DB_NAME?.trim() || "";
+  // Same default as src/lib/mongodb.ts and the ls-post / ls-jobs CLIs.
+  return process.env.MONGODB_DB_NAME?.trim() || "blogs";
 }
 
 export function isBlogStorageConfigured() {
