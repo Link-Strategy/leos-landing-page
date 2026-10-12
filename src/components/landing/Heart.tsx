@@ -3,12 +3,6 @@ import { getTranslations } from "next-intl/server";
 import MobileCardCarousel from "@/components/landing/MobileCardCarousel";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 
-// Diagonal gradient stroke from the design spec. Painted with the mask/xor ring
-// technique (not border-image) because border-image ignores border-radius on its
-// corner tiles, which left the ring square-cornered against the card's rounded shape.
-const CARD_BORDER_GRADIENT =
-  "linear-gradient(149.38deg, rgba(255,255,255,0) -25.01%, rgba(255,255,255,0) -0.8%, #FFFFFF 21.06%, rgba(255,255,255,0) 58.91%, #FFFFFF 74.11%, rgba(255,255,255,0) 102.64%)";
-
 type HeartCardData = {
   icon: string;
   iconAlt: string;
@@ -19,19 +13,9 @@ type HeartCardData = {
 
 function HeartCard({ icon, iconAlt, title, titleColor, content }: HeartCardData) {
   return (
-    <div className="group relative min-h-[220px] w-full rounded-[20px] shadow-[0px_6px_8px_0px_#86BFEE4D] backdrop-blur-[35px] lg:w-auto lg:flex-1">
+    <div className="group relative min-h-[220px] w-full rounded-[20px] shadow-[0px_6px_8px_0px_#86BFEE4D] lg:w-auto lg:flex-1">
       {/* Default state: translucent glass card with a diagonal gradient ring border */}
-      <div className="absolute inset-0 rounded-[20px] bg-[#FFFFFF1A] transition-opacity duration-300 group-hover:opacity-0">
-        <div
-          className="absolute inset-0 rounded-[20px]"
-          style={{
-            padding: 1,
-            background: CARD_BORDER_GRADIENT,
-            WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-            WebkitMaskComposite: "xor",
-            maskComposite: "exclude",
-          }}
-        />
+      <div className="absolute inset-0 rounded-[20px] border border-white/30 bg-[#FFFFFF1A] transition-opacity duration-300 group-hover:opacity-0">
       </div>
       {/* Hover state: solid navy card with a solid blue border */}
       <div className="absolute inset-0 rounded-[20px] border-2 border-[#2A9FFF] bg-[#132563] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

@@ -50,24 +50,13 @@ export function LeadershipGrid({ onClose }: LeadershipGridProps) {
   }));
 
   return (
-    <div className="relative grid grid-cols-2 gap-x-3 gap-y-5 px-4 py-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-x-4 lg:gap-y-8 lg:px-10 lg:py-15 bg-white/20 rounded-2xl lg:rounded-[20px] shadow-[0_6px_8px_0_rgba(0,0,0,0.4)] backdrop-blur-[35px]">
+    <div className="relative grid grid-cols-2 gap-x-3 gap-y-5 px-4 py-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-x-4 lg:gap-y-8 lg:px-10 lg:py-15 bg-white/20 rounded-2xl lg:rounded-[20px] shadow-[0_6px_8px_0_rgba(0,0,0,0.4)] border border-white/30">
       <script
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(peopleJsonLd) }}
       />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 rounded-[inherit] p-px"
-        style={{
-          background:
-            "linear-gradient(132.4deg, rgba(255,255,255,0) 2.52%, rgba(255,255,255,0) 19.76%, #FFFFFF 35.32%, rgba(255,255,255,0) 62.27%, #FFFFFF 73.1%, rgba(255,255,255,0) 93.41%)",
-          WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-          mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-          WebkitMaskComposite: "xor",
-          maskComposite: "exclude",
-        }}
-      />
+      
 
       {onClose && (
         <button

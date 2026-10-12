@@ -14,31 +14,16 @@ const tabTriggerClass =
 
 type TabKey = "coreTech" | "zeroTrust" | "standards";
 
-// Gradient ring border for the two small pill circles, painted with the same mask/xor
-// technique as HeartCard's ring (border-image ignores border-radius on its corners).
-const CIRCLE_BORDER_GRADIENT =
-  "linear-gradient(90deg, rgba(82,209,255,0.7216) 0%, rgba(23,97,219,0.4224) 52%, rgba(41,153,255,0.5808) 100%)";
-
 function CoreTechCircle({ icon, title, size = "lg" }: { icon: string; title: string; size?: "lg" | "sm" }) {
   const isSmall = size === "sm";
   return (
     <div
-      className={`relative flex shrink-0 items-center justify-center rounded-full backdrop-blur-[12px] ${isSmall ? "h-16 w-16" : "h-[104px] w-[104px]"}`}
+      className={`relative flex shrink-0 items-center justify-center rounded-full border border-[#2E8BEB]/60 ${isSmall ? "h-16 w-16" : "h-[104px] w-[104px]"}`}
       style={{
         background: "linear-gradient(90deg, rgba(10,56,133,0.34) 0%, rgba(3,18,56,0.5) 50%, rgba(5,41,97,0.3) 100%)",
         boxShadow: "0px 1px 7px 0px #33C2FF1F inset, 0px 0px 10px 0px #0857EB3D",
       }}
     >
-      <div
-        className="absolute inset-0 rounded-full"
-        style={{
-          padding: 1,
-          background: CIRCLE_BORDER_GRADIENT,
-          WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-          WebkitMaskComposite: "xor",
-          maskComposite: "exclude",
-        }}
-      />
       <div className={`relative z-10 flex flex-col items-center ${isSmall ? "gap-1" : "gap-2"}`}>
         <Image
           src={icon}

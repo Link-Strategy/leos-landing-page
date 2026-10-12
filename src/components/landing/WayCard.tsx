@@ -13,7 +13,7 @@ type WayCardProps = {
 
 export function WayCard({ iconPath, title, className }: WayCardProps) {
   const style = {
-    "--card-glass-border-background": "linear-gradient(0deg, rgb(255 255 255 / 10%) 0%, rgb(255 255 255 / 10%) 100%)",
+    "--card-glass-border-color": "rgb(255 255 255 / 10%)",
     "--card-glass-hover-bg": "#2A9FFF5C",
     "--card-glass-hover-border": "#2A9FFF5C",
     "--card-glass-hover-angle": "0deg",
