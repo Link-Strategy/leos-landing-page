@@ -1,5 +1,5 @@
 import { after, NextRequest, NextResponse } from "next/server";
-import { leadRateLimiter, saveLead } from "@/lib/lead-storage";
+import { checkLeadRateLimit, saveLead } from "@/lib/lead-storage";
 import { isHoneypotTriggered } from "@/lib/lead-validation";
 import { notifyLead } from "@/lib/notify";
 import { getClientIp } from "@/lib/rate-limit";
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true, message: THANK_YOU });
   }
 
-  const limit = leadRateLimiter.check(getClientIp(request.headers));
+  const limit = await checkLeadRateLimit(getClientIp(request.headers));
   if (!limit.allowed) {
     return NextResponse.json(
       { success: false, error: "RATE_LIMITED", message: "Bạn đã gửi quá nhiều lần, vui lòng thử lại sau ít phút." },

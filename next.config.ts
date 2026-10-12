@@ -9,9 +9,27 @@ if (process.env.S3_BUCKET_NAME) {
   s3Hosts.add(`${process.env.S3_BUCKET_NAME}.s3.${process.env.S3_REGION || "ap-southeast-1"}.amazonaws.com`);
 }
 
-// Baseline browser hardening. CSP is intentionally not set: the Elementor/WordPress scripts and inline
-// bootstrap code would need a long allowlist — add one deliberately (Report-Only first) rather than break pages.
+// CSP runs in Report-Only mode: nothing is blocked, violations are POSTed to /api/csp-report (Vercel logs).
+// Tighten it from real reports — drop 'unsafe-inline'/'unsafe-eval' once the Elementor/WordPress scripts and
+// Next's inline bootstrap are covered by nonces — then switch the header to Content-Security-Policy.
+const cspReportOnly = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "img-src 'self' data: blob: https:",
+  "font-src 'self' data: https://fonts.gstatic.com",
+  "connect-src 'self' https://cdn.jsdelivr.net",
+  "frame-src 'self' https://www.youtube.com https://www.google.com",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'self'",
+  "report-uri /api/csp-report",
+].join("; ");
+
+// Baseline browser hardening.
 const securityHeaders = [
+  { key: "Content-Security-Policy-Report-Only", value: cspReportOnly },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },

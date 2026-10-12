@@ -16,7 +16,7 @@ const CONTENT: Record<"vi" | "en", { title: string; intro: string; updatedLabel:
         items: [
           "Khi bạn gửi form liên hệ hoặc form tư vấn sản phẩm: họ tên, email, số điện thoại (nếu bạn nhập), nội dung tin nhắn và trang bạn gửi form.",
           "Khi bạn ứng tuyển: họ tên, email, số điện thoại, vị trí ứng tuyển và tệp CV (PDF, DOC hoặc DOCX) bạn tải lên.",
-          "Dữ liệu kỹ thuật: địa chỉ IP được dùng tạm thời để giới hạn gửi form liên tục (chống spam) và không được lưu lại cùng thông tin của bạn; cookie NEXT_LOCALE ghi nhớ ngôn ngữ bạn chọn.",
+          "Dữ liệu kỹ thuật: để chống spam, chúng tôi lưu bản băm (hash) của địa chỉ IP cùng số lần gửi form trong tối đa 20 phút rồi tự động xóa; dữ liệu này không gắn với thông tin bạn nhập trong form. Cookie NEXT_LOCALE ghi nhớ ngôn ngữ bạn chọn.",
         ],
       },
       {
@@ -71,7 +71,7 @@ const CONTENT: Record<"vi" | "en", { title: string; intro: string; updatedLabel:
         items: [
           "When you submit a contact or product-consultation form: your name, email, phone number (if provided), message and the page you submitted from.",
           "When you apply for a job: your name, email, phone number, the position and the CV file (PDF, DOC or DOCX) you upload.",
-          "Technical data: your IP address is used only transiently to rate-limit repeated submissions (spam protection) and is not stored with your details; the NEXT_LOCALE cookie remembers your language.",
+          "Technical data: for spam protection we store a hash of your IP address with a submission counter for up to 20 minutes, then delete it automatically; it is not linked to the details you enter in the form. The NEXT_LOCALE cookie remembers your language.",
         ],
       },
       {
