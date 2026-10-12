@@ -53,6 +53,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+function formatDeadline(deadline?: string) {
+  if (!deadline) return "Tuyển liên tục";
+  const isoDate = /^\d{4}-\d{2}-\d{2}/.test(deadline) ? new Date(deadline) : null;
+  return isoDate && !Number.isNaN(isoDate.getTime())
+    ? isoDate.toLocaleDateString("vi-VN", { timeZone: "Asia/Ho_Chi_Minh" })
+    : deadline;
+}
+
 export default async function JobDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const jobSlug = slug[0];
@@ -69,21 +77,21 @@ export default async function JobDetailPage({ params }: PageProps) {
 
   const otherJobs = (await getCachedPublishedJobListings()).filter((j) => j.slug !== job.slug);
 
-  const getLevel = (title: string) => {
-    const lower = title.toLowerCase();
-    if (lower.includes("trưởng phòng") || lower.includes("truong phong")) return "Trưởng phòng";
-    if (lower.includes("giám đốc") || lower.includes("giam doc")) return "Giám đốc";
-    if (lower.includes("quản lý") || lower.includes("quan ly") || lower.includes("manager")) return "Quản lý / Trưởng nhóm";
-    if (lower.includes("thực tập") || lower.includes("intern")) return "Thực tập sinh";
-    return "Chuyên viên / Nhân viên";
-  };
+  // Only facts stored on the job are shown; nothing is guessed from the title.
+  const jobRows = [
+    { label: "Nơi làm việc", value: job.location },
+    { label: "Cấp bậc", value: job.level },
+    { label: "Hình thức", value: JOB_TYPE_LABELS[job.jobType] ?? job.jobType },
+    { label: "Kinh nghiệm", value: job.experience },
+    { label: "Mức lương", value: job.salary || "Lương thỏa thuận" },
+    { label: "Ngành nghề", value: job.department },
+    { label: "Hạn chót nhận hồ sơ", value: formatDeadline(job.deadline) },
+  ].filter((row): row is { label: string; value: string } => Boolean(row.value));
 
-  const getExperience = (title: string) => {
-    const lower = title.toLowerCase();
-    if (lower.includes("cao cấp") || lower.includes("senior")) return "Từ 3-5 năm";
-    if (lower.includes("intern") || lower.includes("thực tập")) return "Không yêu cầu kinh nghiệm";
-    return "1-3 năm hoặc tương đương";
-  };
+  const benefitTags = job.benefitTags ?? [];
+  const benefitTagRows = Array.from({ length: Math.ceil(benefitTags.length / 2) }, (_, i) =>
+    benefitTags.slice(i * 2, i * 2 + 2),
+  );
 
   return (
     <div className="site-main archive post-type-archive post-type-archive-tuyen-dung elementor-page-604 elementor-default elementor-template-full-width elementor-kit-6">
@@ -118,60 +126,37 @@ export default async function JobDetailPage({ params }: PageProps) {
                 <div className="elementor-element elementor-element-9d06f8b elementor-widget elementor-widget-shortcode" data-e-type="widget" data-element_type="widget" data-id="9d06f8b" data-widget_type="shortcode.default">
                   <div className="elementor-shortcode">
                     <div className="td-job-table">
-                      <div className="td-job-row">
-                        <div className="td-job-title">Nơi làm việc</div>
-                        <div className="td-job-desc">{job.location}</div>
-                      </div>
-                      <div className="td-job-row">
-                        <div className="td-job-title">Cấp bậc</div>
-                        <div className="td-job-desc">{getLevel(job.title)}</div>
-                      </div>
-                      <div className="td-job-row">
-                        <div className="td-job-title">Hình thức</div>
-                        <div className="td-job-desc">{JOB_TYPE_LABELS[job.jobType] ?? job.jobType}</div>
-                      </div>
-                      <div className="td-job-row">
-                        <div className="td-job-title">Kinh nghiệm</div>
-                        <div className="td-job-desc">{getExperience(job.title)}</div>
-                      </div>
-                      <div className="td-job-row">
-                        <div className="td-job-title">Mức lương</div>
-                        <div className="td-job-desc">{job.salary || "Lương thỏa thuận"}</div>
-                      </div>
-                      <div className="td-job-row">
-                        <div className="td-job-title">Ngành nghề</div>
-                        <div className="td-job-desc">{job.department}</div>
-                      </div>
-                      <div className="td-job-row">
-                        <div className="td-job-title">Hạn chót nhận hồ sơ</div>
-                        <div className="td-job-desc">Tuyển liên tục</div>
-                      </div>
+                      {jobRows.map((row) => (
+                        <div className="td-job-row" key={row.label}>
+                          <div className="td-job-title">{row.label}</div>
+                          <div className="td-job-desc">{row.value}</div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-                <div className="elementor-element elementor-element-95c7f71 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="95c7f71" data-widget_type="heading.default">
-                  <h3 className="elementor-heading-title elementor-size-default">
-                    Phúc lợi
-                  </h3>
-                </div>
-                <div className="elementor-element elementor-element-1263618 elementor-widget elementor-widget-shortcode" data-e-type="widget" data-element_type="widget" data-id="1263618" data-widget_type="shortcode.default">
-                  <div className="elementor-shortcode">
-                    <div className="td-job-table">
-                      <div className="td-job-row">
-                        <div className="title-phuc-loi">Bảo hiểm</div>
-                        <div className="title-phuc-loi">Du lịch</div>
-                      </div>
-                      <div className="td-job-row">
-                        <div className="title-phuc-loi">Thưởng</div>
-                        <div className="title-phuc-loi">Chăm sóc sức khỏe</div>
-                      </div>
-                      <div className="td-job-row">
-                        <div className="title-phuc-loi">Đào tạo</div>
-                        <div className="title-phuc-loi">Tăng lương</div>
+                {(benefitTags.length > 0 || benefitsHtml) && (
+                  <div className="elementor-element elementor-element-95c7f71 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="95c7f71" data-widget_type="heading.default">
+                    <h3 className="elementor-heading-title elementor-size-default">
+                      Phúc lợi
+                    </h3>
+                  </div>
+                )}
+                {benefitTags.length > 0 && (
+                  <div className="elementor-element elementor-element-1263618 elementor-widget elementor-widget-shortcode" data-e-type="widget" data-element_type="widget" data-id="1263618" data-widget_type="shortcode.default">
+                    <div className="elementor-shortcode">
+                      <div className="td-job-table">
+                        {benefitTagRows.map((pair) => (
+                          <div className="td-job-row" key={pair.join("|")}>
+                            {pair.map((tag) => (
+                              <div className="title-phuc-loi" key={tag}>{tag}</div>
+                            ))}
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
-                </div>
+                )}
 
                 {benefitsHtml && (
                   <div className="elementor-element elementor-element-ba01060 elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="ba01060" data-widget_type="text-editor.default">
@@ -215,7 +200,13 @@ export default async function JobDetailPage({ params }: PageProps) {
                     <li>Chọn nút “nộp đơn ứng tuyển” để gửi đơn</li>
                   </ul>
                 </div>
-                <JobApplyForm jobTitle={job.title} jobSlug={job.slug} />
+                {job.externalApplyUrl ? (
+                  <a className="elementor-button elementor-size-sm" href={job.externalApplyUrl} target="_blank" rel="noopener noreferrer">
+                    <span className="elementor-button-text">Ứng tuyển qua trang tuyển dụng</span>
+                  </a>
+                ) : (
+                  <JobApplyForm jobTitle={job.title} jobSlug={job.slug} />
+                )}
               </div>
             </div>
           </div>

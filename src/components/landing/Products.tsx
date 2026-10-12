@@ -23,7 +23,7 @@ interface ProductItem {
 }
 
 const PRODUCT_META: { id: string; logo: string; bgImage: string; link: string }[] = [
-  { id: "ledb", logo: "/wp-content/uploads/2026/05/logo-12.svg", bgImage: "/wp-content/uploads/2026/05/img-10-1.jpg", link: "/san-pham/ledb-bo-nao-so-4" },
+  { id: "ledb", logo: "/wp-content/uploads/2026/05/logo-12.svg", bgImage: "/wp-content/uploads/2026/05/img-10-1.jpg", link: "/san-pham/ledb-bo-nao-so" },
   { id: "lesb", logo: "/wp-content/uploads/2026/05/logo-13.svg", bgImage: "/wp-content/uploads/2026/05/img-7-1.jpg", link: "/san-pham/lesb-xay-dung-thong-minh" },
   { id: "lese", logo: "/wp-content/uploads/2026/05/logo-12.svg", bgImage: "/wp-content/uploads/2026/05/img-7-1.jpg", link: "/san-pham/lese-nang-luong-thong-minh" },
   { id: "lesm", logo: "/wp-content/uploads/2026/05/logo.jpg", bgImage: "/wp-content/uploads/2026/05/img-8-1.jpg", link: "/san-pham/lesm-di-chuyen-thong-minh" },

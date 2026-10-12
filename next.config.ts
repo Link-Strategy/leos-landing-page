@@ -28,7 +28,15 @@ const nextConfig: NextConfig = {
     return [{ source: "/sitemap.xml", destination: "/sitemap" }];
   },
   async redirects() {
+    const greenPost = "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh";
     return [
+      // Duplicate WordPress pages removed from public/landing.
+      { source: "/san-pham/ledb-bo-nao-so-2", destination: "/san-pham/ledb-bo-nao-so", permanent: true },
+      { source: "/san-pham/ledb-bo-nao-so-4", destination: "/san-pham/ledb-bo-nao-so", permanent: true },
+      { source: "/san-pham/lesm-di-chuyen-thong-minh-2", destination: "/san-pham/lese-nang-luong-thong-minh", permanent: true },
+      ...[2, 3, 4, 5, 6, 7, 8].map((n) => ({ source: `${greenPost}-${n}`, destination: greenPost, permanent: true })),
+      // Raw static exports must not be indexed or browsed directly.
+      { source: "/landing/:path*/index.html", destination: "/:path*", permanent: true },
       {
         source: "/category/tin-tuc-su-kien",
         destination: "/blog",

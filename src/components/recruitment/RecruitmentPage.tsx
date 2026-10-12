@@ -42,7 +42,7 @@ export default function RecruitmentPage({ jobs }: Props) {
             </div>
             <div className="elementor-element elementor-element-e96aabb elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="e96aabb" data-widget_type="text-editor.default">
               <p>
-                Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+                Cùng LeTRON kiến tạo nền công nghiệp xanh và tương lai Net Zero. Chúng tôi tìm kiếm những người muốn dùng công nghệ và dữ liệu để giải quyết các bài toán thật về tài nguyên, năng lượng và môi trường.
               </p>
             </div>
           </div>

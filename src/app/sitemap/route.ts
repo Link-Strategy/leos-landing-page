@@ -1,6 +1,7 @@
 import { getCachedPublicBlogArticles } from "@/lib/blog/queries";
 import { getCachedPublishedJobListings } from "@/lib/recruitment/queries";
 import { getSiteUrl } from "@/lib/blog/seo";
+import { getLandingDirectories } from "@/lib/static-landing";
 
 const SITE_URL = getSiteUrl();
 
@@ -12,7 +13,6 @@ export async function GET() {
     { url: "lien-he", priority: "0.7", changefreq: "monthly" as const, lastmod: undefined },
     { url: "tuyen-dung", priority: "0.8", changefreq: "weekly" as const, lastmod: undefined },
     { url: "blog", priority: "0.9", changefreq: "daily" as const, lastmod: undefined },
-    { url: "category/tin-tuc-su-kien", priority: "0.5", changefreq: "weekly" as const, lastmod: undefined },
     { url: "cong-ty-thanh-vien", priority: "0.4", changefreq: "monthly" as const, lastmod: undefined },
   ];
 
@@ -42,7 +42,14 @@ export async function GET() {
     // DB not available, skip job URLs
   }
 
-  const allUrls = [...staticPages, ...blogUrls, ...jobUrls];
+  const productUrls = getLandingDirectories(["san-pham"]).map((slug) => ({
+    url: `san-pham/${slug}`,
+    priority: "0.8",
+    changefreq: "monthly",
+    lastmod: undefined as string | undefined,
+  }));
+
+  const allUrls = [...staticPages, ...productUrls, ...blogUrls, ...jobUrls];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
