@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const url = `${getSiteUrl()}/tuyen-dung/${job.slug}`;
 
   return {
-    title: `${job.title} | LeTRON Tuyển dụng`,
+    title: `${job.title} - Tuyển dụng`,
     description: `${job.department} · ${job.location} · ${JOB_TYPE_LABELS[job.jobType] ?? job.jobType}. Xem mô tả và ứng tuyển tại LeTRON.`,
     alternates: { canonical: url },
     openGraph: {

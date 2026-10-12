@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "LeTRON - Green Technology, Smart Operations",
-    "description": "Vietnam's leading technology solutions for waste-to-resource conversion and green construction materials."
+    "title": "LeTRON Group - Green Technology, Smart Operations",
+    "description": "LeTRON Group (LeTRON Group Joint Stock Company, Uong Bi, Quang Ninh): Vietnam's leading technology solutions for waste-to-resource conversion and green construction materials."
   },
   "header": {
     "nav": {
@@ -478,7 +478,7 @@
     "dateMonthPrefix": "MONTH"
   },
   "productsPage": {
-    "metaTitle": "Products - LeTRON",
+    "metaTitle": "Green technology products",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Products",
     "heroTitlePrefix": "LeTRON ",
@@ -613,7 +613,7 @@
     "spiritText": "LeTRON connects global knowledge to solve the world's biggest challenges, while always starting from a responsibility to the place it belongs to."
   },
   "about": {
-    "metaTitle": "About Us - LeTRON",
+    "metaTitle": "About our green technology group",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "About Us",
     "heroTitlePrefix": "About ",
@@ -645,7 +645,7 @@
     "leadershipHeading": "Leadership"
   },
   "contact": {
-    "metaTitle": "Contact - LeTRON",
+    "metaTitle": "Contact",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Contact",
     "heroTitlePrefix": "Connect with ",

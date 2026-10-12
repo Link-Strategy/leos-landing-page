@@ -5,6 +5,9 @@ export const ORGANIZATION = {
   legalName: "Công ty Cổ phần Tập đoàn LeTRON",
   email: "office@letrongroup.com",
   phone: "+842033668838",
+  alternateName: ["LeTRON Group", "Letron Group", "Tập đoàn LeTRON"],
+  // Official profiles, so search engines tie "letron" queries to this company rather than similarly named ones.
+  sameAs: ["https://www.facebook.com/people/Letron-Vietnam/61595038693250/"],
   address: {
     streetAddress: "Tầng 3, Tòa nhà Công Thành, số 295 đường Trần Nhân Tông",
     addressLocality: "phường Uông Bí",
@@ -19,6 +22,8 @@ export function buildOrganizationJsonLd(siteUrl: string) {
     "@type": "Organization",
     name: ORGANIZATION.name,
     legalName: ORGANIZATION.legalName,
+    alternateName: ORGANIZATION.alternateName,
+    sameAs: ORGANIZATION.sameAs,
     url: siteUrl,
     logo: `${siteUrl}/icons/icon-512x512.png`,
     email: ORGANIZATION.email,
@@ -32,6 +37,7 @@ export function buildWebSiteJsonLd(siteUrl: string) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: ORGANIZATION.name,
+    alternateName: ORGANIZATION.alternateName,
     url: siteUrl,
     inLanguage: ["vi", "en"],
   };

@@ -34,6 +34,11 @@ describe("blog canonical", () => {
     assert.equal(meta.openGraph.images[0].url, "/opengraph-image");
   });
 
+  it("does not double the brand in article titles", () => {
+    assert.equal(buildBlogArticleMetadata({ ...article, title: "Bài mới" }).title, "Bài mới");
+    assert.deepEqual(buildBlogArticleMetadata({ ...article, title: "Bài mới | LeTRON" }).title, { absolute: "Bài mới | LeTRON" });
+  });
+
   it("marks noindex articles", () => {
     assert.equal(buildBlogArticleMetadata({ ...article, noindex: true }).robots.index, false);
   });
@@ -46,6 +51,12 @@ describe("JSON-LD builders", () => {
     assert.equal(org.url, "https://www.letrongroup.com");
     assert.equal(org.address.addressCountry, "VN");
     assert.equal(org.email, "office@letrongroup.com");
+  });
+
+  it("ties the brand to official profiles via alternateName and sameAs", () => {
+    const org = buildOrganizationJsonLd("https://www.letrongroup.com");
+    assert.ok(org.alternateName.includes("LeTRON Group"));
+    assert.ok(org.sameAs.every((u) => u.startsWith("https://")));
   });
 
   it("builds JobPosting; validThrough only for real dates", () => {
