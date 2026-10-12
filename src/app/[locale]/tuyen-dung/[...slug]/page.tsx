@@ -7,6 +7,8 @@ import { renderMarkdownToHtml } from "@/lib/blog/markdown";
 import { getSiteUrl } from "@/lib/blog/seo";
 import type { JobListing } from "@/lib/recruitment/types";
 import { JobApplyForm } from "@/components/recruitment/JobApplyForm";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildJobPostingJsonLd } from "@/lib/jsonld";
 import { JobListingCard } from "@/components/recruitment/JobListingCard";
 
 const JOB_TYPE_LABELS: Record<string, string> = {
@@ -49,6 +51,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url,
       siteName: "LeTRON",
       type: "website",
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LeTRON" }],
     },
   };
 }
@@ -95,6 +98,7 @@ export default async function JobDetailPage({ params }: PageProps) {
 
   return (
     <div className="site-main archive post-type-archive post-type-archive-tuyen-dung elementor-page-604 elementor-default elementor-template-full-width elementor-kit-6">
+      <JsonLd data={buildJobPostingJsonLd(job, `${getSiteUrl()}/tuyen-dung/${job.slug}`, getSiteUrl())} />
       <div className="elementor elementor-604 elementor-location-single post-575 tuyen-dung type-tuyen-dung status-publish hentry" data-elementor-id="604" data-elementor-post-type="elementor_library" data-elementor-type="single-post">
         <div className="elementor-element elementor-element-51999a2 e-flex e-con-boxed e-con e-parent" data-e-type="container" data-element_type="container" data-id="51999a2" data-settings='{"background_background":"classic"}'>
           <div className="e-con-inner">

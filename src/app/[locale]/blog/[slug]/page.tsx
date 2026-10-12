@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Bookmark, Clock, Home } from "lucide-react";
 import { getCachedLatestPublishedBlogArticles, getCachedPublicBlogArticleBySlug, getCachedRelatedBlogArticles } from "@/lib/blog/queries";
-import { buildBlogArticleMetadata } from "@/lib/blog/seo";
+import { buildBlogArticleMetadata, buildBlogPostingJsonLd } from "@/lib/blog/seo";
+import JsonLd from "@/components/seo/JsonLd";
 import { renderMarkdownToHtml } from "@/lib/blog/markdown";
 import ShareButtons from "@/components/blog/ShareButtons";
 
@@ -68,6 +69,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
   return (
     <section className="container-le bg-[#0d1b4b] pb-5 lg:pb-8 pt-[calc(var(--header-height-mobile)+20px)] lg:pt-[calc(var(--header-height)+32px)]">
+      <JsonLd data={buildBlogPostingJsonLd(article)} />
       <div className="flex flex-col items-center">
         <div className="flex w-full flex-col gap-10 xl:flex-row xl:justify-between xl:gap-[4%]">
           {/* Main article */}

@@ -19,7 +19,11 @@ import Products from "@/components/landing/Products";
 import News from "@/components/landing/News";
 import type { Metadata } from "next";
 import { localeAlternates } from "@/lib/seo-alternates";
+import { setRequestLocale } from "next-intl/server";
 // import Career from "@/components/landing/Career";
+
+// Static page; the News section reads blog articles, so refresh hourly (blog publishes also revalidate "/").
+export const revalidate = 3600;
 
 export async function generateMetadata({
   params,
@@ -30,7 +34,14 @@ export async function generateMetadata({
   return { alternates: localeAlternates(locale, "") };
 }
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  // Without this, next-intl reads request headers and Next renders the page per request (no CDN cache).
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <div className="site-main post-2588 page type-page status-publish hentry">
       {/* Scope container for Elementor styling */}

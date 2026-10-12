@@ -4,6 +4,9 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import Script from "next/script";
+import JsonLd from "@/components/seo/JsonLd";
+import { getSiteUrl } from "@/lib/blog/seo";
+import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/jsonld";
 import "../globals.css";
 import HeaderTailwind from "@/components/layout/HeaderTailwind";
 import Footer from "@/components/layout/Footer";
@@ -54,12 +57,14 @@ export async function generateMetadata({
     },
     description: t("description"),
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL?.trim() || process.env.APP_URL?.trim() || "https://letrongroup.com"),
+    // Explicit: the app/opengraph-image file sits outside the [locale] root layout, so Next does not attach it.
     openGraph: {
       siteName: "LeTRON",
       type: "website",
       locale: locale === "en" ? "en_US" : "vi_VN",
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LeTRON" }],
     },
-    twitter: { card: "summary_large_image" },
+    twitter: { card: "summary_large_image", images: ["/opengraph-image"] },
     robots: { index: true, follow: true },
     icons: {
       icon: [
@@ -146,6 +151,8 @@ export default async function RootLayout({
 
       </head>
       <body suppressHydrationWarning>
+        <JsonLd data={buildOrganizationJsonLd(getSiteUrl())} />
+        <JsonLd data={buildWebSiteJsonLd(getSiteUrl())} />
         {/* ====== GLOBAL beforeInteractive SCRIPTS — must be in a Server Component (root layout) ====== */}
         <Script src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" strategy="beforeInteractive" />
         <Script src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" strategy="beforeInteractive" />

@@ -9,9 +9,25 @@ if (process.env.S3_BUCKET_NAME) {
   s3Hosts.add(`${process.env.S3_BUCKET_NAME}.s3.${process.env.S3_REGION || "ap-southeast-1"}.amazonaws.com`);
 }
 
+// Baseline browser hardening. CSP is intentionally not set: the Elementor/WordPress scripts and inline
+// bootstrap code would need a long allowlist — add one deliberately (Report-Only first) rather than break pages.
+const securityHeaders = [
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()" },
+  { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
+];
+
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
   experimental: {
     externalDir: true,
+    // app/global-not-found.tsx: branded 404 for URLs matching no route (/a/b/c); [locale]/not-found.tsx covers the rest.
+    globalNotFound: true,
+  },
+  async headers() {
+    return [{ source: "/:path*", headers: securityHeaders }];
   },
   images: {
     remotePatterns: [
