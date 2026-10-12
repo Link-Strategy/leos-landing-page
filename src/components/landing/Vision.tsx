@@ -80,7 +80,7 @@ export default async function Vision() {
   return (
     <section
       className="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat pt-10 lg:h-[800px] lg:pt-[60px]"
-      style={{ backgroundImage: "url('/landing/Virsion/Vision_bg.png')" }}
+      style={{ backgroundImage: "url('/landing/Virsion/Vision_bg.webp')" }}
     >
       <SectionEdgeFade position="top" />
       <SectionEdgeFade position="bottom" />

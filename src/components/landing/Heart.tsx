@@ -91,7 +91,7 @@ export default async function Heart() {
   return (
     <section
       className="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat py-10 lg:h-[650px] lg:py-[60px]"
-      style={{ backgroundImage: "url('/landing/Heart/Heart_bg.png')" }}
+      style={{ backgroundImage: "url('/landing/Heart/Heart_bg.webp')" }}
     >
       <SectionEdgeFade position="top" />
       <SectionEdgeFade position="bottom" />

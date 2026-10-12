@@ -3,6 +3,9 @@
 export type LeadFieldError = { field: string; code: string; message: string };
 
 export type NormalizedLead = {
+  /** Explicit consent to the privacy policy (Decree 13/2023); stored with the time it was given. */
+  consent: true;
+  consent_at: Date;
   name: string;
   email: string;
   phone?: string;
@@ -34,11 +37,23 @@ export function isHoneypotTriggered(data: Record<string, unknown>) {
   return text(data.website) !== "";
 }
 
+function isConsentGiven(value: unknown) {
+  return value === true || value === "true" || value === "on";
+}
+
 export function normalizeLeadInput(
   data: Record<string, unknown>,
-  options: { requirePhone?: boolean } = {},
+  options: { requirePhone?: boolean; now?: Date } = {},
 ): { lead?: NormalizedLead; errors: LeadFieldError[] } {
   const errors: LeadFieldError[] = [];
+
+  if (!isConsentGiven(data.consent)) {
+    errors.push({
+      field: "consent",
+      code: "CONSENT_REQUIRED",
+      message: "Vui lòng đồng ý với Chính sách bảo mật để gửi thông tin",
+    });
+  }
   const name = text(data.name);
   const email = text(data.email);
   const phone = text(data.phone);
@@ -78,6 +93,8 @@ export function normalizeLeadInput(
   return {
     errors,
     lead: {
+      consent: true,
+      consent_at: options.now ?? new Date(),
       name,
       email: email.toLowerCase(),
       phone: phone || undefined,

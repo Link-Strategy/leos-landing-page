@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 import MobileCardCarousel from "@/components/landing/MobileCardCarousel";
 
-const ROADMAP_BG = "/landing/RoadMap/roadmap_bg.png";
+const ROADMAP_BG = "/landing/RoadMap/roadmap_bg.webp";
 
 type Phase = { color: string; borderColor: string; glowColor: string };
 
@@ -195,7 +195,7 @@ export default async function RoadMap() {
       <SectionEdgeFade position="top" />
       <SectionEdgeFade position="bottom" />
 
-      {/* Desktop: absolute zigzag composition tied to the trajectory line baked into roadmap_bg.png */}
+      {/* Desktop: absolute zigzag composition tied to the trajectory line baked into roadmap_bg.webp */}
       <div
         className="relative hidden aspect-[1440/960] w-full bg-cover bg-center bg-no-repeat lg:block"
         style={{ backgroundImage: `url('${ROADMAP_BG}')` }}

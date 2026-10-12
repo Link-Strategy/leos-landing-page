@@ -13,11 +13,20 @@ export function getSiteUrl() {
   ).replace(/\/+$/, "");
 }
 
+/**
+ * Canonical URL of a blog article. Always built from this site's URL + slug: the stored `canonicalUrl`
+ * is ignored because legacy articles carry another project's domain (linkstrategy.io.vn), which would
+ * tell search engines the original lives elsewhere. (validateBlogSyncPayload only accepts this form anyway.)
+ */
+export function getArticleCanonicalUrl(article: Pick<BlogArticle, "slug">) {
+  return `${getSiteUrl()}/blog/${article.slug}`;
+}
+
 export function buildBlogArticleMetadata(article: BlogArticle): Metadata {
   const title = article.seoTitle || article.title;
   const description = article.seoDescription || article.excerpt;
-  const canonical = article.canonicalUrl || `${getSiteUrl()}/blog/${article.slug}`;
-  const image = article.coverImage || "/icon.svg";
+  const canonical = getArticleCanonicalUrl(article);
+  const image = article.coverImage || "/opengraph-image";
 
   return {
     title: `${title} | ${BRAND}`,
@@ -54,11 +63,12 @@ export function buildBlogArticleMetadata(article: BlogArticle): Metadata {
 }
 
 export function buildBlogPostingJsonLd(article: BlogArticle) {
-  const canonical = article.canonicalUrl || `${getSiteUrl()}/blog/${article.slug}`;
+  const canonical = getArticleCanonicalUrl(article);
 
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    mainEntityOfPage: canonical,
     headline: article.seoTitle || article.title,
     description: article.seoDescription || article.excerpt,
     url: canonical,

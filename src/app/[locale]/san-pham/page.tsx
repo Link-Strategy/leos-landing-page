@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import SanPhamPage from "@/components/products/SanPhamPage";
 import { localeAlternates } from "@/lib/seo-alternates";
+import { setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata({
   params,
@@ -14,6 +15,13 @@ export async function generateMetadata({
   return { title: t("metaTitle"), alternates: localeAlternates(locale, "/san-pham") };
 }
 
-export default function SanPham() {
+export default async function SanPham({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  // Without this, next-intl reads request headers and Next renders the page per request (no CDN cache).
+  const { locale } = await params;
+  setRequestLocale(locale);
   return <SanPhamPage />;
 }

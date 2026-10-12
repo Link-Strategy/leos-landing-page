@@ -50,7 +50,7 @@ export default async function PartnerShowcase() {
   return (
     <section
       className="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/landing/Partners/Partner_bg.png')" }}
+      style={{ backgroundImage: "url('/landing/Partners/Partner_bg.webp')" }}
     >
       <SectionEdgeFade position="top" />
       <SectionEdgeFade position="bottom" />

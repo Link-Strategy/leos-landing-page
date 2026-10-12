@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
+import ConsentCheckbox from "@/components/legal/ConsentCheckbox";
 
 const fieldWrapperStyle = {
   backgroundImage: "linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.0576) 100%)",
@@ -57,6 +58,7 @@ export function LeadForm({
           phone: formData.get("phone") || undefined,
           message: formData.get("message") || undefined,
           website: formData.get("website") || undefined,
+          consent: formData.get("consent") === "on",
           source: source || "landing",
           lead_type: lead_type || "contact",
         }),
@@ -122,6 +124,8 @@ export function LeadForm({
           style={fieldInnerStyle}
         />
       </div>
+
+      <ConsentCheckbox id="lead-consent" />
 
       {error ? <p className="text-sm leading-6 text-red-200">{error}</p> : null}
 

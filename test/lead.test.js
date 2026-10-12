@@ -10,6 +10,7 @@ import { escapeTelegramHtml, formatLeadMessage } from "../src/lib/notify/telegra
 describe("normalizeLeadInput", () => {
   it("accepts a valid lead and normalizes it", () => {
     const { lead, errors } = normalizeLeadInput({
+      consent: true,
       name: "  Nguyễn Văn A ",
       email: "A@Example.com",
       phone: "0912 345 678",
@@ -23,20 +24,41 @@ describe("normalizeLeadInput", () => {
   });
 
   it("rejects short name, bad email and bad phone", () => {
-    const { lead, errors } = normalizeLeadInput({ name: "A", email: "nope", phone: "12ab" });
+    const { lead, errors } = normalizeLeadInput({ consent: true, name: "A", email: "nope", phone: "12ab" });
     assert.equal(lead, undefined);
     assert.deepEqual(errors.map((e) => e.code).sort(), ["INVALID_EMAIL", "INVALID_PHONE", "NAME_TOO_SHORT"]);
   });
 
   it("requires phone only when asked", () => {
-    assert.equal(normalizeLeadInput({ name: "Anh", email: "a@b.vn" }).errors.length, 0);
-    const { errors } = normalizeLeadInput({ name: "Anh", email: "a@b.vn" }, { requirePhone: true });
+    assert.equal(normalizeLeadInput({ consent: true, name: "Anh", email: "a@b.vn" }).errors.length, 0);
+    const { errors } = normalizeLeadInput({ consent: true, name: "Anh", email: "a@b.vn" }, { requirePhone: true });
     assert.equal(errors[0].code, "PHONE_REQUIRED");
   });
 
   it("enforces length limits", () => {
-    const { errors } = normalizeLeadInput({ name: "x".repeat(101), email: "a@b.vn", message: "m".repeat(3001) });
+    const { errors } = normalizeLeadInput({ consent: true, name: "x".repeat(101), email: "a@b.vn", message: "m".repeat(3001) });
     assert.deepEqual(errors.map((e) => e.code).sort(), ["MESSAGE_TOO_LONG", "NAME_TOO_LONG"]);
+  });
+});
+
+describe("privacy consent", () => {
+  const base = { name: "Anh", email: "a@b.vn" };
+
+  it("is required and reported as its own field error", () => {
+    for (const consent of [undefined, false, "", "no", 0]) {
+      const { lead, errors } = normalizeLeadInput({ ...base, consent });
+      assert.equal(lead, undefined);
+      assert.deepEqual(errors.map((e) => e.code), ["CONSENT_REQUIRED"]);
+    }
+  });
+
+  it("accepts true / 'true' / 'on' (checkbox) and records when it was given", () => {
+    const now = new Date("2026-10-12T10:00:00Z");
+    for (const consent of [true, "true", "on"]) {
+      const { lead } = normalizeLeadInput({ ...base, consent }, { now });
+      assert.equal(lead.consent, true);
+      assert.equal(lead.consent_at.toISOString(), "2026-10-12T10:00:00.000Z");
+    }
   });
 });
 
