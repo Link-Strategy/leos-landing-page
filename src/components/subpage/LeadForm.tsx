@@ -9,9 +9,10 @@ const fieldWrapperStyle = {
 };
 
 const fieldInnerStyle = {
-  backgroundImage: "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(235,247,255,0.05) 100%)",
+  // Second layer replaces the brightness the old nested blur used to add (fields have no backdrop-filter now).
+  backgroundImage:
+    "linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(235,247,255,0.05) 100%), linear-gradient(rgba(127,176,238,0.3), rgba(127,176,238,0.3))",
   boxShadow: "inset 0 2px 16px 0 rgba(0,149,255,0.26)",
-  backdropFilter: "blur(26px)",
 };
 
 const inputClass =

@@ -4,7 +4,6 @@ import { Link } from "@/i18n/navigation";
 
 import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
 import { LeadForm } from "@/components/subpage/LeadForm";
-import GlowBorder from "@/components/ui/glow-border";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
@@ -52,14 +51,13 @@ export default function ContactPage() {
         {/* Form + thông tin liên hệ */}
         <section className="container-le py-16">
           <div
-            className="relative isolate overflow-hidden rounded-[20px] bg-no-repeat shadow-[0px_2px_20px_0px_rgba(12,178,255,0.12)] backdrop-blur-[36px]"
+            className="relative isolate overflow-hidden rounded-[20px] border border-white/15 bg-no-repeat shadow-[0px_2px_20px_0px_rgba(12,178,255,0.12)]"
             style={{
               backgroundImage: "url('/wp-content/uploads/2026/05/bg-color-1.png')",
               backgroundSize: "cover",
               backgroundPosition: "20% 0%",
             }}
           >
-            <GlowBorder radius={20} />
 
             {/* Lớp dưới cùng: ảnh bản đồ, phủ toàn bộ khung — chỉ áp dụng ở desktop (mobile bố cục dọc nên tách riêng theo từng khối) */}
             <Image

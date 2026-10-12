@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import GlowBorder from "@/components/ui/glow-border";
 
 export default async function LeOsAi() {
   const t = await getTranslations("leosAi");
@@ -10,15 +9,13 @@ export default async function LeOsAi() {
     <section className="relative py-16 md:py-20 lg:py-24 bg-transparent overflow-hidden">
       <div className="container-le">
         <div
-          className="relative rounded-[20px] backdrop-blur-[36px] shadow-[0px_2px_20px_0px_rgba(12,178,255,0.12)] overflow-hidden bg-no-repeat"
+          className="relative rounded-[20px] border border-white/15 shadow-[0px_2px_20px_0px_rgba(12,178,255,0.12)] overflow-hidden bg-no-repeat"
           style={{
             backgroundImage: "url('/wp-content/uploads/2026/05/bg-color-1.png')",
             backgroundSize: "cover",
             backgroundPosition: "55% 0%",
           }}
         >
-          {/* Gradient border ring (SVG stroke — transparent center, no mask compositing) */}
-          <GlowBorder radius={20} />
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
             {/* Left Column: Text & App Download */}
             <div className="p-5 md:p-[30px] lg:pt-10 lg:pb-10 lg:px-[60px] space-y-8">
