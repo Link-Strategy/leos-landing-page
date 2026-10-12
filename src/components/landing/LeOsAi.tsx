@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import GlowBorder from "@/components/ui/glow-border";
 
 export default async function LeOsAi() {
   const t = await getTranslations("leosAi");
@@ -16,11 +17,8 @@ export default async function LeOsAi() {
             backgroundPosition: "55% 0%",
           }}
         >
-          {/* Gradient border ring — masked so the transparent center is untouched (no leak into the card background) */}
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-[inherit] p-px leosai-glow-border-span"
-          />
+          {/* Gradient border ring (SVG stroke — transparent center, no mask compositing) */}
+          <GlowBorder radius={20} />
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
             {/* Left Column: Text & App Download */}
             <div className="p-5 md:p-[30px] lg:pt-10 lg:pb-10 lg:px-[60px] space-y-8">

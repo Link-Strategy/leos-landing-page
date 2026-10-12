@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 
 import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
 import { LeadForm } from "@/components/subpage/LeadForm";
+import GlowBorder from "@/components/ui/glow-border";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
@@ -58,10 +59,7 @@ export default function ContactPage() {
               backgroundPosition: "20% 0%",
             }}
           >
-            <span
-              aria-hidden="true"
-              className="leosai-glow-border-span pointer-events-none absolute inset-0 rounded-[inherit] p-px"
-            />
+            <GlowBorder radius={20} />
 
             {/* Lớp dưới cùng: ảnh bản đồ, phủ toàn bộ khung — chỉ áp dụng ở desktop (mobile bố cục dọc nên tách riêng theo từng khối) */}
             <Image

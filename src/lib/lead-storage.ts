@@ -1,6 +1,6 @@
 import { getBlogDb } from "./mongodb";
 import { normalizeLeadInput, type LeadFieldError, type NormalizedLead } from "./lead-validation";
-import { createRateLimiter } from "./rate-limit";
+import { checkRateLimit } from "./rate-limit-db";
 
 export interface Lead extends NormalizedLead {
   cv_key?: string;
@@ -16,8 +16,10 @@ export interface LeadResult {
   fields?: LeadFieldError[];
 }
 
-/** Shared by /api/contact and /api/apply: 5 submissions per IP per 10 minutes. */
-export const leadRateLimiter = createRateLimiter({ limit: 5, windowMs: 10 * 60 * 1000 });
+/** Shared by /api/contact and /api/apply: 5 submissions per IP per 10 minutes (counted in MongoDB). */
+export function checkLeadRateLimit(ip: string) {
+  return checkRateLimit("lead", ip, { limit: 5, windowMs: 10 * 60 * 1000 });
+}
 
 export async function saveLead(
   data: Record<string, unknown>,

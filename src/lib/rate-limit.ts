@@ -1,5 +1,5 @@
-// In-memory sliding-window rate limiter. Per server instance only — good enough to blunt form spam;
-// switch to a shared store (e.g. Upstash Redis) if the site runs on many instances.
+// Rate limiting. `createRateLimiter` is in-memory (per server instance) and only used as a fallback;
+// `consumeFixedWindow` is the shared, database-backed counter (see rate-limit-db.ts).
 
 export function createRateLimiter({ limit, windowMs }: { limit: number; windowMs: number }) {
   const hits = new Map<string, number[]>();
@@ -35,4 +35,34 @@ export function getClientIp(headers: Headers) {
     headers.get("x-real-ip")?.trim() ||
     "unknown"
   );
+}
+
+/** The one collection method the shared counter needs (keeps this module free of the mongodb driver). */
+export type CounterCollection = {
+  findOneAndUpdate(
+    filter: { _id: string },
+    update: { $inc: { count: number }; $setOnInsert: { expireAt: Date } },
+    options: { upsert: true; returnDocument: "after" },
+  ): Promise<{ count?: number } | null>;
+};
+
+/**
+ * Fixed-window counter shared across serverless instances. One atomic upsert per request:
+ * `_id = key:windowStart`, with `expireAt` so a TTL index cleans old windows up.
+ */
+export async function consumeFixedWindow(
+  collection: CounterCollection,
+  key: string,
+  { limit, windowMs }: { limit: number; windowMs: number },
+  now = Date.now(),
+) {
+  const windowStart = Math.floor(now / windowMs) * windowMs;
+  const doc = await collection.findOneAndUpdate(
+    { _id: `${key}:${windowStart}` },
+    { $inc: { count: 1 }, $setOnInsert: { expireAt: new Date(windowStart + windowMs * 2) } },
+    { upsert: true, returnDocument: "after" },
+  );
+
+  const allowed = (doc?.count ?? 1) <= limit;
+  return { allowed, retryAfterSec: allowed ? 0 : Math.ceil((windowStart + windowMs - now) / 1000) };
 }

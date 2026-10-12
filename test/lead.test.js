@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 
 // Alias-free TS modules: Node 22.18+ strips types on import.
 import { isHoneypotTriggered, normalizeLeadInput } from "../src/lib/lead-validation.ts";
-import { createRateLimiter, getClientIp } from "../src/lib/rate-limit.ts";
+import { consumeFixedWindow, createRateLimiter, getClientIp } from "../src/lib/rate-limit.ts";
 import { buildCvKey, detectCvType, sanitizeFileName } from "../src/lib/cv-file.ts";
 import { escapeTelegramHtml, formatLeadMessage } from "../src/lib/notify/telegram.ts";
 
@@ -85,6 +85,53 @@ describe("createRateLimiter", () => {
   it("reads the first forwarded IP", () => {
     assert.equal(getClientIp(new Headers({ "x-forwarded-for": "1.2.3.4, 10.0.0.1" })), "1.2.3.4");
     assert.equal(getClientIp(new Headers()), "unknown");
+  });
+});
+
+describe("consumeFixedWindow (shared counter)", () => {
+  // Fake of the one MongoDB call used: atomic upsert + $inc, returning the document after the update.
+  function fakeCollection() {
+    const docs = new Map();
+    return {
+      docs,
+      async findOneAndUpdate({ _id }, update) {
+        const doc = docs.get(_id) ?? { _id, count: 0, ...update.$setOnInsert };
+        doc.count += update.$inc.count;
+        docs.set(_id, doc);
+        return { ...doc };
+      },
+    };
+  }
+  const options = { limit: 3, windowMs: 1000 };
+
+  it("allows up to the limit, then blocks with a retry-after", async () => {
+    const col = fakeCollection();
+    const results = [];
+    for (let i = 0; i < 5; i++) results.push(await consumeFixedWindow(col, "lead:abc", options, 10_250));
+    assert.deepEqual(results.map((r) => r.allowed), [true, true, true, false, false]);
+    assert.equal(results[3].retryAfterSec, 1);
+  });
+
+  it("is shared: two 'instances' using the same collection see one counter", async () => {
+    const col = fakeCollection();
+    await consumeFixedWindow(col, "lead:abc", options, 5_000);
+    await consumeFixedWindow(col, "lead:abc", options, 5_100);
+    await consumeFixedWindow(col, "lead:abc", options, 5_200);
+    assert.equal((await consumeFixedWindow(col, "lead:abc", options, 5_300)).allowed, false);
+  });
+
+  it("resets in the next window and keeps keys independent", async () => {
+    const col = fakeCollection();
+    for (let i = 0; i < 4; i++) await consumeFixedWindow(col, "lead:abc", options, 5_000);
+    assert.equal((await consumeFixedWindow(col, "lead:abc", options, 6_000)).allowed, true);
+    assert.equal((await consumeFixedWindow(col, "lead:other", options, 5_000)).allowed, true);
+  });
+
+  it("sets an expiry so the TTL index can clean old windows", async () => {
+    const col = fakeCollection();
+    await consumeFixedWindow(col, "lead:abc", options, 5_500);
+    const [doc] = [...col.docs.values()];
+    assert.equal(doc.expireAt.getTime(), 5_000 + 2_000);
   });
 });
 
