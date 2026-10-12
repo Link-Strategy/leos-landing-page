@@ -29,7 +29,8 @@ export function buildBlogArticleMetadata(article: BlogArticle): Metadata {
   const image = article.coverImage || "/opengraph-image";
 
   return {
-    title: `${title} | ${BRAND}`,
+    // The root layout title template already appends the brand; titles that carry it are used as-is.
+    title: /letron/i.test(title) ? { absolute: title } : title,
     description,
     alternates: {
       canonical,

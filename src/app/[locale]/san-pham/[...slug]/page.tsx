@@ -21,7 +21,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "products" });
   // Duplicate WordPress slugs (e.g. ledb-bo-nao-so, -2) declare the product's canonical slug.
   return {
-    title: `${t(`items.${productId}.title`)} - LeTRON`,
+    title: t(`items.${productId}.title`),
     alternates: localeAlternates(locale, `/san-pham/${CANONICAL_PRODUCT_SLUGS[productId]}`),
   };
 }

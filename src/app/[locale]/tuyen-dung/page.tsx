@@ -10,7 +10,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   return {
-    title: "Tuyển dụng - LeTRON",
+    title: "Tuyển dụng",
     description: "Khám phá các cơ hội nghề nghiệp hấp dẫn tại LeTRON. Gia nhập đội ngũ kiến tạo công nghiệp xanh và tương lai Net Zero.",
     alternates: localeAlternates(locale, "/tuyen-dung"),
   };

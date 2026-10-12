@@ -54,7 +54,7 @@ export async function generateMetadata({
   return {
     title: {
       default: t("title"),
-      template: "%s | LeTRON",
+      template: "%s | LeTRON Group",
     },
     description: t("description"),
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL?.trim() || process.env.APP_URL?.trim() || "https://letrongroup.com"),

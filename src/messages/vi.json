@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "LeTRON - Công nghệ xanh, Vận hành thông minh",
-    "description": "Giải pháp công nghệ chuyển hóa rác thải và vật liệu xây dựng xanh hàng đầu Việt Nam."
+    "title": "LeTRON Group - Công nghệ xanh, Vận hành thông minh",
+    "description": "LeTRON Group (Tập đoàn LeTRON, Uông Bí, Quảng Ninh): giải pháp công nghệ chuyển hóa rác thải thành tài nguyên và vật liệu xây dựng xanh hàng đầu Việt Nam."
   },
   "header": {
     "nav": {
@@ -478,7 +478,7 @@
     "dateMonthPrefix": "THÁNG"
   },
   "productsPage": {
-    "metaTitle": "Sản phẩm - LeTRON",
+    "metaTitle": "Sản phẩm công nghệ xanh",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Sản phẩm",
     "heroTitlePrefix": "Sản phẩm ",
@@ -613,7 +613,7 @@
     "spiritText": "LeTRON kết nối tri thức toàn cầu để giải quyết những bài toán lớn của thế giới, nhưng luôn bắt đầu từ trách nhiệm với chính nơi mình thuộc về."
   },
   "about": {
-    "metaTitle": "Giới thiệu - LeTRON",
+    "metaTitle": "Giới thiệu tập đoàn công nghệ xanh",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Giới thiệu",
     "heroTitlePrefix": "Giới thiệu ",
@@ -645,7 +645,7 @@
     "leadershipHeading": "Ban lãnh đạo"
   },
   "contact": {
-    "metaTitle": "Liên hệ - LeTRON",
+    "metaTitle": "Liên hệ",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Liên hệ",
     "heroTitlePrefix": "Kết nối với ",
