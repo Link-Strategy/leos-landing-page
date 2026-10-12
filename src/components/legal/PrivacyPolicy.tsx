@@ -33,7 +33,7 @@ const CONTENT: Record<"vi" | "en", { title: string; intro: string; updatedLabel:
         items: [
           "Thông tin form được lưu trong cơ sở dữ liệu MongoDB của LeTRON.",
           "Tệp CV được lưu ở dạng riêng tư trên Amazon S3; chỉ nhân sự phụ trách tuyển dụng nhận được liên kết tải có thời hạn 7 ngày.",
-          "Khi có yêu cầu mới, LeTRON gửi thông báo nội bộ qua email và Telegram tới bộ phận kinh doanh hoặc nhân sự.",
+          "Khi có yêu cầu mới, LeTRON có thể gửi thông báo nội bộ (qua email hoặc ứng dụng nhắn tin nội bộ như Telegram) tới bộ phận kinh doanh hoặc nhân sự.",
           "Website được vận hành trên hạ tầng Vercel.",
         ],
       },
@@ -88,7 +88,7 @@ const CONTENT: Record<"vi" | "en", { title: string; intro: string; updatedLabel:
         items: [
           "Form submissions are stored in LeTRON's MongoDB database.",
           "CV files are stored privately on Amazon S3; only the recruiting staff receive a download link, which expires after 7 days.",
-          "For each new request LeTRON sends an internal notification by email and Telegram to the sales or HR team.",
+          "For each new request LeTRON may send an internal notification (by email or an internal messaging app such as Telegram) to the sales or HR team.",
           "The website runs on Vercel infrastructure.",
         ],
       },
