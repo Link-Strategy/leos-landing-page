@@ -136,21 +136,10 @@ export default function SanPhamPage() {
           >
             {faqItems.map((item, index) => (
               <AccordionItem
-                className="relative isolate cursor-pointer overflow-hidden rounded-[20px] border-b-0 bg-[#0D1B4B14] shadow-[0px_2px_20px_0px_#0CB2FF1F] backdrop-blur-[36px] transition-colors duration-300 hover:bg-[#17479C42] data-[state=open]:bg-[#17479C42]"
+                className="relative isolate cursor-pointer overflow-hidden rounded-[20px] bg-[#0D1B4B14] shadow-[0px_2px_20px_0px_#0CB2FF1F] border border-white/25 transition-colors duration-300 hover:bg-[#17479C42] data-[state=open]:bg-[#17479C42]"
                 key={item.question}
                 value={`item-${index}`}
               >
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 rounded-[inherit] p-px"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, rgba(255,255,255,0.2376) 0%, rgba(255,255,255,0) 37.02%, rgba(215,229,255,0.594) 68.51%, rgba(174,203,255,0.66) 100%)",
-                    WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                    WebkitMaskComposite: "xor",
-                    maskComposite: "exclude",
-                  }}
-                />
                 <AccordionTrigger className="relative w-full cursor-pointer px-6 py-5 text-base sm:px-[41px] sm:py-[29px] sm:text-lg">
                   {item.question}
                 </AccordionTrigger>

@@ -8,33 +8,18 @@ import SectionEdgeFade from "@/components/ui/section-edge-fade";
 const PARTNER_LOGO = "/landing/Partners/saokim.png";
 const partnerLogos = Array(6).fill(PARTNER_LOGO);
 
-// Same border-gradient mask technique as TechArchitecture's CoreTechCircle —
-// border-image ignores border-radius, so the ring is painted as a masked overlay instead.
-const CARD_BORDER_GRADIENT =
-  "linear-gradient(154.46deg, #FFFFFF -24.6%, rgba(255,255,255,0) 29.84%, #FFFFFF 51.76%, rgba(255,255,255,0) 66.9%, #FFFFFF 121.94%)";
-
 // Mobile width is viewport-based (not %) so it still resolves correctly inside the
 // marquee row, whose own width is intrinsic (w-max) and can't be a sizing reference.
 // container-le's mobile padding is 20px/side + gap-2 (8px) x2 between 3 cards = 56px.
 function PartnerCard({ logo, alt }: { logo: string; alt: string }) {
   return (
     <div
-      className="relative flex aspect-[236/132] w-[calc((100vw-56px)/3)] shrink-0 items-center justify-center rounded-[12px] p-2 backdrop-blur-[3.1px] lg:aspect-auto lg:h-[132px] lg:w-[236px] lg:rounded-[20px] lg:p-7 lg:backdrop-blur-[1.55px]"
+      className="relative flex aspect-[236/132] w-[calc((100vw-56px)/3)] shrink-0 items-center justify-center rounded-[12px] border border-white/30 p-2 lg:aspect-auto lg:h-[132px] lg:w-[236px] lg:rounded-[20px] lg:p-7"
       style={{
         background: "#13256333", 
         boxShadow: "0px 0px 24px 0px #0073FF2E",
       }}
     >
-      <div
-        className="absolute inset-0 rounded-[12px] lg:rounded-[20px]"
-        style={{
-          padding: 1,
-          background: CARD_BORDER_GRADIENT,
-          WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-          WebkitMaskComposite: "xor",
-          maskComposite: "exclude",
-        }}
-      />
       <div className="relative z-10 h-full w-full">
         <Image src={logo} alt={alt} fill className="object-contain" />
       </div>

@@ -6,11 +6,6 @@ import MobileCardCarousel from "@/components/landing/MobileCardCarousel";
 import MasterButton from "@/components/ui/master-button";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 
-// Same mask/xor ring technique as Heart.tsx — border-image ignores border-radius
-// on its corner tiles, which is wrong for a rounded card.
-const CARD_BORDER_GRADIENT =
-  "linear-gradient(149.38deg, rgba(255,255,255,0) -25.01%, rgba(255,255,255,0) -0.8%, #FFFFFF 21.06%, rgba(255,255,255,0) 58.91%, #FFFFFF 74.11%, rgba(255,255,255,0) 102.64%)";
-
 type FooterType = "price" | "kwh" | "contact";
 
 type ServiceCardData = {
@@ -98,19 +93,9 @@ function ServiceCard({
   contactQuote: string;
 }) {
   return (
-    <div className="group relative w-full rounded-[20px] shadow-[0px_6px_8px_0px_#86BFEE4D] backdrop-blur-[35px] lg:h-[240px]">
+    <div className="group relative w-full rounded-[20px] shadow-[0px_6px_8px_0px_#86BFEE4D] lg:h-[240px]">
       {/* Default state: translucent glass card with a diagonal gradient ring border */}
-      <div className="absolute inset-0 rounded-[20px] bg-[#FFFFFF1A] transition-opacity duration-300 group-hover:opacity-0">
-        <div
-          className="absolute inset-0 rounded-[20px]"
-          style={{
-            padding: 1,
-            background: CARD_BORDER_GRADIENT,
-            WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-            WebkitMaskComposite: "xor",
-            maskComposite: "exclude",
-          }}
-        />
+      <div className="absolute inset-0 rounded-[20px] border border-white/30 bg-[#FFFFFF1A] transition-opacity duration-300 group-hover:opacity-0">
       </div>
       {/* Hover state: same glass background, only the border color switches to the card's own color */}
       <div

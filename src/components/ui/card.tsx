@@ -10,23 +10,13 @@ const cardCss = `
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 1px;
-  background: var(--card-glass-border-background, linear-gradient(180deg, #2a9fff33 36%, rgba(119, 194, 255, 0.16) 100%));
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  transition: background 0.35s ease;
+  border: 1px solid var(--card-glass-border-color, rgba(119, 194, 255, 0.24));
+  transition: border-color 0.35s ease;
 }
 
 .letron-card-glass:hover > .letron-card-glass-border {
-  background: linear-gradient(180deg, rgb(255 255 255 / 60%) 0%, var(--card-glass-hover-border, var(--card-glass-hover-bg, rgba(42, 159, 255, 0.36))) 12%, var(--card-glass-hover-border, var(--card-glass-hover-bg, rgba(42, 159, 255, 0.36))) 50%, var(--card-glass-hover-border, var(--card-glass-hover-bg, rgba(42, 159, 255, 0.36))) 88%, rgb(255 255 255 / 60%) 100%);
+  border-color: var(--card-glass-hover-border, var(--card-glass-hover-bg, rgba(42, 159, 255, 0.5)));
 }
-
 `;
 
 const cardVariants = cva(
