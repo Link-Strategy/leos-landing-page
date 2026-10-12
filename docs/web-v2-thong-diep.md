@@ -1,6 +1,15 @@
 # Thông điệp thiết kế V2 (`D:\BusinessAnalyze\Letron\web`) so với landing page
 
-Nguồn V2: `web/content.js`, `web/README.txt`, `web/Copy_VI_Review.json` (ngày 03/10/2026, "Bản đề xuất VI; EN chờ bản dịch duyệt"). Gói V2 ghi rõ **chưa được công bố**, nên mọi mục dưới đây là đề xuất, chưa áp dụng lên site.
+Nguồn V2: `web/content.js`, `web/README.txt`, `web/Copy_VI_Review.json` (ngày 03/10/2026, "Bản đề xuất VI; EN chờ bản dịch duyệt"). Gói V2 ghi rõ **chưa được công bố**. Ngày 13/10/2026 chủ dự án yêu cầu: *chỗ nào V2 thay thế thì áp dụng, chỗ nào V2 không mâu thuẫn thì giữ nguyên*. Phần đã áp dụng nằm ở mục 0.
+
+## 0. Đã áp dụng (13/10/2026)
+Chỉ thay những chỗ V2 có nội dung tương ứng, cả `vi.json` và `en.json` (bản EN là bản dịch của tôi, **chưa được Văn phòng Chủ tịch duyệt**):
+- **Hero trang chủ** (`hero`): tiêu đề "Tự chủ vận hành. / Trong tầm kiểm soát.", phụ đề "Hạ tầng chứng thực tại nguồn và kiểm soát tự chủ.", ba ý (Biết dữ liệu đến từ đâu / Tự chủ trong giới hạn / Kết quả có thể đối soát), mô tả, ba thẻ cuối hero (Tin cậy · Kiểm soát · Trách nhiệm). Giữ nguyên: dòng địa chỉ, hai nút CTA.
+- **H.E.A.R.T** ở cả ba nơi (`heart`, `aboutHeartValues`, `heartTab`): Humanity · Evidence · Accountability · Resilience · Truthfulness. Icon giữ file cũ (`respect.svg` nay đi với A, `action.svg` với R) nên cần thay icon khi có bộ mới.
+- **Giới thiệu** (`about.heroDescription`), **Liên hệ** (tiêu đề "Cùng xác định kết quả cần đạt" và dòng dẫn; không đưa cam kết "2 ngày làm việc"), **trang 404** (cả hai file), **title/description** trang chủ và tiêu đề các trang Về LeTRON / Giải pháp và sản phẩm.
+- **Giữ nguyên** vì V2 không có nội dung tương ứng: sứ mệnh/tầm nhìn (còn nhắc "Mạng lưới Biên tri giác"), 6 trụ cột và 6 sản phẩm công ty con, mô hình HaaS/SaaS/CaaS/AaaS, kiến trúc công nghệ, chính sách bảo mật, LETRON WAY.
+- **Không thêm** khối mới (nguyên tắc, quy trình 5 bước, lĩnh vực) và 8 sản phẩm V2 vì chưa có ảnh/trang.
+
 
 ## 1. Thay đổi lớn về định vị
 
@@ -38,10 +47,10 @@ Nguồn V2: `web/content.js`, `web/README.txt`, `web/Copy_VI_Review.json` (ngày
 - Trạng thái phát triển từng sản phẩm.
 - Hình và câu chữ công bố. Hai ảnh nhà máy/thành phố trong V2 chỉ là minh họa tạo mới, không phải công trình thật; ảnh robot Le-ORION là thiết kế ngoại thất.
 
-## 4. Đề xuất thứ tự áp dụng
-1. Chốt định vị và khẩu hiệu (mục 1) — quyết định của Chủ tịch.
-2. Chốt một bộ H.E.A.R.T duy nhất; sửa `heart`, `aboutHeartValues`, `heartTab` trong cả `vi.json` và `en.json`.
-3. Thay hero trang chủ (khối nhỏ, thay chữ trong `hero`).
+## 4. Còn lại để làm
+1. Sứ mệnh/tầm nhìn còn nhắc "Mạng lưới Biên tri giác" trong khi hero đã đổi định vị: quyết định giữ hay viết lại.
+2. Duyệt bản EN (mục 0).
+3. Thay icon H.E.A.R.T cho khớp nghĩa mới.
 4. Thêm ba khối mới lên trang chủ: nguyên tắc, quy trình 5 bước, lĩnh vực.
 5. Viết lại danh sách sản phẩm sau khi có ảnh và trạng thái; mỗi sản phẩm mới cần trang riêng (`src/lib/products.ts`, `public/landing/san-pham/`).
 6. Dịch EN và gửi duyệt.
