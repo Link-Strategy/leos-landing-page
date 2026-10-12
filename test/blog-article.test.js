@@ -1,7 +1,8 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 
-import { assetToBlogPayload, deriveExcerpt, BLOG_SLUG_PATTERN } from "../.agents/tools/ls-post/lib/blog-article.mjs";
+import { assetToBlogPayload, deriveExcerpt, BLOG_SLUG_PATTERN } from "../src/lib/blog/asset-to-article.mjs";
+import { validateBlogSyncPayload } from "../src/lib/blog/validation.ts";
 
 describe("assetToBlogPayload", () => {
   const now = new Date("2026-10-12T00:00:00Z");
@@ -56,5 +57,23 @@ describe("BLOG_SLUG_PATTERN", () => {
     assert.ok(BLOG_SLUG_PATTERN.test("kinh-te-tuan-hoan"));
     assert.ok(!BLOG_SLUG_PATTERN.test("Kinh-Tế"));
     assert.ok(!BLOG_SLUG_PATTERN.test("-bad-"));
+  });
+});
+
+describe("asset -> article end-to-end validation", () => {
+  it("a realistic ls-post blog asset passes the server validator (scheduled + CLI publish)", () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "https://letrongroup.com";
+    const asset = {
+      _id: { toString: () => "6650a1b2c3d4e5f601234567" },
+      platform: "blog",
+      title: "Kinh tế tuần hoàn trong ngành vật liệu xây dựng",
+      body: "Chất thải công nghiệp là tài nguyên bị đặt sai chỗ trong chuỗi giá trị vật liệu xây dựng.\n\n" + "Nội dung chi tiết. ".repeat(20),
+      publish_at: "2026-10-01T00:00:00Z",
+      platform_metadata: { slug: "kinh-te-tuan-hoan-vat-lieu", category: "Công nghệ xanh", tags: ["esg"] },
+    };
+    const result = validateBlogSyncPayload(assetToBlogPayload(asset, new Date("2026-10-12T00:00:00Z")));
+    assert.equal(result.success, true, JSON.stringify(result.errors));
+    assert.equal(result.normalized.status, "published");
+    assert.equal(result.canonicalUrl, "https://letrongroup.com/blog/kinh-te-tuan-hoan-vat-lieu");
   });
 });

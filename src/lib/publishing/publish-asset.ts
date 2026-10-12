@@ -5,6 +5,10 @@ import {
   type PostingPublishRequest,
   type PublishResult,
 } from "./index";
+import { assetToBlogPayload } from "@/lib/blog/asset-to-article.mjs";
+import { revalidateBlogContent } from "@/lib/blog/cache";
+import { upsertBlogArticle } from "@/lib/blog/repository";
+import { validateBlogSyncPayload } from "@/lib/blog/validation";
 
 /** Social platforms a `multi` asset fans out to (mirrors .agents/tools/ls-post/lib/execution.mjs). */
 export const SOCIAL_PLATFORMS: Platform[] = [
@@ -41,6 +45,25 @@ function pickMedia(media: unknown): PostingPublishRequest["media"] {
 export function getAssetPlatforms(asset: PostingAsset): Platform[] {
   if (asset.platform === "multi") return SOCIAL_PLATFORMS;
   return SOCIAL_PLATFORMS.includes(asset.platform as Platform) ? [asset.platform as Platform] : [];
+}
+
+/**
+ * Publish a `platform: "blog"` asset into the `articles` collection (what the blog pages read).
+ * Same mapping and validation as POST /api/blog/articles; never throws.
+ */
+export async function publishBlogAsset(asset: Record<string, unknown>): Promise<PublishResult> {
+  const validation = validateBlogSyncPayload(assetToBlogPayload(asset));
+  if (!validation.success) {
+    return { platform: "blog", status: "failed", error: validation.errors.join("; ") };
+  }
+
+  try {
+    const article = await upsertBlogArticle(validation.normalized);
+    revalidateBlogContent(article.slug);
+    return { platform: "blog", status: "published", permalink: validation.canonicalUrl, publishedAt: new Date() };
+  } catch (error) {
+    return { platform: "blog", status: "failed", error: (error as Error).message };
+  }
 }
 
 export async function publishAssetToPlatform(platform: Platform, asset: PostingAsset): Promise<PublishResult> {

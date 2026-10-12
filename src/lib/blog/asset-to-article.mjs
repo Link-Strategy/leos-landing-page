@@ -1,5 +1,6 @@
-// Map an ls-post blog asset (collection `assets`) to the BlogSyncPayload accepted by
-// POST /api/blog/articles (src/lib/blog/types.ts). Pure — covered by test/blog-article.test.js.
+// Map an ls-post blog asset (collection `assets`) to a BlogSyncPayload (src/lib/blog/types.ts).
+// Plain JS so both the app (QStash scheduled posts) and the ls-post CLI (.agents/) share one copy.
+// Pure — covered by test/blog-article.test.js.
 
 export const BLOG_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 

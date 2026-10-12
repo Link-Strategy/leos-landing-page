@@ -10,7 +10,7 @@ import {
   buildErrorResponse
 } from "./validation.mjs";
 import { scheduleAssetPost, unscheduleAssetPost } from "./qstash.mjs";
-import { BLOG_SLUG_PATTERN, deriveExcerpt } from "./blog-article.mjs";
+import { BLOG_SLUG_PATTERN, deriveExcerpt } from "../../../../src/lib/blog/asset-to-article.mjs";
 
 function isValidObjectIdString(value) {
   return typeof value === "string" && /^[a-fA-F0-9]{24}$/.test(value.trim());
@@ -59,6 +59,36 @@ function checkPlatformLimits(platform, body, cta, errors) {
       message: `LinkedIn content (body + cta) must be under 3000 characters. Current: ${totalLength}`
     });
   }
+  if (platform === "tiktok" && totalLength > 2200) {
+    errors.push({
+      field: "body",
+      code: "TIKTOK_LIMIT_EXCEEDED",
+      message: `TikTok caption (body + cta) must be under 2200 characters. Current: ${totalLength}`
+    });
+  }
+  if (platform === "youtube" && totalLength > 5000) {
+    errors.push({
+      field: "body",
+      code: "YOUTUBE_LIMIT_EXCEEDED",
+      message: `YouTube description (body + cta) must be under 5000 characters. Current: ${totalLength}`
+    });
+  }
+}
+
+/** TikTok and YouTube adapters only publish video; YouTube also needs a title (max 100 chars). */
+function checkVideoPlatformRequirements(normalized, errors) {
+  if (normalized.platform !== "tiktok" && normalized.platform !== "youtube") return;
+  const hasVideo = Array.isArray(normalized.media) && normalized.media.some((m) => m && m.type === "video" && m.url);
+  if (!hasVideo) {
+    errors.push({
+      field: "media",
+      code: "VIDEO_REQUIRED",
+      message: `platform=${normalized.platform} requires a media item with type=video`
+    });
+  }
+  if (normalized.platform === "youtube" && (!isNonEmptyString(normalized.title) || normalized.title.length > 100)) {
+    errors.push({ field: "title", code: "YOUTUBE_TITLE_REQUIRED", message: "platform=youtube requires a title of at most 100 characters" });
+  }
 }
 
 export async function saveAsset(runtime, { db }, rawPayload) {
@@ -106,7 +136,8 @@ export async function saveAsset(runtime, { db }, rawPayload) {
   }
 
   // Enums check
-  const validPlatforms = ["linkedin", "facebook", "threads", "instagram", "blog"];
+  // Must match the app adapters (src/lib/publishing); "multi" fans out to every platform with a configured token.
+  const validPlatforms = ["linkedin", "facebook", "threads", "instagram", "tiktok", "youtube", "zalo", "multi", "blog"];
   const validStatuses = ["draft", "approved", "planned", "published", "failed"];
 
   if (!validPlatforms.includes(normalized.platform)) {
@@ -293,6 +324,7 @@ export async function saveAsset(runtime, { db }, rawPayload) {
   if (isNonEmptyString(normalized.body)) {
     checkPlatformLimits(normalized.platform, normalized.body, normalized.cta, errors);
   }
+  checkVideoPlatformRequirements(normalized, errors);
 
   if (errors.length > 0) {
     return buildErrorResponse({
