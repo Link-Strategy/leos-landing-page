@@ -530,10 +530,3 @@ main {
     margin-bottom: 0.75rem !important;
   }
 }
-
-/* Hero orbit diagram (HeroOrbit.tsx) */
-@keyframes orbit-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
