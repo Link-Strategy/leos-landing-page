@@ -20,11 +20,6 @@ interface GraphResponse<T> {
   data?: T;
 }
 
-interface InsightMetric {
-  name: "impressions" | "reach" | "engagement";
-  values: Array<{ value: number }>;
-}
-
 type MediaStatus = "IN_PROGRESS" | "PENDING" | "FINISHED" | "ERROR" | "UNKNOWN";
 
 /**
@@ -35,7 +30,7 @@ type MediaStatus = "IN_PROGRESS" | "PENDING" | "FINISHED" | "ERROR" | "UNKNOWN";
  */
 export class InstagramPostingAdapter implements PostingAdapter {
   platform = "instagram" as const;
-  private readonly baseUrl = "https://graph.instagram.com/v23.0";
+  private readonly baseUrl = "https://graph.instagram.com/v25.0";
 
   constructor(
     private readonly token: string,
@@ -101,8 +96,9 @@ export class InstagramPostingAdapter implements PostingAdapter {
   /**
    * Get engagement metrics for an Instagram post
    *
-   * Fetches insights from Instagram Graph API.
-   * Available metrics: impressions, reach, engagement, likes, comments, saves
+   * Fetches insights from Instagram Graph API. `impressions` is deprecated for media created after
+   * 2024-07-02 and `engagement` is no longer supported — asking for either fails the whole request.
+   * https://developers.facebook.com/docs/instagram-platform/reference/instagram-media/insights
    */
   async getMetrics(mediaId: string): Promise<any> {
     try {
@@ -111,9 +107,8 @@ export class InstagramPostingAdapter implements PostingAdapter {
         fields: "like_count,comments_count,media_type,timestamp",
       });
 
-      // Get insights (impressions, reach, engagement, saved)
-      // Available metrics depend on media type (image/video)
-      const metrics = ["impressions", "reach", "engagement", "saved"];
+      // Supported for both feed posts and reels
+      const metrics = ["views", "reach", "saved", "shares", "total_interactions"];
       let insightData: any = null;
 
       try {
@@ -136,10 +131,11 @@ export class InstagramPostingAdapter implements PostingAdapter {
       return {
         like_count: basicData.like_count ?? 0,
         comments_count: basicData.comments_count ?? 0,
-        impressions: getInsightValue("impressions"),
+        views: getInsightValue("views"),
         reach: getInsightValue("reach"),
-        engagement: getInsightValue("engagement"),
         saved: getInsightValue("saved"),
+        shares: getInsightValue("shares"),
+        total_interactions: getInsightValue("total_interactions"),
       };
     } catch (error) {
       console.error("[Instagram] getMetrics error:", error);

@@ -28,6 +28,8 @@ export interface PostingPublishRequest {
     type: "image" | "video";
     url: string;
   };
+  /** Every image/video of the asset, in order (media = the first one). Adapters that support albums use it. */
+  mediaItems?: Array<{ type: "image" | "video"; url: string }>;
   article?: {
     url: string;
     title?: string;
@@ -90,7 +92,7 @@ export class PostingPublisherService {
   async publish(
     platform: Platform,
     auth: PlatformEnvAuth,
-    payload: { title?: string; body?: string; media?: PostingPublishRequest["media"]; article?: PostingPublishRequest["article"]; hashtags?: string[]; mentions?: string[] },
+    payload: { title?: string; body?: string; media?: PostingPublishRequest["media"]; mediaItems?: PostingPublishRequest["mediaItems"]; article?: PostingPublishRequest["article"]; hashtags?: string[]; mentions?: string[] },
   ): Promise<PublishResult> {
     try {
       const factory = getPostingAdapterFactory();
@@ -100,6 +102,7 @@ export class PostingPublisherService {
         title: payload.title,
         body: payload.body,
         media: payload.media,
+        mediaItems: payload.mediaItems,
         article: payload.article,
         hashtags: payload.hashtags,
         mentions: payload.mentions,

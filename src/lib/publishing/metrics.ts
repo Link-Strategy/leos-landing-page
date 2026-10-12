@@ -35,9 +35,16 @@ export function normalizePlatformMetrics(platform: string, raw: Raw | null | und
         raw.engagement,
       );
     case "instagram":
+      // `views` replaced the deprecated `impressions`; total_interactions is Instagram's own engagement figure.
       return withEngagement(
-        { views: num(raw.impressions), likes: num(raw.like_count), comments: num(raw.comments_count), shares: null, reach: num(raw.reach) },
-        raw.engagement,
+        {
+          views: num(raw.views ?? raw.impressions),
+          likes: num(raw.like_count),
+          comments: num(raw.comments_count),
+          shares: num(raw.shares),
+          reach: num(raw.reach),
+        },
+        raw.total_interactions,
       );
     case "tiktok":
       return withEngagement(

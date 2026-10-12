@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import { assetToBlogPayload, BLOG_SLUG_PATTERN } from "../../../../src/lib/blog/asset-to-article.mjs";
+import { getPendingTargets, getPublishTargets, mergePublishResults } from "./publish-plan.mjs";
 
 const PLATFORMS = ["linkedin", "facebook", "threads", "instagram", "tiktok", "youtube", "zalo"];
 
@@ -81,47 +82,60 @@ export async function publishAsset(runtime, { db }, assetId) {
   const asset = await collection.findOne({ _id: queryId });
 
   if (!asset) return { ok: false, message: `Asset not found with id: ${assetId}` };
-  if (asset.status === "published") {
-    return { ok: true, message: "Asset is already published", data: { asset_id: assetId, url: asset.url } };
-  }
 
   const now = new Date();
   const isBlog = asset.platform === "blog";
-  const platforms = asset.platform === "multi"
-    ? PLATFORMS
-    : [asset.platform].filter(p => p !== "blog" && p !== "multi");
+  const previousResults = Array.isArray(asset.publish_results) ? asset.publish_results : [];
+  const targets = getPublishTargets(asset, PLATFORMS);
+  // Re-running publish-asset retries only the targets that have not succeeded yet.
+  const pending = getPendingTargets(targets, previousResults);
 
-  const results = [];
-  if (isBlog) {
-    results.push(await publishBlogArticle(asset));
-  }
-  for (const platform of platforms) {
-    results.push(await publishToPlatform(platform, asset));
+  if (asset.status === "published" && pending.length === 0) {
+    return { ok: true, message: "Asset is already published on every target", data: { asset_id: assetId, url: asset.url } };
   }
 
-  // Nothing went out → keep current status so it can be retried
-  if (results.length > 0 && !results.some(r => r.ok)) {
+  const newResults = [];
+  for (const target of pending) {
+    newResults.push(target === "blog" ? await publishBlogArticle(asset) : await publishToPlatform(target, asset));
+  }
+  const results = mergePublishResults(previousResults, newResults);
+  const succeeded = results.filter((r) => r.ok);
+
+  // Nothing has gone out yet → keep current status so it can be retried
+  if (succeeded.length === 0) {
     await collection.updateOne({ _id: queryId }, { $set: { publish_results: results, updated_at: now } });
     return {
       ok: false,
-      message: `Publish failed on all ${results.length} target(s); asset status left as "${asset.status}"`,
+      message: `Publish failed on all ${targets.length} target(s); asset status left as "${asset.status}"`,
       data: { asset_id: assetId, platform: asset.platform, platforms: results },
     };
   }
 
-  const url = results.find(r => r.ok && r.url)?.url || results.find(r => r.ok && r.permalink)?.permalink || null;
+  const url = succeeded.find((r) => r.url)?.url || succeeded.find((r) => r.permalink)?.permalink || asset.url || null;
+  const failed = results.filter((r) => !r.ok).map((r) => r.platform);
   await collection.updateOne(
     { _id: queryId },
-    { $set: { status: "published", published_at: now, url, updated_at: now, publish_results: results } },
+    {
+      $set: {
+        status: "published",
+        published_at: asset.published_at || now,
+        url,
+        updated_at: now,
+        publish_results: results,
+        failed_platforms: failed,
+      },
+    },
   );
 
   // Blog: submit sitemap to Google Search Console (cache was already revalidated by /api/blog/articles)
-  const reindex = isBlog ? await triggerReindex(asset.platform_metadata.slug) : undefined;
+  const reindex = isBlog && newResults.some((r) => r.ok) ? await triggerReindex(asset.platform_metadata.slug) : undefined;
 
   return {
     ok: true,
-    message: `Asset published to ${results.filter(r => r.ok).length}/${results.length} target(s)`,
-    data: { asset_id: assetId, platform: asset.platform, url, status: "published", platforms: results, reindex },
+    message: failed.length
+      ? `Published to ${succeeded.length}/${targets.length} target(s); failed: ${failed.join(", ")} — run publish-asset again to retry them`
+      : `Asset published to ${succeeded.length}/${targets.length} target(s)`,
+    data: { asset_id: assetId, platform: asset.platform, url, status: "published", platforms: results, failed_platforms: failed, reindex },
   };
 }
 

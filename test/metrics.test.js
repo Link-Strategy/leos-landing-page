@@ -9,9 +9,12 @@ describe("normalizePlatformMetrics", () => {
     assert.deepEqual(m, { views: 500, likes: 10, comments: 2, shares: 1, reach: 300, engagement: 13 });
   });
 
-  it("maps Instagram field names", () => {
-    const m = normalizePlatformMetrics("instagram", { like_count: 4, comments_count: 1, impressions: null, reach: 90 });
-    assert.deepEqual(m, { views: null, likes: 4, comments: 1, shares: null, reach: 90, engagement: 5 });
+  it("maps Instagram field names (views/total_interactions)", () => {
+    const m = normalizePlatformMetrics("instagram", { like_count: 4, comments_count: 1, views: 300, reach: 90, shares: 2, total_interactions: 9 });
+    assert.deepEqual(m, { views: 300, likes: 4, comments: 1, shares: 2, reach: 90, engagement: 9 });
+    const legacy = normalizePlatformMetrics("instagram", { like_count: 4, comments_count: 1, impressions: 120, reach: 90 });
+    assert.equal(legacy.views, 120);
+    assert.equal(legacy.engagement, 5);
   });
 
   it("maps TikTok and YouTube (string counts) and derives engagement", () => {

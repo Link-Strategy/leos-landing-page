@@ -67,6 +67,12 @@ export class FacebookPostingAdapter implements PostingAdapter {
         message: message.substring(0, 50) + "...",
       });
 
+      // 2+ images → one multi-photo post (Facebook allows up to 10 attached photos here).
+      const images = (request.mediaItems ?? []).filter((m) => m.type === "image").map((m) => m.url);
+      if (images.length >= 2) {
+        return this.publishAlbum(message, images.slice(0, 10));
+      }
+
       if (!request.media) {
         return this.publishText(message);
       }
@@ -223,6 +229,33 @@ export class FacebookPostingAdapter implements PostingAdapter {
       message,
     });
 
+    if (data.error) {
+      return this.fail(data.error.message);
+    }
+
+    return this.success(data.id!);
+  }
+
+  /**
+   * Multi-photo post: upload each photo unpublished, then create one feed post that attaches them.
+   * https://developers.facebook.com/docs/graph-api/reference/page/feed#publish (attached_media)
+   */
+  private async publishAlbum(message: string, urls: string[]): Promise<PostingPublishResponse> {
+    const photoIds: string[] = [];
+    for (const url of urls) {
+      const photo = await this.fbPost(`/${this.pageId}/photos`, { url, published: "false" });
+      if (photo.error || !photo.id) {
+        return this.fail(photo.error?.message ?? `Photo upload failed: ${url}`);
+      }
+      photoIds.push(photo.id);
+    }
+
+    const params: Record<string, string> = { message };
+    photoIds.forEach((id, i) => {
+      params[`attached_media[${i}]`] = JSON.stringify({ media_fbid: id });
+    });
+
+    const data = await this.fbPost(`/${this.pageId}/feed`, params);
     if (data.error) {
       return this.fail(data.error.message);
     }
