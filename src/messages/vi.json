@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "LeTRON Group - Công nghệ xanh, Vận hành thông minh",
-    "description": "LeTRON Group (Tập đoàn LeTRON, Uông Bí, Quảng Ninh): giải pháp công nghệ chuyển hóa rác thải thành tài nguyên và vật liệu xây dựng xanh hàng đầu Việt Nam."
+    "title": "LeTRON Group - Tự chủ vận hành, trong tầm kiểm soát",
+    "description": "LeTRON Group (Tập đoàn LeTRON, Uông Bí, Quảng Ninh) kết nối hệ quản trị, thiết bị biên và robot công nghiệp trong một giải pháp theo dịch vụ: tự chủ vận hành, trong tầm kiểm soát."
   },
   "header": {
     "nav": {
@@ -79,13 +79,21 @@
   },
   "hero": {
     "badge": "Tập đoàn LeTRON · Uông Bí · Quảng Ninh, Việt Nam",
-    "title": "Mạng lưới Biên tri giác",
-    "subtitle": "The Perceptive Edge Network",
-    "features": ["Hạ tầng tự chủ", "Xử lý tại milimét thực địa", "AI biên thực thi"],
-    "description": "LeTRON kiến tạo hệ sinh thái thiết bị biên toàn diện — từ xe vận tải, nhà máy, trạm sạc đến robot nhân hình — vận hành hoàn toàn offline, bảo mật cấp phần cứng và tự động đúc chứng thư carbon. Sẵn sàng cho kỷ nguyên Net-Zero và CBAM.",
+    "title": "Tự chủ vận hành.\nTrong tầm kiểm soát.",
+    "subtitle": "Hạ tầng chứng thực tại nguồn và kiểm soát tự chủ.",
+    "features": [
+      "Biết dữ liệu đến từ đâu",
+      "Tự chủ trong giới hạn",
+      "Kết quả có thể đối soát"
+    ],
+    "description": "LeTRON kết nối hệ quản trị, thiết bị biên và robot công nghiệp trong một giải pháp theo dịch vụ.",
     "ctaPrimary": "Khám phá Sách trắng",
     "ctaSecondary": "Đăng ký nhận Demo Sandbox",
-    "footerTags": ["Autonomous infrastructure", "Edge AI in action", "Intelligence at the last millimeter"]
+    "footerTags": [
+      "Tin cậy",
+      "Kiểm soát",
+      "Trách nhiệm"
+    ]
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
@@ -111,23 +119,23 @@
     "cards": {
       "humanity": {
         "title": "H — Humanity",
-        "content": "Con người là trung tâm. An toàn là mệnh lệnh, hạnh phúc là đích đến."
+        "content": "Tôn trọng con người. Con người, an toàn và quyền quyết định được đặt ở trung tâm."
       },
       "excellence": {
-        "title": "E — Excellence",
-        "content": "Vượt ngưỡng giới hạn. Cam kết tiêu chuẩn cao nhất trong mọi sản phẩm và dòng code."
+        "title": "E — Evidence",
+        "content": "Căn cứ kiểm chứng. Dữ liệu và bằng chứng được xem xét trước khi kết luận."
       },
       "appreciation": {
-        "title": "A — Appreciation",
-        "content": "Chính trực và biết ơn. Tôn trọng thiên nhiên, đối tác và mọi cam kết."
+        "title": "A — Accountability",
+        "content": "Trách nhiệm giải trình. Làm rõ ai quyết định, ai thực hiện và ai đối soát."
       },
       "rapidAction": {
-        "title": "R — Rapid Action",
-        "content": "Thần tốc và linh hoạt. Sai đâu sửa đó, chủ động tiến lên và không dừng lại."
+        "title": "R — Resilience",
+        "content": "Khả năng phục hồi. Duy trì chức năng phù hợp và phục hồi khi có lỗi."
       },
       "technology": {
-        "title": "T — Technology",
-        "content": "Dẫn dắt bằng dữ liệu. Dùng công nghệ để biến điều không thể thành có thể."
+        "title": "T — Truthfulness",
+        "content": "Công bố trung thực. Công bố đúng năng lực và tình trạng hoàn thành."
       }
     },
     "footer": "Humanity at the center. Intelligence at the edge. Evidence in every decision."
@@ -478,7 +486,7 @@
     "dateMonthPrefix": "THÁNG"
   },
   "productsPage": {
-    "metaTitle": "Sản phẩm công nghệ xanh",
+    "metaTitle": "Giải pháp và sản phẩm",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Sản phẩm",
     "heroTitlePrefix": "Sản phẩm ",
@@ -523,22 +531,38 @@
         {
           "name": "LeOS",
           "subtitle": "Hệ điều hành ALL IN ONE",
-          "bullets": ["Tích hợp dữ liệu đa nguồn", "Đồng bộ vận hành theo thời gian thực", "Quản lý tài sản và quy trình"]
+          "bullets": [
+            "Tích hợp dữ liệu đa nguồn",
+            "Đồng bộ vận hành theo thời gian thực",
+            "Quản lý tài sản và quy trình"
+          ]
         },
         {
           "name": "LeLe AGI",
           "subtitle": "Trợ lý ảo",
-          "bullets": ["Phân tích dữ liệu lớn", "Đưa ra khuyến nghị tối ưu", "Tự học và cải thiện theo thời gian"]
+          "bullets": [
+            "Phân tích dữ liệu lớn",
+            "Đưa ra khuyến nghị tối ưu",
+            "Tự học và cải thiện theo thời gian"
+          ]
         },
         {
           "name": "Le-Carbon Registry",
           "subtitle": "Tín chỉ Carbon",
-          "bullets": ["Ghi nhận lượng phát thải", "Tính toán tín chỉ carbon", "Hỗ trợ giao dịch và minh bạch dữ liệu"]
+          "bullets": [
+            "Ghi nhận lượng phát thải",
+            "Tính toán tín chỉ carbon",
+            "Hỗ trợ giao dịch và minh bạch dữ liệu"
+          ]
         },
         {
           "name": "Le-Battery Passport",
           "subtitle": "Hộ chiếu Pin",
-          "bullets": ["Truy xuất nguồn gốc", "Theo dõi vòng đời sản phẩm", "Tối ưu tái sử dụng và tái chế"]
+          "bullets": [
+            "Truy xuất nguồn gốc",
+            "Theo dõi vòng đời sản phẩm",
+            "Tối ưu tái sử dụng và tái chế"
+          ]
         }
       ],
       "processHeadingPrefix": "Cách LeDB",
@@ -575,23 +599,23 @@
     "slides": {
       "humanity": {
         "title": "H – Humanity",
-        "description": "\"Con người là Trung tâm.\nAn toàn là mệnh lệnh,\nHạnh phúc là đích đến.\""
+        "description": "\"Tôn trọng con người.\nCon người, an toàn và quyền quyết định được đặt ở trung tâm.\""
       },
       "excellence": {
-        "title": "E – Excellence",
-        "description": "\"Vượt ngưỡng giới hạn.\nCam kết tiêu chuẩn cao nhất trong từng sản phẩm, từng dòng code.\""
+        "title": "E – Evidence",
+        "description": "\"Căn cứ kiểm chứng.\nDữ liệu và bằng chứng được xem xét trước khi kết luận.\""
       },
       "respect": {
-        "title": "H – Humanity",
-        "description": "\"Chính trực và Biết ơn. Tôn trọng Mẹ Thiên nhiên, Đối tác, và mọi Cam kết.\""
+        "title": "A – Accountability",
+        "description": "\"Trách nhiệm giải trình.\nLàm rõ ai quyết định, ai thực hiện và ai đối soát.\""
       },
       "action": {
-        "title": "A – Action",
-        "description": "\"Thần tốc và Linh hoạt. 'Vừa chạy vừa xếp hàng' Sai đâu sửa đó, không dừng lại.\""
+        "title": "R – Resilience",
+        "description": "\"Khả năng phục hồi.\nDuy trì chức năng phù hợp và phục hồi khi có lỗi.\""
       },
       "technology": {
-        "title": "T – Technology",
-        "description": "\"Dẫn dắt bằng Dữ liệu.\nDùng công nghệ để biến điều\nkhông thể thành có thể.\""
+        "title": "T – Truthfulness",
+        "description": "\"Công bố trung thực.\nCông bố đúng năng lực và tình trạng hoàn thành.\""
       }
     },
     "wayHeading": "LETRON WAY – 09 Nguyên tắc vàng",
@@ -613,12 +637,12 @@
     "spiritText": "LeTRON kết nối tri thức toàn cầu để giải quyết những bài toán lớn của thế giới, nhưng luôn bắt đầu từ trách nhiệm với chính nơi mình thuộc về."
   },
   "about": {
-    "metaTitle": "Giới thiệu tập đoàn công nghệ xanh",
+    "metaTitle": "Về LeTRON",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Giới thiệu",
     "heroTitlePrefix": "Giới thiệu ",
     "heroTitleHighlight": "LeTRON",
-    "heroDescription": "LETRON là tập đoàn công nghiệp thế hệ mới, kết nối dữ liệu, trí tuệ nhân tạo và tài sản vật lý để tái định nghĩa chuỗi giá trị công nghiệp theo hướng tuần hoàn và bền vững.",
+    "heroDescription": "Kết nối nghiên cứu, vận hành và sản xuất để đưa công nghệ vào bài toán thực tế; giữ con người và trách nhiệm ở trung tâm.",
     "introBadge": "Giới thiệu chung",
     "introHeadingLine1": "Hệ sinh thái công nghiệp",
     "introHeadingLine2Prefix": "Vận hành bằng ",
@@ -648,9 +672,9 @@
     "metaTitle": "Liên hệ",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Liên hệ",
-    "heroTitlePrefix": "Kết nối với ",
-    "heroTitleHighlight": "LeTRON",
-    "heroDescription": "Đội ngũ LeTRON luôn sẵn sàng lắng nghe và đồng hành cùng bạn. Để lại thông tin, chúng tôi sẽ liên hệ tư vấn giải pháp phù hợp trong thời gian sớm nhất.",
+    "heroTitlePrefix": "Cùng xác định ",
+    "heroTitleHighlight": "kết quả cần đạt",
+    "heroDescription": "Chia sẻ hiện trạng, nhiệm vụ và kết quả mong muốn để cùng xác định một phạm vi thử phù hợp. Để lại thông tin, đội ngũ LeTRON sẽ liên hệ trao đổi.",
     "formHeadingLine1": "Để lại thông tin của bạn",
     "formHeadingLine2Prefix": "Chúng tôi sẽ sớm ",
     "formHeadingLine2Highlight": "liên hệ tư vấn!",
@@ -671,24 +695,24 @@
     "overlayImageAlt": "Giá trị cốt lõi H.E.A.R.T",
     "values": {
       "excellence": {
-        "title": "E — Excellence",
-        "description": "Vượt ngưỡng giới hạn. Cam kết tiêu chuẩn cao nhất trong từng sản phẩm, từng dòng code."
+        "title": "E — Evidence",
+        "description": "Căn cứ kiểm chứng. Dữ liệu và bằng chứng được xem xét trước khi kết luận."
       },
       "action": {
-        "title": "A — Action",
-        "description": "Thần tốc và Linh hoạt. 'Vừa chạy vừa xếp hàng' – Sai đâu sửa đó, không dừng lại."
+        "title": "A — Accountability",
+        "description": "Trách nhiệm giải trình. Làm rõ ai quyết định, ai thực hiện và ai đối soát."
       },
       "humanity": {
         "title": "H — Humanity",
-        "description": "Con người là Trung tâm. An toàn là mệnh lệnh, Hạnh phúc là đích đến."
+        "description": "Tôn trọng con người. Con người, an toàn và quyền quyết định được đặt ở trung tâm."
       },
       "technology": {
-        "title": "T — Technology",
-        "description": "Dẫn dắt bằng Dữ liệu. Dùng công nghệ để biến điều không thể thành có thể."
+        "title": "T — Truthfulness",
+        "description": "Công bố trung thực. Công bố đúng năng lực và tình trạng hoàn thành."
       },
       "respect": {
-        "title": "R — Respect",
-        "description": "Chính trực và Biết ơn. Tôn trọng Mẹ Thiên nhiên, Đối tác, và mọi Cam kết."
+        "title": "R — Resilience",
+        "description": "Khả năng phục hồi. Duy trì chức năng phù hợp và phục hồi khi có lỗi."
       }
     }
   },

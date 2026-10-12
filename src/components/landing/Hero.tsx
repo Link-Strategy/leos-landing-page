@@ -44,7 +44,7 @@ export default function Hero() {
               {t("badge")}
             </span>
 
-            <h1 className="font-inter text-[40px] font-extrabold leading-[1.2] tracking-[-1.5px] text-white sm:text-[60px] sm:leading-[76px] sm:tracking-[-2.2px] lg:whitespace-nowrap">
+            <h1 className="font-inter text-[40px] font-extrabold leading-[1.2] tracking-[-1.5px] text-white sm:text-[60px] sm:leading-[76px] sm:tracking-[-2.2px] whitespace-pre-line">
               {t("title")}
             </h1>
 

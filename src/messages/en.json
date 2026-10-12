@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "LeTRON Group - Green Technology, Smart Operations",
-    "description": "LeTRON Group (LeTRON Group Joint Stock Company, Uong Bi, Quang Ninh): Vietnam's leading technology solutions for waste-to-resource conversion and green construction materials."
+    "title": "LeTRON Group - Operational Autonomy, Under Control",
+    "description": "LeTRON Group (Uong Bi, Quang Ninh) connects management systems, edge devices and industrial robots in one service-based solution: operational autonomy, within your control."
   },
   "header": {
     "nav": {
@@ -79,13 +79,21 @@
   },
   "hero": {
     "badge": "LeTRON Group · Uong Bi · Quang Ninh, Vietnam",
-    "title": "Perceptive Edge Network",
-    "subtitle": "The Perceptive Edge Network",
-    "features": ["Autonomous infrastructure", "Millimeter-precise field processing", "Edge-executed AI"],
-    "description": "LeTRON builds a comprehensive edge-device ecosystem — spanning transport vehicles, factories, and charging stations to humanoid robots — running fully offline, with hardware-grade security, and automatically minting carbon certificates. Ready for the Net-Zero and CBAM era.",
+    "title": "Operational autonomy.\nWithin your control.",
+    "subtitle": "Source-attested infrastructure and controlled autonomy.",
+    "features": [
+      "Know where data comes from",
+      "Autonomy within limits",
+      "Verifiable results"
+    ],
+    "description": "LeTRON connects management systems, edge devices and industrial robots in one service-based solution.",
     "ctaPrimary": "Explore Whitepaper",
     "ctaSecondary": "Register for Demo Sandbox",
-    "footerTags": ["Autonomous infrastructure", "Edge AI in action", "Intelligence at the last millimeter"]
+    "footerTags": [
+      "Trust",
+      "Control",
+      "Accountability"
+    ]
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
@@ -111,23 +119,23 @@
     "cards": {
       "humanity": {
         "title": "H — Humanity",
-        "content": "People come first. Safety is mandatory, happiness is the destination."
+        "content": "Respect for people. People, safety and the right to decide stay at the center."
       },
       "excellence": {
-        "title": "E — Excellence",
-        "content": "Pushing beyond limits. Committed to the highest standards in every product and every line of code."
+        "title": "E — Evidence",
+        "content": "Evidence-based. Data and evidence are reviewed before conclusions are drawn."
       },
       "appreciation": {
-        "title": "A — Appreciation",
-        "content": "Integrity and gratitude. Respecting nature, partners, and every commitment."
+        "title": "A — Accountability",
+        "content": "Accountability. It is clear who decides, who executes and who verifies."
       },
       "rapidAction": {
-        "title": "R — Rapid Action",
-        "content": "Fast and agile. Fix what's wrong, move forward proactively, and never stop."
+        "title": "R — Resilience",
+        "content": "Resilience. Keep appropriate functions running and recover when faults occur."
       },
       "technology": {
-        "title": "T — Technology",
-        "content": "Leading with data. Using technology to turn the impossible into possible."
+        "title": "T — Truthfulness",
+        "content": "Truthfulness. We state capabilities and completion status accurately."
       }
     },
     "footer": "Humanity at the center. Intelligence at the edge. Evidence in every decision."
@@ -478,7 +486,7 @@
     "dateMonthPrefix": "MONTH"
   },
   "productsPage": {
-    "metaTitle": "Green technology products",
+    "metaTitle": "Solutions and products",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Products",
     "heroTitlePrefix": "LeTRON ",
@@ -523,22 +531,38 @@
         {
           "name": "LeOS",
           "subtitle": "ALL-IN-ONE operating system",
-          "bullets": ["Multi-source data integration", "Real-time operation sync", "Asset and process management"]
+          "bullets": [
+            "Multi-source data integration",
+            "Real-time operation sync",
+            "Asset and process management"
+          ]
         },
         {
           "name": "LeLe AGI",
           "subtitle": "Virtual assistant",
-          "bullets": ["Big data analysis", "Optimal recommendations", "Self-learning and improvement over time"]
+          "bullets": [
+            "Big data analysis",
+            "Optimal recommendations",
+            "Self-learning and improvement over time"
+          ]
         },
         {
           "name": "Le-Carbon Registry",
           "subtitle": "Carbon credits",
-          "bullets": ["Emission tracking", "Carbon credit calculation", "Transaction support and data transparency"]
+          "bullets": [
+            "Emission tracking",
+            "Carbon credit calculation",
+            "Transaction support and data transparency"
+          ]
         },
         {
           "name": "Le-Battery Passport",
           "subtitle": "Battery passport",
-          "bullets": ["Origin traceability", "Product lifecycle tracking", "Reuse and recycling optimization"]
+          "bullets": [
+            "Origin traceability",
+            "Product lifecycle tracking",
+            "Reuse and recycling optimization"
+          ]
         }
       ],
       "processHeadingPrefix": "How LeDB",
@@ -575,23 +599,23 @@
     "slides": {
       "humanity": {
         "title": "H – Humanity",
-        "description": "\"People are the Center.\nSafety is a mandate,\nHappiness is the destination.\""
+        "description": "\"Respect for people.\nPeople, safety and the right to decide stay at the center.\""
       },
       "excellence": {
-        "title": "E – Excellence",
-        "description": "\"Beyond every limit.\nCommitted to the highest standard in every product, every line of code.\""
+        "title": "E – Evidence",
+        "description": "\"Evidence-based.\nData and evidence are reviewed before conclusions are drawn.\""
       },
       "respect": {
-        "title": "H – Humanity",
-        "description": "\"Integrity and Gratitude. Respect for Mother Nature, Partners, and every Commitment.\""
+        "title": "A – Accountability",
+        "description": "\"Accountability.\nIt is clear who decides, who executes and who verifies.\""
       },
       "action": {
-        "title": "A – Action",
-        "description": "\"Fast and Flexible. 'Building the plane while flying it' — Fix as we go, never stop.\""
+        "title": "R – Resilience",
+        "description": "\"Resilience.\nKeep appropriate functions running and recover when faults occur.\""
       },
       "technology": {
-        "title": "T – Technology",
-        "description": "\"Led by Data.\nUsing technology to turn the\nimpossible into the possible.\""
+        "title": "T – Truthfulness",
+        "description": "\"Truthfulness.\nWe state capabilities and completion status accurately.\""
       }
     },
     "wayHeading": "LETRON WAY – 09 Golden Principles",
@@ -613,12 +637,12 @@
     "spiritText": "LeTRON connects global knowledge to solve the world's biggest challenges, while always starting from a responsibility to the place it belongs to."
   },
   "about": {
-    "metaTitle": "About our green technology group",
+    "metaTitle": "About LeTRON",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "About Us",
     "heroTitlePrefix": "About ",
     "heroTitleHighlight": "LeTRON",
-    "heroDescription": "LETRON is a new-generation industrial group connecting data, artificial intelligence, and physical assets to redefine the industrial value chain around circularity and sustainability.",
+    "heroDescription": "Connecting research, operations and manufacturing to bring technology to real-world problems, keeping people and accountability at the center.",
     "introBadge": "About Us",
     "introHeadingLine1": "An Industrial Ecosystem",
     "introHeadingLine2Prefix": "Powered by ",
@@ -648,9 +672,9 @@
     "metaTitle": "Contact",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Contact",
-    "heroTitlePrefix": "Connect with ",
-    "heroTitleHighlight": "LeTRON",
-    "heroDescription": "The LeTRON team is always ready to listen and work with you. Leave your details and we'll reach out with the right solution as soon as possible.",
+    "heroTitlePrefix": "Let's define ",
+    "heroTitleHighlight": "the outcome you need",
+    "heroDescription": "Share your current situation, tasks and desired results so we can define a suitable pilot scope together. Leave your details and the LeTRON team will get in touch.",
     "formHeadingLine1": "Leave your information",
     "formHeadingLine2Prefix": "We will ",
     "formHeadingLine2Highlight": "get in touch shortly!",
@@ -671,24 +695,24 @@
     "overlayImageAlt": "H.E.A.R.T core values",
     "values": {
       "excellence": {
-        "title": "E — Excellence",
-        "description": "Beyond every limit. Committed to the highest standard in every product, every line of code."
+        "title": "E — Evidence",
+        "description": "Evidence-based. Data and evidence are reviewed before conclusions are drawn."
       },
       "action": {
-        "title": "A — Action",
-        "description": "Fast and Flexible. 'Building the plane while flying it' – Fix as we go, never stop."
+        "title": "A — Accountability",
+        "description": "Accountability. It is clear who decides, who executes and who verifies."
       },
       "humanity": {
         "title": "H — Humanity",
-        "description": "People are the Center. Safety is a mandate, Happiness is the destination."
+        "description": "Respect for people. People, safety and the right to decide stay at the center."
       },
       "technology": {
-        "title": "T — Technology",
-        "description": "Led by Data. Using technology to turn the impossible into the possible."
+        "title": "T — Truthfulness",
+        "description": "Truthfulness. We state capabilities and completion status accurately."
       },
       "respect": {
-        "title": "R — Respect",
-        "description": "Integrity and Gratitude. Respect for Mother Nature, Partners, and every Commitment."
+        "title": "R — Resilience",
+        "description": "Resilience. Keep appropriate functions running and recover when faults occur."
       }
     }
   },

@@ -29,8 +29,8 @@ function renderMultiline(text: string): React.ReactNode {
 }
 
 // Structural metadata for Tab 1: H.E.A.R.T Slides — text comes from the "heartTab.slides" messages.
-// Slide 3 intentionally reuses the "humanity" key (title "H – Humanity") to match the legacy HTML (05-heart.html),
-// even though its description content is about respect — this quirk predates the i18n migration and is preserved as-is.
+// Message keys keep their legacy names but now carry the V2 values: humanity=H, excellence=E (Evidence),
+// respect=A (Accountability), action=R (Resilience), technology=T (Truthfulness). Icon files keep their old names.
 const HEART_SLIDE_META: {
   slideIndex: number;
   key: string;

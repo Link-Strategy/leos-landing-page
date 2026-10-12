@@ -35,10 +35,10 @@ export default function GlobalNotFound() {
             404
           </p>
           <h1 style={{ margin: "16px 0 8px", fontSize: 28, fontFamily: "var(--font-archivo), sans-serif" }}>
-            Không tìm thấy trang
+            Đường dẫn này chưa có nội dung
           </h1>
           <p style={{ margin: "0 0 28px", opacity: 0.8, lineHeight: 1.6 }}>
-            Trang bạn tìm không tồn tại hoặc đã được chuyển đi. Hãy quay về trang chủ hoặc xem các sản phẩm của LeTRON.
+            Anh/chị có thể về trang chủ, xem sản phẩm hoặc liên hệ LeTRON để tìm thông tin cần thiết.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <Link

@@ -4,14 +4,14 @@ import { Link } from "@/i18n/navigation";
 // Shown inside the site layout (header/footer) when a route under /[locale] calls notFound().
 const COPY = {
   vi: {
-    title: "Không tìm thấy trang",
-    body: "Trang bạn tìm không tồn tại hoặc đã được chuyển đi. Hãy quay về trang chủ hoặc xem các sản phẩm của LeTRON.",
+    title: "Đường dẫn này chưa có nội dung",
+    body: "Anh/chị có thể về trang chủ, xem sản phẩm hoặc liên hệ LeTRON để tìm thông tin cần thiết.",
     home: "Về trang chủ",
     products: "Xem sản phẩm",
   },
   en: {
-    title: "Page not found",
-    body: "The page you are looking for does not exist or has moved. Go back home or explore LeTRON's products.",
+    title: "This link has no content yet",
+    body: "You can go back home, view our products or contact LeTRON to find the information you need.",
     home: "Back to home",
     products: "View products",
   },
