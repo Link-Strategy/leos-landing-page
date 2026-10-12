@@ -2,12 +2,14 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 import MasterButton from "@/components/ui/master-button";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 import HeroOrbit from "@/components/landing/HeroOrbit";
 
 export default function Hero() {
   const t = useTranslations("hero");
+  const router = useRouter();
   const features = t.raw("features") as string[];
   const footerTags = t.raw("footerTags") as string[];
 
@@ -52,8 +54,8 @@ export default function Hero() {
           </div>
 
           <div className="mt-10 flex w-full flex-col items-center gap-4 lg:w-auto lg:flex-row lg:justify-start">
-            <MasterButton type="full-fill" isShowIcon content={t("ctaPrimary")} onClick={() => {}} />
-            <MasterButton type="out-line" isShowIcon content={t("ctaSecondary")} onClick={() => {}} />
+            <MasterButton type="full-fill" isShowIcon content={t("ctaPrimary")} onClick={() => router.push("/giai-phap")} />
+            <MasterButton type="out-line" isShowIcon content={t("ctaSecondary")} onClick={() => router.push("/lien-he")} />
           </div>
         </div>
 

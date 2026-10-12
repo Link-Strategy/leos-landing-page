@@ -8,6 +8,7 @@ type LeadForEmail = {
   email: string;
   phone?: string;
   company?: string;
+  interest?: string;
   message?: string;
   source?: string;
   lead_type?: string;
@@ -48,6 +49,7 @@ export function formatLeadEmail(lead: LeadForEmail, extra: { cvUrl?: string } = 
   ];
   if (lead.phone) rows.push(["Điện thoại", lead.phone]);
   if (lead.company) rows.push(["Công ty", lead.company]);
+  if (lead.interest) rows.push(["Nhu cầu", lead.interest]);
   if (lead.source) rows.push(["Nguồn", lead.source]);
 
   const text = [

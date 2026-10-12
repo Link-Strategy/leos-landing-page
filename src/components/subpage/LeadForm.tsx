@@ -27,6 +27,14 @@ export function LeadForm({
   phonePlaceholder = "Số điện thoại",
   messagePlaceholder = "Nội dung liên hệ",
   submitAlign = "left",
+  phoneRequired = true,
+  organizationPlaceholder,
+  interestLabel,
+  interestPlaceholder,
+  interestOptions,
+  counterSuffix,
+  maxMessage,
+  notice,
 }: {
   buttonLabel?: string;
   source?: string;
@@ -36,10 +44,21 @@ export function LeadForm({
   phonePlaceholder?: string;
   messagePlaceholder?: string;
   submitAlign?: "left" | "center";
+  /** Phone is required by default; the V2 contact form makes it optional. */
+  phoneRequired?: boolean;
+  /** V2 contact form extras: show an organization field, an interest select and a character counter. */
+  organizationPlaceholder?: string;
+  interestLabel?: string;
+  interestPlaceholder?: string;
+  interestOptions?: string[];
+  counterSuffix?: string;
+  maxMessage?: number;
+  notice?: string;
 }) {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [messageLength, setMessageLength] = useState(0);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -57,6 +76,8 @@ export function LeadForm({
           name: formData.get("name"),
           email: formData.get("email"),
           phone: formData.get("phone") || undefined,
+          company: formData.get("company") || undefined,
+          interest: formData.get("interest") || undefined,
           message: formData.get("message") || undefined,
           website: formData.get("website") || undefined,
           consent: formData.get("consent") === "on",
@@ -111,9 +132,32 @@ export function LeadForm({
         </div>
         <div className="rounded-full p-px" style={fieldWrapperStyle}>
           <label className="sr-only" htmlFor="lead-phone">Số điện thoại</label>
-          <input className={inputClass} id="lead-phone" name="phone" placeholder={phonePlaceholder} required style={fieldInnerStyle} type="tel" />
+          <input className={inputClass} id="lead-phone" name="phone" placeholder={phonePlaceholder} required={phoneRequired} style={fieldInnerStyle} type="tel" />
         </div>
       </div>
+
+      {organizationPlaceholder ? (
+        <>
+          <label className="sr-only" htmlFor="lead-company">{organizationPlaceholder}</label>
+          <div className="rounded-full p-px" style={fieldWrapperStyle}>
+            <input className={inputClass} id="lead-company" maxLength={200} name="company" placeholder={organizationPlaceholder} style={fieldInnerStyle} type="text" />
+          </div>
+        </>
+      ) : null}
+
+      {interestOptions && interestOptions.length > 0 ? (
+        <>
+          <label className="sr-only" htmlFor="lead-interest">{interestLabel ?? interestPlaceholder}</label>
+          <div className="rounded-full p-px" style={fieldWrapperStyle}>
+            <select className={`${inputClass} appearance-none`} defaultValue="" id="lead-interest" name="interest" style={fieldInnerStyle}>
+              <option value="" style={{ color: "#0d1b4b" }}>{interestPlaceholder}</option>
+              {interestOptions.map((option) => (
+                <option key={option} style={{ color: "#0d1b4b" }} value={option}>{option}</option>
+              ))}
+            </select>
+          </div>
+        </>
+      ) : null}
 
       <label className="sr-only" htmlFor="lead-message">Nội dung liên hệ</label>
       <div className="rounded-[26px] p-px" style={fieldWrapperStyle}>
@@ -121,10 +165,19 @@ export function LeadForm({
           className="h-36 w-full resize-none rounded-[26px] bg-transparent px-6 py-4 text-[15px] leading-relaxed text-white outline-none transition placeholder:text-white/70 focus:ring-2 focus:ring-[#2A9FFF]/60"
           id="lead-message"
           name="message"
+          maxLength={maxMessage}
+          required={Boolean(maxMessage)}
+          onChange={(e) => setMessageLength(e.target.value.length)}
           placeholder={messagePlaceholder}
           style={fieldInnerStyle}
         />
       </div>
+      {maxMessage ? (
+        <p className="m-0 -mt-2 text-right text-xs text-white/60">
+          {messageLength.toLocaleString("vi-VN")} {counterSuffix ?? `/ ${maxMessage}`}
+        </p>
+      ) : null}
+      {notice ? <p className="m-0 text-xs leading-5 text-white/65">{notice}</p> : null}
 
       <ConsentCheckbox id="lead-consent" />
 

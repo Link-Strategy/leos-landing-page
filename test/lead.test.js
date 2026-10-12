@@ -41,6 +41,26 @@ describe("normalizeLeadInput", () => {
   });
 });
 
+describe("V2 contact fields", () => {
+  const base = { name: "Nguyen Van A", email: "a@b.vn", consent: true };
+
+  it("keeps the interest and company picked on the contact form", () => {
+    const { lead, errors } = normalizeLeadInput({ ...base, company: "ACME", interest: "Hợp tác R&D" });
+    assert.equal(errors.length, 0);
+    assert.equal(lead.interest, "Hợp tác R&D");
+    assert.equal(lead.company, "ACME");
+  });
+
+  it("treats interest as optional and caps its length", () => {
+    assert.equal(normalizeLeadInput(base).lead.interest, undefined);
+    assert.equal(normalizeLeadInput({ ...base, interest: "x".repeat(300) }).lead.interest.length, 100);
+  });
+
+  it("does not require a phone number by default", () => {
+    assert.equal(normalizeLeadInput(base).errors.length, 0);
+  });
+});
+
 describe("privacy consent", () => {
   const base = { name: "Anh", email: "a@b.vn" };
 

@@ -9,6 +9,7 @@ import PartnerShowcase from "@/components/landing/PartnerShowcase";
 import Career from "@/components/landing/Career";
 import { AboutHeartValues } from "./AboutHeartValues";
 import { LeadershipReveal } from "./LeadershipReveal";
+import { V2AboutBlocks } from "@/components/v2/blocks";
 
 function SubtitleBadge({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
@@ -193,6 +194,7 @@ export default function AboutPage() {
           <LeadershipReveal />
         </div>
 
+        <V2AboutBlocks />
         <PartnerShowcase />
         <Career />
       </div>

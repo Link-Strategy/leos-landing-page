@@ -27,9 +27,12 @@ function HeaderFeatureItem({ children }: { children: React.ReactNode }) {
 
 
 
-const NAV_ITEMS: { key: string; href: string; hasDropdown?: boolean }[] = [
+// `wideOnly` items are hidden from the desktop bar below 1440px (the bar has no room) but stay in the mobile menu and footer.
+const NAV_ITEMS: { key: string; href: string; hasDropdown?: boolean; wideOnly?: boolean }[] = [
   { key: "aboutUs", href: "/gioi-thieu" },
   { key: "products", href: "/san-pham", hasDropdown: true },
+  { key: "solutions", href: "/giai-phap", wideOnly: true },
+  { key: "technology", href: "/cong-nghe", wideOnly: true },
   { key: "newsEvents", href: "/blog" },
   { key: "careers", href: "/tuyen-dung" },
   { key: "contact", href: "/lien-he" },
@@ -200,7 +203,7 @@ export default function Header() {
                     }
 
                     return (
-                      <NavigationMenuItem key={index} className="relative">
+                      <NavigationMenuItem key={index} className={cn("relative", item.wideOnly && "max-[1439px]:hidden")}>
                         <NavigationMenuPrimitive.Link asChild>
                           <Link href={item.href} className={cn(navigationMenuTriggerStyle({ variant: "brandNav" }), "relative flex grow whitespace-nowrap h-auto! px-0! py-2.5!")}>
                             {t(`nav.${item.key}`)}
@@ -298,6 +301,16 @@ export default function Header() {
                     </li>
                   ))}
                 </ul>
+              </li>
+              <li>
+                <Link className="block py-2 font-sans text-base font-medium text-white" href="/giai-phap" tabIndex={-1}>
+                  {t(`nav.solutions`)}
+                </Link>
+              </li>
+              <li>
+                <Link className="block py-2 font-sans text-base font-medium text-white" href="/cong-nghe" tabIndex={-1}>
+                  {t(`nav.technology`)}
+                </Link>
               </li>
               <li>
                 <Link className="block py-2 font-sans text-base font-medium text-white" href="/blog" tabIndex={-1}>

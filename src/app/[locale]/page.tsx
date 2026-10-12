@@ -17,6 +17,8 @@ import Products from "@/components/landing/Products";
 // import Counters from "@/components/landing/Counters";
 // import Partners from "@/components/landing/Partners";
 import News from "@/components/landing/News";
+import V2Loop from "@/components/v2/Loop";
+import { V2Cta, V2Feature, V2Philosophy, V2Portfolio, V2Principles, V2Proof } from "@/components/v2/blocks";
 import type { Metadata } from "next";
 import { localeAlternates } from "@/lib/seo-alternates";
 import { setRequestLocale } from "next-intl/server";
@@ -52,10 +54,16 @@ export default async function Home({
         data-elementor-type="wp-page"
       >
         <Hero />
+        <V2Principles />
         <Vision />
         <Heart />
+        <V2Feature which="factory" />
+        <V2Feature which="city" />
+        <V2Loop />
         <ServiceModel />
         <TechArchitecture />
+        <V2Portfolio />
+        <V2Proof />
         <PartnerShowcase />
         <AppDownload />
         <RoadMap />
@@ -67,6 +75,8 @@ export default async function Home({
         {/* <Partners /> */}
         <Products />
         <News />
+        <V2Philosophy />
+        <V2Cta />
         {/* <Career /> */}
       </div>
 
