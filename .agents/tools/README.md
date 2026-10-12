@@ -86,7 +86,7 @@ Saves draft copy for specific social media channels and schedules posting.
     "media": [                            // Optional
       {
         "type": "string",                 // Required. Enum: image, video, document
-        "url": "string"                   // Required. Must start with https://media.linkstrategy.io.vn/
+        "url": "string"                   // Required. Public https:// URL (e.g. S3 URL from ls-ops upload)
       }
     ],
     "platform_metadata": "object",        // Optional

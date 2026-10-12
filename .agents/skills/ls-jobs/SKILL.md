@@ -83,13 +83,13 @@ node .agents/tools/ls-jobs/cli.mjs delete --slug <slug>
 ## Trang web liên quan
 
 - **Danh sách**: `/tuyen-dung` — cache 1h, revalidate tự động sau publish/close
-- **Chi tiết**: `/tuyen-dung/[slug]` — static pre-render, SEO đầy đủ
-- **Sitemap**: `/sitemap.xml` — tự động thêm URL job published
+- **Chi tiết**: `/tuyen-dung/[...slug]` — static pre-render, SEO đầy đủ (tiếng Anh: `/en/tuyen-dung/...`)
+- **Sitemap**: `/sitemap` — tự động thêm URL job published
 - **Revalidate API**: `POST /api/recruitment/revalidate`
 
 ## Setup & Requirements
 
-- **Node.js**: >= 18
+- **Node.js**: >= 20.19 (yêu cầu của mongodb driver 7)
 - **MongoDB**: Đọc `MONGODB_URI` và `MONGODB_DB_NAME` từ `.env.local` hoặc `.env`
 - **GSC** (tùy chọn): `GOOGLE_SEARCH_CONSOLE_CLIENT_EMAIL` + `GOOGLE_SEARCH_CONSOLE_PRIVATE_KEY` để tự động submit sitemap
 - **Revalidate** (tùy chọn): `REVALIDATE_SECRET` để bảo vệ API revalidate

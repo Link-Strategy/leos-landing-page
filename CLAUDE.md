@@ -80,9 +80,10 @@ A multi-platform social media posting system lives in `src/lib/publishing/`. Sup
 ### Agent Skills & Workflows
 
 Located in `.agents/`:
-- **`ls-post` CLI** (`.agents/tools/ls-post/cli.mjs`) — 10 commands: `save-idea`, `save-brief`, `save-asset`, `save-signal`, `search-content`, `get-content`, `publish-asset`, `fetch-metrics`, `schedule-asset`, `unschedule-asset`
+- **`ls-post` CLI** (`.agents/tools/ls-post/cli.mjs`) — 11 commands: `save-idea`, `save-brief`, `save-asset`, `save-signal`, `search-content`, `search-taxonomy`, `get-content`, `publish-asset` (posts via `/api/publish`), `fetch-metrics` (mock data), `schedule-asset`, `unschedule-asset`
 - **Workflows** (`.agents/workflows/`) — 5 pipeline definitions: idea-discovery, strategic-briefing, production-master, channel-distribution, signal-mining
-- **Skills**: `ls-ops` (S3 uploads + MongoDB deletes), `tailwind-design-system`
+- **`ls-jobs` CLI** (`.agents/tools/ls-jobs/cli.mjs`) — recruitment job listings (`job_listings`)
+- **Skills**: `ls-ops` (S3 uploads + MongoDB deletes/audits), `ls-jobs`. `tailwind-design-system` lives in `.claude/skills/`
 - **Docs**: `.docs/LandingAgent/` contains agent rules and technical specifications
 
 ## Commands
@@ -122,8 +123,8 @@ npm run test      # Run tests (node --test test/*.test.js)
 
 ## Important Constraints
 
-- **Do NOT modify** `.agents/` directory or `GEMINI.md` (per governance rules)
-- **Push only** via `npm run ls-gitpush` (manual git push is prohibited per workspace rules)
+- **Do NOT modify** `.agents/` directory or `GEMINI.md` unless the project owner explicitly asks
+- `POST /api/publish` requires `Authorization: Bearer $BLOG_API_BEARER_TOKEN` in production (open in dev)
 - `01_TASK_SPEC.md` is read-only for the executor
 - Blog **`assets` collection** powers the simpler blog display (used by blog-utils). The **`articles` collection** (via `repository.ts`) is the full-featured blog with indexes, click tracking, and SEO — use `repository.ts` for new blog features
 - All site content is in **Vietnamese**

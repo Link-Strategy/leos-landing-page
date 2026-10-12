@@ -6,11 +6,20 @@ function getSiteUrl() {
   return process.env.NEXT_PUBLIC_SITE_URL || process.env.APP_URL || "http://localhost:3000";
 }
 
+// /api/publish requires `Bearer BLOG_API_BEARER_TOKEN` in production (open in dev).
+function jsonHeaders() {
+  const token = process.env.BLOG_API_BEARER_TOKEN?.trim();
+  return {
+    "Content-Type": "application/json",
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+  };
+}
+
 async function publishToPlatform(platform, asset) {
   try {
     const res = await fetch(`${getSiteUrl()}/api/publish`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: jsonHeaders(),
       body: JSON.stringify({ platform, asset }),
     });
     return await res.json();
@@ -24,10 +33,7 @@ async function triggerReindex(slug) {
   try {
     const res = await fetch(`${getSiteUrl()}/api/blog/refresh`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.BLOG_API_BEARER_TOKEN || "123456"}`,
-      },
+      headers: jsonHeaders(),
       body: JSON.stringify({ slug, reason: "publish-asset" }),
     });
     return await res.json();
@@ -67,6 +73,16 @@ export async function publishAsset(runtime, { db }, assetId) {
     results.push(result);
   }
 
+  // Social publish attempted but every platform failed → keep current status so it can be retried
+  if (platforms.length > 0 && !results.some(r => r.ok)) {
+    await collection.updateOne({ _id: queryId }, { $set: { publish_results: results, updated_at: now } });
+    return {
+      ok: false,
+      message: `Publish failed on all ${platforms.length} platform(s); asset status left as "${asset.status}"`,
+      data: { asset_id: assetId, platform: asset.platform, platforms: results },
+    };
+  }
+
   // Update MongoDB
   const updateDoc = { status: "published", published_at: now, url: blogUrl, updated_at: now, publish_results: results };
   await collection.updateOne({ _id: queryId }, { $set: updateDoc });
@@ -102,6 +118,8 @@ export async function fetchMetrics(runtime, { db }, assetId) {
     data: {
       asset_id: assetId,
       platform: asset.platform,
+      // MOCK: random numbers, not real platform data — do not use for signal mining decisions.
+      mock: true,
       metrics: {
         impressions: Math.floor(Math.random() * 1000) + 100,
         clicks: Math.floor(Math.random() * 50) + 1,

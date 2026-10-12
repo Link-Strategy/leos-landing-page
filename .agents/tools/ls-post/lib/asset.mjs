@@ -223,11 +223,13 @@ export async function saveAsset(runtime, { db }, rawPayload) {
           code: "INVALID_MEDIA_URL",
           message: "media.url is required when media item is provided"
         });
-      } else if (!item.url.startsWith("https://media.linkstrategy.io.vn/")) {
+      } else if (!/^https:\/\/[^\s/]+\.[^\s/]+\//.test(item.url)) {
+        // Platforms (Facebook, Instagram…) fetch media server-side, so it must be a public https URL
+        // — e.g. the S3 URL printed by `ls-ops upload`.
         errors.push({
           field: `media.${index}.url`,
           code: "INVALID_MEDIA_URL_DOMAIN",
-          message: "media.url must start with https://media.linkstrategy.io.vn/",
+          message: "media.url must be a public https:// URL (e.g. the S3 URL from ls-ops upload)",
           received_value: item.url
         });
       }

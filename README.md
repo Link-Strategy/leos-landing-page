@@ -15,19 +15,17 @@ Before performing any technical actions, you must review the following core docu
 1. **Planning & Traceability:** Document every step, plan, and progress update in `03_LOGS.md`.
 2. **Clarification:** If any part of the specification is ambiguous, post inquiries in `02_DECISION_LOGS.md`. Do not proceed on assumptions.
 3. **Implementation:** Develop all source code in `src/` and comprehensive tests in `test/`.
-4. **Validation:** Use `npm run verify-gate` to perform automated quality and governance checks.
-5. **Submission:** Use `npm run ls-gitpush -- --title "feat: task description"` for secure delivery.
+4. **Validation:** Run `npm run lint`, `npm run test` and `npm run build` before submitting.
 
 ## III. Command Interface
 
-- `npm run verify-gate`: Executes the technical gate (Quality, Security, and Governance).
-- `npm run ls-gitpush`: The mandatory delivery portal. It enforces local verification before submission.
+- `npm run dev` / `npm run build` / `npm run start`: Next.js dev server, production build, production server.
+- `npm run lint`, `npm run test`: ESLint and Node test runner (`test/*.test.js`).
 
 ## IV. Operational Discipline
 
 - **Specification Integrity:** `01_TASK_SPEC.md` is a read-only baseline for the executor. 
-- **Tool-Only Delivery:** All submissions must go through the provided automation scripts. Manual pushes are prohibited.
-- **Governance Integrity:** Any modification to the `.agents/` directory or `GEMINI.md` is a violation of the execution contract.
+- **Governance Integrity:** Do not modify the `.agents/` directory or `GEMINI.md` unless the project owner explicitly asks.
 - **Evidence-Based Completion:** A task is considered complete only when the logs provide verification evidence and all tests PASS.
 
 ---
