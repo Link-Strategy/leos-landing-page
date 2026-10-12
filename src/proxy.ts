@@ -14,9 +14,23 @@ function resolvePreferredLocale(hostname: string, country: string | null): Local
   return country === "VN" ? "vi" : "en";
 }
 
+// Search engines must always get the default (vi) page at "/" — Google recommends against
+// locale-based auto-redirects, and a US crawler would otherwise be sent to /en. hreflang covers /en.
+const CRAWLER_UA = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|embedly|preview/i;
+
+// Only the canonical production host should be indexed; *.vercel.app deployment URLs serve the same site.
+function isNonCanonicalHost(hostname: string): boolean {
+  return hostname.endsWith(".vercel.app");
+}
+
 export default function middleware(request: NextRequest) {
-  if (!request.cookies.has("NEXT_LOCALE")) {
-    const hostname = request.headers.get("host") ?? "";
+  const hostname = request.headers.get("host") ?? "";
+
+  if (CRAWLER_UA.test(request.headers.get("user-agent") ?? "")) {
+    const headers = new Headers(request.headers);
+    headers.set("accept-language", "vi");
+    request = new NextRequest(request, { headers });
+  } else if (!request.cookies.has("NEXT_LOCALE")) {
     const country = request.headers.get("x-vercel-ip-country");
     const preferredLocale = resolvePreferredLocale(hostname, country);
 
@@ -27,7 +41,9 @@ export default function middleware(request: NextRequest) {
     }
   }
 
-  return intlMiddleware(request);
+  const response = intlMiddleware(request);
+  if (isNonCanonicalHost(hostname)) response.headers.set("X-Robots-Tag", "noindex, nofollow");
+  return response;
 }
 
 export const config = {
