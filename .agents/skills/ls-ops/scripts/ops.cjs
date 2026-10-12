@@ -48,14 +48,6 @@ switch (action) {
     runScript("assets.cjs", args);
     break;
 
-  case "sync":
-    runScript("sync.cjs", args);
-    break;
-
-  case "leads":
-    runScript("leads.cjs", args);
-    break;
-
   default:
     console.log("LeOS Operations Dispatcher");
     console.log("Usage:");
@@ -65,7 +57,5 @@ switch (action) {
     console.log('  node .agents/skills/ls-ops/scripts/ops.cjs images');
     console.log('  node .agents/skills/ls-ops/scripts/ops.cjs db');
     console.log('  node .agents/skills/ls-ops/scripts/ops.cjs assets');
-    console.log('  node .agents/skills/ls-ops/scripts/ops.cjs sync');
-    console.log('  node .agents/skills/ls-ops/scripts/ops.cjs leads');
     process.exit(1);
 }

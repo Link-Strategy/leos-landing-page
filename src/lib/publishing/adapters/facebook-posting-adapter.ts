@@ -37,7 +37,7 @@ interface FacebookInsightsResponse {
  */
 export class FacebookPostingAdapter implements PostingAdapter {
   platform = "facebook" as const;
-  private readonly baseUrl = "https://graph.facebook.com/v19.0";
+  private readonly baseUrl = "https://graph.facebook.com/v26.0";
 
   constructor(
     private readonly token: string,
@@ -152,9 +152,10 @@ export class FacebookPostingAdapter implements PostingAdapter {
         fields: metrics.join(","),
       });
 
-      // Get insights (impressions, reach, engagement)
-      // Note: These require page-level permissions and may not be available for all posts
-      const insights = ["post_impressions", "post_reach", "post_engaged_users"];
+      // Get insights (views, unique viewers) — requires read_insights.
+      // post_impressions / post_impressions_unique were deprecated by Meta in 2025;
+      // post_media_view / post_total_media_view_unique are the official replacements.
+      const insights = ["post_media_view", "post_total_media_view_unique"];
       let insightData: FacebookInsightsResponse = {};
 
       try {
@@ -166,14 +167,23 @@ export class FacebookPostingAdapter implements PostingAdapter {
         // Continue without insights - we still have basic metrics
       }
 
+      // Reactions/comments need `pages_read_user_content`; without it Graph returns an error object.
+      // Report null (unknown) rather than 0 so missing permissions don't look like zero engagement.
+      if (basicData.error) {
+        console.warn("[Facebook] Failed to fetch reactions/comments/shares:", basicData.error.message);
+      }
+      const likes: number | null = basicData.error ? null : (basicData.reactions?.summary?.total_count ?? 0);
+      const comments: number | null = basicData.error ? null : (basicData.comments?.summary?.total_count ?? 0);
+      const shares: number | null = basicData.error ? null : (basicData.shares?.count ?? 0);
+
       // Return normalized metrics
       return {
-        likes: basicData.reactions?.summary?.total_count ?? 0,
-        comments: basicData.comments?.summary?.total_count ?? 0,
-        shares: basicData.shares?.count ?? 0,
-        impressions: this.extractInsightValue(insightData, "post_impressions"),
-        reach: this.extractInsightValue(insightData, "post_reach"),
-        engagement: this.extractInsightValue(insightData, "post_engaged_users"),
+        likes,
+        comments,
+        shares,
+        impressions: this.extractInsightValue(insightData, "post_media_view"),
+        reach: this.extractInsightValue(insightData, "post_total_media_view_unique"),
+        engagement: basicData.error ? null : likes! + comments! + shares!,
       };
     } catch (error) {
       console.error("[Facebook] getMetrics error:", error);

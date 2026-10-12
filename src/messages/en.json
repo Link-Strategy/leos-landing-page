@@ -555,7 +555,14 @@
       "reviewHeadingHighlight": "say",
       "reviewQuote": "“LETRON didn't just provide a solution — it helped us restructure how we operate entirely. From scattered data, everything is now connected and optimized in real time.”",
       "reviewName": "Mila S.",
-      "reviewRole": "Operations Director, Manufacturing Enterprise"
+      "reviewRole": "Operations Director, Manufacturing Enterprise",
+      "consultHeadingPrefix": "Get a product",
+      "consultHeadingHighlight": "consultation",
+      "consultNamePlaceholder": "Full name*",
+      "consultEmailPlaceholder": "Email*",
+      "consultPhonePlaceholder": "Phone number",
+      "consultMessagePlaceholder": "Message*",
+      "consultSubmitLabel": "Send now"
     }
   },
   "heartTab": {

@@ -10,7 +10,7 @@ Giai đoạn đầu của Lifecycle: Tìm kiếm cơ hội nội dung từ ghi c
 ## Các bước thực hiện
 
 ### 1. Nạp bối cảnh
-- Đọc `.agents/rules/09-Agent Context Memory.md` để nắm Core Thesis (`TH-*`).
+- Đọc `.agents/rules/Agent-Rules.md` (mục 2 — Taxonomy) để nắm Core Thesis (`TH-*`).
 
 ### 2. Kiểm tra Backlog
 - Luôn kiểm tra để tránh trùng lặp:

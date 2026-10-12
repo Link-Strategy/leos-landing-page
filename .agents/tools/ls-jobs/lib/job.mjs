@@ -35,6 +35,10 @@ export async function upsertJob(db, payload) {
   if (payload.salary !== undefined) update.salary = payload.salary;
   if (payload.benefits !== undefined) update.benefits = payload.benefits;
   if (payload.externalApplyUrl !== undefined) update.externalApplyUrl = payload.externalApplyUrl;
+  for (const key of ["level", "experience", "deadline"]) {
+    if (typeof payload[key] === "string") update[key] = payload[key].trim();
+  }
+  if (Array.isArray(payload.benefitTags)) update.benefitTags = payload.benefitTags.map(String).filter(Boolean);
 
   await col.createIndex({ slug: 1 }, { unique: true }).catch(() => {});
 

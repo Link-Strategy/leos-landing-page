@@ -15,9 +15,9 @@ Workflow quan trọng nhất thực thi việc tạo Asset đa nền tảng cho 
 
 ### 2. Media Generation (Skills & Tools)
 - **Skill**: Sử dụng `generate_image` để tạo visual bám sát Mental Model.
-- **Skill (ls-ops)**: Upload ảnh lên S3 qua script `ops.js`.
+- **Skill (ls-ops)**: Upload ảnh lên S3 qua script `ops.cjs`.
   ```powershell
-  node ".agents/skills/ls-ops/scripts/ops.js" upload -FilePath "<IMAGE_PATH>" -Folder "posts/2026/03" -FileName "slug.png"
+  node ".agents/skills/ls-ops/scripts/ops.cjs" upload -FilePath "<IMAGE_PATH>" -Folder "posts/2026/03" -FileName "slug.png"
   ```
 
 ### 3. Asset Creation (Ghi Một Cửa)

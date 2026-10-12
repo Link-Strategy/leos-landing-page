@@ -5,7 +5,7 @@ description: LeOS Operations Layer. Handles MongoDB operations and file uploads 
 
 # LeOS Ops Skill
 
-This skill provides robust alternatives to standard MCP and n8n tools for critical database and storage operations in the Link Strategy project.
+This skill provides robust alternatives to standard MCP and n8n tools for critical database and storage operations in the LeOS / LeTRON workspace.
 
 ## When to use this skill
 
@@ -15,14 +15,14 @@ This skill provides robust alternatives to standard MCP and n8n tools for critic
 ## Capabilities
 
 ### Upload Asset
-Uploads a local file to S3 via the production webhook.
+Uploads a local file directly to S3 using AWS SDK v3 and prints the public S3 URL.
 
 **Command:**
 ```powershell
 node .agents/skills/ls-ops/scripts/ops.cjs upload -FilePath "<LOCAL_PATH>" [-Folder "<S3_FOLDER>"] [-FileName "<REMOTE_NAME>"]
 ```
 *   **Simple Usage**: `node .agents/skills/ls-ops/scripts/ops.cjs upload "C:/image.png"`
-*   **Default Folder**: If `-Folder` is omitted, it defaults to `linkstrategy/manual-uploads/YYYY/MM` (dynamic by month).
+*   **Default Folder**: If `-Folder` is omitted, it defaults to `uploads/YYYY/MM` (dynamic by month).
 
 ### Delete Documents
 Deletes a single document from MongoDB strictly by its ID. For safety, this command no longer accepts complex JSON filters, only 24-character hex strings.
@@ -44,17 +44,12 @@ Additional utility scripts to audit and manage blog databases and image assets.
     Lists all collections in the database and shows the document count for each.
 *   **List Legacy Assets**: `node .agents/skills/ls-ops/scripts/ops.cjs assets`
     Outputs a raw list of all assets inside the legacy assets collection.
-*   **Sync Placeholders**: `node .agents/skills/ls-ops/scripts/ops.cjs sync`
-    Uploads local images from `public/wp-content/uploads/` to S3 and updates all mock blog post placeholders in MongoDB with active S3 links.
-*   **List Leads**: `node .agents/skills/ls-ops/scripts/ops.cjs leads`
-    Fetches and displays all registered contact submissions (leads) from the `leads` collection in descending chronological order.
 
 
 
 ## Setup & Requirements
 - **Node.js**: Requires Node.js installed on the host system.
-- **MongoDB Driver**: The `mongodb` npm package must be installed (it is included in `devDependencies`).
-- **Environment**: Reads `MONGO_URI` from the root `.env` file. You can also set `DEFAULT_UPLOAD_FOLDER` in `.env` to avoid passing the `-Folder` parameter.
-- **Curl**: Uses `curl.exe` for uploads.
+- **MongoDB Driver**: The `mongodb` npm package must be installed (it is included in `dependencies`).
+- **Environment**: Reads `MONGODB_URI` / `MONGODB_DB_NAME` from the root `.env` file. Uploads read `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_BUCKET_NAME`, `S3_REGION`.
 
 

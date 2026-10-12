@@ -24,7 +24,7 @@ Biến Idea thành một bản đặc tả chiến lược (Brief) trước khi 
 
 ### 3. Thiết lập Brief
 - Xây dựng **Core Insight** (Reframe vấn đề).
-- Xác định **Product Mention Level** (None, Soft, Light, Direct).
+- Xác định **Product Mention Level** (`none`, `light`, `moderate`, `direct`).
 - Lưu brief qua tool `save_brief`.
 
 ### 4. Kết quả

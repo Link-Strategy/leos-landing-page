@@ -11,7 +11,7 @@ export async function connectToDatabase() {
   const uri = process.env.MONGODB_URI || process.env.MONGO_URI;
   if (!uri) throw new Error("Missing MONGODB_URI or MONGO_URI in environment");
 
-  const dbName = process.env.MONGODB_DB_NAME || process.env.DB_NAME || "linkstrategy";
+  const dbName = process.env.MONGODB_DB_NAME || process.env.DB_NAME || "blogs";
   const client = new MongoClient(uri);
   await client.connect();
   const db = client.db(dbName);

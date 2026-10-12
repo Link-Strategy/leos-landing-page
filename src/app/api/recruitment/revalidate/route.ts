@@ -1,5 +1,6 @@
 import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
+import { isAuthorizedRequest } from "@/lib/api-auth";
 import { CACHE_TAG } from "@/lib/recruitment/queries";
 
 /**
@@ -8,17 +9,11 @@ import { CACHE_TAG } from "@/lib/recruitment/queries";
  * Revalidates the Next.js cache for job listings.
  * Call this after publishing/closing/updating jobs via the CLI.
  *
- * Optional header: Authorization: Bearer <REVALIDATE_SECRET>
+ * Header: Authorization: Bearer <REVALIDATE_SECRET> (required in production, open in dev)
  */
 export async function POST(request: Request) {
-  // Optional secret check — set REVALIDATE_SECRET in .env to enable
-  const secret = process.env.REVALIDATE_SECRET;
-  if (secret) {
-    const authHeader = request.headers.get("authorization");
-    const token = authHeader?.replace("Bearer ", "");
-    if (token !== secret) {
-      return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
-    }
+  if (!isAuthorizedRequest(request, process.env.REVALIDATE_SECRET)) {
+    return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
   }
 
   revalidateTag(CACHE_TAG, "max");

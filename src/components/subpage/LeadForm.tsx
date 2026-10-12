@@ -56,6 +56,7 @@ export function LeadForm({
           email: formData.get("email"),
           phone: formData.get("phone") || undefined,
           message: formData.get("message") || undefined,
+          website: formData.get("website") || undefined,
           source: source || "landing",
           lead_type: lead_type || "contact",
         }),
@@ -65,7 +66,11 @@ export function LeadForm({
       if (data.success) {
         setSubmitted(true);
       } else {
-        setError(data.message || "Có lỗi xảy ra, vui lòng thử lại.");
+        // Validation errors come back per field (src/lib/lead-validation.ts); show them all.
+        const fieldMessages = Array.isArray(data.fields)
+          ? data.fields.map((f: { message?: string }) => f.message).filter(Boolean).join(" · ")
+          : "";
+        setError(fieldMessages || data.message || "Có lỗi xảy ra, vui lòng thử lại.");
       }
     } catch {
       setError("Không thể kết nối tới server. Vui lòng thử lại.");
@@ -87,6 +92,10 @@ export function LeadForm({
 
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+      {/* Honeypot: hidden from people, filled by bots; /api/contact silently drops these. */}
+      <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+        <input autoComplete="off" name="website" tabIndex={-1} type="text" />
+      </div>
       <label className="sr-only" htmlFor="lead-name">Họ và tên</label>
       <div className="rounded-full p-px" style={fieldWrapperStyle}>
         <input className={inputClass} id="lead-name" name="name" placeholder={namePlaceholder} style={fieldInnerStyle} type="text" />

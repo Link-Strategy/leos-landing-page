@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 import ContactPage from "@/components/contact/ContactPage";
+import { localeAlternates } from "@/lib/seo-alternates";
 
 export async function generateMetadata({
   params,
@@ -10,7 +11,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "contact" });
-  return { title: t("metaTitle") };
+  return { title: t("metaTitle"), alternates: localeAlternates(locale, "/lien-he") };
 }
 
 export default function LienHePage() {

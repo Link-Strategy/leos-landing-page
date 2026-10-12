@@ -15,7 +15,7 @@ function getMongoUri() {
 }
 
 function getMongoDbName() {
-  return process.env.MONGODB_DB_NAME?.trim() || "";
+  return process.env.MONGODB_DB_NAME?.trim() || "blogs";
 }
 
 export function isRecruitmentStorageConfigured() {
@@ -69,6 +69,10 @@ function toJobListing(doc: JobListingDocument & { _id: ObjectId }): JobListing {
     requirements: doc.requirements,
     description: doc.description,
     benefits: doc.benefits,
+    level: doc.level,
+    experience: doc.experience,
+    deadline: doc.deadline,
+    benefitTags: doc.benefitTags,
     status: doc.status,
     order: doc.order,
     externalApplyUrl: doc.externalApplyUrl,
@@ -121,6 +125,10 @@ export async function upsertJobListing(payload: JobListingPayload): Promise<JobL
   if (payload.salary !== undefined) update.salary = payload.salary;
   if (payload.benefits !== undefined) update.benefits = payload.benefits;
   if (payload.externalApplyUrl !== undefined) update.externalApplyUrl = payload.externalApplyUrl;
+  if (payload.level !== undefined) update.level = payload.level;
+  if (payload.experience !== undefined) update.experience = payload.experience;
+  if (payload.deadline !== undefined) update.deadline = payload.deadline;
+  if (payload.benefitTags !== undefined) update.benefitTags = payload.benefitTags;
 
   const result = await col.findOneAndUpdate(
     { slug: payload.slug },

@@ -5,9 +5,13 @@ import { Loader2 } from "lucide-react";
 
 interface Props {
   jobTitle: string;
+  jobSlug: string;
 }
 
-export function JobApplyForm({ jobTitle }: Props) {
+const CV_MAX_BYTES = 5 * 1024 * 1024;
+const CV_EXTENSIONS = ["pdf", "doc", "docx"];
+
+export function JobApplyForm({ jobTitle, jobSlug }: Props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -17,10 +21,12 @@ export function JobApplyForm({ jobTitle }: Props) {
   const [error, setError] = useState("");
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const websiteRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       setCvName(e.target.files[0].name);
+      setError("");
     } else {
       setCvName("Không có tệp nào được chọn");
     }
@@ -51,25 +57,40 @@ export function JobApplyForm({ jobTitle }: Props) {
       return;
     }
 
+    const cvFile = fileInputRef.current?.files?.[0];
+    if (!cvFile) {
+      setError("Vui lòng đính kèm CV");
+      setLoading(false);
+      return;
+    }
+    if (!CV_EXTENSIONS.includes(cvFile.name.toLowerCase().split(".").pop() ?? "")) {
+      setError("CV phải là file PDF, DOC hoặc DOCX");
+      setLoading(false);
+      return;
+    }
+    if (cvFile.size > CV_MAX_BYTES) {
+      setError("CV tối đa 5MB");
+      setLoading(false);
+      return;
+    }
+
+    const body = new FormData();
+    body.set("name", name.trim());
+    body.set("email", email.trim());
+    body.set("phone", phone.trim());
+    body.set("job_title", jobTitle);
+    body.set("job_slug", jobSlug);
+    body.set("website", websiteRef.current?.value ?? "");
+    body.set("cv_file", cvFile);
+
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: name.trim(),
-          email: email.trim(),
-          phone: phone.trim(),
-          message: `Ứng tuyển vị trí: ${jobTitle}. File đính kèm: ${cvName}`,
-          source: "recruitment",
-          lead_type: "job_application",
-        }),
-      });
+      const res = await fetch("/api/apply", { method: "POST", body });
 
       const data = await res.json();
       if (data.success) {
         setSubmitted(true);
       } else {
-        setError(data.message || "Có lỗi xảy ra, vui lòng thử lại.");
+        setError(data.fields?.[0]?.message || data.message || "Có lỗi xảy ra, vui lòng thử lại.");
       }
     } catch {
       setError("Không thể kết nối tới máy chủ. Vui lòng thử lại.");
@@ -101,6 +122,11 @@ export function JobApplyForm({ jobTitle }: Props) {
     >
       <form className="elementor-form" onSubmit={handleSubmit}>
         <div className="elementor-form-fields-wrapper elementor-labels-above">
+          {/* Honeypot: hidden from people, filled by bots. */}
+          <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+            <input ref={websiteRef} name="website" type="text" tabIndex={-1} autoComplete="off" />
+          </div>
+
           {error && (
             <div className="elementor-field-group elementor-col-100 mb-4 text-rose-400 text-sm font-semibold">
               {error}

@@ -1,22 +1,21 @@
-﻿import { NextRequest, NextResponse } from "next/server";
-import { getPostingPublisher, loadPlatformAuthFromEnv, type Platform, type PublishResult } from "@/lib/publishing";
+import { NextRequest, NextResponse } from "next/server";
+import { isAuthorizedRequest } from "@/lib/api-auth";
+import type { Platform } from "@/lib/publishing";
+import { publishAssetToPlatform } from "@/lib/publishing/publish-asset";
 
+// Posting uses the company's social tokens: production requires `Bearer BLOG_API_BEARER_TOKEN`.
 export async function POST(request: NextRequest) {
+  if (!isAuthorizedRequest(request)) {
+    return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     const { platform, asset } = await request.json();
     if (!platform || !asset) {
       return NextResponse.json({ ok: false, error: "Missing platform or asset" }, { status: 400 });
     }
 
-    const auth = loadPlatformAuthFromEnv(platform as Platform);
-    if (!auth) {
-      return NextResponse.json({ ok: false, error: `${platform.toUpperCase()}_ACCESS_TOKEN not configured` });
-    }
-
-    const publisher = getPostingPublisher();
-    const result: PublishResult = await publisher.publish(platform as Platform, auth, {
-      title: asset.title, body: asset.body, hashtags: asset.hashtags,
-    });
+    const result = await publishAssetToPlatform(platform as Platform, asset);
 
     return NextResponse.json({
       ok: result.status === "published",

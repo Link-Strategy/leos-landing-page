@@ -3,12 +3,14 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { formatBlogDate } from "@/lib/blog-utils";
 import { getCachedPublicBlogArticles } from "@/lib/blog/queries";
+import { localeAlternates } from "@/lib/seo-alternates";
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
+  const { locale, slug } = await params;
   return {
     title: `${slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())} | Blog`,
     description: `Articles about ${slug.replace(/-/g, " ")}`,
+    alternates: localeAlternates(locale, `/blog/topics/${slug}`),
   };
 }
 

@@ -7,6 +7,7 @@
  */
 
 import { getPostingAdapterFactory } from "./adapters/posting-adapter-factory";
+import { normalizePlatformMetrics, type NormalizedMetrics } from "./metrics";
 
 export type Platform =
   | "linkedin"
@@ -128,6 +129,26 @@ export class PostingPublisherService {
         status: "failed",
         error: error instanceof Error ? error.message : "Unknown error",
       };
+    }
+  }
+
+  /**
+   * Fetch engagement metrics for a published post, normalized across platforms.
+   * Returns null when the adapter has no metrics support; never throws.
+   */
+  async getMetrics(
+    platform: Platform,
+    auth: PlatformEnvAuth,
+    postId: string,
+  ): Promise<{ metrics: NormalizedMetrics | null; error?: string }> {
+    try {
+      const adapter = await getPostingAdapterFactory().create(platform, auth);
+      if (!adapter.getMetrics) return { metrics: null, error: "Metrics not supported for this platform" };
+      const raw = await adapter.getMetrics(postId);
+      return { metrics: normalizePlatformMetrics(platform, raw) };
+    } catch (error) {
+      console.error(`[PostingPublisher] Failed to fetch metrics for ${platform}:`, error);
+      return { metrics: null, error: error instanceof Error ? error.message : "Unknown error" };
     }
   }
 }

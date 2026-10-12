@@ -6,7 +6,7 @@
 
 ---
 
-## 1. Danh tính & Định vị (Ghi đè 09-Agent Context Memory)
+## 1. Danh tính & Định vị
 
 ### Định vị thương hiệu
 **LeOS (Letron Operation System)** là **hệ điều hành vận hành cho doanh nghiệp tài nguyên & môi trường** — tích hợp công nghệ chuyển hóa chất thải, vật liệu xây dựng xanh, và quản trị vận hành bền vững.
@@ -85,8 +85,9 @@ node .agents/tools/ls-post/cli.mjs <lệnh> [đối số]
 | `save-asset` | Lưu bài đăng + lịch hẹn giờ (QStash) | MongoDB + brief_id |
 | `save-signal` | Lưu bài học từ metrics | MongoDB + asset_id |
 | `search-content` | Tra cứu nội dung | MongoDB |
+| `search-taxonomy` | Tra cứu taxonomy (`TH-*`, `MM-*`, `CL-*`, `PL-*`) | MongoDB + taxonomy_registry |
 | `get-content` | Xem chi tiết record | MongoDB |
-| `publish-asset` | Đánh dấu đã xuất bản | MongoDB |
+| `publish-asset` | Đăng lên các nền tảng qua `POST /api/publish` rồi đánh dấu đã xuất bản | MongoDB + token nền tảng trong `.env` (production cần `BLOG_API_BEARER_TOKEN`) |
 | `fetch-metrics` | Lấy metrics (đang mock) | MongoDB |
 | `schedule-asset` | Lên lịch đăng qua QStash | QStash token |
 | `unschedule-asset` | Hủy lịch đăng QStash | QStash token |
@@ -104,8 +105,6 @@ node .agents/skills/ls-ops/scripts/ops.cjs <lệnh> [đối số]
 | `images` | Quét các liên kết ảnh trong markdown | MongoDB |
 | `db` | Xem số lượng tài liệu trong các collection | MongoDB |
 | `assets` | Liệt kê dữ liệu thô trong collection assets | MongoDB |
-| `sync` | Upload ảnh cục bộ lên S3 và cập nhật MongoDB | MongoDB + S3 |
-| `leads` | Liệt kê danh sách thông tin khách hàng đăng ký (leads) | MongoDB |
 
 ### ls-jobs CLI
 ```bash
@@ -153,8 +152,8 @@ node .agents/tools/ls-jobs/cli.mjs <lệnh> [đối số]
 ### Tuyển dụng
 - Collection MongoDB: `job_listings`
 - Danh sách: `/tuyen-dung` (cache 1h, revalidate tự động)
-- Chi tiết: `/tuyen-dung/[slug]` (SSG, SEO đầy đủ, `<lastmod>` trong sitemap)
-- Sitemap: tự động thêm URL job published vào `/sitemap.xml`
+- Chi tiết: `/tuyen-dung/[...slug]` (SSG, SEO đầy đủ, `<lastmod>` trong sitemap; bản tiếng Anh có tiền tố `/en`)
+- Sitemap: tự động thêm URL job published vào `/sitemap`
 - Revalidate API: `POST /api/recruitment/revalidate`
 
 ### Lead Capture
@@ -163,7 +162,7 @@ node .agents/tools/ls-jobs/cli.mjs <lệnh> [đối số]
 - Lưu trữ: MongoDB collection `leads`
 
 
-## 4. Cấu trúc kể chuyện (Giữ nguyên từ 09-Agent Context Memory)
+## 4. Cấu trúc kể chuyện
 
 Áp dụng cấu trúc 6 bước:
 
@@ -195,7 +194,7 @@ node .agents/tools/ls-jobs/cli.mjs <lệnh> [đối số]
 
 ## 6. Product Bridge (Giữ nguyên logic từ editorial-rules)
 
-4 mức nhắc sản phẩm: `none` → `soft` → `light` → `direct`
+4 mức nhắc sản phẩm (`product_mention_level`): `none` → `light` → `moderate` → `direct`
 Tỷ lệ khuyến nghị: **4 bài value : 1 bài product-facing**
 
 ---
@@ -206,6 +205,5 @@ Khi bắt đầu phiên làm việc, đọc theo thứ tự:
 
 1. `.docs/LandingAgent/LandingAgent.md` — hiểu workspace có gì, thiếu gì
 2. `.docs/LandingAgent/Agent-Rules.md` — (file này) — brand, taxonomy, tools cho LeOS
-3. `.agents/rules/09-Agent Context Memory.md` — giọng văn, cấu trúc kể chuyện (dùng phần không bị ghi đè)
-4. `01_TASK_SPEC.md` — task hiện tại
-5. `03_LOGS.md` — tiến độ & blockers
+3. `01_TASK_SPEC.md` — task hiện tại
+4. `03_LOGS.md` — tiến độ & blockers

@@ -24,6 +24,12 @@ export type JobListingDocument = {
   requirements: string; // Markdown
   description: string;  // Markdown
   benefits?: string;    // Markdown
+  /** Optional display fields — the job page shows them only when set. */
+  level?: string;
+  experience?: string;
+  /** Free text or ISO date, e.g. "2026-12-31". */
+  deadline?: string;
+  benefitTags?: string[];
   status: JobStatus;
   order: number;
   externalApplyUrl?: string;
@@ -46,6 +52,12 @@ export type JobListing = {
   requirements: string;
   description: string;
   benefits?: string;
+  /** Optional display fields — the job page shows them only when set. */
+  level?: string;
+  experience?: string;
+  /** Free text or ISO date, e.g. "2026-12-31". */
+  deadline?: string;
+  benefitTags?: string[];
   status: JobStatus;
   order: number;
   externalApplyUrl?: string;
@@ -67,6 +79,12 @@ export type JobListingPayload = {
   requirements: string;
   description: string;
   benefits?: string;
+  /** Optional display fields — the job page shows them only when set. */
+  level?: string;
+  experience?: string;
+  /** Free text or ISO date, e.g. "2026-12-31". */
+  deadline?: string;
+  benefitTags?: string[];
   status?: JobStatus;
   order?: number;
   externalApplyUrl?: string;

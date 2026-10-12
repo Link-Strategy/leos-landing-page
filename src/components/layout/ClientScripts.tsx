@@ -18,7 +18,12 @@ export default function ClientScripts() {
 
   useEffect(() => {
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js");
+      if (process.env.NODE_ENV === "production") {
+        navigator.serviceWorker.register("/sw.js");
+      } else {
+        // Dev chunks change constantly; a cached shell breaks hydration. Drop any SW left from prod builds.
+        navigator.serviceWorker.getRegistrations().then((regs) => regs.forEach((r) => r.unregister()));
+      }
     }
 
     if (!showElementor) return;
@@ -63,19 +68,7 @@ export default function ClientScripts() {
   return (
     <>
       {/* ====== GLOBAL SCRIPTS (load on ALL pages) ====== */}
-      <Script src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" strategy="beforeInteractive" />
-      <Script src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" strategy="beforeInteractive" />
-      <Script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?ver=11" strategy="afterInteractive" />
-
-      {/* hooks.min.js must be loaded before i18n.min.js to prevent "Cannot read properties of undefined (reading 'hooks')" crash */}
-      <Script src="/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" strategy="beforeInteractive" />
-      <Script src="/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" strategy="beforeInteractive" />
-
-      <Script id="set-locale-data" strategy="beforeInteractive">
-        {`if (typeof window !== "undefined" && window.wp?.i18n) {
-          window.wp.i18n.setLocaleData( { "text directionltr": [ "ltr" ] } );
-        }`}
-      </Script>
+      {/* beforeInteractive scripts (jQuery, wp hooks/i18n) live in the root layout — they must be rendered by a Server Component */}
 
       {/* ====== ELEMENTOR SCRIPTS (chỉ trên routes cần Elementor) — chỉ render sau mount ====== */}
       {showElementor && (

@@ -1,4 +1,4 @@
-﻿import type { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.trim() || process.env.APP_URL?.trim() || "https://letrongroup.com";
 
@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: ["/", "/images/", "/favicon.ico"],
-        disallow: ["/api/", "/admin/", "/*.json$"],
+        disallow: ["/api/", "/admin/", "/landing/", "/*.json$"],
         crawlDelay: 1,
       },
     ],

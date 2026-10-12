@@ -1,60 +1,94 @@
-﻿import { NextRequest, NextResponse } from "next/server";
-import { MongoClient, ObjectId } from "mongodb";
+import { NextRequest, NextResponse } from "next/server";
+import { ObjectId } from "mongodb";
+import { Receiver } from "@upstash/qstash";
+import { getBlogDb } from "@/lib/mongodb";
+import { getAssetPlatforms, publishAssetToPlatform, type PostingAsset } from "@/lib/publishing/publish-asset";
 
-const MONGODB_URI = process.env.MONGODB_URI || "";
-const DB_NAME = process.env.MONGODB_DB_NAME || "blogs";
+/**
+ * QStash webhook scheduled by `ls-post schedule-asset` (.agents/tools/ls-post/lib/qstash.mjs).
+ * Verifies the `upstash-signature` header, then publishes the asset to its social platform(s).
+ */
+async function isValidQStashRequest(request: NextRequest, rawBody: string) {
+  const currentSigningKey = process.env.QSTASH_CURRENT_SIGNING_KEY;
+  const nextSigningKey = process.env.QSTASH_NEXT_SIGNING_KEY;
+
+  // Dev without signing keys: allow local testing. Production fails closed.
+  if (!currentSigningKey || !nextSigningKey) {
+    return process.env.NODE_ENV !== "production";
+  }
+
+  const signature = request.headers.get("upstash-signature");
+  if (!signature) return false;
+
+  try {
+    const receiver = new Receiver({ currentSigningKey, nextSigningKey });
+    return await receiver.verify({ signature, body: rawBody, clockTolerance: 5 });
+  } catch {
+    return false;
+  }
+}
 
 export async function POST(request: NextRequest) {
-  try {
-    const body = await request.json();
-    const assetId = body?.payload?.assetId;
+  const rawBody = await request.text();
+  if (!(await isValidQStashRequest(request, rawBody))) {
+    return NextResponse.json({ ok: false, error: "Invalid QStash signature" }, { status: 401 });
+  }
 
+  try {
+    const assetId = JSON.parse(rawBody)?.payload?.assetId;
     if (!assetId) {
       return NextResponse.json({ ok: false, error: "Missing assetId" }, { status: 400 });
     }
 
-    const client = new MongoClient(MONGODB_URI);
-    await client.connect();
-    const db = client.db(DB_NAME);
+    const db = await getBlogDb();
     const collection = db.collection("assets");
 
-    let queryId;
+    let queryId: ObjectId | string;
     try { queryId = new ObjectId(assetId); } catch { queryId = assetId; }
 
-    const asset = await collection.findOne({ _id: queryId });
+    const asset = await collection.findOne({ _id: queryId as ObjectId });
     if (!asset) {
-      await client.close();
       return NextResponse.json({ ok: false, error: "Asset not found" }, { status: 404 });
     }
 
     if (asset.status === "published") {
-      await client.close();
       return NextResponse.json({ ok: true, message: "Already published" });
     }
 
-    const now = new Date();
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || process.env.APP_URL?.trim() || "https://letrongroup.com";
-    const articleUrl = `${siteUrl}/posts/${asset.platform || "general"}/${assetId}`;
+    const platforms = getAssetPlatforms(asset as PostingAsset);
+    const results = [];
+    for (const platform of platforms) {
+      results.push(await publishAssetToPlatform(platform, asset as PostingAsset));
+    }
 
-    await collection.updateOne({ _id: queryId }, {
-      $set: { status: "published", published_at: now, url: articleUrl, updated_at: now }
+    const now = new Date();
+    const published = results.filter((r) => r.status === "published");
+
+    // Social publish attempted but nothing went out → keep status, record results, let QStash retry (5xx).
+    if (platforms.length > 0 && published.length === 0) {
+      await collection.updateOne({ _id: queryId as ObjectId }, { $set: { publish_results: results, updated_at: now } });
+      return NextResponse.json(
+        { ok: false, error: "Publish failed on all platforms", data: { asset_id: assetId, platforms: results } },
+        { status: 502 },
+      );
+    }
+
+    const url = published[0]?.permalink ?? null;
+    await collection.updateOne({ _id: queryId as ObjectId }, {
+      $set: { status: "published", published_at: now, url, updated_at: now, publish_results: results },
     });
 
-    // Clean up scheduled_jobs record
+    // Clean up scheduled_post_jobs record
     try { await db.collection("scheduled_post_jobs").deleteOne({ asset_id: queryId }); } catch {}
-
-    await client.close();
 
     return NextResponse.json({
       ok: true,
       message: "Scheduled post published",
-      data: { asset_id: assetId, url: articleUrl, status: "published" }
+      data: { asset_id: assetId, url, status: "published", platforms: results },
     });
   } catch (error) {
-    return NextResponse.json(
-      { ok: false, error: (error as Error).message },
-      { status: 500 }
-    );
+    console.error("[scheduled-posts] Failed:", error);
+    return NextResponse.json({ ok: false, error: "Internal error" }, { status: 500 });
   }
 }
 

@@ -29,8 +29,19 @@ function normalizeInternalLinks(html: string) {
     .replace(/\bhref="(?!https?:|mailto:|tel:|data:|#|\/|javascript:)([^"]+)"/g, 'href="/$1"');
 }
 
+// WordPress duplicates that are redirected (next.config.ts): point links at the canonical slug from src/lib/products.ts.
+const DUPLICATE_PAGE_LINKS: Array<[RegExp, string]> = [
+  [/(href="[^"]*\/san-pham\/)ledb-bo-nao-so-2\//g, "$1ledb-bo-nao-so-4/"],
+  [/(href="[^"]*\/san-pham\/)lesm-di-chuyen-thong-minh-2\//g, "$1lese-nang-luong-thong-minh/"],
+  [/(href="[^"]*\/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh)-[2-8]\//g, "$1/"],
+];
+
+function normalizeDuplicateLinks(html: string) {
+  return DUPLICATE_PAGE_LINKS.reduce((out, [pattern, replacement]) => out.replace(pattern, replacement), html);
+}
+
 export function normalizeLandingHtml(html: string) {
-  return normalizeInternalLinks(normalizeAssetPaths(html));
+  return normalizeDuplicateLinks(normalizeInternalLinks(normalizeAssetPaths(html)));
 }
 
 export function getLandingMainHtml(segments: string[] = []) {

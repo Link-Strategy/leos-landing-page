@@ -14,6 +14,9 @@ import {
 import { Button } from "@/ui/button";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 
+// Swiper is loaded globally from the CDN in the root layout (window.Swiper is declared in HomeElementorInteractions.tsx).
+type SwiperInstance = { destroy?: (deleteInstance?: boolean, cleanStyles?: boolean) => void };
+
 interface ProductItem {
   id: string;
   title: string;
@@ -91,7 +94,7 @@ export default function Products() {
   useEffect(() => {
     let cancelled = false;
     let attempts = 0;
-    let swiperInstance: any = null;
+    let swiperInstance: SwiperInstance | null = null;
 
     const init = () => {
       if (cancelled) return;
@@ -101,8 +104,9 @@ export default function Products() {
         return;
       }
       if (swiperEl.classList.contains("swiper-initialized")) return;
-      if (typeof window !== "undefined" && (window as any).Swiper) {
-        swiperInstance = new (window as any).Swiper(".sp-slider", {
+      const SwiperCtor = window.Swiper;
+      if (SwiperCtor) {
+        swiperInstance = new SwiperCtor(".sp-slider", {
           loop: true,
           centeredSlides: true,
           slidesPerView: 1.2,
@@ -113,7 +117,7 @@ export default function Products() {
             768: { slidesPerView: 2.2 },
             1024: { slidesPerView: 3, spaceBetween: 24 },
           },
-        });
+        }) as SwiperInstance;
       } else {
         if (++attempts < 100) setTimeout(init, 50);
       }
