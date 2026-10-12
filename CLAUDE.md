@@ -33,7 +33,10 @@ LeOS landing page — a Vietnamese-language corporate site built with **Next.js 
 | `/sitemap` | Dynamic | Static pages + blog URLs |
 | `/api/blog/posts` | JSON API | MongoDB |
 | `/api/blog/track-click` | POST | CTA click tracking |
-| `/api/contact` | POST | Lead capture → MongoDB |
+| `/api/contact` | POST | Lead capture → MongoDB `leads` + Telegram (honeypot, rate limit) |
+| `/api/apply` | POST multipart | Job application: CV → private S3 (`private/cv/`) + Telegram with 7-day presigned link |
+| `/api/blog/articles` | POST (Bearer) | Upsert blog article into `articles` (used by `ls-post publish-asset`) |
+| `/api/metrics` | POST (Bearer) | Real platform metrics for an asset (used by `ls-post fetch-metrics`) |
 | `/gioi-thieu`, `/lien-he`, `/san-pham`, `/tuyen-dung` | SSG | `public/landing/` or static HTML |
 | `/[slug]` | SSG | `public/landing/` catch-all |
 
@@ -124,7 +127,9 @@ npm run test      # Run tests (node --test test/*.test.js)
 ## Important Constraints
 
 - **Do NOT modify** `.agents/` directory or `GEMINI.md` unless the project owner explicitly asks
-- `POST /api/publish` requires `Authorization: Bearer $BLOG_API_BEARER_TOKEN` in production (open in dev)
+- Write APIs (`/api/publish`, `/api/blog/articles`, `/api/blog/refresh`, `/api/metrics`) require `Authorization: Bearer $BLOG_API_BEARER_TOKEN` in production (open in dev); see `src/lib/api-auth.ts`
+- Lead forms on static pages: `StaticLandingPage` `leadForm` prop swaps the dead Elementor `<form>` for `LeadForm` via a portal (`src/lib/static-landing.tsx`)
+- Telegram notifications need `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID`; without them leads are still saved
 - `01_TASK_SPEC.md` is read-only for the executor
 - Blog **`assets` collection** powers the simpler blog display (used by blog-utils). The **`articles` collection** (via `repository.ts`) is the full-featured blog with indexes, click tracking, and SEO — use `repository.ts` for new blog features
 - All site content is in **Vietnamese**
