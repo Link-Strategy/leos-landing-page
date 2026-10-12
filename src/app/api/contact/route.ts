@@ -1,7 +1,7 @@
 import { after, NextRequest, NextResponse } from "next/server";
 import { leadRateLimiter, saveLead } from "@/lib/lead-storage";
 import { isHoneypotTriggered } from "@/lib/lead-validation";
-import { formatLeadMessage, sendTelegramMessage } from "@/lib/notify/telegram";
+import { notifyLead } from "@/lib/notify";
 import { getClientIp } from "@/lib/rate-limit";
 
 const THANK_YOU = "Cảm ơn bạn! Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất.";
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
   }
 
   const lead = result.lead;
-  after(() => sendTelegramMessage(formatLeadMessage(lead)));
+  after(() => notifyLead(lead));
 
   return NextResponse.json({ success: true, message: THANK_YOU, lead_id: result.lead_id });
 }

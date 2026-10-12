@@ -3,14 +3,14 @@ import { after, NextRequest, NextResponse } from "next/server";
 import { buildCvKey, CV_MAX_BYTES, detectCvType } from "@/lib/cv-file";
 import { leadRateLimiter, saveLead } from "@/lib/lead-storage";
 import { isHoneypotTriggered } from "@/lib/lead-validation";
-import { formatLeadMessage, sendTelegramMessage } from "@/lib/notify/telegram";
+import { notifyLead } from "@/lib/notify";
 import { getClientIp } from "@/lib/rate-limit";
 import { getPresignedDownloadUrl, putPrivateObject } from "@/lib/s3";
 
 /**
  * POST /api/apply — job application (multipart/form-data).
  * Fields: name, email, phone, job_title, job_slug, website (honeypot), cv_file (pdf/doc/docx ≤ 5MB).
- * The CV is stored privately on S3; the Telegram notification carries a 7-day presigned link.
+ * The CV is stored privately on S3; Telegram + email notifications carry a 7-day presigned link.
  */
 const THANK_YOU = "Cảm ơn bạn đã ứng tuyển! Bộ phận tuyển dụng sẽ liên hệ với bạn sớm.";
 
@@ -97,7 +97,7 @@ export async function POST(request: NextRequest) {
     } catch (error) {
       console.error("[apply] presign failed:", error);
     }
-    await sendTelegramMessage(formatLeadMessage(lead, { cvUrl }));
+    await notifyLead(lead, { cvUrl });
   });
 
   return NextResponse.json({ success: true, message: THANK_YOU, lead_id: result.lead_id });

@@ -129,7 +129,7 @@ npm run test      # Run tests (node --test test/*.test.js)
 - **Do NOT modify** `.agents/` directory or `GEMINI.md` unless the project owner explicitly asks
 - Write APIs (`/api/publish`, `/api/blog/articles`, `/api/blog/refresh`, `/api/metrics`) require `Authorization: Bearer $BLOG_API_BEARER_TOKEN` in production (open in dev); see `src/lib/api-auth.ts`
 - Lead forms on static pages: `StaticLandingPage` `leadForm` prop swaps the dead Elementor `<form>` for `LeadForm` via a portal (`src/lib/static-landing.tsx`)
-- Telegram notifications need `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID`; without them leads are still saved
+- Lead notifications (`src/lib/notify`): Telegram (`TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`) + SMTP email (`SMTP_HOST/PORT/USER/PASS`, `MAIL_FROM`, `LEAD_EMAIL_TO_SALES` for contact/product leads, `LEAD_EMAIL_TO_HR` for job applications). Each channel is skipped when unconfigured; leads are always saved
 - `01_TASK_SPEC.md` is read-only for the executor
 - Blog **`assets` collection** powers the simpler blog display (used by blog-utils). The **`articles` collection** (via `repository.ts`) is the full-featured blog with indexes, click tracking, and SEO — use `repository.ts` for new blog features
 - All site content is in **Vietnamese**
