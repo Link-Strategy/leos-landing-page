@@ -2,6 +2,7 @@ import { getCachedPublicBlogArticles } from "@/lib/blog/queries";
 import { getCachedPublishedJobListings } from "@/lib/recruitment/queries";
 import { getSiteUrl } from "@/lib/blog/seo";
 import { CANONICAL_PRODUCT_SLUGS } from "@/lib/products";
+import { escapeXml } from "@/lib/xml";
 
 const SITE_URL = getSiteUrl();
 
@@ -82,15 +83,15 @@ export async function GET() {
   ${allUrls
     .map(
       (p) => `<url>
-    <loc>${SITE_URL}/${p.url}</loc>
+    <loc>${escapeXml(`${SITE_URL}/${p.url}`)}</loc>
     <changefreq>${p.changefreq}</changefreq>
-    <priority>${p.priority}</priority>${p.lastmod ? `\n    <lastmod>${p.lastmod}</lastmod>` : ""}${
+    <priority>${p.priority}</priority>${p.lastmod ? `\n    <lastmod>${escapeXml(p.lastmod)}</lastmod>` : ""}${
         p.images
           ? "\n    " +
             p.images
               .map(
                 (img) =>
-                  `<image:image><image:loc>${img.loc}</image:loc><image:caption>${img.caption}</image:caption></image:image>`
+                  `<image:image><image:loc>${escapeXml(img.loc)}</image:loc><image:caption>${escapeXml(img.caption)}</image:caption></image:image>`
               )
               .join("\n    ")
           : ""
