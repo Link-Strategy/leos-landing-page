@@ -93,7 +93,47 @@
       "Tin cậy",
       "Kiểm soát",
       "Trách nhiệm"
-    ]
+    ],
+    "orbit": {
+      "leaso": {
+        "role": "Hệ quản trị",
+        "status": "Đang phát triển",
+        "description": "Giao việc, phối hợp, hỗ trợ quyết định và đối soát kết quả trong môi trường quản trị của tổ chức."
+      },
+      "lele": {
+        "role": "Điều phối AI",
+        "status": "Đang phát triển",
+        "description": "Giao việc, phối hợp, hỗ trợ quyết định và đối soát kết quả trong môi trường quản trị của tổ chức."
+      },
+      "lecapm": {
+        "role": "Nền tảng tin cậy",
+        "status": "Thiết kế & R&D",
+        "description": "Phát triển nền tảng phần cứng hỗ trợ xác thực và kiểm quyền thực hiện. Phạm vi sử dụng cần được kiểm thử."
+      },
+      "nodefactory": {
+        "role": "Thiết bị biên tại xưởng",
+        "status": "Đang phát triển",
+        "description": "Kết nối dữ liệu thiết bị và hoạt động tại xưởng với hệ quản trị; chọn cấu hình theo phạm vi triển khai."
+      },
+      "nodemobility": {
+        "role": "Thiết bị biên di động",
+        "status": "Đang phát triển",
+        "description": "Kết nối thiết bị, tác vụ di động và hồ sơ bàn giao theo điều kiện hiện trường."
+      },
+      "nodeair": {
+        "role": "Ứng dụng trên không",
+        "status": "Ý tưởng ứng dụng",
+        "description": "Định hướng ứng dụng thiết bị biên trên không cho khảo sát và giám sát theo nhiệm vụ được giao."
+      },
+      "orion": {
+        "role": "Robot công nghiệp",
+        "status": "Thiết kế & R&D",
+        "description": "Định hướng robot cho thao tác vật liệu, cấp phôi và kiểm tra trực quan trong phạm vi nhiệm vụ được giao."
+      },
+      "leos": {
+        "role": "Nền tảng phần mềm"
+      }
+    }
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
@@ -193,16 +233,16 @@
     },
     "header": {
       "coreTech": {
-        "eyebrow": "Công nghệ lõi · Core Technology",
-        "title": "LeOS × LeLe ERE"
+        "eyebrow": "CÔNG NGHỆ & R&D",
+        "title": "Một nền tảng. Nhiều ứng dụng."
       },
       "zeroTrust": {
-        "eyebrow": "Công nghệ lõi · Core Technology",
-        "title": "LeOS × LeLe ERE"
+        "eyebrow": "CÔNG NGHỆ & R&D",
+        "title": "Một nền tảng. Nhiều ứng dụng."
       },
       "standards": {
-        "eyebrow": "Công nghệ lõi · Core Technology",
-        "title": "LeOS × LeLe ERE"
+        "eyebrow": "CÔNG NGHỆ & R&D",
+        "title": "Một nền tảng. Nhiều ứng dụng."
       }
     },
     "coreTech": {
@@ -640,8 +680,8 @@
     "metaTitle": "Về LeTRON",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Giới thiệu",
-    "heroTitlePrefix": "Giới thiệu ",
-    "heroTitleHighlight": "LeTRON",
+    "heroTitlePrefix": "Dám nghĩ lớn. ",
+    "heroTitleHighlight": "Làm bằng trách nhiệm.",
     "heroDescription": "Kết nối nghiên cứu, vận hành và sản xuất để đưa công nghệ vào bài toán thực tế; giữ con người và trách nhiệm ở trung tâm.",
     "introBadge": "Giới thiệu chung",
     "introHeadingLine1": "Hệ sinh thái công nghiệp",
