@@ -6,7 +6,6 @@ import Pillars from "@/components/landing/Pillars";
 import Culture from "@/components/landing/Culture";
 import HeartTab from "@/components/landing/HeartTab";
 import Products from "@/components/landing/Products";
-import Counters from "@/components/landing/Counters";
 import Partners from "@/components/landing/Partners";
 import News from "@/components/landing/News";
 import Career from "@/components/landing/Career";
