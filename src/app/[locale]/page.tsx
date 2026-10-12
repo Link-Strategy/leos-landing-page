@@ -1,4 +1,4 @@
-﻿import HomeElementorInteractions from "@/components/landing/HomeElementorInteractions";
+import HomeElementorInteractions from "@/components/landing/HomeElementorInteractions";
 import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
 import Hero from "@/components/landing/Hero";
 import LeOsAi from "@/components/landing/LeOsAi";
@@ -10,6 +10,17 @@ import Counters from "@/components/landing/Counters";
 import Partners from "@/components/landing/Partners";
 import News from "@/components/landing/News";
 import Career from "@/components/landing/Career";
+import type { Metadata } from "next";
+import { localeAlternates } from "@/lib/seo-alternates";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return { alternates: localeAlternates(locale, "") };
+}
 
 export default function Home() {
   return (

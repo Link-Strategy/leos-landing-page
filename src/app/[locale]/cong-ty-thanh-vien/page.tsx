@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
 
 import { StaticLandingPage } from "@/lib/static-landing";
+import { localeAlternates } from "@/lib/seo-alternates";
 
-export const metadata: Metadata = {
-  title: "Công ty thành viên - LeTRON",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "Công ty thành viên - LeTRON",
+    alternates: localeAlternates(locale, "/cong-ty-thanh-vien"),
+  };
+}
 
 export default function CongTyThanhVienPage() {
   return (

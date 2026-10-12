@@ -37,7 +37,7 @@ interface FacebookInsightsResponse {
  */
 export class FacebookPostingAdapter implements PostingAdapter {
   platform = "facebook" as const;
-  private readonly baseUrl = "https://graph.facebook.com/v19.0";
+  private readonly baseUrl = "https://graph.facebook.com/v26.0";
 
   constructor(
     private readonly token: string,
@@ -152,9 +152,10 @@ export class FacebookPostingAdapter implements PostingAdapter {
         fields: metrics.join(","),
       });
 
-      // Get insights (impressions, reach, engagement)
-      // Note: These require page-level permissions and may not be available for all posts
-      const insights = ["post_impressions", "post_reach", "post_engaged_users"];
+      // Get insights (views, unique viewers) — requires read_insights.
+      // post_impressions / post_impressions_unique were deprecated by Meta in 2025;
+      // post_media_view / post_total_media_view_unique are the official replacements.
+      const insights = ["post_media_view", "post_total_media_view_unique"];
       let insightData: FacebookInsightsResponse = {};
 
       try {
@@ -166,14 +167,18 @@ export class FacebookPostingAdapter implements PostingAdapter {
         // Continue without insights - we still have basic metrics
       }
 
+      const likes = basicData.reactions?.summary?.total_count ?? 0;
+      const comments = basicData.comments?.summary?.total_count ?? 0;
+      const shares = basicData.shares?.count ?? 0;
+
       // Return normalized metrics
       return {
-        likes: basicData.reactions?.summary?.total_count ?? 0,
-        comments: basicData.comments?.summary?.total_count ?? 0,
-        shares: basicData.shares?.count ?? 0,
-        impressions: this.extractInsightValue(insightData, "post_impressions"),
-        reach: this.extractInsightValue(insightData, "post_reach"),
-        engagement: this.extractInsightValue(insightData, "post_engaged_users"),
+        likes,
+        comments,
+        shares,
+        impressions: this.extractInsightValue(insightData, "post_media_view"),
+        reach: this.extractInsightValue(insightData, "post_total_media_view_unique"),
+        engagement: likes + comments + shares,
       };
     } catch (error) {
       console.error("[Facebook] getMetrics error:", error);

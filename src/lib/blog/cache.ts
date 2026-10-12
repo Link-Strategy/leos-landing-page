@@ -1,21 +1,29 @@
 import { revalidatePath, revalidateTag } from "next/cache";
+import { routing } from "@/i18n/routing";
 
 export function revalidateBlogContent(slug?: string, topicSlug?: string) {
-  const paths = ["/", "/blog", "/rss.xml", "/sitemap.xml"];
+  const pagePaths = ["", "/blog"];
   if (slug) {
-    paths.push(`/blog/${slug}`);
+    pagePaths.push(`/blog/${slug}`);
   }
   if (topicSlug) {
-    paths.push(`/blog/topics/${topicSlug}`);
+    pagePaths.push(`/blog/topics/${topicSlug}`);
   }
+
+  // Pages live under app/[locale]; next-intl rewrites "/blog" → "/vi/blog", so revalidate per locale.
+  const paths = [
+    ...routing.locales.flatMap((locale) => pagePaths.map((p) => `/${locale}${p}`)),
+    "/rss.xml",
+    "/sitemap",
+  ];
 
   try {
     for (const path of paths) {
       revalidatePath(path);
     }
     revalidateTag("blog", "max");
-  } catch (err: any) {
-    console.warn(`[Cache] Skipping Next.js cache revalidation (running outside server context): ${err.message}`);
+  } catch (err) {
+    console.warn(`[Cache] Skipping Next.js cache revalidation (running outside server context): ${(err as Error).message}`);
   }
 
   return paths;

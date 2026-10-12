@@ -34,7 +34,9 @@ function formatMonthBadge(date: string | Date) {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const article = await getCachedPublicBlogArticleBySlug(slug);
-  if (!article) return { title: "Bài viết không tìm thấy" };
+  // notFound() here (not only in the page): metadata resolves before loading.tsx streams a 200 shell,
+  // so crawlers get a real 404 for unknown slugs.
+  if (!article) notFound();
 
   return buildBlogArticleMetadata(article);
 }
@@ -47,39 +49,6 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
   const bodyHtml = await renderMarkdownToHtml(article.contentMarkdown);
 
-  // TODO: replace mock data with real queries once more articles are in DB
-  const mockRelatedArticles = [
-    {
-      slug: "mock-related-1",
-      title: "LeOS ra mắt công nghệ xử lý chất thải không cần đốt",
-      coverImage: "/wp-content/uploads/2026/05/1-10.jpg",
-      publishedAt: "2026-06-15T00:00:00Z",
-    },
-    {
-      slug: "mock-related-2",
-      title: "Chuyển đổi số trong quản lý rác thải đô thị tại Việt Nam",
-      coverImage: "/wp-content/uploads/2026/05/1-10.jpg",
-      publishedAt: "2026-06-10T00:00:00Z",
-    },
-    {
-      slug: "mock-related-3",
-      title: "Kinh tế tuần hoàn: Từ phế thải thành nguyên liệu sản xuất",
-      coverImage: "/wp-content/uploads/2026/05/1-10.jpg",
-      publishedAt: "2026-06-05T00:00:00Z",
-    },
-    {
-      slug: "mock-related-4",
-      title: "AI và IoT trong phân loại rác thải thông minh",
-      coverImage: "/wp-content/uploads/2026/05/1-10.jpg",
-      publishedAt: "2026-05-28T00:00:00Z",
-    },
-    {
-      slug: "mock-related-5",
-      title: "Hành trình xanh hóa doanh nghiệp sản xuất với giải pháp LeOS",
-      coverImage: "/wp-content/uploads/2026/05/1-10.jpg",
-      publishedAt: "2026-05-20T00:00:00Z",
-    },
-  ];
   const relatedArticles = await getCachedRelatedBlogArticles(
     slug,
     article.category,
@@ -93,10 +62,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
         .filter((item) => item.slug !== slug)
         .slice(0, 3);
 
-  const displayRelatedArticles =
-    fallbackRelatedArticles.length > 0
-      ? fallbackRelatedArticles
-      : mockRelatedArticles;
+  const displayRelatedArticles = fallbackRelatedArticles;
 
   const categoryLabel = article.category || "Tin tức - Sự kiện";
 

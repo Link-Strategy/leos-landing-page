@@ -1,8 +1,14 @@
 ﻿import { NextRequest, NextResponse } from "next/server";
+import { isAuthorizedRequest } from "@/lib/api-auth";
 import { getBlogDb } from "@/lib/mongodb";
 import { generateSlug, type BlogAsset } from "@/lib/blog-utils";
 
+// NOTE: writes to the legacy `assets` collection, which the blog pages do not read (they use `articles`).
 export async function POST(request: NextRequest) {
+  if (!isAuthorizedRequest(request)) {
+    return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     const body = await request.json();
     if (!body.title || !body.body) {

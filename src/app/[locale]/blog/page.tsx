@@ -2,11 +2,20 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { getCachedPublicBlogArticles, getCachedAvailableBlogCategories } from "@/lib/blog/queries";
 import BlogClient from "./BlogClient";
+import { localeAlternates } from "@/lib/seo-alternates";
 
-export const metadata: Metadata = {
-  title: "Tin tức - Sự kiện - Blog",
-  description: "Cập nhật tin tức mới của LeTRON - Công nghệ xanh, chuyển đổi số và phát triển bền vững",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "Tin tức - Sự kiện - Blog",
+    description: "Cập nhật tin tức mới của LeTRON - Công nghệ xanh, chuyển đổi số và phát triển bền vững",
+    alternates: localeAlternates(locale, "/blog"),
+  };
+}
 
 export default async function BlogPage() {
   let articles: Awaited<ReturnType<typeof getCachedPublicBlogArticles>> = [];

@@ -63,19 +63,8 @@ export default function ClientScripts() {
   return (
     <>
       {/* ====== GLOBAL SCRIPTS (load on ALL pages) ====== */}
-      <Script src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" strategy="beforeInteractive" />
-      <Script src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" strategy="beforeInteractive" />
+      {/* beforeInteractive scripts (jQuery, wp hooks/i18n) live in the root layout — they must be rendered by a Server Component */}
       <Script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?ver=11" strategy="afterInteractive" />
-
-      {/* hooks.min.js must be loaded before i18n.min.js to prevent "Cannot read properties of undefined (reading 'hooks')" crash */}
-      <Script src="/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" strategy="beforeInteractive" />
-      <Script src="/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" strategy="beforeInteractive" />
-
-      <Script id="set-locale-data" strategy="beforeInteractive">
-        {`if (typeof window !== "undefined" && window.wp?.i18n) {
-          window.wp.i18n.setLocaleData( { "text directionltr": [ "ltr" ] } );
-        }`}
-      </Script>
 
       {/* ====== ELEMENTOR SCRIPTS (chỉ trên routes cần Elementor) — chỉ render sau mount ====== */}
       {showElementor && (

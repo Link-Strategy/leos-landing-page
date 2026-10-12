@@ -3,6 +3,7 @@ import { Archivo, Outfit } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import "../globals.css";
 import Header from "@/components/layout/Header";
 import HeaderTailwind from "@/components/layout/HeaderTailwind";
@@ -42,7 +43,6 @@ export async function generateMetadata({
     },
     description: t("description"),
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL?.trim() || process.env.APP_URL?.trim() || "https://letrongroup.com"),
-    alternates: { canonical: "/" },
     openGraph: {
       siteName: "LeTRON",
       type: "website",
@@ -135,6 +135,15 @@ export default async function RootLayout({
 
       </head>
       <body suppressHydrationWarning>
+        {/* ====== GLOBAL beforeInteractive SCRIPTS — must be in a Server Component (root layout) ====== */}
+        <Script src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" strategy="beforeInteractive" />
+        <Script src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" strategy="beforeInteractive" />
+        {/* wp hooks/i18n (public/wp-includes/js/dist/) are not shipped — a 404 beforeInteractive script aborts React hydration. Add the files back before re-enabling. */}
+        <Script id="set-locale-data" strategy="beforeInteractive">
+          {`if (typeof window !== "undefined" && window.wp?.i18n) {
+            window.wp.i18n.setLocaleData( { "text directionltr": [ "ltr" ] } );
+          }`}
+        </Script>
         <NextIntlClientProvider messages={messages}>
           <HeaderTailwind />
           <main>{children}</main>
