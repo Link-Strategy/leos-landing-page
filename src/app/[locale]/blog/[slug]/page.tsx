@@ -35,8 +35,8 @@ function formatMonthBadge(date: string | Date) {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const article = await getCachedPublicBlogArticleBySlug(slug);
-  // notFound() here (not only in the page): metadata resolves before loading.tsx streams a 200 shell,
-  // so crawlers get a real 404 for unknown slugs.
+  // No loading.tsx on this route: a loading boundary streams a 200 shell before notFound() runs,
+  // which turned unknown slugs into soft 404s. Without it unknown slugs get a real 404 status.
   if (!article) notFound();
 
   return buildBlogArticleMetadata(article);
