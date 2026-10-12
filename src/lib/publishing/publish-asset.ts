@@ -33,13 +33,12 @@ export type PostingAsset = {
 
 type AssetMediaItem = { type?: string; url?: string };
 
-// ls-post stores `media` as an array (image | video | document); adapters take one image/video.
-function pickMedia(media: unknown): PostingPublishRequest["media"] {
+// ls-post stores `media` as an array (image | video | document); keep the images/videos in order.
+function pickMediaItems(media: unknown): NonNullable<PostingPublishRequest["mediaItems"]> {
   const items: AssetMediaItem[] = Array.isArray(media) ? media : media ? [media as AssetMediaItem] : [];
-  const item = items.find(
-    (m) => (m?.type === "image" || m?.type === "video") && typeof m.url === "string" && m.url,
-  );
-  return item ? { type: item.type as "image" | "video", url: item.url! } : undefined;
+  return items
+    .filter((m) => (m?.type === "image" || m?.type === "video") && typeof m.url === "string" && m.url)
+    .map((m) => ({ type: m.type as "image" | "video", url: m.url! }));
 }
 
 export function getAssetPlatforms(asset: PostingAsset): Platform[] {
@@ -76,10 +75,12 @@ export async function publishAssetToPlatform(platform: Platform, asset: PostingA
   const cta = typeof asset.cta === "string" ? asset.cta.trim() : "";
   const body = [asset.body, cta].filter(Boolean).join("\n\n");
 
+  const mediaItems = pickMediaItems(asset.media);
   return getPostingPublisher().publish(platform, auth, {
     title: asset.title,
     body,
-    media: pickMedia(asset.media),
+    media: mediaItems[0],
+    mediaItems,
     hashtags: asset.hashtags,
   });
 }
