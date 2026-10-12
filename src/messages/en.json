@@ -93,7 +93,47 @@
       "Trust",
       "Control",
       "Accountability"
-    ]
+    ],
+    "orbit": {
+      "leaso": {
+        "role": "Management system",
+        "status": "In development",
+        "description": "Task assignment, coordination, decision support and result reconciliation within an organization's management environment."
+      },
+      "lele": {
+        "role": "AI coordination",
+        "status": "In development",
+        "description": "Task assignment, coordination, decision support and result reconciliation within an organization's management environment."
+      },
+      "lecapm": {
+        "role": "Trust platform",
+        "status": "Design & R&D",
+        "description": "Developing a hardware platform that supports authentication and execution-rights checks. Its scope of use must be tested."
+      },
+      "nodefactory": {
+        "role": "Edge device on the shop floor",
+        "status": "In development",
+        "description": "Connects device and shop-floor data to the management system; configuration is chosen to fit the deployment scope."
+      },
+      "nodemobility": {
+        "role": "Mobile edge device",
+        "status": "In development",
+        "description": "Connects devices, mobile tasks and handover records under field conditions."
+      },
+      "nodeair": {
+        "role": "Airborne application",
+        "status": "Application concept",
+        "description": "A direction for airborne edge devices for survey and monitoring tasks assigned to them."
+      },
+      "orion": {
+        "role": "Industrial robot",
+        "status": "Design & R&D",
+        "description": "A direction for robots handling materials, feeding workpieces and visual inspection within an assigned scope."
+      },
+      "leos": {
+        "role": "Software platform"
+      }
+    }
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
@@ -193,16 +233,16 @@
     },
     "header": {
       "coreTech": {
-        "eyebrow": "Core Technology",
-        "title": "LeOS × LeLe ERE"
+        "eyebrow": "TECHNOLOGY & R&D",
+        "title": "One platform. Many applications."
       },
       "zeroTrust": {
-        "eyebrow": "Core Technology",
-        "title": "LeOS × LeLe ERE"
+        "eyebrow": "TECHNOLOGY & R&D",
+        "title": "One platform. Many applications."
       },
       "standards": {
-        "eyebrow": "Core Technology",
-        "title": "LeOS × LeLe ERE"
+        "eyebrow": "TECHNOLOGY & R&D",
+        "title": "One platform. Many applications."
       }
     },
     "coreTech": {
@@ -640,8 +680,8 @@
     "metaTitle": "About LeTRON",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "About Us",
-    "heroTitlePrefix": "About ",
-    "heroTitleHighlight": "LeTRON",
+    "heroTitlePrefix": "Think big. ",
+    "heroTitleHighlight": "Act with accountability.",
     "heroDescription": "Connecting research, operations and manufacturing to bring technology to real-world problems, keeping people and accountability at the center.",
     "introBadge": "About Us",
     "introHeadingLine1": "An Industrial Ecosystem",
