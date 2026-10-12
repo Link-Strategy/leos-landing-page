@@ -64,6 +64,10 @@ const nextConfig: NextConfig = {
   async redirects() {
     const greenPost = "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh";
     return [
+      // Member-companies page is hidden to keep the focus on the product strategy. Temporary (307) so it can be
+      // restored: delete these two redirects, re-add the Footer link and the sitemap entry. See docs/backlog.md.
+      { source: "/cong-ty-thanh-vien", destination: "/san-pham", permanent: false },
+      { source: "/en/cong-ty-thanh-vien", destination: "/en/san-pham", permanent: false },
       // Duplicate WordPress pages.
       // LeDB's canonical slug is ledb-bo-nao-so-4 (src/lib/products.ts); plain ledb-bo-nao-so stays (header/footer link it, canonical tag points to -4).
       { source: "/san-pham/ledb-bo-nao-so-2", destination: "/san-pham/ledb-bo-nao-so-4", permanent: true },
