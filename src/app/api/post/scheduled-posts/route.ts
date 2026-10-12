@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import { Receiver } from "@upstash/qstash";
 import { getBlogDb } from "@/lib/mongodb";
-import { getAssetPlatforms, publishAssetToPlatform, type PostingAsset } from "@/lib/publishing/publish-asset";
+import { getAssetPlatforms, publishAssetToPlatform, publishBlogAsset, type PostingAsset } from "@/lib/publishing/publish-asset";
 
 /**
  * QStash webhook scheduled by `ls-post schedule-asset` (.agents/tools/ls-post/lib/qstash.mjs).
@@ -57,6 +57,10 @@ export async function POST(request: NextRequest) {
 
     const platforms = getAssetPlatforms(asset as PostingAsset);
     const results = [];
+    // Blog assets are written into `articles` (previously they were only marked published).
+    if (asset.platform === "blog") {
+      results.push(await publishBlogAsset(asset));
+    }
     for (const platform of platforms) {
       results.push(await publishAssetToPlatform(platform, asset as PostingAsset));
     }
@@ -64,8 +68,8 @@ export async function POST(request: NextRequest) {
     const now = new Date();
     const published = results.filter((r) => r.status === "published");
 
-    // Social publish attempted but nothing went out → keep status, record results, let QStash retry (5xx).
-    if (platforms.length > 0 && published.length === 0) {
+    // Nothing went out → keep status, record results, let QStash retry (5xx).
+    if (results.length > 0 && published.length === 0) {
       await collection.updateOne({ _id: queryId as ObjectId }, { $set: { publish_results: results, updated_at: now } });
       return NextResponse.json(
         { ok: false, error: "Publish failed on all platforms", data: { asset_id: assetId, platforms: results } },

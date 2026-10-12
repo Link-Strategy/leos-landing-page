@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { assetToBlogPayload, BLOG_SLUG_PATTERN } from "./blog-article.mjs";
+import { assetToBlogPayload, BLOG_SLUG_PATTERN } from "../../../../src/lib/blog/asset-to-article.mjs";
 
 const PLATFORMS = ["linkedin", "facebook", "threads", "instagram", "tiktok", "youtube", "zalo"];
 
