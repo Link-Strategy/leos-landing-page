@@ -399,7 +399,7 @@ const spiritSectionCss = `
   column-gap: 0px;
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 309px 0px;
-  background-image: url("/images/site/572-Converted-01-1-1-1.png");
+  background-image: url("/images/site/572-Converted-01-1-1-1.webp");
   background-position: bottom center;
   background-repeat: no-repeat;
 }
@@ -616,7 +616,7 @@ export default function HeartTab() {
               {/* TAB 1: HEART */}
               <TabsContent
                 value="heart"
-                className="mt-0 flex w-full flex-col gap-16 bg-[url('/images/site/bg-1.png')] bg-bottom bg-no-repeat bg-auto pb-[383px] max-[1550px]:gap-10 max-[1550px]:pb-[300px] max-[1024px]:bg-cover max-[1024px]:px-[25px] max-[1024px]:pb-[160px] max-[767px]:px-4 max-[767px]:pb-20 max-[767px]:bg-contain"
+                className="mt-0 flex w-full flex-col gap-16 bg-[url('/images/site/bg-1.webp')] bg-bottom bg-no-repeat bg-auto pb-[383px] max-[1550px]:gap-10 max-[1550px]:pb-[300px] max-[1024px]:bg-cover max-[1024px]:px-[25px] max-[1024px]:pb-[160px] max-[767px]:px-4 max-[767px]:pb-20 max-[767px]:bg-contain"
               >
                 <div className="flex w-full flex-col gap-[60px] max-[1024px]:gap-10 max-[767px]:gap-5">
                   <div className="letron-heart-heading-widget">

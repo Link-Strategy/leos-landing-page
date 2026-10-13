@@ -11,7 +11,7 @@ export default async function LeOsAi() {
         <div
           className="relative rounded-[20px] border border-white/15 shadow-[0px_2px_20px_0px_rgba(12,178,255,0.12)] overflow-hidden bg-no-repeat"
           style={{
-            backgroundImage: "url('/images/site/bg-color-1.png')",
+            backgroundImage: "url('/images/site/bg-color-1.webp')",
             backgroundSize: "cover",
             backgroundPosition: "55% 0%",
           }}

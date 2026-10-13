@@ -32,7 +32,7 @@ export default async function BlogPage() {
     <div>
       {/* ====== HERO ====== */}
       <div className="flex flex-col bg-cover bg-center bg-no-repeat min-h-[720px] relative"
-        style={{ backgroundImage: "url('/images/site/image-6-1.jpg')" }}
+        style={{ backgroundImage: "url('/images/site/image-6-1.webp')" }}
       >
         <div className="absolute inset-0 bg-black/40" />
         <div className="container-le relative z-10 flex flex-col flex-1 pb-[60px]" style={{ justifyContent: "flex-end" }}>

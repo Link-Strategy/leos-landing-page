@@ -254,13 +254,13 @@ export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption
         {/* Sun: the glowing ring turns against the core */}
         <div className="pointer-events-none absolute left-1/2 top-1/2 size-[34%] -translate-x-1/2 -translate-y-1/2">
           <img
-            src="/images/site/Property-1Variant3-1.webp"
+            src="/images/site/sun-ring.webp"
             alt=""
             className="absolute inset-0 h-full! w-full object-contain opacity-60 drop-shadow-[0_0_20px_rgba(42,159,255,0.15)]"
             style={{ animation: `orbit-spin ${RING_SECONDS}s linear infinite reverse`, animationPlayState: play }}
           />
           <img
-            src="/images/site/Group-11.png"
+            src="/images/site/sun-core.webp"
             alt={sunAlt}
             className="absolute left-1/2 top-1/2 h-[50%]! w-[50%] -translate-x-1/2 -translate-y-1/2 object-contain drop-shadow-[0_0_15px_rgba(42,159,255,0.2)]"
             style={{ animation: `orbit-spin ${SUN_SECONDS}s linear infinite`, animationPlayState: play }}

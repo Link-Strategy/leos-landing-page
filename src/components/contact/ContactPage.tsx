@@ -50,7 +50,7 @@ export default function ContactPage() {
           <div
             className="relative isolate overflow-hidden rounded-[20px] border border-white/15 bg-no-repeat shadow-[0px_2px_20px_0px_rgba(12,178,255,0.12)]"
             style={{
-              backgroundImage: "url('/images/site/bg-color-1.png')",
+              backgroundImage: "url('/images/site/bg-color-1.webp')",
               backgroundSize: "cover",
               backgroundPosition: "20% 0%",
             }}

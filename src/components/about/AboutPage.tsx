@@ -113,7 +113,7 @@ export default function AboutPage() {
                     className="absolute inset-0 flex items-center justify-center bg-cover bg-center"
                     style={{
                       backgroundImage:
-                        "url(/images/site/af37ff9a27363e04b244b5aa57821bce76b409c5-1.jpg)",
+                        "url(/images/site/af37ff9a27363e04b244b5aa57821bce76b409c5-1.webp)",
                     }}
                   >
                     <div

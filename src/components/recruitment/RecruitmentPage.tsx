@@ -93,7 +93,7 @@ export default function RecruitmentPage({ jobs }: Props) {
           <div className="relative mx-auto aspect-[853/606] w-full max-w-[640px] lg:max-w-none">
             <Image
               alt=""
-              src="/images/recruitment/img-tuyen-dung.jpg"
+              src="/images/recruitment/img-tuyen-dung.webp"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"

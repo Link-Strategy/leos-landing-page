@@ -43,7 +43,7 @@ export default function SanPhamPage() {
         <section className="relative isolate flex min-h-[350px] flex-col justify-end overflow-hidden pb-8 sm:min-h-[620px] sm:pb-14">
           <Image
             alt=""
-            src="/images/site/image-23-1.jpg"
+            src="/images/site/image-23-1.webp"
             fill
             priority
             sizes="100vw"
@@ -95,7 +95,7 @@ export default function SanPhamPage() {
                 className="h-auto w-full rounded-2xl"
                 height={457}
                 sizes="(max-width: 1024px) 100vw, 800px"
-                src="/images/site/ad408cb3168053cbbf00b6f78be954d0b71ffbba-1.jpg"
+                src="/images/site/ad408cb3168053cbbf00b6f78be954d0b71ffbba-1.webp"
                 width={800}
               />
               <Image

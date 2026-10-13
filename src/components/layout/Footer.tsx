@@ -4,7 +4,7 @@ import { v2Href } from "@/lib/v2-routes";
 import { Link } from "@/i18n/navigation";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 
-const LOGO = "/images/site/logo-2.png";
+const LOGO = "/images/site/logo-2.webp";
 const WATERMARK_DESKTOP = "/landing/Footer/watermark-desktop.svg";
 const WATERMARK_MOBILE = "/landing/Footer/watermark-mobile.svg";
 const ICON_HIGHLIGHT = "/landing/Footer/icon-highlight.svg";
@@ -210,12 +210,16 @@ export default function Footer() {
           {/* Big faded "LeTRON" wordmark bleeding off the bottom-right corner */}
           <img
             src={WATERMARK_DESKTOP}
+            loading="lazy"
+            decoding="async"
             alt=""
             aria-hidden
             className="pointer-events-none absolute right-[3%] bottom-[-6%] hidden w-[93%] lg:block"
           />
           <img
             src={WATERMARK_MOBILE}
+            loading="lazy"
+            decoding="async"
             alt=""
             aria-hidden
             className="pointer-events-none absolute right-[4%] bottom-[-4%] w-[92%] lg:hidden"
