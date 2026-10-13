@@ -94,9 +94,9 @@ const nextConfig: NextConfig = {
       { source: "/cong-ty-thanh-vien", destination: "/san-pham", permanent: false },
       { source: "/en/cong-ty-thanh-vien", destination: "/en/san-pham", permanent: false },
       // Duplicate WordPress pages.
-      // LeDB's canonical slug is ledb-bo-nao-so-4 (src/lib/products.ts); plain ledb-bo-nao-so stays (header/footer link it, canonical tag points to -4).
-      { source: "/san-pham/ledb-bo-nao-so-2", destination: "/san-pham/ledb-bo-nao-so-4", permanent: true },
-      { source: "/san-pham/lesm-di-chuyen-thong-minh-2", destination: "/san-pham/lese-nang-luong-thong-minh", permanent: true },
+      // Per-company product pages were removed; the product line lives on /san-pham.
+      { source: "/san-pham/:slug+", destination: "/san-pham", permanent: true },
+      { source: "/en/san-pham/:slug+", destination: "/en/san-pham", permanent: true },
       ...[2, 3, 4, 5, 6, 7, 8].map((n) => ({ source: `${greenPost}-${n}`, destination: greenPost, permanent: true })),
       // Raw static exports must not be indexed or browsed directly.
       { source: "/landing/:path*/index.html", destination: "/:path*", permanent: true },

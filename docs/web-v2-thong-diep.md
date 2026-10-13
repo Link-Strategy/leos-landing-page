@@ -17,7 +17,9 @@ Nguồn V2: `web/content.js`, `web/app.js`, `web/README.txt` (03/10/2026). Quy t
 - Giới thiệu: sứ mệnh, triết lý, hệ sinh thái LeAR/LeDB/LeHS.
 - Form liên hệ: tổ chức, nhu cầu quan tâm, bộ đếm 1.000 ký tự, cảnh báo tài liệu mật, ba bước chuẩn bị sau khi gửi; số điện thoại không bắt buộc; `interest` được lưu và hiện trong thông báo Telegram/email.
 
-**Giữ nguyên vì V2 không đề cập:** 6 trang `/san-pham/*` theo công ty con (vẫn truy cập được, không còn được link từ menu), mô hình HaaS/SaaS/CaaS/AaaS, kiến trúc công nghệ, lộ trình, đối tác, chính sách bảo mật, tuyển dụng, blog.
+**Giữ nguyên vì V2 không đề cập:** mô hình HaaS/SaaS/CaaS/AaaS, kiến trúc công nghệ, lộ trình, đối tác, chính sách bảo mật, tuyển dụng, blog.
+
+**Đã xóa:** 6 trang `/san-pham/<công-ty-con>` (301 về `/san-pham`, bỏ khỏi sitemap).
 
 **Đã ẩn:** `/cong-ty-thanh-vien` (redirect 307 về `/san-pham`, bỏ khỏi footer và sitemap). Mở lại: xóa hai redirect trong `next.config.ts`, thêm link ở `Footer.tsx` và dòng trong `src/app/sitemap/route.ts`.
 
@@ -28,4 +30,3 @@ Nguồn V2: `web/content.js`, `web/app.js`, `web/README.txt` (03/10/2026). Quy t
 
 ## Còn lại
 1. Icon H.E.A.R.T vẫn là file cũ (`respect.svg` đi với Accountability, `action.svg` với Resilience): cần bộ icon mới nếu muốn khớp nghĩa.
-2. Sáu trang `/san-pham/*` theo công ty con: giữ hay redirect 301 sang trang V2 tương ứng.

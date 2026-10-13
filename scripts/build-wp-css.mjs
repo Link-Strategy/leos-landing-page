@@ -19,7 +19,7 @@ const pages = ["/tuyen-dung", "/cong-ty-thanh-vien"];
 const sitemap = await (await fetch(base + "/sitemap.xml")).text();
 for (const m of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) {
   const p = new URL(m[1]).pathname;
-  if (p.startsWith("/tuyen-dung/") || p.startsWith("/san-pham/")) pages.push(p);
+  if (p.startsWith("/tuyen-dung/")) pages.push(p);
 }
 pages.push("/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh");
 const unique = [...new Set(pages)];

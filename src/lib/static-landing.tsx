@@ -29,7 +29,7 @@ function normalizeInternalLinks(html: string) {
     .replace(/\bhref="(?!https?:|mailto:|tel:|data:|#|\/|javascript:)([^"]+)"/g, 'href="/$1"');
 }
 
-// WordPress duplicates that are redirected (next.config.ts): point links at the canonical slug from src/lib/products.ts.
+// WordPress duplicates that are redirected (next.config.ts): point links at the canonical slug.
 const DUPLICATE_PAGE_LINKS: Array<[RegExp, string]> = [
   [/(href="[^"]*\/san-pham\/)ledb-bo-nao-so-2\//g, "$1ledb-bo-nao-so-4/"],
   [/(href="[^"]*\/san-pham\/)lesm-di-chuyen-thong-minh-2\//g, "$1lese-nang-luong-thong-minh/"],

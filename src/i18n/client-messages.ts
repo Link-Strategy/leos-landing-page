@@ -13,7 +13,6 @@ const CLIENT_NAMESPACES = {
   pillars: true,
   serviceModel: true,
   techArchitecture: true,
-  productsPage: { detail: true },
   v2: { common: true, products: true, loop: true },
 } as const;
 
