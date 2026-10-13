@@ -100,7 +100,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             #search-input-${uniqueId}:-webkit-autofill:focus, 
             #search-input-${uniqueId}:-webkit-autofill:active {
               -webkit-background-clip: text;
-              -webkit-text-fill-color: #ffffff !important; /* Thay đổi màu chữ phù hợp với UI của bạn */
+              -webkit-text-fill-color: #ffffff !important;
               transition: background-color 5000s ease-in-out 0s;
               box-shadow: inset 0 0 0px 9999px transparent !important;
             }
