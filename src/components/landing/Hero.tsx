@@ -5,7 +5,6 @@ import HeroOrbit from "@/components/landing/HeroOrbit";
 
 export default function Hero() {
   const t = useTranslations("hero");
-  const footerTags = t.raw("footerTags") as string[];
 
   return (
     <section
@@ -46,17 +45,6 @@ export default function Hero() {
         <HeroOrbit sunAlt={t("subtitle")} caption={t("orbitCaption")} />
       </div>
 
-      {/* Bottom tagline row — desktop only, 40px above the section's bottom edge */}
-      <div className="absolute inset-x-0 bottom-10 z-10 hidden items-center justify-center gap-[46px] lg:flex">
-        {footerTags.map((tag) => (
-          <span
-            key={tag}
-            className="font-inter text-[14px] font-bold leading-[16px] tracking-[2.2px] text-white"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
     </section>
   );
 }
