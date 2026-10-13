@@ -9,14 +9,14 @@ const CONTENT: Record<"vi" | "en", { title: string; intro: string; updatedLabel:
     title: "Chính sách bảo mật",
     updatedLabel: "Cập nhật lần cuối",
     intro:
-      "Chính sách này giải thích cách Công ty Cổ phần Tập đoàn LeTRON (“LeTRON”) thu thập, sử dụng và bảo vệ dữ liệu cá nhân của bạn khi bạn sử dụng website letrongroup.com, phù hợp với Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân.",
+      "Chính sách này giải thích cách Công ty Cổ phần Tập đoàn LeTRON (“LeTRON”) thu thập, sử dụng và bảo vệ dữ liệu cá nhân của người dùng khi truy cập website letrongroup.com, phù hợp với Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân.",
     sections: [
       {
-        heading: "1. Dữ liệu chúng tôi thu thập",
+        heading: "1. Dữ liệu được thu thập",
         items: [
-          "Khi bạn gửi form liên hệ hoặc form tư vấn sản phẩm: họ tên, email, số điện thoại (nếu bạn nhập), nội dung tin nhắn và trang bạn gửi form.",
-          "Khi bạn ứng tuyển: họ tên, email, số điện thoại, vị trí ứng tuyển và tệp CV (PDF, DOC hoặc DOCX) bạn tải lên.",
-          "Dữ liệu kỹ thuật: để chống spam, chúng tôi lưu bản băm (hash) của địa chỉ IP cùng số lần gửi form trong tối đa 20 phút rồi tự động xóa; dữ liệu này không gắn với thông tin bạn nhập trong form. Cookie NEXT_LOCALE ghi nhớ ngôn ngữ bạn chọn. Chúng tôi dùng Vercel Web Analytics để thống kê lượt truy cập ở dạng tổng hợp, không dùng cookie và không nhận diện cá nhân.",
+          "Khi gửi biểu mẫu liên hệ hoặc tư vấn sản phẩm: họ tên, email, số điện thoại (nếu cung cấp), nội dung tin nhắn và trang gửi biểu mẫu.",
+          "Khi ứng tuyển: họ tên, email, số điện thoại, vị trí ứng tuyển và tệp CV (PDF, DOC hoặc DOCX) được tải lên.",
+          "Dữ liệu kỹ thuật: để chống spam, LeTRON lưu bản băm (hash) của địa chỉ IP cùng số lần gửi form trong tối đa 20 phút rồi tự động xóa; dữ liệu này không gắn với thông tin nhập trong biểu mẫu. Cookie NEXT_LOCALE ghi nhớ ngôn ngữ đã chọn. LeTRON sử dụng Vercel Web Analytics để thống kê lượt truy cập ở dạng tổng hợp, không dùng cookie và không nhận diện cá nhân.",
         ],
       },
       {
@@ -26,7 +26,7 @@ const CONTENT: Record<"vi" | "en", { title: string; intro: string; updatedLabel:
           "Tiếp nhận và xem xét hồ sơ ứng tuyển, liên hệ ứng viên.",
           "Vận hành, bảo vệ và cải thiện website.",
         ],
-        paragraphs: ["Chúng tôi không bán dữ liệu cá nhân của bạn và không dùng vào mục đích khác khi chưa có sự đồng ý của bạn."],
+        paragraphs: ["LeTRON không bán dữ liệu cá nhân và không sử dụng vào mục đích khác khi chưa có sự đồng ý của chủ thể dữ liệu."],
       },
       {
         heading: "3. Lưu trữ và bên xử lý dữ liệu",
@@ -40,13 +40,13 @@ const CONTENT: Record<"vi" | "en", { title: string; intro: string; updatedLabel:
       {
         heading: "4. Thời gian lưu trữ",
         paragraphs: [
-          "Chúng tôi lưu dữ liệu trong thời gian cần thiết để thực hiện các mục đích nêu trên hoặc theo yêu cầu của pháp luật, sau đó xóa hoặc ẩn danh hóa.",
+          "LeTRON lưu dữ liệu trong thời gian cần thiết để thực hiện các mục đích nêu trên hoặc theo yêu cầu của pháp luật, sau đó xóa hoặc ẩn danh hóa.",
         ],
       },
       {
-        heading: "5. Quyền của bạn",
+        heading: "5. Quyền của chủ thể dữ liệu",
         paragraphs: [
-          "Bạn có quyền yêu cầu truy cập, chỉnh sửa, xóa dữ liệu cá nhân, rút lại sự đồng ý hoặc phản đối việc xử lý dữ liệu. Hãy gửi yêu cầu tới email bên dưới; chúng tôi sẽ phản hồi trong thời hạn theo quy định của pháp luật.",
+          "Chủ thể dữ liệu có quyền yêu cầu truy cập, chỉnh sửa, xóa dữ liệu cá nhân, rút lại sự đồng ý hoặc phản đối việc xử lý dữ liệu. Yêu cầu gửi tới email bên dưới; LeTRON phản hồi trong thời hạn theo quy định của pháp luật.",
         ],
       },
       {
