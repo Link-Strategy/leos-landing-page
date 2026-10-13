@@ -96,6 +96,7 @@ export default function ContactPage() {
                   maxMessage={1000}
                   counterSuffix={v2("counter")}
                   notice={v2("notice")}
+                  thankYou={v2.raw("thanks") as { title: string; body: string; steps: { eyebrow: string; title: string; body: string }[] }}
                   source="lien-he"
                   lead_type="contact"
                 />

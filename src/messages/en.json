@@ -1180,7 +1180,28 @@
       "infoNote": "Send overview information only. In-depth documents are exchanged through an agreed confidential channel and scope.",
       "phonePlaceholder": "Phone number (optional)",
       "emailPlaceholder": "Work email*",
-      "messageLabel": "Describe the problem*"
+      "messageLabel": "Describe the problem*",
+      "thanks": {
+        "title": "Thank you.",
+        "body": "LeTRON has received your information. To make the discussion productive, you may prepare in advance:",
+        "steps": [
+          {
+            "eyebrow": "01 / SITUATION",
+            "title": "Prepare the context",
+            "body": "Summarize the current devices, processes and the problem to solve."
+          },
+          {
+            "eyebrow": "02 / RESULT",
+            "title": "Define the goal",
+            "body": "Clarify the task and the completion criteria you want."
+          },
+          {
+            "eyebrow": "03 / SCOPE",
+            "title": "Exchange safely",
+            "body": "Confidential documents are shared only after a channel and confidentiality scope are agreed."
+          }
+        ]
+      }
     },
     "terms": [
       {

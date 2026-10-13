@@ -4,6 +4,9 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
+import type { LucideIcon } from "lucide-react";
+import { Bot, Cpu, LayoutGrid, Plane, Server, Truck } from "lucide-react";
+import { v2Href } from "@/lib/v2-routes";
 import ChevronDownIcon from "./ChevronDownIcon";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import {
@@ -17,16 +20,6 @@ import { Card } from "@/components/ui/card";
 import { SearchBar } from "./SearchBar";
 import { cn } from "@/lib/utils";
 
-function HeaderFeatureItem({ children }: { children: React.ReactNode }) {
-  return (
-    <li className="font-sans text-[11px] font-normal leading-[132%] text-white/85! hover:text-white transition-colors duration-200 list-none relative pl-2 before:absolute before:left-0 before:top-1 before:h-0.75 before:w-0.75 before:rounded-full before:bg-white/40">
-      {children}
-    </li>
-  );
-}
-
-
-
 // `wideOnly` items are hidden from the desktop bar below 1440px (the bar has no room) but stay in the mobile menu and footer.
 const NAV_ITEMS: { key: string; href: string; hasDropdown?: boolean; wideOnly?: boolean }[] = [
   { key: "aboutUs", href: "/gioi-thieu" },
@@ -38,76 +31,25 @@ const NAV_ITEMS: { key: string; href: string; hasDropdown?: boolean; wideOnly?: 
   { key: "contact", href: "/lien-he" },
 ];
 
-const PRODUCTS_META = [
-  {
-    key: "lesc",
-    href: "/san-pham/lesc-do-thi-thong-minh",
-    img: "/wp-content/uploads/2026/04/img-11.jpg",
-    logo: "/assets/logos/lesc-logo.svg",
-    prefix: "Le",
-    suffix: "SC",
-    textClass: "text-brand-teal",
-    h3TextSizeClass: "max-[1550px]:text-xl",
-    priority: "high" as const,
-  },
-  {
-    key: "lesm",
-    href: "/san-pham/lesm-di-chuyen-thong-minh",
-    img: "/wp-content/uploads/2026/04/img-13.jpg",
-    logo: "/assets/logos/lesm-logo.svg",
-    prefix: "Le",
-    suffix: "SM",
-    textClass: "text-brand-lime",
-    h3TextSizeClass: "max-[1550px]:text-[22px]",
-  },
-  {
-    key: "ledb",
-    href: "/san-pham/ledb-bo-nao-so",
-    img: "/wp-content/uploads/2026/04/img-14.jpg",
-    logo: "/assets/logos/ledb-logo.svg",
-    prefix: "Le",
-    suffix: "DB",
-    textClass: "text-brand-cyan",
-    h3TextSizeClass: "max-[1550px]:text-[22px]",
-  },
-  {
-    key: "lese",
-    href: "/san-pham/lese-nang-luong-thong-minh",
-    img: "/wp-content/uploads/2026/04/img-15.jpg",
-    logo: "/assets/logos/lese-logo.svg",
-    prefix: "Le",
-    suffix: "SE",
-    textClass: "text-brand-orange-deep",
-    h3TextSizeClass: "max-[1550px]:text-[22px]",
-  },
-  {
-    key: "lesb",
-    href: "/san-pham/lesb-xay-dung-thong-minh",
-    img: "/wp-content/uploads/2026/04/img-16.jpg",
-    logo: "/assets/logos/lesb-logo.svg",
-    prefix: "Le",
-    suffix: "SB",
-    textClass: "text-brand-gray",
-    h3TextSizeClass: "max-[1550px]:text-[22px]",
-  },
-  {
-    key: "legm",
-    href: "/san-pham/legm-vat-lieu-xanh",
-    img: "/wp-content/uploads/2026/04/img-17.jpg",
-    logo: "/assets/logos/legm-logo.svg",
-    prefix: "Le",
-    suffix: "GM",
-    textClass: "text-brand-emerald",
-    h3TextSizeClass: "max-[1550px]:text-[22px]",
-  },
-];
+// V2 products shown in the "Sản phẩm" mega menu; names, status and descriptions come from the `v2.products` messages.
+const PRODUCT_ICONS: Record<string, LucideIcon> = {
+  leaso: LayoutGrid,
+  nodefactory: Server,
+  nodemobility: Truck,
+  nodeair: Plane,
+  orion: Bot,
+  lecapm: Cpu,
+};
+
+type HeaderProduct = { id: string; eyebrow: string; title: string; body: string; status: string; route: string };
 
 export default function Header() {
   const t = useTranslations("header");
-  const PRODUCTS = PRODUCTS_META.map((meta) => ({
-    ...meta,
-    name: t(`products.${meta.key}.name`),
-    features: t.raw(`products.${meta.key}.features`) as string[],
+  const tv = useTranslations("v2");
+  const PRODUCTS = (tv.raw("products") as HeaderProduct[]).map((p) => ({
+    ...p,
+    href: v2Href(p.route),
+    Icon: PRODUCT_ICONS[p.id] ?? LayoutGrid,
   }));
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubMenus, setOpenSubMenus] = useState<{ [key: string]: boolean }>({});
@@ -159,39 +101,27 @@ export default function Header() {
                                 {PRODUCTS.map((prod, prodIdx) => (
                                   <div key={prodIdx} className="relative z-2 min-w-0">
                                     <Card variant="glass" hover="lift" size="mini" className="p-0! gap-0! rounded-2xl! w-full h-40 text-start shadow-[0_4px_30px_rgba(0,0,0,0.1)] flex flex-col overflow-hidden relative">
-                                      {/* Header: logo + name on a solid, darker background */}
+                                      {/* Header: icon + name on a solid, darker background */}
                                       <Link
                                         href={prod.href}
                                         className="relative z-10 flex shrink-0 items-center gap-1.5 h-10.5 px-2.5 bg-[#0d1b4b] border-b border-white/10 hover:opacity-95 transition-opacity"
                                       >
-                                        <div className="relative h-4 w-13 shrink-0">
-                                          <Image src={prod.logo} alt={prod.prefix + prod.suffix} className="object-contain object-left" fill />
-                                        </div>
+                                        <prod.Icon aria-hidden className="size-4 shrink-0 text-[#63D9FF]" strokeWidth={1.8} />
                                         <span className="min-w-0 flex-1 truncate font-sans text-xs font-semibold normal-case leading-[1.3em] text-white/95">
-                                          {prod.name}
+                                          {prod.title}
                                         </span>
                                       </Link>
 
-                                      {/* Body: background image + lighter overlay + feature list */}
-                                      <div className="relative flex-1 min-h-0 overflow-hidden">
-                                        <div className="absolute inset-0 z-0 overflow-hidden">
-                                          <img
-                                            alt={prod.name}
-                                            className="w-full! h-full! object-cover! rounded-none! transition-all duration-700 group-hover/card:scale-110"
-                                            src={prod.img}
-                                          />
-                                          <div className="absolute inset-0 bg-[#0d1b4b]/70 transition-colors duration-500 group-hover/card:bg-[#0d1b4b]/80" />
-                                        </div>
-                                        <div className="relative z-10 h-full overflow-hidden px-2.5 py-1.5">
-                                          <ul className="space-y-0">
-                                            {prod.features.map((feat, featIdx) => (
-                                              <HeaderFeatureItem key={featIdx}>
-                                                {feat}
-                                              </HeaderFeatureItem>
-                                            ))}
-                                          </ul>
-                                        </div>
-                                      </div>
+                                      {/* Body: description and development status */}
+                                      <Link
+                                        href={prod.href}
+                                        className="relative flex min-h-0 flex-1 flex-col justify-between gap-1.5 overflow-hidden bg-[linear-gradient(180deg,#0f2a63_0%,#0a1f4d_100%)] px-2.5 py-2 no-underline"
+                                      >
+                                        <p className="m-0 line-clamp-4 font-sans text-[11px] font-normal normal-case leading-[15px] text-white/85">{prod.body}</p>
+                                        <span className="w-fit rounded-full border border-[#FAB81F]/60 px-1.5 py-px font-sans text-[9px] font-semibold uppercase leading-[12px] tracking-[0.4px] text-[#FAB81F]">
+                                          {prod.status}
+                                        </span>
+                                      </Link>
                                     </Card>
                                   </div>
                                 ))}
@@ -279,23 +209,10 @@ export default function Header() {
                   {PRODUCTS.map((prod, prodIdx) => (
                     <li key={prodIdx}>
                       <Link className="flex items-center gap-3 rounded-xl bg-white/3 p-3 hover:bg-white/8 transition-all duration-300 border border-white/10" href={prod.href} tabIndex={-1}>
-                        <div className="relative h-[36px] w-[58px] overflow-hidden rounded-md shrink-0">
-                          <img
-                            src={prod.img}
-                            alt={prod.name}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
+                        <prod.Icon aria-hidden className="size-5 shrink-0 text-[#63D9FF]" strokeWidth={1.8} />
                         <div className="flex flex-col text-start gap-1">
-                          <div className="relative h-[18px] w-[70px]">
-                            <Image
-                              src={prod.logo}
-                              alt={prod.prefix + prod.suffix}
-                              className="object-contain object-left"
-                              fill
-                            />
-                          </div>
-                          <span className="text-[10px] text-white/60 font-sans leading-none">{prod.name}</span>
+                          <span className="text-sm font-semibold text-white font-sans leading-none">{prod.title}</span>
+                          <span className="text-[10px] text-[#FAB81F] font-sans leading-none">{prod.status}</span>
                         </div>
                       </Link>
                     </li>

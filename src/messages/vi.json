@@ -1180,7 +1180,28 @@
       "infoNote": "Chỉ gửi thông tin tổng quan. Tài liệu chuyên sâu được trao đổi qua kênh và phạm vi bảo mật đã thống nhất.",
       "phonePlaceholder": "Số điện thoại (không bắt buộc)",
       "emailPlaceholder": "Email công việc*",
-      "messageLabel": "Mô tả bài toán*"
+      "messageLabel": "Mô tả bài toán*",
+      "thanks": {
+        "title": "Cảm ơn anh/chị.",
+        "body": "LeTRON đã nhận được thông tin của anh/chị. Để buổi trao đổi hiệu quả, anh/chị có thể chuẩn bị trước:",
+        "steps": [
+          {
+            "eyebrow": "01 / HIỆN TRẠNG",
+            "title": "Chuẩn bị bối cảnh",
+            "body": "Tóm tắt hiện trạng thiết bị, quy trình và vấn đề cần giải quyết."
+          },
+          {
+            "eyebrow": "02 / KẾT QUẢ",
+            "title": "Xác định mục tiêu",
+            "body": "Làm rõ nhiệm vụ và tiêu chí hoàn thành mong muốn."
+          },
+          {
+            "eyebrow": "03 / PHẠM VI",
+            "title": "Trao đổi an toàn",
+            "body": "Tài liệu mật chỉ chia sẻ sau khi thống nhất kênh và phạm vi bảo mật."
+          }
+        ]
+      }
     },
     "terms": [
       {

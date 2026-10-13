@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import { Bot, Brain, Cpu, LayoutGrid, Layers, Plane, Server, Truck } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { v2Href } from "@/lib/v2-routes";
 
 // V2 "Mặt trời và Quỹ đạo" diagram: the LeTRON sun in the middle, an inner orbit of applications and an
 // outer orbit of devices. Start angles (degrees from +x, clockwise) and radii (fraction of the box width)
@@ -22,6 +24,18 @@ const OUTER: OrbitNode[] = [
   { id: "orion", name: "Le-ORION", Icon: Bot, angle: 236 },
   { id: "leos", name: "LeOS", Icon: Layers, angle: 308 },
 ];
+
+// Page each satellite points to (keys of V2_ROUTES).
+const NODE_ROUTES: Record<string, string> = {
+  leaso: "platform",
+  lele: "platform",
+  lecapm: "technology",
+  nodefactory: "factory",
+  nodemobility: "city",
+  nodeair: "city",
+  orion: "factory",
+  leos: "platform",
+};
 
 const INNER_RADIUS = 0.225;
 const OUTER_RADIUS = 0.415;
@@ -122,6 +136,7 @@ function Satellite({
 
 export default function HeroOrbit({ sunAlt }: { sunAlt: string }) {
   const t = useTranslations("hero");
+  const tc = useTranslations("v2.common");
   const items = t.raw("orbit") as Record<string, OrbitText>;
 
   const rootRef = useRef<HTMLDivElement>(null);
@@ -130,6 +145,24 @@ export default function HeroOrbit({ sunAlt }: { sunAlt: string }) {
   const [selected, setSelected] = useState<string | null>(null);
   const [tip, setTip] = useState<Tip | null>(null);
   const hoveredRef = useRef<string | null>(null);
+  const selectedRef = useRef<string | null>(null);
+  const leaveTimer = useRef<number | null>(null);
+
+  const cancelLeave = () => {
+    if (leaveTimer.current !== null) {
+      window.clearTimeout(leaveTimer.current);
+      leaveTimer.current = null;
+    }
+  };
+  // Short grace period so the pointer can travel from the icon to the tooltip (which holds a link) without it closing.
+  const scheduleLeave = () => {
+    cancelLeave();
+    leaveTimer.current = window.setTimeout(() => {
+      hoveredRef.current = null;
+      setHovered(null);
+      setTip(selectedRef.current ? measure(selectedRef.current) : null);
+    }, 160);
+  };
 
   // Hover shows the tooltip; a click keeps it open (touch screens have no hover). The orbits stand still while
   // a tooltip is open so it stays attached to its icon.
@@ -172,9 +205,10 @@ export default function HeroOrbit({ sunAlt }: { sunAlt: string }) {
   useEffect(() => {
     if (!selected) return;
     const timer = window.setTimeout(() => {
+      selectedRef.current = null;
       setSelected(null);
       if (!hoveredRef.current) setTip(null);
-    }, 4000);
+    }, 8000);
     return () => window.clearTimeout(timer);
   }, [selected]);
 
@@ -185,17 +219,15 @@ export default function HeroOrbit({ sunAlt }: { sunAlt: string }) {
       nodeRefs.current[id] = el;
     },
     onEnter: () => {
+      cancelLeave();
       hoveredRef.current = n.id;
       setHovered(n.id);
       setTip(measure(n.id));
     },
-    onLeave: () => {
-      hoveredRef.current = null;
-      setHovered(null);
-      setTip(selected ? measure(selected) : null);
-    },
+    onLeave: scheduleLeave,
     onToggle: () => {
       const next = selected === n.id ? null : n.id;
+      selectedRef.current = next;
       setSelected(next);
       setTip(next ? measure(next) : hovered ? measure(hovered) : null);
     },
@@ -261,7 +293,9 @@ export default function HeroOrbit({ sunAlt }: { sunAlt: string }) {
       {tip && activeNode && info && tip.id === activeNode.id && (
         <div
           role="tooltip"
-          className="pointer-events-none absolute z-30 max-w-[92vw] rounded-[14px] border border-[#2A9FFF]/55 bg-[#061a40] px-3.5 py-3 text-left shadow-[0_8px_24px_rgba(0,0,0,0.45)]"
+          onMouseEnter={cancelLeave}
+          onMouseLeave={scheduleLeave}
+          className="pointer-events-auto absolute z-30 max-w-[92vw] rounded-[14px] border border-[#2A9FFF]/55 bg-[#061a40] px-3.5 py-3 text-left shadow-[0_8px_24px_rgba(0,0,0,0.45)]"
           style={{
             width: TIP_WIDTH,
             ...(tip.side === "above" && { left: tip.x, bottom: tip.y, transform: "translateX(-50%)" }),
@@ -281,6 +315,14 @@ export default function HeroOrbit({ sunAlt }: { sunAlt: string }) {
           )}
           {info.description && (
             <p className="mb-0 mt-1.5 font-inter text-[12px] leading-[17px] text-white/80">{info.description}</p>
+          )}
+          {NODE_ROUTES[activeNode.id] && (
+            <Link
+              href={v2Href(NODE_ROUTES[activeNode.id])}
+              className="mt-2 inline-flex items-center gap-1 font-inter text-[12px] font-semibold text-[#63D9FF] no-underline hover:text-white"
+            >
+              {tc("explore")} →
+            </Link>
           )}
         </div>
       )}

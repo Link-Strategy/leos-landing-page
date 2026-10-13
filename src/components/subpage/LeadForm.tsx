@@ -35,6 +35,7 @@ export function LeadForm({
   counterSuffix,
   maxMessage,
   notice,
+  thankYou,
 }: {
   buttonLabel?: string;
   source?: string;
@@ -54,6 +55,8 @@ export function LeadForm({
   counterSuffix?: string;
   maxMessage?: number;
   notice?: string;
+  /** V2 confirmation: heading, text and three preparation steps shown after a successful send. */
+  thankYou?: { title: string; body: string; steps: { eyebrow: string; title: string; body: string }[] };
 }) {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -104,6 +107,23 @@ export function LeadForm({
   };
 
   if (submitted) {
+    if (thankYou) {
+      return (
+        <div className="flex flex-col gap-4 rounded-2xl border border-white/15 bg-white/10 p-6">
+          <p className="m-0 text-lg font-semibold text-emerald-300">{thankYou.title}</p>
+          <p className="m-0 text-sm text-white/80">{thankYou.body}</p>
+          <ul className="m-0 grid list-none gap-3 p-0">
+            {thankYou.steps.map((step) => (
+              <li key={step.title} className="rounded-xl border border-white/20 bg-white/5 p-4">
+                <p className="m-0 text-[11px] font-bold uppercase tracking-[1.6px] text-[#63D9FF]">{step.eyebrow}</p>
+                <p className="m-0 mt-1 text-base font-semibold text-white">{step.title}</p>
+                <p className="m-0 mt-1 text-sm leading-6 text-white/75">{step.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
     return (
       <div className="rounded-2xl border border-white/15 bg-white/10 p-6 text-center backdrop-blur-md">
         <p className="mb-2 text-lg font-semibold text-emerald-300">Đã gửi thành công!</p>

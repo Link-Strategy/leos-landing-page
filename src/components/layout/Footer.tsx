@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
+import { v2Href } from "@/lib/v2-routes";
 import { Link } from "@/i18n/navigation";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 
@@ -94,7 +95,7 @@ function FooterLinkList({ items }: { items: FooterLink[] }) {
   return (
     <ul className="flex flex-col gap-[10px]">
       {items.map((item) => (
-        <li key={item.href}>
+        <li key={`${item.href}|${item.label}`}>
           <Link
             href={item.href}
             className="font-open-sans flex items-center gap-2 text-[14px] leading-[22px]! text-white opacity-78 transition-opacity hover:opacity-100"
@@ -177,14 +178,11 @@ export default function Footer() {
     { href: "/tuyen-dung", label: t("quickLinks.careers") },
   ];
 
-  const productLinks: FooterLink[] = [
-    { href: "/san-pham/ledb-bo-nao-so", label: t("products.ledb") },
-    { href: "/san-pham/lesm-di-chuyen-thong-minh", label: t("products.lesm") },
-    { href: "/san-pham/lese-nang-luong-thong-minh", label: t("products.lese") },
-    { href: "/san-pham/legm-vat-lieu-xanh", label: t("products.legm") },
-    { href: "/san-pham/lesb-xay-dung-thong-minh", label: t("products.lesb") },
-    { href: "/san-pham/lesc-do-thi-thong-minh", label: t("products.lesc") },
-  ];
+  const tv = useTranslations("v2");
+  const productLinks: FooterLink[] = (tv.raw("products") as { title: string; route: string }[]).map((p) => ({
+    href: v2Href(p.route),
+    label: p.title,
+  }));
 
   const address = t("address");
   const phone = t("phone");
