@@ -28,6 +28,26 @@ function loadElementorScripts() {
   }
 }
 
+// Routes that render without WordPress assets (keep in sync with the route layout: everything outside app/[locale]/(wp)).
+const PLAIN_ROUTES = [
+  "/",
+  "/gioi-thieu",
+  "/lien-he",
+  "/san-pham",
+  "/giai-phap",
+  "/nen-tang",
+  "/cong-nghe",
+  "/nha-may",
+  "/thanh-pho-so",
+  "/dieu-khoan-su-dung",
+  "/chinh-sach-bao-mat",
+];
+
+function isPlainRoute(pathname: string): boolean {
+  const path = pathname.replace(/^\/en(?=\/|$)/, "") || "/";
+  return PLAIN_ROUTES.includes(path) || path === "/blog" || path.startsWith("/blog/");
+}
+
 export default function ClientScripts() {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
@@ -35,10 +55,9 @@ export default function ClientScripts() {
     setMounted(true);
   }, []);
 
-  const isBlog = pathname?.startsWith("/blog") ?? false;
-  const isCategory = pathname?.startsWith("/category") ?? false;
-  const skipElementor = isBlog || isCategory;
-  const showElementor = mounted && !skipElementor && typeof pathname === "string";
+  // The legacy Elementor/jQuery scripts are only needed by the routes in app/[locale]/(wp); every other page is plain React.
+  const needsWordPress = typeof pathname === "string" && !isPlainRoute(pathname);
+  const showElementor = mounted && needsWordPress;
 
   useEffect(() => {
     if (showElementor) loadElementorScripts();

@@ -187,7 +187,8 @@ html::-webkit-scrollbar {
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  /* The WordPress theme CSS used to win this declaration in production (system-ui); kept so text renders the same without it. */
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
@@ -529,4 +530,81 @@ main {
     margin-top: 1rem !important;
     margin-bottom: 0.75rem !important;
   }
+}
+
+/* Rules the pages used to get from the WordPress theme / Elementor CSS. That CSS now loads only for the (wp) routes,
+   so the few rules plain pages still depend on live here. */
+p {
+  margin: 0 !important;
+}
+
+.elementor *,
+.elementor ::after,
+.elementor ::before {
+  box-sizing: border-box;
+}
+
+.elementor a {
+  box-shadow: none;
+  text-decoration: none;
+}
+
+.elementor img {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  height: auto;
+  max-width: 100%;
+}
+
+.elementor-heading-title {
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.elementor-screen-only,
+.screen-reader-text,
+.screen-reader-text span {
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  top: -10000em;
+  width: 1px;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.rank-math-breadcrumb a:first-child {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  text-indent: -9999px;
+  white-space: nowrap;
+}
+
+.rank-math-breadcrumb a:first-child::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/wp-content/themes/saokimdigital/assets/images/huge-icon.svg") no-repeat center/contain;
+}
+
+.rank-math-breadcrumb a,
+.rank-math-breadcrumb .last {
+  color: #fff;
+  font-family: Archivo, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.rank-math-breadcrumb a,
+.rank-math-breadcrumb .separator {
+  color: #459be2;
 }
