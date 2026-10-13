@@ -83,15 +83,15 @@
     }
   },
   "hero": {
-    "badge": "NỀN TẢNG VẬN HÀNH TỰ CHỦ CHO NHÀ MÁY VÀ ĐÔ THỊ",
-    "title": "Tự chủ vận hành.\nTrong tầm kiểm soát.",
-    "subtitle": "Máy làm việc. Người quyết định. Kết quả đo được.",
+    "badge": "DÀNH CHO NHÀ MÁY & KHU CÔNG NGHIỆP",
+    "title": "Máy làm việc.\nNgười quyết định.\nKết quả đo được.",
+    "subtitle": "Nền tảng vận hành tự chủ: tự động hóa từng dây chuyền mà không đánh đổi quyền kiểm soát.",
     "features": [
       "Mọi dữ liệu có nguồn gốc và điều kiện sử dụng rõ ràng",
       "Máy tự vận hành trong giới hạn con người đặt ra",
       "Mỗi nhiệm vụ có người chịu trách nhiệm và bằng chứng nghiệm thu"
     ],
-    "description": "Nền tảng vận hành tự chủ cho nhà máy, khu công nghiệp và đô thị: phần mềm quản trị, thiết bị biên và robot trong một hệ thống. Triển khai theo dịch vụ, nhân rộng theo kết quả kiểm chứng.",
+    "description": "Phần mềm quản trị, thiết bị biên và robot trong một hệ thống. Triển khai theo dịch vụ; chỉ mở rộng khi số liệu trước và sau triển khai đã được kiểm chứng.",
     "ctaPrimary": "Đặt lịch tư vấn 30 phút",
     "ctaSecondary": "Nhận hồ sơ giới thiệu",
     "footerTags": [
@@ -139,7 +139,8 @@
         "role": "Hệ điều hành chung"
       }
     },
-    "orbitCaption": "Một nền tảng · Tám thành phần"
+    "orbitCaption": "Một nền tảng · Tám thành phần",
+    "proof": "Sandbox Uông Bí · vận hành từ Q4/2026"
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN",

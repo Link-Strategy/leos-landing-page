@@ -27,12 +27,11 @@ export default function Hero() {
               {t("title")}
             </h1>
 
-            <p className="font-inter text-[20px] font-bold leading-[28px] tracking-[-0.3px] text-[#63D9FF] sm:text-[24px] sm:leading-[32px]">
+            <p className="font-inter text-[18px] font-bold leading-[26px] tracking-[-0.3px] text-[#63D9FF] sm:text-[22px] sm:leading-[30px]">
               {t("subtitle")}
             </p>
 
-
-            <p className="font-open-sans text-[18px] font-light leading-[30px] tracking-[0px] text-[#F4F4F4]">
+            <p className="font-open-sans text-[16px] font-light leading-[26px] tracking-[0px] text-[#F4F4F4] sm:text-[18px] sm:leading-[30px]">
               {t("description")}
             </p>
 
@@ -43,10 +42,11 @@ export default function Hero() {
           <div className="mt-10 flex w-full flex-col items-center gap-4 lg:w-auto lg:flex-row lg:justify-start">
             <ContactMasterButton type="full-fill" content={t("ctaPrimary")} />
           </div>
+          <p className="mb-0 mt-4 font-inter text-[13px] font-semibold uppercase tracking-[1.6px] text-white/60">{t("proof")}</p>
         </div>
 
         {/* Right visual: V2 sun + two-orbit diagram */}
-        <HeroOrbit sunAlt={t("subtitle")} caption={t("orbitCaption")} />
+        <HeroOrbit sunAlt={t("badge")} caption={t("orbitCaption")} />
       </div>
 
     </section>

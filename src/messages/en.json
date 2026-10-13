@@ -83,15 +83,15 @@
     }
   },
   "hero": {
-    "badge": "AUTONOMOUS OPERATIONS PLATFORM FOR FACTORIES AND CITIES",
-    "title": "Autonomous operations.\nUnder your control.",
-    "subtitle": "Machines do the work. People make the decisions. Results are measured.",
+    "badge": "FOR FACTORIES & INDUSTRIAL PARKS",
+    "title": "Machines work.\nPeople decide.\nResults are measured.",
+    "subtitle": "An autonomous operations platform: automate one production line at a time without giving up control.",
     "features": [
       "Every data point has a known source and terms of use",
       "Machines operate autonomously within limits people set",
       "Every task has an owner and acceptance evidence"
     ],
-    "description": "An autonomous operations platform for factories, industrial parks and cities: management software, edge devices and robots in one system. Delivered as a service, scaled on verified results.",
+    "description": "Management software, edge devices and robots in one system. Delivered as a service; expanded only when before-and-after figures are verified.",
     "ctaPrimary": "Book a 30-minute consultation",
     "ctaSecondary": "Get the company profile",
     "footerTags": [
@@ -139,7 +139,8 @@
         "role": "Shared operating system"
       }
     },
-    "orbitCaption": "One platform · Eight components"
+    "orbitCaption": "One platform · Eight components",
+    "proof": "Uong Bi Sandbox · operating from Q4/2026"
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
