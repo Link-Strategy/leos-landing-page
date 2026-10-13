@@ -38,9 +38,9 @@ function GlassIconShell({ children, ring }: { children: ReactNode; ring: string 
   );
 }
 
-function SocialIcon({ glow, glyph, ring, alt }: { glow: string; glyph: string; ring: string; alt: string }) {
+function SocialIcon({ glow, glyph, ring, alt, href }: { glow: string; glyph: string; ring: string; alt: string; href: string }) {
   return (
-    <a href="#" className="relative block size-11 shrink-0 cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+    <a href={href} target="_blank" rel="noopener noreferrer" aria-label={alt} className="relative block size-11 shrink-0 cursor-pointer transition-transform duration-300 hover:-translate-y-1">
       <GlassIconShell ring={ring}>
         <img src={glow} alt="" aria-hidden className="pointer-events-none absolute size-[52px] mix-blend-plus-lighter" />
         <img src={glyph} alt={alt} className="relative size-8" />
@@ -55,38 +55,13 @@ function SocialIcon({ glow, glyph, ring, alt }: { glow: string; glyph: string; r
   );
 }
 
-function ZaloIcon({ alt }: { alt: string }) {
-  return (
-    <a href="#" className="relative block size-11 shrink-0 cursor-pointer transition-transform duration-300 hover:-translate-y-1">
-      <GlassIconShell ring="rgba(0,107,255,0.32)">
-        <span
-          role="img"
-          aria-label={alt}
-          className="relative flex size-8 items-center justify-center rounded-[10px]"
-          style={{ background: "#0068FF", boxShadow: "0px 1px 3px 0px rgba(0,107,255,0.16)" }}
-        >
-          <span className="font-inter flex h-4 w-6 items-center justify-center rounded-[5px] bg-white text-[8.5px] leading-[12px]! font-bold text-[#0068FF]">
-            Zalo
-          </span>
-        </span>
-      </GlassIconShell>
-      <img
-        src={ICON_HIGHLIGHT}
-        alt=""
-        aria-hidden
-        className="pointer-events-none absolute top-2 left-2 size-[18px] mix-blend-screen"
-      />
-    </a>
-  );
-}
+// Only the channels that exist are linked; add LinkedIn/Zalo/Instagram here once the company pages are created.
+const FACEBOOK_URL = "https://www.facebook.com/people/Letron-Vietnam/61595038693250/";
 
-function SocialRow({ zaloAlt }: { zaloAlt: string }) {
+function SocialRow() {
   return (
     <div className="flex items-center gap-2">
-      <SocialIcon {...SOCIALS[0]} alt="Facebook" />
-      <SocialIcon {...SOCIALS[1]} alt="LinkedIn" />
-      <ZaloIcon alt={zaloAlt} />
-      <SocialIcon {...SOCIALS[2]} alt="Instagram" />
+      <SocialIcon {...SOCIALS[0]} alt="Facebook" href={FACEBOOK_URL} />
     </div>
   );
 }
@@ -233,7 +208,7 @@ export default function Footer() {
               <div className="flex w-[260px] shrink-0 flex-col gap-3">
                 <img src={LOGO} alt="LeTRON" width={163} height={100} />
                 <p className="font-open-sans text-[14px] leading-[22px]! text-white opacity-72">{t("companyName")}</p>
-                <SocialRow zaloAlt={t("socialZaloAlt")} />
+                <SocialRow />
               </div>
 
               <div className="flex w-[160px] shrink-0 flex-col gap-3">
@@ -263,7 +238,7 @@ export default function Footer() {
             <div className="flex flex-col gap-[10px]">
               <img src={LOGO} alt="LeTRON" width={163} height={100} />
               <p className="font-open-sans text-[14px] leading-[22px]! text-white opacity-72">{t("companyName")}</p>
-              <SocialRow zaloAlt={t("socialZaloAlt")} />
+              <SocialRow />
             </div>
 
             <div className="flex flex-col gap-2">

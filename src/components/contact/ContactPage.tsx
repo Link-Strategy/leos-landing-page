@@ -155,7 +155,7 @@ export default function ContactPage() {
                       <Image alt="" aria-hidden className="mt-0.5 flex-shrink-0" height={24} src="/contact/MapPin.svg" width={24} />
                       <p>
                         {t("addressLabel")}{" "}
-                        <a className="text-[#2A9FFF] underline underline-offset-2" href="#">
+                        <a className="text-[#2A9FFF] underline underline-offset-2" href="https://www.google.com/maps/search/?api=1&query=C%C3%B4ng+Th%C3%A0nh+295+Tr%E1%BA%A7n+Nh%C3%A2n+T%C3%B4ng+U%C3%B4ng+B%C3%AD+Qu%E1%BA%A3ng+Ninh" target="_blank" rel="noopener noreferrer">
                           {t("mapLinkLabel")}
                         </a>
                       </p>
