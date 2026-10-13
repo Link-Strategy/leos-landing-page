@@ -92,7 +92,7 @@
       "Every task has an owner and acceptance evidence"
     ],
     "description": "One end-to-end platform for management and edge devices.",
-    "ctaPrimary": "Book a 30-minute call",
+    "ctaPrimary": "Contact us",
     "ctaSecondary": "Get the company profile",
     "footerTags": [
       "Trust",
@@ -757,7 +757,7 @@
     "breadcrumbCurrent": "Contact",
     "heroTitlePrefix": "Define ",
     "heroTitleHighlight": "the first pilot scope",
-    "heroDescription": "Describe the current state, the task and the expected result to define a suitable pilot scope. LeTRON responds within 2 working days.",
+    "heroDescription": "Describe the current state, the task and the expected result to define a suitable pilot scope.",
     "formHeadingLine1": "Request a consultation",
     "formHeadingLine2Prefix": "LeTRON will ",
     "formHeadingLine2Highlight": "get in touch shortly.",
@@ -866,7 +866,7 @@
     "common": {
       "explore": "Learn more",
       "viewSolution": "View the solution",
-      "contactCta": "Book a consultation",
+      "contactCta": "Contact us",
       "home": "Back to home",
       "contactLink": "Contact LeTRON",
       "status": "Status",
@@ -985,7 +985,7 @@
       "eyebrow": "START WITH ONE SMALL SCOPE",
       "title": "The first pilot scope,\ndefined in one consultation.",
       "body": "From the problem and the current operating state, LeTRON proposes the pilot scope, how results are measured and what can run immediately at the Uong Bi Sandbox.",
-      "button": "Book a consultation"
+      "button": "Contact us"
     },
     "products": [
       {
@@ -1306,19 +1306,19 @@
       "investors": "Investors"
     },
     "dialog": {
-      "title": "Book a consultation",
-      "body": "LeTRON will get in touch within 2 working days to arrange a 30-minute consultation.",
-      "bodyWithTopic": "Subject: {topic}. LeTRON will get in touch within 2 working days to arrange a 30-minute consultation.",
+      "title": "Contact LeTRON",
+      "body": "Leave your details and LeTRON will respond.",
+      "bodyWithTopic": "Subject: {topic}. Leave your details and LeTRON will respond.",
       "name": "Full name",
       "email": "Work email",
       "phone": "Phone",
       "optional": "(optional)",
-      "submit": "Send request",
+      "submit": "Send",
       "direct": "Or call",
       "messagePrefix": "Interested in: {topic}",
       "error": "Could not send, please try again.",
       "sentTitle": "Request received",
-      "sentBody": "LeTRON has received the request and will get in touch within 2 working days.",
+      "sentBody": "LeTRON has received the details and will respond.",
       "close": "Close"
     },
     "sandbox": {

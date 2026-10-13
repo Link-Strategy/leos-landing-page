@@ -92,7 +92,7 @@
       "Mỗi nhiệm vụ có người chịu trách nhiệm và bằng chứng nghiệm thu"
     ],
     "description": "Nền tảng trọn gói cho quản trị và thiết bị biên.",
-    "ctaPrimary": "Đặt lịch trao đổi 30 phút",
+    "ctaPrimary": "Liên hệ",
     "ctaSecondary": "Nhận hồ sơ giới thiệu",
     "footerTags": [
       "Tin cậy",
@@ -757,7 +757,7 @@
     "breadcrumbCurrent": "Liên hệ",
     "heroTitlePrefix": "Xác định ",
     "heroTitleHighlight": "phạm vi thử nghiệm đầu tiên",
-    "heroDescription": "Mô tả hiện trạng, nhiệm vụ và kết quả mong muốn để xác định phạm vi thử nghiệm phù hợp. LeTRON liên hệ trong 2 ngày làm việc.",
+    "heroDescription": "Mô tả hiện trạng, nhiệm vụ và kết quả mong muốn để xác định phạm vi thử nghiệm phù hợp.",
     "formHeadingLine1": "Đăng ký tư vấn",
     "formHeadingLine2Prefix": "LeTRON sẽ sớm ",
     "formHeadingLine2Highlight": "liên hệ tư vấn.",
@@ -866,7 +866,7 @@
     "common": {
       "explore": "Tìm hiểu thêm",
       "viewSolution": "Xem giải pháp",
-      "contactCta": "Đặt lịch tư vấn",
+      "contactCta": "Liên hệ",
       "home": "Về trang chủ",
       "contactLink": "Liên hệ LeTRON",
       "status": "Trạng thái",
@@ -985,7 +985,7 @@
       "eyebrow": "BẮT ĐẦU TỪ MỘT PHẠM VI NHỎ",
       "title": "Phạm vi thử nghiệm đầu tiên,\nxác định trong một buổi tư vấn.",
       "body": "Từ bài toán và hiện trạng vận hành, LeTRON đề xuất phạm vi thử nghiệm, cách đo kết quả và các hạng mục vận hành ngay tại Sandbox Uông Bí.",
-      "button": "Đặt lịch tư vấn"
+      "button": "Liên hệ"
     },
     "products": [
       {
@@ -1306,19 +1306,19 @@
       "investors": "Nhà đầu tư"
     },
     "dialog": {
-      "title": "Đặt lịch tư vấn",
-      "body": "LeTRON liên hệ trong 2 ngày làm việc để sắp xếp buổi tư vấn 30 phút.",
-      "bodyWithTopic": "Nội dung: {topic}. LeTRON liên hệ trong 2 ngày làm việc để sắp xếp buổi tư vấn 30 phút.",
+      "title": "Liên hệ LeTRON",
+      "body": "Để lại thông tin, LeTRON sẽ phản hồi.",
+      "bodyWithTopic": "Nội dung: {topic}. Để lại thông tin, LeTRON sẽ phản hồi.",
       "name": "Họ và tên",
       "email": "Email công việc",
       "phone": "Số điện thoại",
       "optional": "(không bắt buộc)",
-      "submit": "Gửi yêu cầu",
+      "submit": "Gửi",
       "direct": "Hoặc gọi",
       "messagePrefix": "Quan tâm: {topic}",
       "error": "Chưa gửi được, vui lòng thử lại.",
       "sentTitle": "Đã nhận yêu cầu",
-      "sentBody": "LeTRON đã tiếp nhận yêu cầu và sẽ liên hệ trong 2 ngày làm việc.",
+      "sentBody": "LeTRON đã tiếp nhận thông tin và sẽ phản hồi.",
       "close": "Đóng"
     },
     "sandbox": {
