@@ -6,6 +6,7 @@ export const ORGANIZATION = {
   email: "office@letrongroup.com",
   phone: "+842033668838",
   alternateName: ["LeTRON Group", "Letron Group", "Tập đoàn LeTRON"],
+  description: "Hạ tầng chứng thực tại nguồn và kiểm soát tự chủ.",
   // Official profiles, so search engines tie "letron" queries to this company rather than similarly named ones.
   sameAs: ["https://www.facebook.com/people/Letron-Vietnam/61595038693250/"],
   address: {
@@ -23,6 +24,7 @@ export function buildOrganizationJsonLd(siteUrl: string) {
     name: ORGANIZATION.name,
     legalName: ORGANIZATION.legalName,
     alternateName: ORGANIZATION.alternateName,
+    description: ORGANIZATION.description,
     sameAs: ORGANIZATION.sameAs,
     url: siteUrl,
     logo: `${siteUrl}/icons/icon-512x512.png`,

@@ -1,59 +1,33 @@
-# Thông điệp thiết kế V2 (`D:\BusinessAnalyze\Letron\web`) so với landing page
+# Thiết kế V2 (`D:\BusinessAnalyze\Letron\web`) đã áp dụng vào landing page
 
-Nguồn V2: `web/content.js`, `web/README.txt`, `web/Copy_VI_Review.json` (ngày 03/10/2026, "Bản đề xuất VI; EN chờ bản dịch duyệt"). Gói V2 ghi rõ **chưa được công bố**. Ngày 13/10/2026 chủ dự án yêu cầu: *chỗ nào V2 thay thế thì áp dụng, chỗ nào V2 không mâu thuẫn thì giữ nguyên*. Phần đã áp dụng nằm ở mục 0.
+Nguồn V2: `web/content.js`, `web/app.js`, `web/README.txt` (03/10/2026). Quy tắc chủ dự án (13/10/2026): *chỗ nào V2 mâu thuẫn với nội dung hiện tại thì thay, chỗ nào không mâu thuẫn thì thêm*. Bản tiếng Anh là bản dịch của chúng tôi, **chưa được Văn phòng Chủ tịch duyệt**.
 
-## 0. Đã áp dụng (13/10/2026)
-Chỉ thay những chỗ V2 có nội dung tương ứng, cả `vi.json` và `en.json` (bản EN là bản dịch của tôi, **chưa được Văn phòng Chủ tịch duyệt**):
-- **Hero trang chủ** (`hero`): tiêu đề "Tự chủ vận hành. / Trong tầm kiểm soát.", phụ đề "Hạ tầng chứng thực tại nguồn và kiểm soát tự chủ.", ba ý (Biết dữ liệu đến từ đâu / Tự chủ trong giới hạn / Kết quả có thể đối soát), mô tả, ba thẻ cuối hero (Tin cậy · Kiểm soát · Trách nhiệm). Giữ nguyên: dòng địa chỉ, hai nút CTA.
-- **H.E.A.R.T** ở cả ba nơi (`heart`, `aboutHeartValues`, `heartTab`): Humanity · Evidence · Accountability · Resilience · Truthfulness. Icon giữ file cũ (`respect.svg` nay đi với A, `action.svg` với R) nên cần thay icon khi có bộ mới.
-- **Giới thiệu** (`about.heroDescription`), **Liên hệ** (tiêu đề "Cùng xác định kết quả cần đạt" và dòng dẫn; không đưa cam kết "2 ngày làm việc"), **trang 404** (cả hai file), **title/description** trang chủ và tiêu đề các trang Về LeTRON / Giải pháp và sản phẩm.
-- **Giữ nguyên** vì V2 không có nội dung tương ứng: sứ mệnh/tầm nhìn (còn nhắc "Mạng lưới Biên tri giác"), 6 trụ cột và 6 sản phẩm công ty con, mô hình HaaS/SaaS/CaaS/AaaS, kiến trúc công nghệ, chính sách bảo mật, LETRON WAY.
-- **Không thêm** khối mới (nguyên tắc, quy trình 5 bước, lĩnh vực) và 8 sản phẩm V2 vì chưa có ảnh/trang.
+## Đã áp dụng (production)
 
+**Thay thế (mâu thuẫn với nội dung cũ)**
+- Hero trang chủ: "Tự chủ vận hành. / Trong tầm kiểm soát.", phụ đề, ba ý, mô tả, thẻ cuối hero; hai nút → "Khám phá giải pháp" (`/giai-phap`) và "Trao đổi thử nghiệm" (`/lien-he`).
+- Sơ đồ Mặt trời và hai quỹ đạo (`HeroOrbit.tsx`) thay cho ảnh sáu hexagon: vòng trong LeASO, LeLe, LeCAP-M; vòng ngoài Le-NodeFactory, Le-NodeMobility, Le-NodeAir, Le-ORION, LeOS. Tooltip có trạng thái, mô tả và link. Tốc độ quay nhanh hơn V2 (V2 chỉ 2°/giây, không nhìn thấy).
+- Sứ mệnh/tầm nhìn (trang chủ và Giới thiệu), H.E.A.R.T (Humanity, Evidence, Accountability, Resilience, Truthfulness) ở cả ba nơi, tiêu đề các trang, 404, footer ("Tin cậy · Kiểm soát · Trách nhiệm").
+- Mục Sản phẩm (giữa trang chủ và `/san-pham`) và menu Sản phẩm trong header/footer: 6 sản phẩm V2 kèm nhãn trạng thái, thay cho 6 sản phẩm theo công ty con.
+- JSON-LD Organization: mô tả theo định vị V2.
 
-## 1. Thay đổi lớn về định vị
+**Thêm mới (không mâu thuẫn)**
+- Trang chủ: ba nguyên tắc, hai khối nhà máy/Thành phố Số (ảnh minh họa V2), vòng vận hành 5 bước, dải "20 Họ sáng chế" (ghi rõ là danh mục R&D), S.a.a.S, triết lý Chủ tịch, kêu gọi hành động.
+- Trang mới: `/giai-phap`, `/nen-tang`, `/cong-nghe`, `/nha-may`, `/thanh-pho-so`, `/dieu-khoan-su-dung` (vi + en, có trong sitemap, hreflang).
+- Giới thiệu: sứ mệnh, triết lý, hệ sinh thái LeAR/LeDB/LeHS.
+- Form liên hệ: tổ chức, nhu cầu quan tâm, bộ đếm 1.000 ký tự, cảnh báo tài liệu mật, ba bước chuẩn bị sau khi gửi; số điện thoại không bắt buộc; `interest` được lưu và hiện trong thông báo Telegram/email.
 
-| | Landing page hiện tại | V2 |
-|---|---|---|
-| Định vị | "Mạng lưới Biên tri giác" (The Perceptive Edge Network), kinh tế tuần hoàn, biến rác thải thành tài nguyên | "Hạ tầng chứng thực tại nguồn và kiểm soát tự chủ"; "Nhà máy tự vận hành có kiểm soát" |
-| Khẩu hiệu | Humanity at the center. Intelligence at the edge. Evidence in every decision. | **TIN CẬY • KIỂM SOÁT • TRÁCH NHIỆM** |
-| Giọng điệu | Nhiều cam kết tuyệt đối ("vận hành hoàn toàn offline, bảo mật cấp phần cứng, tự động đúc chứng thư carbon") | Thận trọng, nêu **trạng thái phát triển** từng sản phẩm; nguyên tắc "Công bố trung thực" |
-| Sản phẩm | 6 trụ cột theo công ty con: LeDB, LeSM, LeSE, LeGM, LeSB, LeSC | 8 sản phẩm: LeASO, LeLe, LeCAP-M, Le-NodeFactory, Le-NodeMobility, Le-NodeAir, Le-ORION, LeOS |
-| Mô hình bán | HaaS / SaaS / CaaS / AaaS, "không đầu tư ban đầu" | "một giải pháp theo dịch vụ", xác lập phạm vi, đường cơ sở và cách nghiệm thu trước khi triển khai |
+**Giữ nguyên vì V2 không đề cập:** 6 trang `/san-pham/*` theo công ty con (vẫn truy cập được, không còn được link từ menu), mô hình HaaS/SaaS/CaaS/AaaS, kiến trúc công nghệ, lộ trình, đối tác, chính sách bảo mật, tuyển dụng, blog.
 
-→ Đây là **đổi định vị**, không phải sửa câu chữ. Cần Chủ tịch/Văn phòng Chủ tịch chốt hướng trước khi viết lại cả site.
+**Đã ẩn:** `/cong-ty-thanh-vien` (redirect 307 về `/san-pham`, bỏ khỏi footer và sitemap). Mở lại: xóa hai redirect trong `next.config.ts`, thêm link ở `Footer.tsx` và dòng trong `src/app/sitemap/route.ts`.
 
-## 2. Đối chiếu theo từng khối
+## Cố ý không làm
+- Giảm chuyển động / nút tạm dừng của V2 (chủ dự án không muốn).
+- Giao diện màu giấy/cobalt của V2: các khối mới dùng kiểu dáng V1 (nền navy, viền cyan) cho đồng bộ.
+- Cam kết "phản hồi trong 2 ngày làm việc" và mã tham chiếu DEMO của V2: chưa có quy trình xử lý lead.
 
-| Khối | Hiện tại (`src/messages/vi.json`) | V2 đề xuất | Ghi chú |
-|---|---|---|---|
-| Hero `hero` | Tiêu đề "Mạng lưới Biên tri giác"; mô tả "...vận hành hoàn toàn offline, bảo mật cấp phần cứng và tự động đúc chứng thư carbon. Sẵn sàng cho kỷ nguyên Net-Zero và CBAM."; 3 ý: Hạ tầng tự chủ / Xử lý tại milimét thực địa / AI biên thực thi | Eyebrow: "NHÀ MÁY TỰ VẬN HÀNH CÓ KIỂM SOÁT". Tiêu đề: "Tự chủ vận hành. Trong tầm kiểm soát." Mô tả: "LeTRON kết nối hệ quản trị, thiết bị biên và robot công nghiệp trong một giải pháp theo dịch vụ." | Nên thay cùng lúc với khẩu hiệu mới. Hai nút CTA (Sách trắng, Demo Sandbox) V2 không đề cập, cần quyết định giữ hay đổi |
-| Khẩu hiệu / ba nguyên tắc | Không có | "Biết dữ liệu đến từ đâu" (Tin cậy) · "Tự chủ trong giới hạn" (Kiểm soát) · "Kết quả có thể đối soát" (Trách nhiệm) | Khối mới, chưa có chỗ trên trang |
-| H.E.A.R.T `heart`, `aboutHeartValues`, `heartTab` | Humanity · Excellence · Appreciation (hoặc Respect) · Rapid Action (hoặc Action) · Technology | Humanity · **Evidence** · **Accountability** · **Resilience** · **Truthfulness** | Hiện site đang **tự mâu thuẫn**: 3 nơi dùng 3 phiên bản khác nhau (Appreciation/Respect, Rapid Action/Action). V2 là bộ thứ ba. Nên chốt một bộ duy nhất rồi sửa cả 3 chỗ, cả `en.json` |
-| Sứ mệnh / tầm nhìn `vision` | "Kiến tạo Mạng lưới Biên Tri giác... mọi hành trình thành tín chỉ xanh... kinh tế tuần hoàn toàn cầu" | Không có sứ mệnh/tầm nhìn riêng; trang Về LeTRON: "Dám nghĩ lớn. Làm bằng trách nhiệm." | Cần Chủ tịch quyết định giữ hay thay |
-| Giới thiệu `about` | "tập đoàn công nghiệp thế hệ mới, kết nối dữ liệu, trí tuệ nhân tạo và tài sản vật lý... tuần hoàn và bền vững" | "Kết nối nghiên cứu, vận hành và sản xuất để đưa công nghệ vào bài toán thực tế; giữ con người và trách nhiệm ở trung tâm." + triết lý Chủ tịch Lê Minh Tiến | |
-| Sản phẩm `products`, `pillars` | LeDB, LeSB, LeSE, LeSM, LeGM, LeSC | LeASO + LeLe; Le-NodeFactory; Le-NodeMobility; Le-NodeAir; Le-ORION; LeCAP-M; LeOS. Mỗi sản phẩm có nhãn trạng thái: *Đang phát triển*, *Ý tưởng ứng dụng*, *Thiết kế & R&D* | **Chưa có trang, ảnh, giá cho 8 sản phẩm mới.** Các trang `/san-pham/*` hiện có là của 6 sản phẩm cũ |
-| Quy trình | Không có | 5 bước: Giao việc → Thực hiện → QC đối soát → Lưu bằng chứng → Bảo trì | Khối mới |
-| Lĩnh vực | Không có | Nhà máy · Thành phố Số · Mỏ/Cảng/Logistics · Năng lượng · Thực phẩm/Chuỗi lạnh · Nông nghiệp công nghệ cao | Khối mới; V2 cũng dựng 2 trang riêng (Nhà máy, Thành phố Số) |
-| Công nghệ & R&D | `techArchitecture`: LeOS × LeLe ERE, Zero Trust, tiêu chuẩn | "Một nền tảng. Nhiều ứng dụng."; danh mục **20 Họ sáng chế** thể hiện là danh mục R&D, **không** diễn giải là 20 bằng được cấp, không nêu tên từng Họ | Cần cẩn trọng pháp lý với con số "20 Họ sáng chế" |
-| Liên hệ `contact` | Form liên hệ, có đồng ý chính sách bảo mật | "Cùng xác định kết quả cần đạt. Chia sẻ hiện trạng, nhiệm vụ và kết quả mong muốn để cùng xác định một phạm vi thử phù hợp." Phản hồi trong 2 ngày làm việc | Có thể dùng làm câu dẫn đầu trang liên hệ. **Cam kết "2 ngày làm việc" chỉ nên đưa lên khi có người xử lý thật** (hiện chưa có thông báo lead) |
-| Chính sách bảo mật | Đã có `/chinh-sach-bao-mat` (đã được duyệt) | Chỉ là trang mẫu, chờ nội dung | Giữ bản hiện tại |
-| Điều khoản sử dụng | Chưa có | Trang mẫu, chờ nội dung | Nếu cần thì soạn riêng |
-| Trang 404 | Đã có trang 404 riêng | "Đường dẫn này chưa có nội dung. Anh/chị có thể về trang chủ hoặc liên hệ LeTRON..." | Có thể đổi câu chữ cho đồng nhất giọng V2 |
-
-## 3. Điều kiện V2 tự đặt trước khi công bố
-- Bản tiếng Anh do Văn phòng Chủ tịch duyệt. Hiện `en.json` chưa có phần V2.
-- Tên pháp nhân và nội dung chính sách/điều khoản.
-- Trạng thái phát triển từng sản phẩm.
-- Hình và câu chữ công bố. Hai ảnh nhà máy/thành phố trong V2 chỉ là minh họa tạo mới, không phải công trình thật; ảnh robot Le-ORION là thiết kế ngoại thất.
-
-## 4. Còn lại để làm
-1. Sứ mệnh/tầm nhìn còn nhắc "Mạng lưới Biên tri giác" trong khi hero đã đổi định vị: quyết định giữ hay viết lại.
-2. Duyệt bản EN (mục 0).
-3. Thay icon H.E.A.R.T cho khớp nghĩa mới.
-4. Thêm ba khối mới lên trang chủ: nguyên tắc, quy trình 5 bước, lĩnh vực.
-5. Viết lại danh sách sản phẩm sau khi có ảnh và trạng thái; mỗi sản phẩm mới cần trang riêng (`src/lib/products.ts`, `public/landing/san-pham/`).
-6. Dịch EN và gửi duyệt.
-
-## 5. Trang công ty con
-`/cong-ty-thanh-vien` đã được ẩn (xem `docs/backlog.md`). Các trang `/san-pham/*` mang tên công ty con (LeDB, LeSM, LeSE, LeGM, LeSB, LeSC) vẫn còn vì là trang sản phẩm; nếu sản phẩm mới thay thế chúng thì cần redirect 301 sang trang sản phẩm tương ứng.
+## Còn lại
+1. Duyệt bản EN (Văn phòng Chủ tịch) và duyệt riêng con số "20 Họ sáng chế", tên LeHS (không có trong danh sách pháp nhân), nhãn trạng thái sản phẩm.
+2. Icon H.E.A.R.T vẫn là file cũ (`respect.svg` đi với Accountability, `action.svg` với Resilience): cần bộ icon mới.
+3. Sáu trang `/san-pham/*` theo công ty con: nếu bỏ hẳn thì redirect 301 sang trang V2 tương ứng.
+4. Ảnh minh họa nhà máy/thành phố chỉ là ảnh định hướng, không phải công trình thật (đã ghi chú trên trang).
