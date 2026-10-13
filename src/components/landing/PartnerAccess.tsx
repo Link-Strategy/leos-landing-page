@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
-import MasterButton from "@/components/ui/master-button";
+import { ContactMasterButton } from "@/components/contact/ContactDialog";
 
 const BG_IMAGE = "/landing/PartnerAccess/PartnerAccess_bg.webp";
 
@@ -77,8 +77,8 @@ export default function PartnerAccess() {
               />
 
               <div className="flex w-full flex-col gap-4 lg:w-auto lg:shrink-0">
-                <MasterButton type="out-line" isShowIcon content={t("ctaPrimary")} onClick={() => {}} />
-                <MasterButton type="full-fill" isShowIcon content={t("ctaSecondary")} onClick={() => {}} />
+                <ContactMasterButton type="out-line" content={t("ctaPrimary")} topic={t("ctaPrimaryTopic")} interest={t("ctaInterest")} />
+                <ContactMasterButton type="full-fill" content={t("ctaSecondary")} topic={t("ctaSecondaryTopic")} interest={t("ctaInterest")} />
               </div>
             </div>
           </div>

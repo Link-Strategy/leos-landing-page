@@ -4,8 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import { Bot, Brain, Cpu, LayoutGrid, Layers, Plane, Server, Truck } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
-import { v2Href } from "@/lib/v2-routes";
+import { useContactDialog } from "@/components/contact/ContactDialog";
 
 // V2 "Mặt trời và Quỹ đạo" diagram: the LeTRON sun in the middle, an inner orbit of applications and an
 // outer orbit of devices. Start angles (degrees from +x, clockwise) and radii (fraction of the box width)
@@ -24,18 +23,6 @@ const OUTER: OrbitNode[] = [
   { id: "orion", name: "Le-ORION", Icon: Bot, angle: 236 },
   { id: "leos", name: "LeOS", Icon: Layers, angle: 308 },
 ];
-
-// Page each satellite points to (keys of V2_ROUTES).
-const NODE_ROUTES: Record<string, string> = {
-  leaso: "platform",
-  lele: "platform",
-  lecapm: "technology",
-  nodefactory: "factory",
-  nodemobility: "city",
-  nodeair: "city",
-  orion: "factory",
-  leos: "platform",
-};
 
 const INNER_RADIUS = 0.225;
 const OUTER_RADIUS = 0.415;
@@ -137,6 +124,7 @@ function Satellite({
 export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption?: string }) {
   const t = useTranslations("hero");
   const tc = useTranslations("v2.common");
+  const { open: openContact } = useContactDialog();
   const items = t.raw("orbit") as Record<string, OrbitText>;
 
   const rootRef = useRef<HTMLDivElement>(null);
@@ -320,14 +308,13 @@ export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption
           {info.description && (
             <p className="mb-0 mt-1.5 font-inter text-[12px] leading-[17px] text-white/80">{info.description}</p>
           )}
-          {NODE_ROUTES[activeNode.id] && (
-            <Link
-              href={v2Href(NODE_ROUTES[activeNode.id])}
-              className="mt-2 inline-flex items-center gap-1 font-inter text-[12px] font-semibold text-[#63D9FF] no-underline hover:text-white"
-            >
-              {tc("explore")} →
-            </Link>
-          )}
+          <button
+            type="button"
+            onClick={() => openContact({ topic: activeNode.name })}
+            className="mt-2 inline-flex cursor-pointer items-center gap-1 border-0 bg-transparent p-0 font-inter text-[12px] font-semibold text-[#63D9FF] hover:text-white"
+          >
+            {tc("discuss", { name: activeNode.name })} →
+          </button>
         </div>
       )}
     </div>

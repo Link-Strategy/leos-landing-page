@@ -20,7 +20,7 @@ function NewsCard({
 }) {
   const publishDate = article.publishedAt ? new Date(article.publishedAt) : new Date();
   const day = String(publishDate.getDate()).padStart(2, "0");
-  const month = `${monthPrefix} ${publishDate.getMonth() + 1}`;
+  const month = `${monthPrefix} ${publishDate.getMonth() + 1}, ${publishDate.getFullYear()}`;
 
   return (
     <Link

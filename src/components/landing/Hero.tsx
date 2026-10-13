@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import MasterButton from "@/components/ui/master-button";
+import { ContactMasterButton } from "@/components/contact/ContactDialog";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 import HeroOrbit from "@/components/landing/HeroOrbit";
 
@@ -50,8 +50,8 @@ export default function Hero() {
           </div>
 
           <div className="mt-10 flex w-full flex-col items-center gap-4 lg:w-auto lg:flex-row lg:justify-start">
-            <MasterButton type="full-fill" isShowIcon content={t("ctaPrimary")} href="/giai-phap" />
-            <MasterButton type="out-line" isShowIcon content={t("ctaSecondary")} href="/lien-he" />
+            <ContactMasterButton type="full-fill" content={t("ctaPrimary")} interest={t("ctaPrimaryInterest")} />
+            <ContactMasterButton type="out-line" content={t("ctaSecondary")} interest={t("ctaSecondaryInterest")} />
           </div>
         </div>
 

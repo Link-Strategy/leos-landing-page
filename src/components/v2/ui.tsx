@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 import { v2Href } from "@/lib/v2-routes";
+import { ContactCta } from "@/components/contact/ContactDialog";
 
 // Shared building blocks for the V2 sections. They reuse the site's existing look: dark navy backgrounds,
 // cyan eyebrows, gradient headings and translucent bordered cards.
@@ -152,9 +153,9 @@ export function V2Card({ item, linkLabel }: { item: V2CardItem; linkLabel?: stri
       <p className="font-open-sans m-0 text-[15px] leading-[24px] text-[#E5F0FA]">{item.body}</p>
       {item.status && <StatusTag>{item.status}</StatusTag>}
       {item.route && linkLabel && (
-        <V2Link route={item.route} className="mt-auto pt-2">
-          {linkLabel}
-        </V2Link>
+        <ContactCta variant="link" topic={item.title} className="mt-auto pt-2">
+          {linkLabel.replace("{name}", item.title)}
+        </ContactCta>
       )}
     </article>
   );

@@ -36,6 +36,8 @@ export function LeadForm({
   maxMessage,
   notice,
   thankYou,
+  defaultInterest,
+  defaultMessage,
 }: {
   buttonLabel?: string;
   source?: string;
@@ -57,11 +59,14 @@ export function LeadForm({
   notice?: string;
   /** V2 confirmation: heading, text and three preparation steps shown after a successful send. */
   thankYou?: { title: string; body: string; steps: { eyebrow: string; title: string; body: string }[] };
+  /** Pre-filled by the contact dialog from what the visitor clicked. */
+  defaultInterest?: string;
+  defaultMessage?: string;
 }) {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [messageLength, setMessageLength] = useState(0);
+  const [messageLength, setMessageLength] = useState(defaultMessage?.length ?? 0);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -169,7 +174,7 @@ export function LeadForm({
         <>
           <label className="sr-only" htmlFor="lead-interest">{interestLabel ?? interestPlaceholder}</label>
           <div className="rounded-full p-px" style={fieldWrapperStyle}>
-            <select className={`${inputClass} appearance-none`} defaultValue="" id="lead-interest" name="interest" style={fieldInnerStyle}>
+            <select className={`${inputClass} appearance-none`} defaultValue={defaultInterest && interestOptions.includes(defaultInterest) ? defaultInterest : ""} id="lead-interest" name="interest" style={fieldInnerStyle}>
               <option value="" style={{ color: "#0d1b4b" }}>{interestPlaceholder}</option>
               {interestOptions.map((option) => (
                 <option key={option} style={{ color: "#0d1b4b" }} value={option}>{option}</option>
@@ -185,6 +190,7 @@ export function LeadForm({
           className="h-36 w-full resize-none rounded-[26px] bg-transparent px-6 py-4 text-[15px] leading-relaxed text-white outline-none transition placeholder:text-white/70 focus:ring-2 focus:ring-[#2A9FFF]/60"
           id="lead-message"
           name="message"
+          defaultValue={defaultMessage}
           maxLength={maxMessage}
           required={Boolean(maxMessage)}
           onChange={(e) => setMessageLength(e.target.value.length)}

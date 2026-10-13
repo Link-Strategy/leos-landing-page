@@ -83,17 +83,17 @@
     }
   },
   "hero": {
-    "badge": "A SELF-OPERATING FACTORY UNDER CONTROL",
+    "badge": "FACTORIES & CITIES THAT RUN THEMSELVES, UNDER CONTROL",
     "title": "Operational autonomy.\nWithin your control.",
-    "subtitle": "Source-attested infrastructure and controlled autonomy.",
+    "subtitle": "Hand the work to machines, keep the decisions with people, accept on measured results.",
     "features": [
-      "Know where data comes from",
-      "Autonomy within limits",
-      "Verifiable results"
+      "Every data point has a known source and terms of use",
+      "Machines operate autonomously within limits people set",
+      "Every task has an owner and acceptance evidence"
     ],
-    "description": "LeTRON connects management systems, edge devices and industrial robots in one service-based solution.",
-    "ctaPrimary": "Explore solutions",
-    "ctaSecondary": "Discuss a pilot",
+    "description": "LeTRON is for factories, industrial parks and cities that want to automate one scope at a time, as a service, without trading away safety or control.",
+    "ctaPrimary": "Book a 30-minute call",
+    "ctaSecondary": "Get the company profile",
     "footerTags": [
       "Trust",
       "Control",
@@ -139,7 +139,9 @@
         "role": "Software platform"
       }
     },
-    "orbitCaption": "Two orbits · One direction"
+    "orbitCaption": "Two orbits · One direction",
+    "ctaPrimaryInterest": "Factory solutions",
+    "ctaSecondaryInterest": "Platform and products"
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
@@ -253,7 +255,11 @@
     },
     "coreTech": {
       "topLabel": "Edge-native operational intelligence",
-      "badge": ["LeOS runtime", "LeLe ERE reasoning", "AI at the edge"],
+      "badge": [
+        "LeOS runtime",
+        "LeLe ERE reasoning",
+        "AI at the edge"
+      ],
       "circles": {
         "leos": "LeOS",
         "lele": "LeLe ERE"
@@ -308,17 +314,29 @@
         {
           "title": "HARDWARE EVIDENCE",
           "subTitle": "Hardware foundation",
-          "content": ["NVIDIA Jetson Orin", "HSM chip · FIPS 140-3 L3", "Dedicated on-device NPU"]
+          "content": [
+            "NVIDIA Jetson Orin",
+            "HSM chip · FIPS 140-3 L3",
+            "Dedicated on-device NPU"
+          ]
         },
         {
           "title": "READINESS CORE",
           "subTitle": "Standards in progress",
-          "content": ["Logistics emissions auditing", "CBAM (EU) framework ready", "I-REC renewable energy certificate"]
+          "content": [
+            "Logistics emissions auditing",
+            "CBAM (EU) framework ready",
+            "I-REC renewable energy certificate"
+          ]
         },
         {
           "title": "NETWORK EVIDENCE",
           "subTitle": "Network infrastructure",
-          "content": ["Industrial private 5G", "Wi-Fi 7 · Thread Mesh", "TSN Ethernet"]
+          "content": [
+            "Industrial private 5G",
+            "Wi-Fi 7 · Thread Mesh",
+            "TSN Ethernet"
+          ]
         }
       ],
       "footer": "Compared to certifications that only meet the minimum bar with isolated certificates or one-off agreements, LeTRON unifies them into a single operating standard."
@@ -431,7 +449,10 @@
     "descriptionMobile": "For investors and partners: Series A deck under NDA, public whitepaper, and Sandbox site visit scheduling.",
     "ctaPrimary": "Contact Investor Relations",
     "ctaSecondary": "Schedule a Sandbox Visit",
-    "mobileDisclaimer": "The full Series A deck and whitepaper are shared only after NDA. The website carries the public edition."
+    "mobileDisclaimer": "The full Series A deck and whitepaper are shared only after NDA. The website carries the public edition.",
+    "ctaPrimaryTopic": "the Series A investor pack",
+    "ctaSecondaryTopic": "a Uong Bi Sandbox visit",
+    "ctaInterest": "Other"
   },
   "pillars": {
     "eyebrow": "Operating Model",
@@ -452,7 +473,11 @@
       },
       "lesm": {
         "title": "Le SM - Smart Mobility",
-        "tags": ["Le-GreenMobility (Transport)", "Le-GreenLogistics (Logistics)", "Le-SmartFleet"]
+        "tags": [
+          "Le-GreenMobility (Transport)",
+          "Le-GreenLogistics (Logistics)",
+          "Le-SmartFleet"
+        ]
       },
       "lese": {
         "title": "Le SE - Smart Energy",
@@ -478,11 +503,19 @@
       },
       "lesb": {
         "title": "Le SB - Smart Construction",
-        "tags": ["Le-SmartRoads", "Le-SmartMarine", "Le-SmartIndustrial", "Le-SmartModular"]
+        "tags": [
+          "Le-SmartRoads",
+          "Le-SmartMarine",
+          "Le-SmartIndustrial",
+          "Le-SmartModular"
+        ]
       },
       "lesc": {
         "title": "Le SC - Smart City",
-        "tags": ["Le-ESCity (Eco City)", "Le-EIParks (Net Zero Industrial Parks)"]
+        "tags": [
+          "Le-ESCity (Eco City)",
+          "Le-EIParks (Net Zero Industrial Parks)"
+        ]
       }
     }
   },
@@ -767,11 +800,26 @@
     "openLabel": "View leadership information",
     "closeLabel": "Close",
     "members": {
-      "HR": { "name": "Ms Nguyễn Thị Mai Liên", "title": "HR & GA" },
-      "cfo": { "name": "Mr Nguyễn Văn Công", "title": "CFO" },
-      "chairman": { "name": "Mr Lê Minh Tiến", "title": "Chairman of the Board" },
-      "ceo": { "name": "Ms Hoàng Lệ Thủy", "title": "CEO" },
-      "lear": { "name": "Mr Lê Đức Anh", "title": "LeAR" }
+      "HR": {
+        "name": "Ms Nguyễn Thị Mai Liên",
+        "title": "HR & GA"
+      },
+      "cfo": {
+        "name": "Mr Nguyễn Văn Công",
+        "title": "CFO"
+      },
+      "chairman": {
+        "name": "Mr Lê Minh Tiến",
+        "title": "Chairman of the Board"
+      },
+      "ceo": {
+        "name": "Ms Hoàng Lệ Thủy",
+        "title": "CEO"
+      },
+      "lear": {
+        "name": "Mr Lê Đức Anh",
+        "title": "LeAR"
+      }
     }
   },
   "footer": {
@@ -820,7 +868,8 @@
       "component": "Component",
       "updated": "Updated",
       "stepLabel": "STEP",
-      "readinessTitle": "DESIGN STATUS"
+      "readinessTitle": "DESIGN STATUS",
+      "discuss": "Talk about {name}"
     },
     "principles": [
       {
@@ -844,18 +893,22 @@
       "title": "A self-operating factory.\nUnder control.",
       "body": "Connect LeASO, Le-NodeFactory and Le-ORION within a clearly defined operating scope. Task assignment, handling and QC are all reconciled.",
       "tag": "Solution direction / R&D",
-      "cta": "Explore the factory",
+      "cta": "Discuss your factory case",
       "imageAlt": "Illustration of a factory with a square-headed Le-ORION robot, optical hair and edge devices next to a machining station.",
-      "caption": "Le-ORION + Le-NodeFactory · Directional illustration, not a deployed facility."
+      "caption": "Le-ORION + Le-NodeFactory · Directional illustration, not a deployed facility.",
+      "topic": "factory solutions",
+      "interest": "Factory solutions"
     },
     "city": {
       "eyebrow": "FROM INFRASTRUCTURE TO OPERATIONS",
       "title": "A digital city.\nCoordinated from the field.",
       "body": "LeASO links operations with mobile edge devices and the airborne application direction. Each data domain has its own rights and responsibilities.",
       "tag": "Solution direction / R&D",
-      "cta": "Explore the Digital City",
+      "cta": "Discuss your city or infrastructure case",
       "imageAlt": "Illustration of a Digital City with mobile vehicles, drones and an operations center.",
-      "caption": "LeASO + Le-NodeMobility + Le-NodeAir · Directional illustration, not a deployed facility."
+      "caption": "LeASO + Le-NodeMobility + Le-NodeAir · Directional illustration, not a deployed facility.",
+      "topic": "Digital City solutions",
+      "interest": "Factory solutions"
     },
     "loop": {
       "eyebrow": "OPERATING LOOP",
@@ -892,10 +945,12 @@
       "metricTitle": "patent families in the research portfolio",
       "metricCaption": "The number reflects the R&D portfolio, not the number of patents granted. Individual families and protection details are kept confidential.",
       "eyebrow": "RESEARCH & DEVELOPMENT",
-      "title": "One platform.\nMany applications.",
+      "title": "A coordinated\ntechnology portfolio.",
       "lead": "LeTRON develops a coordinated technology portfolio for trusted data, controlled operations and verifiable results.",
       "caption": "This page focuses on problems and application value. In-depth records are shared within the scope of a partnership and a confidentiality agreement.",
-      "cta": "Explore the R&D direction"
+      "cta": "Discuss R&D partnership",
+      "topic": "R&D partnership",
+      "interest": "R&D partnership"
     },
     "proof": {
       "eyebrow": "S.a.a.S",
@@ -925,10 +980,10 @@
       "lead": "Put people and accountability at the center; connect technology capabilities to create value together."
     },
     "cta": {
-      "eyebrow": "START WITH THE RIGHT SCOPE",
-      "title": "Let's define the outcome you need.",
-      "body": "Discuss the problem, the baseline and the acceptance criteria with LeTRON.",
-      "button": "Discuss a project"
+      "eyebrow": "START WITH ONE SMALL SCOPE",
+      "title": "One 30-minute call. One measurable pilot scope.",
+      "body": "You bring the problem and today's baseline. LeTRON proposes the scope, acceptance criteria and what can be tried right away at the Uong Bi Sandbox.",
+      "button": "Book a call"
     },
     "products": [
       {
@@ -1029,7 +1084,9 @@
         "eyebrow": "THE LeTRON ECOSYSTEM",
         "title": "From management\nto the field.",
         "body": "The products are developed to work together in one solution. Configuration and the scope of autonomy are set according to the problem.",
-        "metaTitle": "Platform"
+        "metaTitle": "Platform",
+        "cta": "Talk about the LeTRON platform",
+        "interest": "Platform and products"
       },
       "technology": {
         "eyebrow": "TECHNOLOGY & R&D",
@@ -1239,6 +1296,15 @@
       "technology": "Technology & R&D",
       "platform": "Platform",
       "terms": "Terms of use"
+    },
+    "dialog": {
+      "eyebrow": "TALK TO LeTRON",
+      "title": "Let's define your problem together.",
+      "titleWithTopic": "Talk about {topic}.",
+      "body": "Leave your details and LeTRON will get back within 2 working days to set up a 30-minute call: current state, expected results and a pilot scope that fits.",
+      "direct": "Or call us directly:",
+      "messagePrefix": "I am interested in {topic}.",
+      "submit": "Request a call"
     }
   }
 }

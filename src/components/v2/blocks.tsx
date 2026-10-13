@@ -7,13 +7,12 @@ import {
   SectionHead,
   SectionTitle,
   StatusTag,
-  V2Button,
   V2Card,
   V2CardGrid,
-  V2Link,
   V2Section,
   type V2CardItem,
 } from "@/components/v2/ui";
+import { ContactCta } from "@/components/contact/ContactDialog";
 
 export async function V2Principles() {
   const t = await getTranslations("v2");
@@ -54,7 +53,9 @@ export async function V2Feature({ which }: { which: "factory" | "city" }) {
       <SectionTitle>{t(`${key}.title`)}</SectionTitle>
       <Lead>{t(`${key}.body`)}</Lead>
       <StatusTag>{t(`${key}.tag`)}</StatusTag>
-      <V2Link route={which}>{t(`${key}.cta`)}</V2Link>
+      <ContactCta variant="link" topic={t(`${key}.topic`)} interest={t(`${key}.interest`)}>
+        {t(`${key}.cta`)}
+      </ContactCta>
     </div>
   );
 
@@ -92,9 +93,9 @@ export async function V2Portfolio() {
           <SectionTitle>{t("title")}</SectionTitle>
           <Lead>{t("lead")}</Lead>
           <Caption>{t("caption")}</Caption>
-          <V2Button route="technology" tone="outline">
+          <ContactCta tone="outline" topic={t("topic")} interest={t("interest")}>
             {t("cta")}
-          </V2Button>
+          </ContactCta>
         </div>
       </div>
     </V2Section>
@@ -136,7 +137,7 @@ export async function V2Cta() {
         <h2 className="font-inter m-0 text-[28px] font-bold leading-[36px] text-white lg:text-[40px] lg:leading-[48px]">{t("title")}</h2>
         <Lead>{t("body")}</Lead>
         <div className="pt-2">
-          <V2Button route="contact">{t("button")}</V2Button>
+          <ContactCta>{t("button")}</ContactCta>
         </div>
       </div>
     </V2Section>

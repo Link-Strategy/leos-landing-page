@@ -83,17 +83,17 @@
     }
   },
   "hero": {
-    "badge": "NHÀ MÁY TỰ VẬN HÀNH CÓ KIỂM SOÁT",
+    "badge": "NHÀ MÁY & ĐÔ THỊ TỰ VẬN HÀNH CÓ KIỂM SOÁT",
     "title": "Tự chủ vận hành.\nTrong tầm kiểm soát.",
-    "subtitle": "Hạ tầng chứng thực tại nguồn và kiểm soát tự chủ.",
+    "subtitle": "Giao việc cho máy, giữ quyền quyết định cho người, nghiệm thu bằng kết quả đo được.",
     "features": [
-      "Biết dữ liệu đến từ đâu",
-      "Tự chủ trong giới hạn",
-      "Kết quả có thể đối soát"
+      "Mọi dữ liệu có nguồn gốc và điều kiện sử dụng rõ ràng",
+      "Máy tự vận hành trong giới hạn con người đặt ra",
+      "Mỗi nhiệm vụ có người chịu trách nhiệm và bằng chứng nghiệm thu"
     ],
-    "description": "LeTRON kết nối hệ quản trị, thiết bị biên và robot công nghiệp trong một giải pháp theo dịch vụ.",
-    "ctaPrimary": "Khám phá giải pháp",
-    "ctaSecondary": "Trao đổi thử nghiệm",
+    "description": "LeTRON dành cho nhà máy, khu công nghiệp và đô thị muốn tự động hóa từng phạm vi một, theo dịch vụ, không đánh đổi an toàn và quyền kiểm soát.",
+    "ctaPrimary": "Đặt lịch trao đổi 30 phút",
+    "ctaSecondary": "Nhận hồ sơ giới thiệu",
     "footerTags": [
       "Tin cậy",
       "Kiểm soát",
@@ -139,7 +139,9 @@
         "role": "Nền tảng phần mềm"
       }
     },
-    "orbitCaption": "Hai quỹ đạo · Một định hướng"
+    "orbitCaption": "Hai quỹ đạo · Một định hướng",
+    "ctaPrimaryInterest": "Giải pháp nhà máy",
+    "ctaSecondaryInterest": "Nền tảng, sản phẩm"
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
@@ -253,7 +255,11 @@
     },
     "coreTech": {
       "topLabel": "Trí tuệ vận hành tại biên",
-      "badge": ["LeOS vận hành", "LeLe ERE suy luận", "AI tại edge"],
+      "badge": [
+        "LeOS vận hành",
+        "LeLe ERE suy luận",
+        "AI tại edge"
+      ],
       "circles": {
         "leos": "LeOS",
         "lele": "LeLe ERE"
@@ -308,17 +314,29 @@
         {
           "title": "HARDWARE EVIDENCE",
           "subTitle": "Nền tảng phần cứng",
-          "content": ["NVIDIA Jetson Orin", "Chip HSM · FIPS 140-3 L3", "NPU chuyên dụng tại thiết bị"]
+          "content": [
+            "NVIDIA Jetson Orin",
+            "Chip HSM · FIPS 140-3 L3",
+            "NPU chuyên dụng tại thiết bị"
+          ]
         },
         {
           "title": "READINESS CORE",
           "subTitle": "Tiêu chuẩn hướng tới",
-          "content": ["Kiểm toán khí thải logistics", "Sẵn sàng khung CBAM (EU)", "Chứng chỉ năng lượng tái tạo I-REC"]
+          "content": [
+            "Kiểm toán khí thải logistics",
+            "Sẵn sàng khung CBAM (EU)",
+            "Chứng chỉ năng lượng tái tạo I-REC"
+          ]
         },
         {
           "title": "NETWORK EVIDENCE",
           "subTitle": "Hạ tầng mạng",
-          "content": ["Private 5G công nghiệp", "Wi-Fi 7 · Thread Mesh", "TSN Ethernet"]
+          "content": [
+            "Private 5G công nghiệp",
+            "Wi-Fi 7 · Thread Mesh",
+            "TSN Ethernet"
+          ]
         }
       ],
       "footer": "Đối so với chứng nhận chỉ đáp ứng tối thiểu ở từng chứng chỉ hoặc thỏa thuận đơn lẻ, LeTRON hợp nhất thành một chuẩn vận hành."
@@ -431,7 +449,10 @@
     "descriptionMobile": "Dành cho nhà đầu tư và đối tác: hồ sơ Series A theo NDA, Public Whitepaper và lịch tham quan Sandbox.",
     "ctaPrimary": "Liên hệ đầu tư",
     "ctaSecondary": "Đặt lịch Sandbox",
-    "mobileDisclaimer": "Hồ sơ Series A và Sách trắng đầy đủ chỉ gửi sau NDA. Website phát hành Public Edition."
+    "mobileDisclaimer": "Hồ sơ Series A và Sách trắng đầy đủ chỉ gửi sau NDA. Website phát hành Public Edition.",
+    "ctaPrimaryTopic": "hồ sơ đầu tư Series A",
+    "ctaSecondaryTopic": "lịch tham quan Sandbox Uông Bí",
+    "ctaInterest": "Khác"
   },
   "pillars": {
     "eyebrow": "Mô hình vận hành",
@@ -452,7 +473,11 @@
       },
       "lesm": {
         "title": "Le SM - Di chuyển Thông minh",
-        "tags": ["Le-GreenMobility (Vận tải)", "Le-GreenLogistics (Logistics)", "Le-SmartFleet"]
+        "tags": [
+          "Le-GreenMobility (Vận tải)",
+          "Le-GreenLogistics (Logistics)",
+          "Le-SmartFleet"
+        ]
       },
       "lese": {
         "title": "Le SE - Năng lượng Thông minh",
@@ -478,11 +503,19 @@
       },
       "lesb": {
         "title": "Le SB - Xây dựng Thông Minh",
-        "tags": ["Le-SmartRoads", "Le-SmartMarine", "Le-SmartIndustrial", "Le-SmartModular"]
+        "tags": [
+          "Le-SmartRoads",
+          "Le-SmartMarine",
+          "Le-SmartIndustrial",
+          "Le-SmartModular"
+        ]
       },
       "lesc": {
         "title": "Le SC - Đô thị Thông minh",
-        "tags": ["Le-ESCity (Đô thị Sinh thái)", "Le-EIParks (KCN Net Zero)"]
+        "tags": [
+          "Le-ESCity (Đô thị Sinh thái)",
+          "Le-EIParks (KCN Net Zero)"
+        ]
       }
     }
   },
@@ -767,11 +800,26 @@
     "openLabel": "Xem thông tin Ban lãnh đạo",
     "closeLabel": "Đóng",
     "members": {
-      "HR": { "name": "Bà Nguyễn Thị Mai Liên", "title": "HR & GA" },
-      "cfo": { "name": "Ông Nguyễn Văn Công", "title": "CFO" },
-      "chairman": { "name": "Ông Lê Minh Tiến", "title": "Chủ tịch HĐQT" },
-      "ceo": { "name": "Bà Hoàng Lệ Thủy", "title": "CEO" },
-      "lear": { "name": "Ông Lê Đức Anh", "title": "LeAR" }
+      "HR": {
+        "name": "Bà Nguyễn Thị Mai Liên",
+        "title": "HR & GA"
+      },
+      "cfo": {
+        "name": "Ông Nguyễn Văn Công",
+        "title": "CFO"
+      },
+      "chairman": {
+        "name": "Ông Lê Minh Tiến",
+        "title": "Chủ tịch HĐQT"
+      },
+      "ceo": {
+        "name": "Bà Hoàng Lệ Thủy",
+        "title": "CEO"
+      },
+      "lear": {
+        "name": "Ông Lê Đức Anh",
+        "title": "LeAR"
+      }
     }
   },
   "footer": {
@@ -820,7 +868,8 @@
       "component": "Thành phần",
       "updated": "Cập nhật",
       "stepLabel": "BƯỚC",
-      "readinessTitle": "TRẠNG THÁI THIẾT KẾ"
+      "readinessTitle": "TRẠNG THÁI THIẾT KẾ",
+      "discuss": "Trao đổi về {name}"
     },
     "principles": [
       {
@@ -844,18 +893,22 @@
       "title": "Nhà máy tự vận hành.\nCó kiểm soát.",
       "body": "Kết nối LeASO, Le-NodeFactory và Le-ORION theo một phạm vi vận hành rõ ràng. Giao việc, thao tác và QC cùng được đối soát.",
       "tag": "Định hướng giải pháp / R&D",
-      "cta": "Khám phá nhà máy",
+      "cta": "Trao đổi bài toán nhà máy của bạn",
       "imageAlt": "Minh họa nhà máy với robot Le-ORION đầu vuông, mái tóc quang học và thiết bị biên cạnh máy gia công.",
-      "caption": "Le-ORION + Le-NodeFactory · Hình minh họa định hướng, chưa phải công trình đã triển khai."
+      "caption": "Le-ORION + Le-NodeFactory · Hình minh họa định hướng, chưa phải công trình đã triển khai.",
+      "topic": "giải pháp nhà máy",
+      "interest": "Giải pháp nhà máy"
     },
     "city": {
       "eyebrow": "TỪ HẠ TẦNG ĐẾN ĐIỀU HÀNH",
       "title": "Thành phố Số.\nPhối hợp từ hiện trường.",
       "body": "LeASO kết nối điều hành với thiết bị biên di động và định hướng ứng dụng trên không. Từng miền dữ liệu có quyền và trách nhiệm riêng.",
       "tag": "Định hướng giải pháp / R&D",
-      "cta": "Khám phá Thành phố Số",
+      "cta": "Trao đổi bài toán đô thị, hạ tầng",
       "imageAlt": "Minh họa Thành phố Số với phương tiện di động, drone và trung tâm điều hành.",
-      "caption": "LeASO + Le-NodeMobility + Le-NodeAir · Hình minh họa định hướng, chưa phải công trình đã triển khai."
+      "caption": "LeASO + Le-NodeMobility + Le-NodeAir · Hình minh họa định hướng, chưa phải công trình đã triển khai.",
+      "topic": "giải pháp Thành phố Số",
+      "interest": "Giải pháp nhà máy"
     },
     "loop": {
       "eyebrow": "VÒNG VẬN HÀNH",
@@ -892,10 +945,12 @@
       "metricTitle": "Họ sáng chế trong danh mục nghiên cứu",
       "metricCaption": "Số lượng phản ánh danh mục R&D, không phải số bằng đã được cấp. Tên từng Họ và chi tiết bảo hộ được giữ riêng.",
       "eyebrow": "NGHIÊN CỨU & PHÁT TRIỂN",
-      "title": "Một nền tảng.\nNhiều ứng dụng.",
+      "title": "Danh mục công nghệ\nphối hợp.",
       "lead": "LeTRON phát triển danh mục công nghệ phối hợp cho dữ liệu tin cậy, vận hành có kiểm soát và kết quả có thể kiểm lại.",
       "caption": "Thông tin trên trang tập trung vào bài toán và giá trị ứng dụng. Hồ sơ chuyên sâu được chia sẻ theo phạm vi hợp tác và thỏa thuận bảo mật.",
-      "cta": "Khám phá định hướng R&D"
+      "cta": "Trao đổi hợp tác R&D",
+      "topic": "hợp tác R&D",
+      "interest": "Hợp tác R&D"
     },
     "proof": {
       "eyebrow": "S.a.a.S",
@@ -925,10 +980,10 @@
       "lead": "Đặt con người và trách nhiệm ở trung tâm; kết nối các năng lực công nghệ để cùng tạo giá trị."
     },
     "cta": {
-      "eyebrow": "BẮT ĐẦU TỪ PHẠM VI PHÙ HỢP",
-      "title": "Cùng xác định kết quả cần đạt.",
-      "body": "Trao đổi bài toán, đường cơ sở và tiêu chí nghiệm thu với LeTRON.",
-      "button": "Trao đổi dự án"
+      "eyebrow": "BẮT ĐẦU TỪ MỘT PHẠM VI NHỎ",
+      "title": "Một buổi trao đổi 30 phút. Một phạm vi thử nghiệm đo được.",
+      "body": "Anh/chị mang bài toán và đường cơ sở hiện tại. LeTRON đề xuất phạm vi, tiêu chí nghiệm thu và những gì có thể thử ngay tại Sandbox Uông Bí.",
+      "button": "Đặt lịch trao đổi"
     },
     "products": [
       {
@@ -1029,7 +1084,9 @@
         "eyebrow": "HỆ SINH THÁI LeTRON",
         "title": "Từ quản trị\nđến hiện trường.",
         "body": "Các sản phẩm được phát triển để phối hợp trong một giải pháp. Cấu hình và phạm vi tự chủ được xác định theo bài toán.",
-        "metaTitle": "Nền tảng"
+        "metaTitle": "Nền tảng",
+        "cta": "Trao đổi về nền tảng LeTRON",
+        "interest": "Nền tảng, sản phẩm"
       },
       "technology": {
         "eyebrow": "CÔNG NGHỆ & R&D",
@@ -1239,6 +1296,15 @@
       "technology": "Công nghệ & R&D",
       "platform": "Nền tảng",
       "terms": "Điều khoản sử dụng"
+    },
+    "dialog": {
+      "eyebrow": "TRAO ĐỔI VỚI LeTRON",
+      "title": "Cùng xác định bài toán của anh/chị.",
+      "titleWithTopic": "Trao đổi về {topic}.",
+      "body": "Để lại thông tin, LeTRON sẽ liên hệ lại trong 2 ngày làm việc để hẹn một buổi trao đổi 30 phút: hiện trạng, kết quả mong muốn và phạm vi thử nghiệm phù hợp.",
+      "direct": "Hoặc gọi trực tiếp:",
+      "messagePrefix": "Tôi quan tâm tới {topic}.",
+      "submit": "Gửi yêu cầu trao đổi"
     }
   }
 }

@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { SectionHead, V2Button, V2CardGrid, V2Section, type V2CardItem } from "@/components/v2/ui";
+import { SectionHead, V2CardGrid, V2Section, type V2CardItem } from "@/components/v2/ui";
+import { ContactCta } from "@/components/contact/ContactDialog";
 
 // "Sản phẩm" section shared by the home page and /san-pham. Shows the V2 product line (status labels included);
 // it replaced the old slider of the six company-named products.
@@ -14,11 +15,11 @@ export default async function Products() {
         title={t("pages.platform.title")}
         lead={t("pages.platform.body")}
       />
-      <V2CardGrid items={items} linkLabel={t("common.explore")} />
+      <V2CardGrid items={items} linkLabel={t.raw("common.discuss") as string} />
       <div className="mt-10">
-        <V2Button route="platform" tone="outline">
-          {t("pages.platform.metaTitle")}
-        </V2Button>
+        <ContactCta tone="outline" interest={t("pages.platform.interest")}>
+          {t("pages.platform.cta")}
+        </ContactCta>
       </div>
     </V2Section>
   );

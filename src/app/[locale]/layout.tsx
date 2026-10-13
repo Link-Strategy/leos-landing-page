@@ -9,6 +9,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { getSiteUrl } from "@/lib/blog/seo";
 import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/jsonld";
 import "../globals.css";
+import { ContactDialogProvider } from "@/components/contact/ContactDialog";
 import HeaderTailwind from "@/components/layout/HeaderTailwind";
 import Footer from "@/components/layout/Footer";
 import ClientScripts from "@/components/layout/ClientScripts";
@@ -114,9 +115,11 @@ export default async function RootLayout({
         <JsonLd data={buildOrganizationJsonLd(getSiteUrl())} />
         <JsonLd data={buildWebSiteJsonLd(getSiteUrl())} />
         <NextIntlClientProvider messages={pickClientMessages(messages)}>
-          <HeaderTailwind />
-          <main>{children}</main>
-          <Footer />
+          <ContactDialogProvider>
+            <HeaderTailwind />
+            <main>{children}</main>
+            <Footer />
+          </ContactDialogProvider>
           <ScrollToTop />
           <ClientScripts />
           <Analytics />
