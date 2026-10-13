@@ -10,6 +10,11 @@ window.wp.hooks = window.wp.hooks || { addAction: function () {}, addFilter: fun
 
 export const ELEMENTOR_SCRIPTS: ElementorScript[] = [
   { code: WP_STUB },
+  // jQuery and Swiper used to be <Script strategy="beforeInteractive"> in the root layout, which makes React warn about a
+  // script tag in dev. They run here instead, still first and in this order (theme main.js calls `new Swiper(...)`).
+  { src: "/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" },
+  { src: "/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" },
+  { src: "https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" },
   { src: "/wp-content/themes/saokimdigital/assets/js/main.js?ver=1.0.0" },
   { src: "/wp-content/themes/hello-elementor/assets/js/hello-frontend.js?ver=3.4.7" },
   { src: "/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.0.8" },
