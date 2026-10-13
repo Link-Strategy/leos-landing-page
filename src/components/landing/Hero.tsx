@@ -39,10 +39,10 @@ export default function Hero() {
             <HeroPrinciples />
           </div>
 
-          <div className="mt-10 flex w-full flex-col items-center gap-4 lg:w-auto lg:flex-row lg:justify-start">
+          <div className="mt-8 flex w-full flex-col items-center gap-4 lg:w-auto lg:flex-row lg:justify-start">
             <ContactMasterButton type="full-fill" content={t("ctaPrimary")} />
           </div>
-          <p className="mb-0 mt-4 font-inter text-[13px] font-semibold uppercase tracking-[1.6px] text-white/60">{t("proof")}</p>
+          <p className="pt-5 font-inter text-[13px] font-semibold uppercase tracking-[1.6px] text-white/75">{t("proof")}</p>
         </div>
 
         {/* Right visual: V2 sun + two-orbit diagram */}
