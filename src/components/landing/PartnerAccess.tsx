@@ -77,7 +77,6 @@ export default function PartnerAccess() {
               />
 
               <div className="flex w-full flex-col gap-4 lg:w-auto lg:shrink-0">
-                <ContactMasterButton type="out-line" content={t("ctaPrimary")} topic={t("ctaPrimaryTopic")} />
                 <ContactMasterButton type="full-fill" content={t("ctaSecondary")} topic={t("ctaSecondaryTopic")} />
               </div>
             </div>

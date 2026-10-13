@@ -15,7 +15,7 @@ export default async function Products() {
         title={t("pages.platform.title")}
         lead={t("pages.platform.body")}
       />
-      <V2CardGrid items={items} linkLabel={t.raw("common.discuss") as string} />
+      <V2CardGrid items={items} />
       <div className="mt-10">
         <ContactCta tone="outline">
           {t("pages.platform.cta")}

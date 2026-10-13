@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import { Bot, Brain, Cpu, LayoutGrid, Layers, Plane, Server, Truck } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useContactDialog } from "@/components/contact/ContactDialog";
 
 // V2 "Mặt trời và Quỹ đạo" diagram: the LeTRON sun in the middle, an inner orbit of applications and an
 // outer orbit of devices. Start angles (degrees from +x, clockwise) and radii (fraction of the box width)
@@ -123,8 +122,6 @@ function Satellite({
 
 export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption?: string }) {
   const t = useTranslations("hero");
-  const tc = useTranslations("v2.common");
-  const { open: openContact } = useContactDialog();
   const items = t.raw("orbit") as Record<string, OrbitText>;
 
   const rootRef = useRef<HTMLDivElement>(null);
@@ -308,13 +305,6 @@ export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption
           {info.description && (
             <p className="mb-0 mt-1.5 font-inter text-[12px] leading-[17px] text-white/80">{info.description}</p>
           )}
-          <button
-            type="button"
-            onClick={() => openContact({ topic: activeNode.name })}
-            className="mt-2 inline-flex cursor-pointer items-center gap-1 border-0 bg-transparent p-0 font-inter text-[12px] font-semibold text-[#63D9FF] hover:text-white"
-          >
-            {tc("discuss", { name: activeNode.name })} →
-          </button>
         </div>
       )}
     </div>

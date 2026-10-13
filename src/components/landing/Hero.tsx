@@ -51,7 +51,6 @@ export default function Hero() {
 
           <div className="mt-10 flex w-full flex-col items-center gap-4 lg:w-auto lg:flex-row lg:justify-start">
             <ContactMasterButton type="full-fill" content={t("ctaPrimary")} />
-            <ContactMasterButton type="out-line" content={t("ctaSecondary")} />
           </div>
         </div>
 
