@@ -142,24 +142,24 @@
     "orbitCaption": "Hai quỹ đạo · Một định hướng"
   },
   "vision": {
-    "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
+    "eyebrow": "SỨ MỆNH & TẦM NHÌN",
     "title": "Công nghệ đi cùng trách nhiệm",
     "centerIconAlt": "LeTRON",
     "mission": {
       "iconAlt": "Sứ mệnh",
-      "header": "SỨ MỆNH — MISSION",
+      "header": "SỨ MỆNH",
       "content": "Kết nối nghiên cứu, hệ quản trị và thiết bị hiện trường; nghiệm thu bằng kết quả có thể đối soát.",
       "footer": "Research, management systems and field devices, accepted on results that can be reconciled."
     },
     "vision": {
       "iconAlt": "Tầm nhìn",
-      "header": "TẦM NHÌN — VISION",
+      "header": "TẦM NHÌN",
       "content": "Phát triển hạ tầng tin cậy để tổ chức tự chủ vận hành trong phạm vi kiểm soát.",
       "footer": "Trusted infrastructure for autonomy within the scope of control."
     }
   },
   "heart": {
-    "eyebrow": "GIÁ TRỊ CỐT LÕI · CORE VALUES",
+    "eyebrow": "GIÁ TRỊ CỐT LÕI",
     "titleHighlight": "H.E.A.R.T",
     "titleSuffix": "Values",
     "cards": {
@@ -184,7 +184,7 @@
         "content": "Công bố trung thực. Công bố đúng năng lực và tình trạng hoàn thành."
       }
     },
-    "footer": "Humanity at the center. Intelligence at the edge. Evidence in every decision."
+    "footer": "Con người ở trung tâm. Trí tuệ tại biên. Bằng chứng trong mọi quyết định."
   },
   "serviceModel": {
     "eyebrow": "MÔ HÌNH DỊCH VỤ 4 TRỤ · CAPEX → OPEX",
@@ -375,14 +375,14 @@
     "logoAlt": "Đối tác LeTRON {index}"
   },
   "partnerShowcase": {
-    "eyebrow": "ĐỐI TÁC LeTRON · TRUSTED COLLABORATION",
+    "eyebrow": "ĐỐI TÁC LeTRON",
     "headerWhite": "Cùng kiến tạo",
     "headerAccent": "giá trị dài hạn",
     "description": "Hệ sinh thái được xây dựng trên quan hệ hợp tác có kiểm chứng, minh bạch và cùng tạo giá trị.",
     "logoAlt": "Đối tác LeTRON {index}"
   },
   "appDownload": {
-    "eyebrow": "LeOS SUPER APP · MOBILE OPERATIONS",
+    "eyebrow": "ỨNG DỤNG LeOS",
     "headerWhite": "Mang dữ liệu vận hành",
     "headerAccent": "theo bạn",
     "description": "Theo dõi trạng thái, nhận cảnh báo và phối hợp tác nghiệp trên một trải nghiệm di động thống nhất.",
@@ -390,7 +390,7 @@
     "storeGooglePlayAlt": "Tải về từ Google Play",
     "storeAppStoreAlt": "Tải về từ App Store",
     "panel": {
-      "eyebrow": "LEOS / LIVE OPERATIONS",
+      "eyebrow": "LeOS / VẬN HÀNH TRỰC TIẾP",
       "heading": "Một cửa sổ cho toàn bộ vận hành",
       "features": [
         {
@@ -409,7 +409,7 @@
     }
   },
   "roadMap": {
-    "eyebrow": "LỘ TRÌNH PHÁT TRIỂN · ROADMAP",
+    "eyebrow": "LỘ TRÌNH PHÁT TRIỂN",
     "headingAccent": "Từ Sandbox ",
     "headingWhite": "đến niêm yết quốc tế",
     "steps": [
@@ -432,22 +432,22 @@
     "milestone": {
       "label": "MỤC TIÊU CHIẾN LƯỢC",
       "year": "2030",
-      "heading": "A verified national edge network",
+      "heading": "Mạng lưới biên được kiểm chứng trên toàn quốc",
       "description": "Mở rộng trên nền tảng dữ liệu chứng thực, mô hình dịch vụ OpEx và năng lực triển khai thực địa — không đánh đổi tính tự chủ hay an toàn."
     }
   },
   "partnerAccess": {
-    "eyebrow": "INVESTOR & PARTNER ACCESS",
+    "eyebrow": "NHÀ ĐẦU TƯ & ĐỐI TÁC",
     "badge": "SANDBOX UÔNG BÍ — Q4/2026",
     "headingBefore": "Nơi Mạng lưới",
     "headingAccent": "Biên Tri giác",
     "headingAfter": "vận hành thật",
     "description": "Dành cho nhà đầu tư và đối tác:",
-    "descriptionDetail": "Hồ sơ Series A theo NDA, Public Whitepaper và lịch tham quan Sandbox.",
-    "descriptionMobile": "Dành cho nhà đầu tư và đối tác: hồ sơ Series A theo NDA, Public Whitepaper và lịch tham quan Sandbox.",
+    "descriptionDetail": "Hồ sơ Series A theo NDA, Sách trắng công khai và lịch tham quan Sandbox.",
+    "descriptionMobile": "Dành cho nhà đầu tư và đối tác: hồ sơ Series A theo NDA, Sách trắng công khai và lịch tham quan Sandbox.",
     "ctaPrimary": "Liên hệ đầu tư",
     "ctaSecondary": "Đặt lịch Sandbox",
-    "mobileDisclaimer": "Hồ sơ Series A và Sách trắng đầy đủ chỉ gửi sau NDA. Website phát hành Public Edition.",
+    "mobileDisclaimer": "Hồ sơ Series A và Sách trắng đầy đủ chỉ gửi sau NDA. Website là bản công khai.",
     "ctaPrimaryTopic": "hồ sơ đầu tư Series A",
     "ctaSecondaryTopic": "lịch tham quan Sandbox Uông Bí"
   },
@@ -836,7 +836,8 @@
       "contact": "Liên hệ",
       "solutions": "Giải pháp",
       "platform": "Nền tảng",
-      "technology": "Công nghệ & R&D"
+      "technology": "Công nghệ & R&D",
+      "investors": "Nhà đầu tư"
     },
     "products": {
       "ledb": "LeDB (Bộ não Số)",
@@ -887,7 +888,7 @@
     ],
     "factory": {
       "eyebrow": "TỪ NHIỆM VỤ ĐẾN XƯỞNG",
-      "title": "Nhà máy tự vận hành.\nCó kiểm soát.",
+      "title": "Nhà máy tự vận hành.\nNgười giữ quyền quyết định.",
       "body": "Kết nối LeASO, Le-NodeFactory và Le-ORION theo một phạm vi vận hành rõ ràng. Giao việc, thao tác và QC cùng được đối soát.",
       "tag": "Định hướng giải pháp / R&D",
       "cta": "Trao đổi bài toán nhà máy của bạn",
@@ -907,7 +908,7 @@
     },
     "loop": {
       "eyebrow": "VÒNG VẬN HÀNH",
-      "title": "Tác vụ khép kín. Kết quả có thể đối soát.",
+      "title": "Một nhiệm vụ. Năm bước. Một hồ sơ.",
       "lead": "Một nhiệm vụ đi qua từng bước, có chủ thể chịu trách nhiệm và điều kiện hoàn thành rõ ràng.",
       "ariaLabel": "Vòng vận hành",
       "stages": [
@@ -947,8 +948,8 @@
       "topic": "hợp tác R&D"
     },
     "proof": {
-      "eyebrow": "S.a.a.S",
-      "title": "Giải pháp theo dịch vụ.\nNghiệm thu bằng kết quả đo được.",
+      "eyebrow": "MÔ HÌNH DỊCH VỤ",
+      "title": "Giải pháp theo dịch vụ.\nBa bước, một hợp đồng rõ ràng.",
       "lead": "LeTRON cùng khách hàng xác lập phạm vi, trách nhiệm và cách đo trước khi triển khai.",
       "items": [
         {
@@ -1104,6 +1105,12 @@
         "title": "Điều khoản sử dụng.",
         "body": "Các điều khoản áp dụng khi bạn truy cập và sử dụng website letrongroup.com.",
         "metaTitle": "Điều khoản sử dụng"
+      },
+      "investors": {
+        "eyebrow": "NHÀ ĐẦU TƯ & ĐỐI TÁC",
+        "title": "Lộ trình, Sandbox\nvà hồ sơ đầu tư.",
+        "body": "Trang dành cho nhà đầu tư và đối tác chiến lược: các mốc phát triển đến 2030, Sandbox Uông Bí và cách nhận hồ sơ Series A theo NDA.",
+        "metaTitle": "Nhà đầu tư"
       }
     },
     "solutionsPage": {
@@ -1288,7 +1295,8 @@
       "solutions": "Giải pháp",
       "technology": "Công nghệ & R&D",
       "platform": "Nền tảng",
-      "terms": "Điều khoản sử dụng"
+      "terms": "Điều khoản sử dụng",
+      "investors": "Nhà đầu tư"
     },
     "dialog": {
       "title": "Để lại thông tin liên hệ",
@@ -1305,6 +1313,32 @@
       "sentTitle": "Đã nhận thông tin",
       "sentBody": "Cảm ơn anh/chị. LeTRON sẽ liên hệ lại trong 2 ngày làm việc.",
       "close": "Đóng"
+    },
+    "sandbox": {
+      "eyebrow": "SANDBOX UÔNG BÍ",
+      "title": "Nơi giải pháp chạy thật\ntrước khi anh/chị ký.",
+      "lead": "LeTRON không mời khách hàng tin vào hình minh họa. Sandbox Uông Bí là nơi mạng lưới Le-Node, LeASO và robot chạy trong điều kiện thật, có số liệu để đối chiếu.",
+      "note": "Số liệu vận hành sẽ công bố khi Sandbox chạy. Trước đó, LeTRON chỉ mời tham quan và trao đổi phạm vi thử nghiệm, không cam kết kết quả chưa đo được.",
+      "facts": [
+        {
+          "label": "Địa điểm",
+          "value": "Uông Bí, Quảng Ninh"
+        },
+        {
+          "label": "Thời điểm",
+          "value": "Khởi công Q3/2026 · vận hành từ Q4/2026"
+        },
+        {
+          "label": "Chạy thử",
+          "value": "Mạng lưới Le-Node, LeASO giao việc, một robot Le-ORION trong phạm vi được giao"
+        },
+        {
+          "label": "Đối tác",
+          "value": "MOU logistics đang đàm phán, công bố khi ký"
+        }
+      ],
+      "cta": "Đặt lịch tham quan Sandbox",
+      "topic": "lịch tham quan Sandbox Uông Bí"
     }
   }
 }

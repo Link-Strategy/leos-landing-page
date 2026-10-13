@@ -1,13 +1,13 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { Eyebrow, SectionHead, V2Section } from "@/components/v2/ui";
 
 type Stage = { name: string; body: string };
 
 /** The 5-step operating loop (assign, execute, QC, evidence, maintain) as an accessible tab list. */
-export default function V2Loop({ tone = "dark" }: { tone?: "dark" | "mid" }) {
+export default function V2Loop({ tone = "dark", children }: { tone?: "dark" | "mid"; children?: ReactNode }) {
   const t = useTranslations("v2");
   const stages = t.raw("loop.stages") as Stage[];
   const [active, setActive] = useState(0);
@@ -77,6 +77,7 @@ export default function V2Loop({ tone = "dark" }: { tone?: "dark" | "mid" }) {
           </div>
         </div>
       </div>
+      {children}
     </V2Section>
   );
 }

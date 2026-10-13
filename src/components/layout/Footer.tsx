@@ -151,6 +151,7 @@ export default function Footer() {
     { href: "/cong-nghe", label: t("quickLinks.technology") },
     { href: "/blog", label: t("quickLinks.newsEvents") },
     { href: "/tuyen-dung", label: t("quickLinks.careers") },
+    { href: "/nha-dau-tu", label: t("quickLinks.investors") },
   ];
 
   const tv = useTranslations("v2");

@@ -113,6 +113,52 @@ export async function V2Proof() {
   );
 }
 
+/** The three-step service model, shown under the operating loop on the home page (one section, not two). */
+export async function V2ProofCards() {
+  const t = await getTranslations("v2.proof");
+  const items = t.raw("items") as V2CardItem[];
+  return (
+    <div className="mt-12 flex flex-col gap-5 lg:mt-14">
+      <div className="flex flex-col gap-2">
+        <Eyebrow>{t("eyebrow")}</Eyebrow>
+        <h3 className="font-inter m-0 whitespace-pre-line text-[22px] font-bold leading-[30px] text-white lg:text-[26px] lg:leading-[34px]">{t("title")}</h3>
+      </div>
+      <V2CardGrid items={items} />
+    </div>
+  );
+}
+
+/** Where the proof will come from: the Uong Bi Sandbox, stated as facts (place, dates, what runs) with no invented results. */
+export async function V2Sandbox() {
+  const t = await getTranslations("v2.sandbox");
+  const facts = t.raw("facts") as { label: string; value: string }[];
+  return (
+    <section className="relative w-full overflow-hidden bg-[#020E30] py-14 lg:py-20">
+      <Image src="/landing/PartnerAccess/PartnerAccess_bg.webp" alt="" fill sizes="100vw" className="object-cover opacity-40" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,14,48,0.2)_0%,rgba(2,14,48,0.85)_100%)]" />
+      <div className="container-le relative z-10 grid items-start gap-10 lg:grid-cols-[1fr_380px] lg:gap-14">
+        <div className="flex flex-col items-start gap-4">
+          <Eyebrow>{t("eyebrow")}</Eyebrow>
+          <SectionTitle>{t("title")}</SectionTitle>
+          <Lead>{t("lead")}</Lead>
+          <Caption>{t("note")}</Caption>
+          <div className="pt-2">
+            <ContactCta topic={t("topic")}>{t("cta")}</ContactCta>
+          </div>
+        </div>
+        <dl className="m-0 flex flex-col gap-3">
+          {facts.map((f) => (
+            <div key={f.label} className="rounded-[16px] border border-white/25 bg-[#FFFFFF14] px-5 py-4">
+              <dt className="font-inter text-[11px] font-bold uppercase tracking-[2px] text-[#63D9FF]">{f.label}</dt>
+              <dd className="font-open-sans m-0 mt-1 text-[16px] leading-[24px] text-white">{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  );
+}
+
 export async function V2Philosophy() {
   const t = await getTranslations("v2.philosophy");
   return (

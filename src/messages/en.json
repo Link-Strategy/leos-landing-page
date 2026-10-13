@@ -836,7 +836,8 @@
       "contact": "Contact",
       "solutions": "Solutions",
       "platform": "Platform",
-      "technology": "Technology & R&D"
+      "technology": "Technology & R&D",
+      "investors": "Investors"
     },
     "products": {
       "ledb": "LeDB (Digital Brain)",
@@ -887,7 +888,7 @@
     ],
     "factory": {
       "eyebrow": "FROM TASK TO SHOP FLOOR",
-      "title": "A self-operating factory.\nUnder control.",
+      "title": "A self-operating factory.\nPeople keep the decisions.",
       "body": "Connect LeASO, Le-NodeFactory and Le-ORION within a clearly defined operating scope. Task assignment, handling and QC are all reconciled.",
       "tag": "Solution direction / R&D",
       "cta": "Discuss your factory case",
@@ -907,7 +908,7 @@
     },
     "loop": {
       "eyebrow": "OPERATING LOOP",
-      "title": "A closed task loop. Verifiable results.",
+      "title": "One task. Five steps. One record.",
       "lead": "A task passes through each step, with a responsible party and clear completion conditions.",
       "ariaLabel": "Operating loop",
       "stages": [
@@ -947,8 +948,8 @@
       "topic": "R&D partnership"
     },
     "proof": {
-      "eyebrow": "S.a.a.S",
-      "title": "Solutions as a service.\nAccepted on measured results.",
+      "eyebrow": "SERVICE MODEL",
+      "title": "Solutions as a service.\nThree steps, one clear contract.",
       "lead": "LeTRON works with the customer to set the scope, responsibilities and how results are measured before deployment.",
       "items": [
         {
@@ -1104,6 +1105,12 @@
         "title": "Terms of use.",
         "body": "The terms that apply when you access and use letrongroup.com.",
         "metaTitle": "Terms of use"
+      },
+      "investors": {
+        "eyebrow": "INVESTORS & PARTNERS",
+        "title": "Roadmap, Sandbox\nand investor pack.",
+        "body": "For investors and strategic partners: milestones to 2030, the Uong Bi Sandbox and how to receive the Series A pack under NDA.",
+        "metaTitle": "Investors"
       }
     },
     "solutionsPage": {
@@ -1288,7 +1295,8 @@
       "solutions": "Solutions",
       "technology": "Technology & R&D",
       "platform": "Platform",
-      "terms": "Terms of use"
+      "terms": "Terms of use",
+      "investors": "Investors"
     },
     "dialog": {
       "title": "Leave your contact details",
@@ -1305,6 +1313,32 @@
       "sentTitle": "Received",
       "sentBody": "Thank you. LeTRON will get back to you within 2 working days.",
       "close": "Close"
+    },
+    "sandbox": {
+      "eyebrow": "UONG BI SANDBOX",
+      "title": "Where the solution runs for real\nbefore you sign.",
+      "lead": "LeTRON does not ask customers to trust illustrations. The Uong Bi Sandbox is where the Le-Node network, LeASO and robots run in real conditions, with figures you can check.",
+      "note": "Operating figures will be published once the Sandbox runs. Until then LeTRON only offers visits and pilot-scope discussions, and makes no claims about results not yet measured.",
+      "facts": [
+        {
+          "label": "Location",
+          "value": "Uong Bi, Quang Ninh"
+        },
+        {
+          "label": "Timeline",
+          "value": "Construction Q3/2026 · operating from Q4/2026"
+        },
+        {
+          "label": "Trials",
+          "value": "Le-Node network, LeASO task assignment, one Le-ORION robot within an assigned scope"
+        },
+        {
+          "label": "Partners",
+          "value": "Logistics MOU under negotiation, announced when signed"
+        }
+      ],
+      "cta": "Book a Sandbox visit",
+      "topic": "a Uong Bi Sandbox visit"
     }
   }
 }

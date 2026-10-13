@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { getSiteUrl } from "@/lib/blog/seo";
 import { buildBreadcrumbJsonLd } from "@/lib/jsonld";
 import { V2Cta, V2Portfolio, V2Readiness } from "@/components/v2/blocks";
+import TechArchitecture from "@/components/landing/TechArchitecture";
 import { V2CardGrid, V2Notice, V2PageHero, V2Section, SectionHead, type V2CardItem } from "@/components/v2/ui";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -29,6 +30,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       <JsonLd data={breadcrumb} />
       <V2PageHero eyebrow={hero("eyebrow")} title={hero("title")} body={hero("body")} />
       <V2Portfolio />
+      <TechArchitecture />
       <V2Section>
         <SectionHead eyebrow={t("technologyPage.capEyebrow")} title={t("technologyPage.capTitle")} />
         <V2CardGrid items={capabilities} linkLabel={t("common.viewSolution")} />

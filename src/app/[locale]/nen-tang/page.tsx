@@ -6,6 +6,7 @@ import { getSiteUrl } from "@/lib/blog/seo";
 import { buildBreadcrumbJsonLd } from "@/lib/jsonld";
 import { V2Cta, V2Readiness } from "@/components/v2/blocks";
 import V2Loop from "@/components/v2/Loop";
+import AppDownload from "@/components/landing/AppDownload";
 import { V2CardGrid, V2PageHero, V2Section, SectionHead, type V2CardItem } from "@/components/v2/ui";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -42,6 +43,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <V2Readiness />
       </V2Section>
       <V2Loop tone="mid" />
+      <AppDownload />
       <V2Cta />
     </>
   );
