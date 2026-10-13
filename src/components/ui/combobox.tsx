@@ -204,7 +204,7 @@ export function Combobox<T>({
               onMouseDown={(event) => event.preventDefault()}
               onClick={commitCurrentValue}
             >
-              Dùng: "{keyword}"
+              Dùng: &ldquo;{keyword}&rdquo;
             </button>
           ) : (
             <div className="px-3 py-3 text-xs text-text-secondary">{emptyPlaceholder}</div>

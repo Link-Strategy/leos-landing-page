@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localeAlternates } from "@/lib/seo-alternates";
+import JsonLd from "@/components/seo/JsonLd";
+import { getSiteUrl } from "@/lib/blog/seo";
+import { buildBreadcrumbJsonLd } from "@/lib/jsonld";
 import { V2PageHero, V2Section } from "@/components/v2/ui";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -14,9 +17,15 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   setRequestLocale(locale);
   const t = await getTranslations("v2");
   const hero = await getTranslations("v2.pages.terms");
+  const base = getSiteUrl() + (locale === "en" ? "/en" : "");
+  const breadcrumb = buildBreadcrumbJsonLd([
+    { name: "LeTRON", url: base || getSiteUrl() },
+    { name: hero("metaTitle"), url: base + "/dieu-khoan-su-dung" },
+  ]);
   const sections = t.raw("terms") as { title: string; body: string }[];
   return (
     <>
+      <JsonLd data={breadcrumb} />
       <V2PageHero eyebrow={hero("eyebrow")} title={hero("title")} body={hero("body")} />
       <V2Section tone="mid">
         <div className="grid gap-10 lg:grid-cols-[260px_1fr]">

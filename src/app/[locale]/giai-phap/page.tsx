@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localeAlternates } from "@/lib/seo-alternates";
+import JsonLd from "@/components/seo/JsonLd";
+import { getSiteUrl } from "@/lib/blog/seo";
+import { buildBreadcrumbJsonLd } from "@/lib/jsonld";
 import { V2Cta, V2Proof } from "@/components/v2/blocks";
 import { V2CardGrid, V2Notice, V2PageHero, V2Section, SectionHead, type V2CardItem } from "@/components/v2/ui";
 
@@ -15,9 +18,15 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   setRequestLocale(locale);
   const t = await getTranslations("v2");
   const hero = await getTranslations("v2.pages.solutions");
+  const base = getSiteUrl() + (locale === "en" ? "/en" : "");
+  const breadcrumb = buildBreadcrumbJsonLd([
+    { name: "LeTRON", url: base || getSiteUrl() },
+    { name: hero("metaTitle"), url: base + "/giai-phap" },
+  ]);
   const sectors = t.raw("sectors") as V2CardItem[];
   return (
     <>
+      <JsonLd data={breadcrumb} />
       <V2PageHero eyebrow={hero("eyebrow")} title={hero("title")} body={hero("body")} />
       <V2Section tone="mid">
         <SectionHead eyebrow={t("solutionsPage.sectorsEyebrow")} title={t("solutionsPage.sectorsTitle")} />

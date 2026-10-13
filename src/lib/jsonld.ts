@@ -34,6 +34,19 @@ export function buildOrganizationJsonLd(siteUrl: string) {
   };
 }
 
+export function buildBreadcrumbJsonLd(items: Array<{ name: string; url: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
 export function buildWebSiteJsonLd(siteUrl: string) {
   return {
     "@context": "https://schema.org",

@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ post: article });
     }
 
-    let articles = await getCachedPublicBlogArticles(category || undefined);
+    const articles = await getCachedPublicBlogArticles(category || undefined);
 
     const total = articles.length;
     const paged = articles.slice((page - 1) * limit, page * limit);

@@ -11,7 +11,7 @@ export default function CustomerReviews() {
   useEffect(() => {
     let cancelled = false;
     let attempts = 0;
-    let swiperInstance: any = null;
+    let swiperInstance: { destroy?: (deleteInstance?: boolean, cleanStyles?: boolean) => void } | null = null;
 
     const init = () => {
       if (cancelled) return;
@@ -21,8 +21,9 @@ export default function CustomerReviews() {
         return;
       }
       if (swiperEl.classList.contains("swiper-initialized")) return;
-      if (typeof window !== "undefined" && (window as any).Swiper) {
-        swiperInstance = new (window as any).Swiper(".customer-review-slider", {
+      const SwiperCtor = typeof window !== "undefined" ? window.Swiper : undefined;
+      if (SwiperCtor) {
+        swiperInstance = new SwiperCtor(".customer-review-slider", {
           loop: true,
           slidesPerView: "auto",
           spaceBetween: 20,
@@ -34,7 +35,7 @@ export default function CustomerReviews() {
             967: { spaceBetween: 100 },
             1550: { spaceBetween: 129 },
           },
-        });
+        }) as typeof swiperInstance;
       } else {
         if (++attempts < 100) setTimeout(init, 50);
       }

@@ -40,3 +40,6 @@ build/
 GATE_REPORT.md
 .agents/reports/gate-manifest.json
 .secret/
+
+# Company/bank details (never commit)
+docs/Thông tin Letron.*

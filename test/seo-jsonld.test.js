@@ -2,7 +2,7 @@ import { describe, it, beforeEach } from "node:test";
 import assert from "node:assert/strict";
 
 import { buildBlogArticleMetadata, buildBlogPostingJsonLd, getArticleCanonicalUrl } from "../src/lib/blog/seo.ts";
-import { buildJobPostingJsonLd, buildOrganizationJsonLd } from "../src/lib/jsonld.ts";
+import { buildBreadcrumbJsonLd, buildJobPostingJsonLd, buildOrganizationJsonLd } from "../src/lib/jsonld.ts";
 
 const article = {
   slug: "kinh-te-tuan-hoan",
@@ -86,5 +86,17 @@ describe("JSON-LD builders", () => {
     const base = { title: "t", description: "d", department: "x", location: "y", createdAt: "2026-01-01T00:00:00Z" };
     const type = (jobType) => buildJobPostingJsonLd({ ...base, jobType }, "u", "s").employmentType;
     assert.deepEqual(["part-time", "contract", "internship", "weird"].map(type), ["PART_TIME", "CONTRACTOR", "INTERN", "OTHER"]);
+  });
+});
+
+describe("buildBreadcrumbJsonLd", () => {
+  it("numbers the items from 1 in order", () => {
+    const b = buildBreadcrumbJsonLd([
+      { name: "LeTRON", url: "https://www.letrongroup.com" },
+      { name: "Nhà máy", url: "https://www.letrongroup.com/nha-may" },
+    ]);
+    assert.equal(b["@type"], "BreadcrumbList");
+    assert.deepEqual(b.itemListElement.map((i) => i.position), [1, 2]);
+    assert.equal(b.itemListElement[1].item, "https://www.letrongroup.com/nha-may");
   });
 });

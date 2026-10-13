@@ -102,6 +102,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${archivo.variable} ${outfit.variable} ${inter.variable} ${openSans.variable}`}>
       <head>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
 
         <link href="/wp-content/themes/saokimdigital/style.css" rel="stylesheet" />
         <link href="/wp-content/uploads/elementor/css/custom-frontend.min.css" rel="stylesheet" />
