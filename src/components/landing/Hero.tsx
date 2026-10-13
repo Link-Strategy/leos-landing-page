@@ -9,7 +9,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative flex min-h-[600px] items-center overflow-hidden bg-cover bg-center bg-no-repeat pt-[calc(var(--header-height-mobile)+20px)] lg:min-h-[800px] lg:items-start lg:pt-[calc(var(--header-height)+8px)]"
+      className="relative flex min-h-[600px] items-center overflow-hidden bg-cover bg-center bg-no-repeat pt-[calc(var(--header-height-mobile)+20px)] lg:min-h-[800px] lg:items-start lg:pt-[calc(var(--header-height)+40px)]"
       style={{ backgroundImage: "url('/landing/Hero/Hero_bg.webp')" }}
     >
       <SectionEdgeFade position="top" />
@@ -42,7 +42,7 @@ export default function Hero() {
           <div className="mt-8 flex w-full flex-col items-center gap-4 lg:w-auto lg:flex-row lg:justify-start">
             <ContactMasterButton type="full-fill" content={t("ctaPrimary")} />
           </div>
-          <p className="pt-5 font-inter text-[13px] font-semibold uppercase tracking-[1.6px] text-white/75">{t("proof")}</p>
+          <p className="pt-5 font-inter text-[13px] font-semibold uppercase tracking-[1.6px] text-white/60">{t("proof")}</p>
         </div>
 
         {/* Right visual: V2 sun + two-orbit diagram */}
