@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import Career from "@/components/landing/Career";
 import { AboutHeartValues } from "./AboutHeartValues";
 import { LeadershipReveal } from "./LeadershipReveal";
-import { V2Philosophy } from "@/components/v2/blocks";
+import { V2Philosophy, V2Portfolio } from "@/components/v2/blocks";
 import { Eyebrow, Lead, SectionHead, SectionTitle, V2Card, V2CardGrid, V2Section, type V2CardItem } from "@/components/v2/ui";
 
 // About page, one story in the V2 voice: who LeTRON is → vision & mission → the Chairman's philosophy → H.E.A.R.T →
@@ -74,8 +74,11 @@ export default async function AboutPage() {
         <V2CardGrid items={eco} />
       </V2Section>
 
+      {/* 20 patent families (also on /cong-nghe) */}
+      <V2Portfolio />
+
       {/* Leadership */}
-      <V2Section tone="mid">
+      <V2Section>
         <SectionHead eyebrow={t("leadershipEyebrow")} title={t("leadershipHeading")} className="items-center text-center mx-auto" />
         <LeadershipReveal />
       </V2Section>
