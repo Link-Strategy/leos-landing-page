@@ -80,7 +80,7 @@
     }
   },
   "hero": {
-    "badge": "Tập đoàn LeTRON · Uông Bí · Quảng Ninh, Việt Nam",
+    "badge": "NHÀ MÁY TỰ VẬN HÀNH CÓ KIỂM SOÁT",
     "title": "Tự chủ vận hành.\nTrong tầm kiểm soát.",
     "subtitle": "Hạ tầng chứng thực tại nguồn và kiểm soát tự chủ.",
     "features": [
@@ -135,7 +135,8 @@
       "leos": {
         "role": "Nền tảng phần mềm"
       }
-    }
+    },
+    "orbitCaption": "Hai quỹ đạo · Một định hướng"
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",

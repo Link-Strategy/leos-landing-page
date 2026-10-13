@@ -60,7 +60,7 @@ export default function Hero() {
         </div>
 
         {/* Right visual: V2 sun + two-orbit diagram */}
-        <HeroOrbit sunAlt={t("subtitle")} />
+        <HeroOrbit sunAlt={t("subtitle")} caption={t("orbitCaption")} />
       </div>
 
       {/* Bottom tagline row — desktop only, 40px above the section's bottom edge */}

@@ -134,7 +134,7 @@ function Satellite({
   );
 }
 
-export default function HeroOrbit({ sunAlt }: { sunAlt: string }) {
+export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption?: string }) {
   const t = useTranslations("hero");
   const tc = useTranslations("v2.common");
   const items = t.raw("orbit") as Record<string, OrbitText>;
@@ -288,6 +288,10 @@ export default function HeroOrbit({ sunAlt }: { sunAlt: string }) {
           ))}
         </div>
       </div>
+
+      {caption ? (
+        <p className="mb-0 mt-3 text-center font-inter text-[12px] font-semibold uppercase tracking-[1.6px] text-white/60">{caption}</p>
+      ) : null}
 
       {/* Tooltip attached to the active satellite */}
       {tip && activeNode && info && tip.id === activeNode.id && (

@@ -3,7 +3,6 @@ import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
 import Hero from "@/components/landing/Hero";
 import Vision from "@/components/landing/Vision";
 import Heart from "@/components/landing/Heart";
-import ServiceModel from "@/components/landing/ServiceModel";
 import TechArchitecture from "@/components/landing/TechArchitecture";
 import PartnerShowcase from "@/components/landing/PartnerShowcase";
 import AppDownload from "@/components/landing/AppDownload";
@@ -55,15 +54,15 @@ export default async function Home({
       >
         <Hero />
         <V2Principles />
-        <Vision />
-        <Heart />
         <V2Feature which="factory" />
         <V2Feature which="city" />
         <V2Loop />
-        <ServiceModel />
-        <TechArchitecture />
         <V2Portfolio />
         <V2Proof />
+        <V2Philosophy />
+        <Vision />
+        <Heart />
+        <TechArchitecture />
         <PartnerShowcase />
         <AppDownload />
         <RoadMap />
@@ -75,7 +74,6 @@ export default async function Home({
         {/* <Partners /> */}
         <Products />
         <News />
-        <V2Philosophy />
         <V2Cta />
         {/* <Career /> */}
       </div>

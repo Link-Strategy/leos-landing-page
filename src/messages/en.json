@@ -80,7 +80,7 @@
     }
   },
   "hero": {
-    "badge": "LeTRON Group · Uong Bi · Quang Ninh, Vietnam",
+    "badge": "A SELF-OPERATING FACTORY UNDER CONTROL",
     "title": "Operational autonomy.\nWithin your control.",
     "subtitle": "Source-attested infrastructure and controlled autonomy.",
     "features": [
@@ -135,7 +135,8 @@
       "leos": {
         "role": "Software platform"
       }
-    }
+    },
+    "orbitCaption": "Two orbits · One direction"
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
