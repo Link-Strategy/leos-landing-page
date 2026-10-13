@@ -1,6 +1,6 @@
 # Thiết kế V2 (`D:\BusinessAnalyze\Letron\web`) đã áp dụng vào landing page
 
-Nguồn V2: `web/content.js`, `web/app.js`, `web/README.txt` (03/10/2026). Quy tắc chủ dự án (13/10/2026): *chỗ nào V2 mâu thuẫn với nội dung hiện tại thì thay, chỗ nào không mâu thuẫn thì thêm*. Bản tiếng Anh là bản dịch của chúng tôi, **chưa được Văn phòng Chủ tịch duyệt**.
+Nguồn V2: `web/content.js`, `web/app.js`, `web/README.txt` (03/10/2026). Quy tắc chủ dự án (13/10/2026): *chỗ nào V2 mâu thuẫn với nội dung hiện tại thì thay, chỗ nào không mâu thuẫn thì thêm*. Bản tiếng Anh là bản dịch của chúng tôi.
 
 ## Đã áp dụng (production)
 
@@ -27,7 +27,5 @@ Nguồn V2: `web/content.js`, `web/app.js`, `web/README.txt` (03/10/2026). Quy t
 - Cam kết "phản hồi trong 2 ngày làm việc" và mã tham chiếu DEMO của V2: chưa có quy trình xử lý lead.
 
 ## Còn lại
-1. Duyệt bản EN (Văn phòng Chủ tịch) và duyệt riêng con số "20 Họ sáng chế", tên LeHS (không có trong danh sách pháp nhân), nhãn trạng thái sản phẩm.
-2. Icon H.E.A.R.T vẫn là file cũ (`respect.svg` đi với Accountability, `action.svg` với Resilience): cần bộ icon mới.
-3. Sáu trang `/san-pham/*` theo công ty con: nếu bỏ hẳn thì redirect 301 sang trang V2 tương ứng.
-4. Ảnh minh họa nhà máy/thành phố chỉ là ảnh định hướng, không phải công trình thật (đã ghi chú trên trang).
+1. Icon H.E.A.R.T vẫn là file cũ (`respect.svg` đi với Accountability, `action.svg` với Resilience): cần bộ icon mới nếu muốn khớp nghĩa.
+2. Sáu trang `/san-pham/*` theo công ty con: giữ hay redirect 301 sang trang V2 tương ứng.
