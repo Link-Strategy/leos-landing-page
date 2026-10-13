@@ -7,8 +7,8 @@
         "test": "node --test test/*.test.js",
         "lint": "eslint",
         "build": "next build",
-        "dev": "next dev -p 3100",
-        "start": "next start -p 3100",
+        "dev": "next dev -p 3200",
+        "start": "next start -p 3200",
         "format": "prettier --write .",
         "format:check": "prettier --check ."
     },
