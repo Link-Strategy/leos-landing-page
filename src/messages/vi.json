@@ -91,7 +91,7 @@
       "Máy tự vận hành trong giới hạn con người đặt ra",
       "Mỗi nhiệm vụ có người chịu trách nhiệm và bằng chứng nghiệm thu"
     ],
-    "description": "LeTRON giúp nhà máy, khu công nghiệp và đô thị tự động hóa từng phạm vi vận hành với một nền tảng duy nhất: phần mềm quản trị, thiết bị biên và robot công nghiệp. Triển khai theo dịch vụ, mở rộng khi kết quả đã được chứng minh.",
+    "description": "Nền tảng vận hành tự chủ cho nhà máy, khu công nghiệp và đô thị: phần mềm quản trị, thiết bị biên và robot trong một hệ thống. Triển khai theo dịch vụ, nhân rộng theo kết quả kiểm chứng.",
     "ctaPrimary": "Đặt lịch tư vấn 30 phút",
     "ctaSecondary": "Nhận hồ sơ giới thiệu",
     "footerTags": [
@@ -103,22 +103,22 @@
       "leaso": {
         "role": "Phần mềm quản trị",
         "status": "Đang phát triển",
-        "description": "Giao việc, điều phối và theo dõi kết quả của toàn bộ vận hành trên một màn hình."
+        "description": "Giao việc, điều phối và theo dõi kết quả vận hành trên một giao diện."
       },
       "lele": {
         "role": "Trợ lý AI điều phối",
         "status": "Đang phát triển",
-        "description": "Gợi ý quyết định từ dữ liệu thực và tự động hóa những bước lặp lại, trong giới hạn người đặt ra."
+        "description": "Đề xuất quyết định từ dữ liệu vận hành; tự động hóa các bước lặp lại trong giới hạn thiết lập."
       },
       "lecapm": {
         "role": "Phần cứng xác thực",
         "status": "Thiết kế & R&D",
-        "description": "Xác nhận ai được phép làm gì trên từng thiết bị, để tự động hóa luôn đi cùng an toàn."
+        "description": "Xác thực quyền thao tác trên từng thiết bị. Tự động hóa đi cùng an toàn."
       },
       "nodefactory": {
         "role": "Thiết bị biên tại xưởng",
         "status": "Đang phát triển",
-        "description": "Đưa dữ liệu máy móc và hoạt động sản xuất lên hệ quản trị theo thời gian thực."
+        "description": "Kết nối dữ liệu máy và sản xuất với hệ quản trị theo thời gian thực."
       },
       "nodemobility": {
         "role": "Thiết bị biên di động",
@@ -128,12 +128,12 @@
       "nodeair": {
         "role": "Ứng dụng trên không",
         "status": "Ý tưởng ứng dụng",
-        "description": "Khảo sát và giám sát diện rộng bằng thiết bị bay, theo nhiệm vụ được giao từ hệ quản trị."
+        "description": "Khảo sát và giám sát diện rộng bằng thiết bị bay theo nhiệm vụ được điều phối."
       },
       "orion": {
         "role": "Robot công nghiệp",
         "status": "Thiết kế & R&D",
-        "description": "Thao tác vật liệu, cấp phôi và kiểm tra trực quan trong phạm vi nhiệm vụ được giao."
+        "description": "Thao tác vật liệu, cấp phôi và kiểm tra trực quan trong phạm vi được giao."
       },
       "leos": {
         "role": "Hệ điều hành chung"
@@ -365,13 +365,13 @@
     "titleLine1": "Xây sự nghiệp",
     "titleHighlightPrefix": "hay kiến tạo ",
     "titleHighlightAccent": "tương lai?",
-    "description": "Chúng tôi luôn tìm kiếm những bộ óc sáng tạo, không ngừng bứt phá giới hạn và có tinh thần trách nhiệm cao để cùng cách mạng hóa ngành công nghiệp tuần hoàn tại Việt Nam.",
-    "emailPlaceholder": "Email của bạn",
+    "description": "LeTRON tìm kiếm những người có tư duy sáng tạo, tinh thần trách nhiệm cao và sẵn sàng vượt giới hạn để xây dựng nền tảng vận hành tự chủ cho công nghiệp Việt Nam.",
+    "emailPlaceholder": "Email",
     "cta": "Gia nhập đội ngũ"
   },
   "partners": {
     "title": "Đối tác LeTRON",
-    "description": "Chúng tôi không chỉ kết nối — chúng tôi cùng nhau tạo ra giá trị lâu dài và thúc đẩy chuyển đổi xanh toàn diện.",
+    "description": "Hệ sinh thái đối tác được xây dựng trên hợp tác có kiểm chứng, minh bạch và cùng tạo giá trị dài hạn.",
     "logoAlt": "Đối tác LeTRON {index}"
   },
   "partnerShowcase": {
@@ -384,7 +384,7 @@
   "appDownload": {
     "eyebrow": "ỨNG DỤNG LeOS",
     "headerWhite": "Mang dữ liệu vận hành",
-    "headerAccent": "theo bạn",
+    "headerAccent": "trong tầm tay",
     "description": "Theo dõi trạng thái, nhận cảnh báo và phối hợp tác nghiệp trên một trải nghiệm di động thống nhất.",
     "phoneAlt": "Ứng dụng LeOS trên điện thoại",
     "storeGooglePlayAlt": "Tải về từ Google Play",
@@ -567,10 +567,10 @@
     "breadcrumbCurrent": "Sản phẩm",
     "heroTitlePrefix": "Sản phẩm ",
     "heroTitleHighlight": "LeTRON",
-    "heroDescription": "Các sản phẩm được phát triển để phối hợp trong một giải pháp. Cấu hình và phạm vi tự chủ được xác định theo bài toán.",
+    "heroDescription": "Sáu sản phẩm vận hành như một hệ thống. Cấu hình và phạm vi tự chủ được xác định theo từng bài toán.",
     "introHeadingLine1": "Sản phẩm được vận hành",
     "introHeadingLine2": "theo hệ thống",
-    "introParagraph": "LETRON xây dựng môi trường nơi con người, công nghệ và dữ liệu phối hợp để giải quyết những bài toán công nghiệp quy mô lớn.",
+    "introParagraph": "Nền tảng LeTRON kết nối con người, công nghệ và dữ liệu để giải quyết các bài toán công nghiệp quy mô lớn.",
     "statOptimizeCost": "Tối ưu chi phí",
     "statOperationEfficiency": "Tăng hiệu quả vận hành",
     "statEnvironmentImpact": "Giảm tác động môi trường",
@@ -579,24 +579,24 @@
     "faqHeadingHighlight": "thường gặp",
     "faqItems": [
       {
-        "question": "Tự động hóa bằng LeTRON có thể giúp ích gì cho doanh nghiệp của tôi?",
-        "answer": "Nền tảng LeOS giúp doanh nghiệp số hóa toàn bộ quy trình vận hành, thu thập và phân tích dữ liệu theo thời gian thực để tối ưu chi phí, nâng cao hiệu suất và giảm thiểu sai sót do thao tác thủ công."
+        "question": "Nền tảng LeTRON mang lại giá trị gì cho doanh nghiệp?",
+        "answer": "Số hóa quy trình vận hành, thu thập và phân tích dữ liệu theo thời gian thực để tối ưu chi phí, nâng hiệu suất và giảm sai sót thủ công."
       },
       {
-        "question": "Việc tích hợp trí tuệ nhân tạo LeTRON vào hệ thống hiện tại của tôi có khó không?",
-        "answer": "LeOS được thiết kế để tích hợp linh hoạt với hạ tầng và phần mềm sẵn có thông qua API mở. Đội ngũ kỹ thuật LeTRON sẽ đồng hành cùng bạn trong suốt quá trình triển khai để đảm bảo chuyển đổi diễn ra suôn sẻ."
+        "question": "Việc tích hợp với hệ thống hiện có được thực hiện như thế nào?",
+        "answer": "Nền tảng tích hợp với hạ tầng và phần mềm sẵn có qua API mở. Đội ngũ kỹ thuật LeTRON đồng hành trong toàn bộ quá trình triển khai."
       },
       {
-        "question": "Những ngành nào có thể hưởng lợi từ tự động hóa bằng trí tuệ nhân tạo?",
-        "answer": "Các giải pháp của LeTRON phù hợp với nhiều lĩnh vực công nghiệp như năng lượng, vật liệu xây dựng, đô thị và di chuyển thông minh — bất kỳ ngành nào cần tối ưu vận hành dựa trên dữ liệu đều có thể ứng dụng."
+        "question": "Những lĩnh vực nào phù hợp với giải pháp LeTRON?",
+        "answer": "Nhà máy sản xuất, khu công nghiệp, logistics, năng lượng và hạ tầng đô thị; mọi lĩnh vực cần tối ưu vận hành dựa trên dữ liệu."
       },
       {
-        "question": "Việc thiết lập LeTRON mất bao lâu?",
-        "answer": "Thời gian triển khai phụ thuộc vào quy mô và độ phức tạp của hệ thống hiện tại. Thông thường, một dự án thí điểm có thể đưa vào vận hành chỉ sau vài tuần làm việc cùng đội ngũ kỹ thuật LeTRON."
+        "question": "Thời gian triển khai là bao lâu?",
+        "answer": "Phụ thuộc quy mô và độ phức tạp của hệ thống hiện có. Một dự án thí điểm thường đi vào vận hành sau vài tuần."
       },
       {
-        "question": "Tôi có thể yêu cầu một giải pháp LeTRON tùy chỉnh không?",
-        "answer": "Có. Bên cạnh các sản phẩm sẵn có, LeTRON cung cấp dịch vụ tư vấn và phát triển giải pháp riêng theo đặc thù vận hành của từng doanh nghiệp."
+        "question": "LeTRON có cung cấp giải pháp tùy chỉnh không?",
+        "answer": "Có. Bên cạnh sản phẩm tiêu chuẩn, LeTRON tư vấn và phát triển giải pháp theo đặc thù vận hành của từng doanh nghiệp."
       }
     ],
     "detail": {
@@ -723,8 +723,8 @@
     "introHeadingLine1": "Hệ sinh thái công nghiệp",
     "introHeadingLine2Prefix": "Vận hành bằng ",
     "introHeadingLine2Highlight": "dữ liệu",
-    "introParagraph1": "LeTRON là tập đoàn công nghệ công nghiệp. Chúng tôi xây dựng nền tảng để nhà máy, khu công nghiệp và đô thị tự động hóa từng phạm vi vận hành, trong khi quyền quyết định vẫn thuộc về con người.",
-    "introParagraph2": "Ba đơn vị làm việc như một chuỗi: LeAR nghiên cứu và sở hữu công nghệ lõi, LeDB xây dựng nền tảng số, LeHS thiết kế và sản xuất phần cứng. Sản phẩm được giao theo dịch vụ và nghiệm thu bằng kết quả đo được tại Sandbox Uông Bí trước khi nhân rộng.",
+    "introParagraph1": "LeTRON là tập đoàn công nghệ công nghiệp, phát triển nền tảng vận hành tự chủ cho nhà máy, khu công nghiệp và đô thị: tự động hóa từng phạm vi, quyền quyết định thuộc về con người.",
+    "introParagraph2": "Ba đơn vị thành viên tạo thành một chuỗi giá trị: LeAR nghiên cứu và sở hữu công nghệ lõi, LeDB phát triển nền tảng số, LeHS thiết kế và sản xuất phần cứng. Sản phẩm cung cấp theo dịch vụ, nghiệm thu tại Sandbox Uông Bí trước khi nhân rộng.",
     "playVideoLabel": "Phát video",
     "visionBadge": "Tầm nhìn",
     "visionHeadingLine1": "Hệ sinh thái công nghiệp",
@@ -734,7 +734,7 @@
     "missionBadge": "Sứ mệnh",
     "missionHeadingLine1": "Người chữa lành Trái đất",
     "missionHeadingHighlight": "bằng công nghệ",
-    "missionIntro": "Chúng tôi ứng dụng nền tảng LeOS và LeLe AI để:",
+    "missionIntro": "Nền tảng LeOS và LeLe AI được ứng dụng để:",
     "missionPoints": [
       "Biến chất thải công nghiệp thành vật liệu có giá trị cao",
       "Tối ưu vận hành bằng dữ liệu thời gian thực",
@@ -756,10 +756,10 @@
     "breadcrumbCurrent": "Liên hệ",
     "heroTitlePrefix": "Cùng xác định ",
     "heroTitleHighlight": "kết quả cần đạt",
-    "heroDescription": "Chia sẻ hiện trạng, nhiệm vụ và kết quả mong muốn để cùng xác định một phạm vi thử phù hợp. Để lại thông tin, đội ngũ LeTRON sẽ liên hệ trao đổi.",
-    "formHeadingLine1": "Để lại thông tin của bạn",
-    "formHeadingLine2Prefix": "Chúng tôi sẽ sớm ",
-    "formHeadingLine2Highlight": "liên hệ tư vấn!",
+    "heroDescription": "Mô tả hiện trạng, nhiệm vụ và kết quả mong muốn để xác định phạm vi thử nghiệm phù hợp. LeTRON liên hệ trong 2 ngày làm việc.",
+    "formHeadingLine1": "Đăng ký tư vấn",
+    "formHeadingLine2Prefix": "LeTRON sẽ sớm ",
+    "formHeadingLine2Highlight": "liên hệ tư vấn.",
     "formNamePlaceholder": "Họ & tên*",
     "formEmailPlaceholder": "Email*",
     "formPhonePlaceholder": "Số điện thoại*",
@@ -878,26 +878,26 @@
     "principles": [
       {
         "eyebrow": "01 / TIN CẬY",
-        "title": "Dữ liệu có nguồn gốc rõ ràng",
-        "body": "Mọi số liệu đi kèm nguồn, thời điểm và điều kiện thu thập, để anh/chị quyết định trên dữ liệu đáng tin."
+        "title": "Dữ liệu có nguồn gốc",
+        "body": "Mỗi số liệu đi kèm nguồn, thời điểm và điều kiện thu thập."
       },
       {
         "eyebrow": "02 / KIỂM SOÁT",
-        "title": "Máy tự chủ trong giới hạn người đặt",
-        "body": "Anh/chị quy định máy được làm gì, đến đâu và khi nào cần người can thiệp. Hệ thống không vượt quá phạm vi đó."
+        "title": "Tự chủ trong giới hạn",
+        "body": "Phạm vi và điều kiện can thiệp được thiết lập cho từng nhiệm vụ. Hệ thống không vượt quá giới hạn đó."
       },
       {
         "eyebrow": "03 / TRÁCH NHIỆM",
-        "title": "Mỗi kết quả có người chịu trách nhiệm",
-        "body": "Mỗi nhiệm vụ gắn với người giao, người thực hiện và bằng chứng nghiệm thu. Không có kết quả vô chủ."
+        "title": "Kết quả có chủ thể",
+        "body": "Mỗi nhiệm vụ gắn với người giao, đơn vị thực hiện và bằng chứng nghiệm thu."
       }
     ],
     "factory": {
       "eyebrow": "NHÀ MÁY",
       "title": "Dây chuyền tự vận hành.\nQuản đốc vẫn nắm quyền.",
-      "body": "LeASO giao việc, Le-NodeFactory thu dữ liệu tại máy, Le-ORION thực hiện thao tác lặp lại. Mỗi ca sản xuất kết thúc với kết quả đã được kiểm tra và lưu lại, không cần đối chiếu thủ công.",
+      "body": "LeASO điều phối nhiệm vụ, Le-NodeFactory thu dữ liệu tại máy, Le-ORION thực hiện thao tác lặp lại. Mỗi ca kết thúc với kết quả đã kiểm tra và lưu hồ sơ.",
       "tag": "Định hướng giải pháp / R&D",
-      "cta": "Tư vấn cho nhà máy của anh/chị",
+      "cta": "Tư vấn giải pháp nhà máy",
       "imageAlt": "Minh họa nhà máy với robot Le-ORION đầu vuông, mái tóc quang học và thiết bị biên cạnh máy gia công.",
       "caption": "Le-ORION + Le-NodeFactory · Hình minh họa định hướng; số liệu thực được công bố từ Sandbox Uông Bí.",
       "topic": "giải pháp nhà máy"
@@ -905,9 +905,9 @@
     "city": {
       "eyebrow": "ĐÔ THỊ & HẠ TẦNG",
       "title": "Điều hành thành phố\ntừ dữ liệu hiện trường.",
-      "body": "Phương tiện, thiết bị bay và trung tâm điều hành dùng chung một nguồn dữ liệu. Mỗi đơn vị thấy đúng phần việc của mình, với quyền hạn và trách nhiệm được phân định rõ.",
+      "body": "Phương tiện, thiết bị bay và trung tâm điều hành dùng chung một nguồn dữ liệu. Mỗi đơn vị tiếp cận đúng phần việc với quyền hạn rõ ràng.",
       "tag": "Định hướng giải pháp / R&D",
-      "cta": "Tư vấn cho đô thị, hạ tầng",
+      "cta": "Tư vấn giải pháp đô thị, hạ tầng",
       "imageAlt": "Minh họa Thành phố Số với phương tiện di động, drone và trung tâm điều hành.",
       "caption": "LeASO + Le-NodeMobility + Le-NodeAir · Hình minh họa định hướng; số liệu thực được công bố từ Sandbox Uông Bí.",
       "topic": "giải pháp Thành phố Số"
@@ -915,32 +915,32 @@
     "loop": {
       "eyebrow": "CÁCH HỆ THỐNG VẬN HÀNH",
       "title": "Một nhiệm vụ. Năm bước. Một hồ sơ.",
-      "lead": "Mọi công việc, dù do người hay máy thực hiện, đều đi qua năm bước giống nhau. Vì vậy anh/chị luôn biết việc đang ở đâu, ai chịu trách nhiệm và kết quả đã đạt chưa.",
+      "lead": "Mọi nhiệm vụ đi qua năm bước thống nhất. Trạng thái, chủ thể chịu trách nhiệm và kết quả nghiệm thu luôn rõ ràng.",
       "ariaLabel": "Vòng vận hành",
       "stages": [
         {
           "name": "Giao việc",
-          "body": "Xác định việc cần làm, người chịu trách nhiệm, phạm vi và tiêu chí hoàn thành."
+          "body": "Xác định công việc, chủ thể chịu trách nhiệm, phạm vi và tiêu chí hoàn thành."
         },
         {
           "name": "Thực hiện",
-          "body": "Thiết bị và robot làm việc trong phạm vi đã giao. Mọi tình huống bất thường được ghi lại ngay."
+          "body": "Thiết bị và robot vận hành trong phạm vi được giao. Bất thường được ghi nhận tức thời."
         },
         {
           "name": "Kiểm tra",
-          "body": "Kết quả thực tế được so với tiêu chí đã thống nhất. Thiếu bằng chứng thì chưa được tính là đạt."
+          "body": "Kết quả thực tế đối chiếu với tiêu chí. Chỉ xác nhận hoàn thành khi đủ bằng chứng."
         },
         {
           "name": "Lưu bằng chứng",
-          "body": "Hồ sơ gắn với nhiệm vụ, cấu hình và kết quả kiểm tra, sẵn sàng cho kiểm toán và nghiệm thu."
+          "body": "Hồ sơ gắn với nhiệm vụ, cấu hình và kết quả kiểm tra, sẵn sàng nghiệm thu và kiểm toán."
         },
         {
           "name": "Bảo trì",
-          "body": "Dữ liệu tình trạng thiết bị tự chuyển thành việc kiểm tra và khắc phục, trước khi sự cố xảy ra."
+          "body": "Dữ liệu tình trạng thiết bị chuyển thành kế hoạch kiểm tra, khắc phục trước khi phát sinh sự cố."
         }
       ],
       "stamp": "Giao việc → Thực hiện → Kiểm tra → Bằng chứng → Bảo trì",
-      "stampNote": "Sơ đồ minh họa quy trình; kết nối với hệ thống của anh/chị được thiết lập trong giai đoạn thử nghiệm."
+      "stampNote": "Sơ đồ minh họa. Kết nối với hệ thống hiện có được thiết lập trong giai đoạn thử nghiệm."
     },
     "portfolio": {
       "number": "20",
@@ -954,24 +954,24 @@
       "topic": "hợp tác R&D"
     },
     "proof": {
-      "eyebrow": "CÁCH CHÚNG TÔI LÀM VIỆC",
-      "title": "Triển khai theo dịch vụ.\nTrả tiền cho kết quả, không cho lời hứa.",
-      "lead": "Trước khi triển khai, LeTRON cùng anh/chị thống nhất phạm vi, cách đo và tiêu chí nghiệm thu. Mở rộng chỉ bắt đầu khi thử nghiệm đã đạt.",
+      "eyebrow": "MÔ HÌNH HỢP TÁC",
+      "title": "Triển khai theo dịch vụ.\nNghiệm thu bằng kết quả.",
+      "lead": "Phạm vi, phương pháp đo và tiêu chí nghiệm thu được thống nhất trước khi triển khai. Mở rộng sau khi thử nghiệm đạt yêu cầu.",
       "items": [
         {
           "eyebrow": "01 / KHẢO SÁT",
-          "title": "Hiểu đúng bài toán",
-          "body": "Khảo sát thiết bị, quy trình và dữ liệu hiện có. Xác định phạm vi mang lại giá trị sớm nhất."
+          "title": "Xác định bài toán",
+          "body": "Khảo sát thiết bị, quy trình, dữ liệu; chọn phạm vi mang lại giá trị sớm nhất."
         },
         {
           "eyebrow": "02 / THỬ NGHIỆM",
-          "title": "Chứng minh tại chỗ",
-          "body": "Chạy thử trên một phạm vi nhỏ với số liệu trước và sau. Kết quả chưa đạt được ghi nhận minh bạch."
+          "title": "Kiểm chứng tại hiện trường",
+          "body": "Vận hành thử trên phạm vi giới hạn, số liệu trước và sau. Kết quả chưa đạt được ghi nhận minh bạch."
         },
         {
           "eyebrow": "03 / VẬN HÀNH",
-          "title": "Mở rộng khi đã đạt",
-          "body": "Hợp đồng ghi rõ kết quả cam kết, hỗ trợ, bảo trì và trách nhiệm khắc phục của LeTRON."
+          "title": "Mở rộng theo kết quả",
+          "body": "Hợp đồng quy định kết quả cam kết, hỗ trợ, bảo trì và trách nhiệm khắc phục."
         }
       ]
     },
@@ -982,8 +982,8 @@
     },
     "cta": {
       "eyebrow": "BẮT ĐẦU TỪ MỘT PHẠM VI NHỎ",
-      "title": "30 phút để xác định phạm vi thử nghiệm đầu tiên.",
-      "body": "Anh/chị mô tả bài toán và hiện trạng. LeTRON đề xuất phạm vi, cách đo kết quả và những gì có thể chạy thử ngay tại Sandbox Uông Bí.",
+      "title": "Phạm vi thử nghiệm đầu tiên,\nxác định trong một buổi tư vấn.",
+      "body": "Từ bài toán và hiện trạng vận hành, LeTRON đề xuất phạm vi thử nghiệm, cách đo kết quả và các hạng mục vận hành ngay tại Sandbox Uông Bí.",
       "button": "Đặt lịch tư vấn"
     },
     "products": [
@@ -991,7 +991,7 @@
         "id": "leaso",
         "eyebrow": "01 / QUẢN TRỊ",
         "title": "LeASO + LeLe",
-        "body": "Giao việc, điều phối và theo dõi kết quả của toàn bộ vận hành trên một màn hình, với trợ lý AI gợi ý quyết định từ dữ liệu thực.",
+        "body": "Giao việc, điều phối và theo dõi kết quả trên một giao diện, với trợ lý AI đề xuất quyết định từ dữ liệu thực.",
         "status": "Đang phát triển",
         "route": "platform"
       },
@@ -999,7 +999,7 @@
         "id": "nodefactory",
         "eyebrow": "02 / TẠI XƯỞNG",
         "title": "Le-NodeFactory",
-        "body": "Đưa dữ liệu máy móc và hoạt động sản xuất lên hệ quản trị theo thời gian thực. Lắp theo từng dây chuyền, không dừng sản xuất.",
+        "body": "Kết nối dữ liệu máy và sản xuất với hệ quản trị theo thời gian thực. Triển khai theo dây chuyền, không gián đoạn sản xuất.",
         "status": "Đang phát triển",
         "route": "factory"
       },
@@ -1015,7 +1015,7 @@
         "id": "nodeair",
         "eyebrow": "04 / TRÊN KHÔNG",
         "title": "Le-NodeAir",
-        "body": "Khảo sát và giám sát diện rộng bằng thiết bị bay, theo nhiệm vụ được giao từ hệ quản trị.",
+        "body": "Khảo sát và giám sát diện rộng bằng thiết bị bay theo nhiệm vụ được điều phối.",
         "status": "Ý tưởng ứng dụng",
         "route": "city"
       },
@@ -1023,7 +1023,7 @@
         "id": "orion",
         "eyebrow": "05 / ROBOT",
         "title": "Le-ORION",
-        "body": "Robot công nghiệp cho thao tác vật liệu, cấp phôi và kiểm tra trực quan, làm việc trong phạm vi nhiệm vụ được giao.",
+        "body": "Robot công nghiệp cho thao tác vật liệu, cấp phôi và kiểm tra trực quan trong phạm vi được giao.",
         "status": "Thiết kế & R&D",
         "route": "factory"
       },
@@ -1031,7 +1031,7 @@
         "id": "lecapm",
         "eyebrow": "06 / AN TOÀN",
         "title": "LeCAP-M",
-        "body": "Phần cứng xác thực ai được phép làm gì trên từng thiết bị, để tự động hóa luôn đi cùng an toàn.",
+        "body": "Phần cứng xác thực quyền thao tác trên từng thiết bị. Tự động hóa đi cùng an toàn.",
         "status": "Thiết kế & R&D",
         "route": "technology"
       }
@@ -1078,20 +1078,20 @@
       "solutions": {
         "eyebrow": "GIẢI PHÁP THEO BỐI CẢNH",
         "title": "Bắt đầu từ bài toán.\nĐo bằng kết quả.",
-        "body": "Mỗi cơ sở có điều kiện vận hành khác nhau. LeTRON cùng khách hàng xác lập phạm vi, đường cơ sở và cách nghiệm thu trước khi triển khai.",
+        "body": "Mỗi cơ sở có điều kiện vận hành riêng. Phạm vi, số liệu tham chiếu và tiêu chí nghiệm thu được xác lập cùng khách hàng trước khi triển khai.",
         "metaTitle": "Giải pháp theo bối cảnh"
       },
       "platform": {
         "eyebrow": "SẢN PHẨM",
         "title": "Một nền tảng,\ntừ phòng điều hành đến hiện trường.",
-        "body": "Sáu sản phẩm được thiết kế để làm việc cùng nhau. Anh/chị bắt đầu từ phạm vi cần nhất và mở rộng dần, không phải thay thế hệ thống đang có.",
+        "body": "Sáu sản phẩm vận hành như một hệ thống. Bắt đầu từ phạm vi ưu tiên, mở rộng theo lộ trình, tích hợp với hệ thống hiện có.",
         "metaTitle": "Nền tảng",
-        "cta": "Tư vấn chọn sản phẩm phù hợp"
+        "cta": "Tư vấn lựa chọn sản phẩm"
       },
       "technology": {
         "eyebrow": "CÔNG NGHỆ & R&D",
         "title": "Một nền tảng.\nNhiều ứng dụng.",
-        "body": "Nghiên cứu cho dữ liệu tin cậy, vận hành có kiểm soát và kết quả có thể đối soát. Thông tin công khai tập trung vào giá trị ứng dụng.",
+        "body": "Nghiên cứu phục vụ dữ liệu tin cậy, vận hành có kiểm soát và kết quả kiểm chứng được. Thông tin công khai tập trung vào giá trị ứng dụng.",
         "metaTitle": "Công nghệ & R&D"
       },
       "factory": {
@@ -1109,7 +1109,7 @@
       "terms": {
         "eyebrow": "ĐIỀU KHOẢN",
         "title": "Điều khoản sử dụng.",
-        "body": "Các điều khoản áp dụng khi bạn truy cập và sử dụng website letrongroup.com.",
+        "body": "Điều khoản áp dụng cho việc truy cập và sử dụng website letrongroup.com.",
         "metaTitle": "Điều khoản sử dụng"
       },
       "investors": {
@@ -1195,14 +1195,14 @@
         {
           "eyebrow": "03 / ĐỐI SOÁT",
           "title": "Mở rộng có điều kiện",
-          "body": "So sánh trước và sau, nghiệm thu kết quả rồi quyết định phạm vi mở rộng."
+          "body": "So sánh trước và sau triển khai, nghiệm thu kết quả, sau đó quyết định phạm vi mở rộng."
         }
       ]
     },
     "aboutV2": {
       "visionEyebrow": "TẦM NHÌN",
       "visionTitle": "Công nghệ đi cùng trách nhiệm",
-      "visionBody": "Trở thành nền tảng vận hành tin cậy để mọi tổ chức tự chủ trong phạm vi mình kiểm soát.",
+      "visionBody": "Trở thành nền tảng vận hành tin cậy để mọi tổ chức tự chủ trong phạm vi kiểm soát của mình.",
       "missionEyebrow": "SỨ MỆNH",
       "missionTitle": "Từ phòng nghiên cứu đến hiện trường",
       "missionBody": "Kết nối nghiên cứu, phần mềm quản trị và thiết bị hiện trường thành một giải pháp, nghiệm thu bằng kết quả có thể kiểm chứng.",
@@ -1243,14 +1243,14 @@
       "required": "* Trường bắt buộc",
       "notice": "LeTRON không tiếp nhận ý tưởng hoặc tài liệu kỹ thuật chưa được yêu cầu qua biểu mẫu này. Vui lòng không gửi tài liệu mật.",
       "infoEyebrow": "KẾT NỐI",
-      "infoTitle": "Trao đổi với đội ngũ LeTRON.",
+      "infoTitle": "Tư vấn cùng đội ngũ LeTRON.",
       "infoNote": "Chỉ gửi thông tin tổng quan. Tài liệu chuyên sâu được trao đổi qua kênh và phạm vi bảo mật đã thống nhất.",
       "phonePlaceholder": "Số điện thoại (không bắt buộc)",
       "emailPlaceholder": "Email công việc*",
       "messageLabel": "Mô tả bài toán*",
       "thanks": {
-        "title": "Cảm ơn anh/chị.",
-        "body": "LeTRON đã nhận được thông tin của anh/chị. Để buổi trao đổi hiệu quả, anh/chị có thể chuẩn bị trước:",
+        "title": "Đã tiếp nhận yêu cầu",
+        "body": "LeTRON đã tiếp nhận thông tin. Để buổi trao đổi hiệu quả, nên chuẩn bị trước:",
         "steps": [
           {
             "eyebrow": "01 / HIỆN TRẠNG",
@@ -1273,11 +1273,11 @@
     "terms": [
       {
         "title": "Phạm vi sử dụng website",
-        "body": "Website letrongroup.com do Công ty Cổ phần Tập đoàn LeTRON vận hành để giới thiệu về công ty, sản phẩm, giải pháp và cơ hội nghề nghiệp. Khi truy cập, bạn đồng ý sử dụng website đúng pháp luật và không gây ảnh hưởng đến hoạt động của website."
+        "body": "Website letrongroup.com do Công ty Cổ phần Tập đoàn LeTRON vận hành để giới thiệu về công ty, sản phẩm, giải pháp và cơ hội nghề nghiệp. Người dùng đồng ý sử dụng website đúng pháp luật và không gây ảnh hưởng đến hoạt động của website."
       },
       {
         "title": "Tài liệu và quyền sở hữu",
-        "body": "Nội dung, hình ảnh, nhãn hiệu và tài liệu trên website thuộc quyền của LeTRON hoặc bên cấp phép. Bạn không được sao chép, chỉnh sửa hay sử dụng cho mục đích thương mại khi chưa có sự đồng ý bằng văn bản."
+        "body": "Nội dung, hình ảnh, nhãn hiệu và tài liệu trên website thuộc quyền của LeTRON hoặc bên cấp phép. Việc sao chép, chỉnh sửa hoặc sử dụng cho mục đích thương mại cần có sự đồng ý bằng văn bản."
       },
       {
         "title": "Giới hạn của thông tin công khai",
@@ -1306,8 +1306,8 @@
     },
     "dialog": {
       "title": "Đặt lịch tư vấn",
-      "body": "Để lại thông tin, LeTRON sẽ liên hệ trong 2 ngày làm việc để hẹn buổi tư vấn 30 phút.",
-      "bodyWithTopic": "Về {topic}. LeTRON sẽ liên hệ trong 2 ngày làm việc để hẹn buổi tư vấn 30 phút.",
+      "body": "LeTRON liên hệ trong 2 ngày làm việc để sắp xếp buổi tư vấn 30 phút.",
+      "bodyWithTopic": "Nội dung: {topic}. LeTRON liên hệ trong 2 ngày làm việc để sắp xếp buổi tư vấn 30 phút.",
       "name": "Họ và tên",
       "email": "Email công việc",
       "phone": "Số điện thoại",
@@ -1317,30 +1317,30 @@
       "messagePrefix": "Quan tâm: {topic}",
       "error": "Chưa gửi được, vui lòng thử lại.",
       "sentTitle": "Đã nhận yêu cầu",
-      "sentBody": "Cảm ơn anh/chị. LeTRON sẽ liên hệ trong 2 ngày làm việc.",
+      "sentBody": "LeTRON đã tiếp nhận yêu cầu và sẽ liên hệ trong 2 ngày làm việc.",
       "close": "Đóng"
     },
     "sandbox": {
       "eyebrow": "SANDBOX UÔNG BÍ",
-      "title": "Xem hệ thống chạy thật\ntrước khi quyết định.",
-      "lead": "Chúng tôi không yêu cầu anh/chị tin vào hình minh họa. Tại Sandbox Uông Bí, mạng lưới Le-Node, phần mềm LeASO và robot vận hành trong điều kiện thực, với số liệu để đối chiếu.",
-      "note": "Số liệu vận hành được công bố khi Sandbox đi vào hoạt động. Đến lúc đó, LeTRON mời tham quan và cùng xác định phạm vi thử nghiệm, không cam kết kết quả chưa đo.",
+      "title": "Vận hành thực tế\ntrước khi quyết định.",
+      "lead": "Sandbox Uông Bí là môi trường vận hành thực của nền tảng LeTRON: mạng lưới Le-Node, phần mềm LeASO và robot hoạt động trong điều kiện sản xuất, với số liệu được ghi nhận và công bố.",
+      "note": "Số liệu vận hành công bố khi Sandbox đi vào hoạt động. Giai đoạn chuẩn bị: tiếp nhận đăng ký tham quan và xác định phạm vi thử nghiệm.",
       "facts": [
         {
           "label": "Địa điểm",
           "value": "Uông Bí, Quảng Ninh"
         },
         {
-          "label": "Thời điểm",
-          "value": "Khởi công Q3/2026 · vận hành từ Q4/2026"
+          "label": "Tiến độ",
+          "value": "Khởi công Q3/2026 · vận hành Q4/2026"
         },
         {
-          "label": "Chạy thử",
-          "value": "Mạng lưới Le-Node, LeASO giao việc, một robot Le-ORION trong phạm vi được giao"
+          "label": "Thử nghiệm",
+          "value": "Mạng lưới Le-Node, điều phối LeASO, robot Le-ORION"
         },
         {
           "label": "Đối tác",
-          "value": "Hợp tác logistics đang đàm phán, công bố khi ký kết"
+          "value": "Hợp tác logistics, công bố sau ký kết"
         }
       ],
       "cta": "Đăng ký tham quan Sandbox",

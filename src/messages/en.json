@@ -91,7 +91,7 @@
       "Machines operate autonomously within limits people set",
       "Every task has an owner and acceptance evidence"
     ],
-    "description": "LeTRON helps factories, industrial parks and cities automate one operating scope at a time on a single platform: management software, edge devices and industrial robots. Delivered as a service, scaled once results are proven.",
+    "description": "An autonomous operations platform for factories, industrial parks and cities: management software, edge devices and robots in one system. Delivered as a service, scaled on verified results.",
     "ctaPrimary": "Book a 30-minute consultation",
     "ctaSecondary": "Get the company profile",
     "footerTags": [
@@ -103,37 +103,37 @@
       "leaso": {
         "role": "Management software",
         "status": "In development",
-        "description": "Assign, coordinate and track the results of your whole operation on one screen."
+        "description": "Assign, coordinate and track operating results on one interface."
       },
       "lele": {
         "role": "AI coordination assistant",
         "status": "In development",
-        "description": "Suggests decisions from real data and automates repetitive steps, within limits people set."
+        "description": "Proposes decisions from operating data; automates repetitive steps within set limits."
       },
       "lecapm": {
         "role": "Authentication hardware",
         "status": "Design & R&D",
-        "description": "Confirms who may do what on each device, so automation always comes with safety."
+        "description": "Authenticates operating rights on each device. Automation with safety built in."
       },
       "nodefactory": {
         "role": "Shop-floor edge device",
         "status": "In development",
-        "description": "Brings machine and production data into the management system in real time."
+        "description": "Connects machine and production data to the management system in real time."
       },
       "nodemobility": {
         "role": "Mobile edge device",
         "status": "In development",
-        "description": "Tracks vehicles, goods and handovers in the field, even where there is no fixed network."
+        "description": "Tracks vehicles, goods and handovers in the field, including areas without a fixed network."
       },
       "nodeair": {
         "role": "Aerial applications",
         "status": "Application concept",
-        "description": "Wide-area survey and monitoring by aircraft, on tasks assigned from the management system."
+        "description": "Wide-area survey and monitoring by aircraft on coordinated tasks."
       },
       "orion": {
         "role": "Industrial robot",
         "status": "Design & R&D",
-        "description": "Material handling, part feeding and visual inspection within an assigned task scope."
+        "description": "Material handling, part feeding and visual inspection within the assigned scope."
       },
       "leos": {
         "role": "Shared operating system"
@@ -365,13 +365,13 @@
     "titleLine1": "Build a career",
     "titleHighlightPrefix": "or shape ",
     "titleHighlightAccent": "the future?",
-    "description": "We are always looking for creative minds who keep pushing boundaries and take ownership seriously, to help revolutionize the circular economy industry in Vietnam.",
-    "emailPlaceholder": "Your email",
+    "description": "LeTRON seeks creative, highly accountable people ready to push limits and build the autonomous operations platform for Vietnamese industry.",
+    "emailPlaceholder": "Email",
     "cta": "Join Our Team"
   },
   "partners": {
     "title": "LeTRON Partners",
-    "description": "We don't just connect — we create lasting value together and drive a comprehensive green transformation.",
+    "description": "A partner ecosystem built on verified, transparent collaboration that creates long-term value.",
     "logoAlt": "LeTRON Partner {index}"
   },
   "partnerShowcase": {
@@ -384,7 +384,7 @@
   "appDownload": {
     "eyebrow": "LeOS SUPER APP · MOBILE OPERATIONS",
     "headerWhite": "Take operations data",
-    "headerAccent": "with you",
+    "headerAccent": "within reach",
     "description": "Track status, receive alerts, and coordinate operations in one unified mobile experience.",
     "phoneAlt": "LeOS app on mobile",
     "storeGooglePlayAlt": "Get it on Google Play",
@@ -567,10 +567,10 @@
     "breadcrumbCurrent": "Products",
     "heroTitlePrefix": "LeTRON ",
     "heroTitleHighlight": "Products",
-    "heroDescription": "The products are developed to work together in one solution. Configuration and the scope of autonomy are set according to the problem.",
+    "heroDescription": "Six products operating as one system. Configuration and autonomy scope are defined per use case.",
     "introHeadingLine1": "Products operated",
     "introHeadingLine2": "as one system",
-    "introParagraph": "LETRON builds an environment where people, technology, and data work together to solve large-scale industrial problems.",
+    "introParagraph": "The LeTRON platform connects people, technology and data to solve large-scale industrial problems.",
     "statOptimizeCost": "Optimize costs",
     "statOperationEfficiency": "Increase operational efficiency",
     "statEnvironmentImpact": "Reduce environmental impact",
@@ -579,24 +579,24 @@
     "faqHeadingHighlight": "questions",
     "faqItems": [
       {
-        "question": "How can automation by LeTRON help my business?",
-        "answer": "The LeOS platform digitizes your entire operating workflow, collecting and analyzing data in real time to optimize costs, boost efficiency, and reduce errors from manual processes."
+        "question": "What value does the LeTRON platform bring to a business?",
+        "answer": "Digitised operations with real-time data collection and analysis to optimise cost, raise performance and reduce manual errors."
       },
       {
-        "question": "Is it difficult to integrate LeTRON AI into my current system?",
-        "answer": "LeOS is built to integrate flexibly with your existing infrastructure and software through open APIs. LeTRON's technical team works alongside you throughout deployment to ensure a smooth transition."
+        "question": "How is integration with existing systems handled?",
+        "answer": "The platform integrates with existing infrastructure and software through open APIs. LeTRON's engineering team supports the entire deployment."
       },
       {
-        "question": "Which industries can benefit from AI-driven automation?",
-        "answer": "LeTRON's solutions apply to a wide range of industries — energy, construction materials, smart cities, and mobility — any field that needs data-driven operations can benefit."
+        "question": "Which sectors suit LeTRON solutions?",
+        "answer": "Manufacturing plants, industrial parks, logistics, energy and urban infrastructure; any sector that needs data-driven operations."
       },
       {
-        "question": "How long does it take to set up LeTRON?",
-        "answer": "Setup time depends on the scale and complexity of your existing systems. A pilot project can typically go live within just a few weeks, working alongside LeTRON's technical team."
+        "question": "How long does deployment take?",
+        "answer": "It depends on the scale and complexity of existing systems. A pilot project typically goes live within a few weeks."
       },
       {
-        "question": "Can I request a customized LeTRON solution?",
-        "answer": "Yes. Beyond our existing products, LeTRON offers consulting and custom solution development tailored to each business's specific operations."
+        "question": "Does LeTRON provide customised solutions?",
+        "answer": "Yes. Alongside standard products, LeTRON advises on and develops solutions tailored to each company's operations."
       }
     ],
     "detail": {
@@ -723,8 +723,8 @@
     "introHeadingLine1": "An Industrial Ecosystem",
     "introHeadingLine2Prefix": "Powered by ",
     "introHeadingLine2Highlight": "Data",
-    "introParagraph1": "LeTRON is an industrial technology group. We build the platform that lets factories, industrial parks and cities automate one operating scope at a time while decisions stay with people.",
-    "introParagraph2": "Three units work as one chain: LeAR researches and owns the core technology, LeDB builds the digital platform, LeHS designs and manufactures the hardware. Products are delivered as a service and accepted on measured results at the Uong Bi Sandbox before scaling.",
+    "introParagraph1": "LeTRON is an industrial technology group developing an autonomous operations platform for factories, industrial parks and cities: one scope at a time, with decisions staying with people.",
+    "introParagraph2": "Three member units form one value chain: LeAR researches and owns the core technology, LeDB develops the digital platform, LeHS designs and manufactures the hardware. Products are provided as a service and accepted at the Uong Bi Sandbox before scaling.",
     "playVideoLabel": "Play video",
     "visionBadge": "Vision",
     "visionHeadingLine1": "An Industrial Ecosystem",
@@ -734,7 +734,7 @@
     "missionBadge": "Mission",
     "missionHeadingLine1": "Healing the Earth",
     "missionHeadingHighlight": "through technology",
-    "missionIntro": "We apply the LeOS and LeLe AI platforms to:",
+    "missionIntro": "The LeOS and LeLe AI platforms are applied to:",
     "missionPoints": [
       "Turn industrial waste into high-value materials",
       "Optimize operations with real-time data",
@@ -756,10 +756,10 @@
     "breadcrumbCurrent": "Contact",
     "heroTitlePrefix": "Let's define ",
     "heroTitleHighlight": "the outcome you need",
-    "heroDescription": "Share your current situation, tasks and desired results so we can define a suitable pilot scope together. Leave your details and the LeTRON team will get in touch.",
-    "formHeadingLine1": "Leave your information",
-    "formHeadingLine2Prefix": "We will ",
-    "formHeadingLine2Highlight": "get in touch shortly!",
+    "heroDescription": "Describe the current state, the task and the expected result to define a suitable pilot scope. LeTRON responds within 2 working days.",
+    "formHeadingLine1": "Request a consultation",
+    "formHeadingLine2Prefix": "LeTRON will ",
+    "formHeadingLine2Highlight": "get in touch shortly.",
     "formNamePlaceholder": "Full name*",
     "formEmailPlaceholder": "Email*",
     "formPhonePlaceholder": "Phone number*",
@@ -878,26 +878,26 @@
     "principles": [
       {
         "eyebrow": "01 / TRUST",
-        "title": "Data with a clear origin",
-        "body": "Every figure comes with its source, time and collection conditions, so you decide on data you can trust."
+        "title": "Data with provenance",
+        "body": "Every figure carries its source, time and collection conditions."
       },
       {
         "eyebrow": "02 / CONTROL",
-        "title": "Autonomy within limits people set",
-        "body": "You define what machines may do, how far, and when a person must step in. The system never exceeds that scope."
+        "title": "Autonomy within limits",
+        "body": "Scope and intervention conditions are set per task. The system never exceeds them."
       },
       {
         "eyebrow": "03 / ACCOUNTABILITY",
-        "title": "Every result has an owner",
-        "body": "Each task is tied to who assigned it, who did it and the acceptance evidence. No result is ownerless."
+        "title": "Results with an owner",
+        "body": "Each task is linked to the assigner, the executing unit and the acceptance evidence."
       }
     ],
     "factory": {
       "eyebrow": "FACTORY",
       "title": "A line that runs itself.\nThe foreman stays in charge.",
-      "body": "LeASO assigns the work, Le-NodeFactory collects data at the machine, Le-ORION performs the repetitive steps. Every shift ends with results checked and recorded, with no manual reconciliation.",
+      "body": "LeASO coordinates tasks, Le-NodeFactory collects data at the machine, Le-ORION performs repetitive operations. Each shift ends with results checked and recorded.",
       "tag": "Solution direction / R&D",
-      "cta": "Get advice for your factory",
+      "cta": "Factory solution advice",
       "imageAlt": "Illustration of a factory with a square-headed Le-ORION robot, optical hair and edge devices next to a machining station.",
       "caption": "Le-ORION + Le-NodeFactory · Concept illustration; real figures will be published from the Uong Bi Sandbox.",
       "topic": "factory solutions"
@@ -905,9 +905,9 @@
     "city": {
       "eyebrow": "CITIES & INFRASTRUCTURE",
       "title": "Run the city\nfrom field data.",
-      "body": "Vehicles, aircraft and the operations centre share one source of data. Each unit sees exactly its part of the job, with clearly assigned authority and responsibility.",
+      "body": "Vehicles, aircraft and the operations centre share one source of data. Each unit accesses exactly its part of the work, with clear authority.",
       "tag": "Solution direction / R&D",
-      "cta": "Get advice for cities and infrastructure",
+      "cta": "City and infrastructure advice",
       "imageAlt": "Illustration of a Digital City with mobile vehicles, drones and an operations center.",
       "caption": "LeASO + Le-NodeMobility + Le-NodeAir · Concept illustration; real figures will be published from the Uong Bi Sandbox.",
       "topic": "Digital City solutions"
@@ -915,32 +915,32 @@
     "loop": {
       "eyebrow": "HOW THE SYSTEM WORKS",
       "title": "One task. Five steps. One record.",
-      "lead": "Every job, whether done by people or machines, goes through the same five steps. So you always know where the work is, who owns it and whether the result is in.",
+      "lead": "Every task passes through the same five steps. Status, responsible party and acceptance result are always clear.",
       "ariaLabel": "Operating loop",
       "stages": [
         {
           "name": "Assign",
-          "body": "Define the work, the owner, the scope and the completion criteria."
+          "body": "Define the work, the responsible party, the scope and the completion criteria."
         },
         {
           "name": "Execute",
-          "body": "Devices and robots work within the assigned scope. Anything unusual is logged immediately."
+          "body": "Devices and robots operate within the assigned scope. Anomalies are recorded immediately."
         },
         {
           "name": "Check",
-          "body": "Actual results are compared with the agreed criteria. No evidence, not yet passed."
+          "body": "Actual results are compared with the criteria. Completion is confirmed only with sufficient evidence."
         },
         {
           "name": "Keep evidence",
-          "body": "The record is tied to the task, the configuration and the check result, ready for audit and acceptance."
+          "body": "Records are linked to the task, configuration and check result, ready for acceptance and audit."
         },
         {
           "name": "Maintain",
-          "body": "Equipment condition data turns into inspection and repair work before a failure happens."
+          "body": "Equipment condition data becomes inspection and remediation plans before failures occur."
         }
       ],
       "stamp": "Assign → Execute → Check → Evidence → Maintain",
-      "stampNote": "Illustrative process diagram; the connection to your systems is set up during the pilot."
+      "stampNote": "Illustrative diagram. Integration with existing systems is established during the pilot."
     },
     "portfolio": {
       "number": "20",
@@ -954,24 +954,24 @@
       "topic": "R&D partnership"
     },
     "proof": {
-      "eyebrow": "HOW WE WORK",
-      "title": "Delivered as a service.\nPay for results, not promises.",
-      "lead": "Before deployment, LeTRON agrees the scope, the measurements and the acceptance criteria with you. Scaling starts only once the pilot has passed.",
+      "eyebrow": "ENGAGEMENT MODEL",
+      "title": "Delivered as a service.\nAccepted on results.",
+      "lead": "Scope, measurement method and acceptance criteria are agreed before deployment. Expansion follows a successful pilot.",
       "items": [
         {
           "eyebrow": "01 / SURVEY",
-          "title": "Understand the real problem",
-          "body": "We survey your equipment, processes and existing data, and identify the scope that delivers value soonest."
+          "title": "Define the problem",
+          "body": "Survey of equipment, processes and data; selection of the scope that delivers value soonest."
         },
         {
           "eyebrow": "02 / PILOT",
-          "title": "Prove it on site",
-          "body": "A trial on a small scope with before-and-after figures. Results that fall short are reported transparently."
+          "title": "Verify on site",
+          "body": "Trial on a limited scope with before-and-after figures. Shortfalls are reported transparently."
         },
         {
           "eyebrow": "03 / OPERATE",
-          "title": "Scale once it passes",
-          "body": "The contract states the committed results, support, maintenance and LeTRON's obligation to fix what falls short."
+          "title": "Expand on results",
+          "body": "The contract specifies committed results, support, maintenance and remediation obligations."
         }
       ]
     },
@@ -982,8 +982,8 @@
     },
     "cta": {
       "eyebrow": "START WITH ONE SMALL SCOPE",
-      "title": "30 minutes to define your first pilot scope.",
-      "body": "You describe the problem and the current state. LeTRON proposes the scope, how results will be measured and what can be trialled right away at the Uong Bi Sandbox.",
+      "title": "The first pilot scope,\ndefined in one consultation.",
+      "body": "From the problem and the current operating state, LeTRON proposes the pilot scope, how results are measured and what can run immediately at the Uong Bi Sandbox.",
       "button": "Book a consultation"
     },
     "products": [
@@ -991,7 +991,7 @@
         "id": "leaso",
         "eyebrow": "01 / MANAGEMENT",
         "title": "LeASO + LeLe",
-        "body": "Assign, coordinate and track the results of your whole operation on one screen, with an AI assistant suggesting decisions from real data.",
+        "body": "Assign, coordinate and track results on one interface, with an AI assistant proposing decisions from real data.",
         "status": "In development",
         "route": "platform"
       },
@@ -999,7 +999,7 @@
         "id": "nodefactory",
         "eyebrow": "02 / SHOP FLOOR",
         "title": "Le-NodeFactory",
-        "body": "Brings machine and production data into the management system in real time. Installed line by line, without stopping production.",
+        "body": "Connects machine and production data to the management system in real time. Deployed line by line, without interrupting production.",
         "status": "In development",
         "route": "factory"
       },
@@ -1007,7 +1007,7 @@
         "id": "nodemobility",
         "eyebrow": "03 / MOBILE",
         "title": "Le-NodeMobility",
-        "body": "Tracks vehicles, goods and handovers in the field, even where there is no fixed network.",
+        "body": "Tracks vehicles, goods and handovers in the field, including areas without a fixed network.",
         "status": "In development",
         "route": "city"
       },
@@ -1015,7 +1015,7 @@
         "id": "nodeair",
         "eyebrow": "04 / AERIAL",
         "title": "Le-NodeAir",
-        "body": "Wide-area survey and monitoring by aircraft, on tasks assigned from the management system.",
+        "body": "Wide-area survey and monitoring by aircraft on coordinated tasks.",
         "status": "Application concept",
         "route": "city"
       },
@@ -1023,7 +1023,7 @@
         "id": "orion",
         "eyebrow": "05 / ROBOT",
         "title": "Le-ORION",
-        "body": "Industrial robot for material handling, part feeding and visual inspection, working within an assigned task scope.",
+        "body": "Industrial robot for material handling, part feeding and visual inspection within the assigned scope.",
         "status": "Design & R&D",
         "route": "factory"
       },
@@ -1031,7 +1031,7 @@
         "id": "lecapm",
         "eyebrow": "06 / SAFETY",
         "title": "LeCAP-M",
-        "body": "Hardware that confirms who may do what on each device, so automation always comes with safety.",
+        "body": "Hardware that authenticates operating rights on each device. Automation with safety built in.",
         "status": "Design & R&D",
         "route": "technology"
       }
@@ -1078,20 +1078,20 @@
       "solutions": {
         "eyebrow": "SOLUTIONS BY CONTEXT",
         "title": "Start from the problem.\nMeasure by results.",
-        "body": "Every site operates under different conditions. LeTRON works with the customer to set the scope, baseline and acceptance method before deployment.",
+        "body": "Every site has its own operating conditions. Scope, reference figures and acceptance criteria are established with the customer before deployment.",
         "metaTitle": "Solutions by context"
       },
       "platform": {
         "eyebrow": "PRODUCTS",
         "title": "One platform,\nfrom control room to field.",
-        "body": "Six products designed to work together. Start with the scope you need most and expand step by step, without replacing the systems you already have.",
+        "body": "Six products operating as one system. Start with the priority scope, expand along a roadmap, integrate with existing systems.",
         "metaTitle": "Platform",
-        "cta": "Get advice on the right product"
+        "cta": "Product selection advice"
       },
       "technology": {
         "eyebrow": "TECHNOLOGY & R&D",
         "title": "One platform.\nMany applications.",
-        "body": "Research for trusted data, controlled operations and verifiable results. Public information focuses on application value.",
+        "body": "Research in service of trusted data, controlled operations and verifiable results. Public information focuses on applied value.",
         "metaTitle": "Technology & R&D"
       },
       "factory": {
@@ -1109,7 +1109,7 @@
       "terms": {
         "eyebrow": "TERMS",
         "title": "Terms of use.",
-        "body": "The terms that apply when you access and use letrongroup.com.",
+        "body": "Terms governing access to and use of the letrongroup.com website.",
         "metaTitle": "Terms of use"
       },
       "investors": {
@@ -1195,14 +1195,14 @@
         {
           "eyebrow": "03 / RECONCILE",
           "title": "Expand with conditions",
-          "body": "Compare before and after, accept the results, then decide the scope of expansion."
+          "body": "Compare before and after deployment, accept the results, then decide the expansion scope."
         }
       ]
     },
     "aboutV2": {
       "visionEyebrow": "VISION",
       "visionTitle": "Technology alongside accountability",
-      "visionBody": "To be the trusted operations platform that lets every organisation run autonomously within the scope it controls.",
+      "visionBody": "To be the trusted operations platform that lets every organisation run autonomously within its own scope of control.",
       "missionEyebrow": "MISSION",
       "missionTitle": "From the lab to the field",
       "missionBody": "Connecting research, management software and field devices into one solution, accepted on verifiable results.",
@@ -1243,14 +1243,14 @@
       "required": "* Required field",
       "notice": "LeTRON does not accept unsolicited ideas or technical documents through this form. Please do not send confidential documents.",
       "infoEyebrow": "CONNECT",
-      "infoTitle": "Talk with the LeTRON team.",
+      "infoTitle": "Consult with the LeTRON team.",
       "infoNote": "Send overview information only. In-depth documents are exchanged through an agreed confidential channel and scope.",
       "phonePlaceholder": "Phone number (optional)",
       "emailPlaceholder": "Work email*",
       "messageLabel": "Describe the problem*",
       "thanks": {
-        "title": "Thank you.",
-        "body": "LeTRON has received your information. To make the discussion productive, you may prepare in advance:",
+        "title": "Request received",
+        "body": "LeTRON has received the information. To make the consultation effective, please prepare:",
         "steps": [
           {
             "eyebrow": "01 / SITUATION",
@@ -1273,11 +1273,11 @@
     "terms": [
       {
         "title": "Scope of use of the website",
-        "body": "letrongroup.com is operated by LeTRON Group Joint Stock Company to present the company, its products, solutions and career opportunities. By accessing it you agree to use the website lawfully and not to disrupt its operation."
+        "body": "The letrongroup.com website is operated by LeTRON Group Joint Stock Company to present the company, its products, solutions and career opportunities. Users agree to use the website lawfully and without affecting its operation."
       },
       {
         "title": "Materials and ownership",
-        "body": "Content, images, trademarks and materials on the website belong to LeTRON or its licensors. You may not copy, modify or use them commercially without written consent."
+        "body": "Content, images, trademarks and documents on the website belong to LeTRON or its licensors. Copying, modifying or using them for commercial purposes requires written consent."
       },
       {
         "title": "Limits of public information",
@@ -1306,8 +1306,8 @@
     },
     "dialog": {
       "title": "Book a consultation",
-      "body": "Leave your details and LeTRON will get in touch within 2 working days to arrange a 30-minute consultation.",
-      "bodyWithTopic": "About {topic}. LeTRON will get in touch within 2 working days to arrange a 30-minute consultation.",
+      "body": "LeTRON will get in touch within 2 working days to arrange a 30-minute consultation.",
+      "bodyWithTopic": "Subject: {topic}. LeTRON will get in touch within 2 working days to arrange a 30-minute consultation.",
       "name": "Full name",
       "email": "Work email",
       "phone": "Phone",
@@ -1317,14 +1317,14 @@
       "messagePrefix": "Interested in: {topic}",
       "error": "Could not send, please try again.",
       "sentTitle": "Request received",
-      "sentBody": "Thank you. LeTRON will get in touch within 2 working days.",
+      "sentBody": "LeTRON has received the request and will get in touch within 2 working days.",
       "close": "Close"
     },
     "sandbox": {
       "eyebrow": "UONG BI SANDBOX",
-      "title": "See the system run for real\nbefore you decide.",
-      "lead": "We do not ask you to trust illustrations. At the Uong Bi Sandbox, the Le-Node network, LeASO software and robots operate in real conditions, with figures you can check.",
-      "note": "Operating figures will be published once the Sandbox is live. Until then, LeTRON offers visits and helps define a pilot scope, with no claims about results not yet measured.",
+      "title": "Real-world operation\nbefore the decision.",
+      "lead": "The Uong Bi Sandbox is the live operating environment of the LeTRON platform: the Le-Node network, LeASO software and robots run under production conditions, with figures recorded and published.",
+      "note": "Operating figures are published once the Sandbox is live. During preparation: visit registrations and pilot-scope definition.",
       "facts": [
         {
           "label": "Location",
@@ -1332,15 +1332,15 @@
         },
         {
           "label": "Timeline",
-          "value": "Construction Q3/2026 · operating from Q4/2026"
+          "value": "Construction Q3/2026 · operating Q4/2026"
         },
         {
           "label": "Trials",
-          "value": "Le-Node network, LeASO task assignment, one Le-ORION robot within an assigned scope"
+          "value": "Le-Node network, LeASO coordination, Le-ORION robot"
         },
         {
           "label": "Partners",
-          "value": "Logistics partnership under negotiation, announced when signed"
+          "value": "Logistics partnership, announced upon signing"
         }
       ],
       "cta": "Register for a Sandbox visit",
