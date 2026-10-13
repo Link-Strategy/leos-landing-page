@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { ContactMasterButton } from "@/components/contact/ContactDialog";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 import HeroOrbit from "@/components/landing/HeroOrbit";
+import HeroPrinciples from "@/components/landing/HeroPrinciples";
 
 export default function Hero() {
   const t = useTranslations("hero");
@@ -34,6 +35,9 @@ export default function Hero() {
             <p className="font-open-sans text-[18px] font-light leading-[30px] tracking-[0px] text-[#F4F4F4]">
               {t("description")}
             </p>
+
+            {/* Three principles with tooltips; the standalone principles section is gone */}
+            <HeroPrinciples />
           </div>
 
           <div className="mt-10 flex w-full flex-col items-center gap-4 lg:w-auto lg:flex-row lg:justify-start">

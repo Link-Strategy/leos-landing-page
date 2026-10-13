@@ -1,7 +1,7 @@
 import Hero from "@/components/landing/Hero";
 import Products from "@/components/landing/Products";
 import V2Loop from "@/components/v2/Loop";
-import { V2Cta, V2Feature, V2Principles, V2ProofCards, V2Sandbox } from "@/components/v2/blocks";
+import { V2Cta, V2Feature, V2ProofCards, V2Sandbox } from "@/components/v2/blocks";
 import type { Metadata } from "next";
 import { localeAlternates } from "@/lib/seo-alternates";
 import { setRequestLocale } from "next-intl/server";
@@ -31,7 +31,6 @@ export default async function Home({
     <div className="site-main">
       <div className="legacy-scope">
         <Hero />
-        <V2Principles />
         <Products />
         <V2Feature which="factory" />
         <V2Feature which="city" />

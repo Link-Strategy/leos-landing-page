@@ -9,19 +9,20 @@ import { useTranslations } from "next-intl";
 // V2 "Mặt trời và Quỹ đạo" diagram: the LeTRON sun in the middle, an inner orbit of applications and an
 // outer orbit of devices. Start angles (degrees from +x, clockwise) and radii (fraction of the box width)
 // come from the V2 design (web/content.js, web/app.js). Styling reuses the site's existing cyan glow look.
-type OrbitNode = { id: string; name: string; Icon: LucideIcon; angle: number };
+// Each satellite has its own accent so the two rings read as eight distinct things, not eight copies of one icon.
+type OrbitNode = { id: string; name: string; Icon: LucideIcon; angle: number; color: string };
 
 const INNER: OrbitNode[] = [
-  { id: "leaso", name: "LeASO", Icon: LayoutGrid, angle: 0 },
-  { id: "lele", name: "LeLe", Icon: Brain, angle: 120 },
-  { id: "lecapm", name: "LeCAP-M", Icon: Cpu, angle: 240 },
+  { id: "leaso", name: "LeASO", Icon: LayoutGrid, angle: 0, color: "#63D9FF" },
+  { id: "lele", name: "LeLe", Icon: Brain, angle: 120, color: "#B388FF" },
+  { id: "lecapm", name: "LeCAP-M", Icon: Cpu, angle: 240, color: "#FAB81F" },
 ];
 const OUTER: OrbitNode[] = [
-  { id: "nodefactory", name: "Le-NodeFactory", Icon: Server, angle: 20 },
-  { id: "nodemobility", name: "Le-NodeMobility", Icon: Truck, angle: 92 },
-  { id: "nodeair", name: "Le-NodeAir", Icon: Plane, angle: 164 },
-  { id: "orion", name: "Le-ORION", Icon: Bot, angle: 236 },
-  { id: "leos", name: "LeOS", Icon: Layers, angle: 308 },
+  { id: "nodefactory", name: "Le-NodeFactory", Icon: Server, angle: 20, color: "#FF7E00" },
+  { id: "nodemobility", name: "Le-NodeMobility", Icon: Truck, angle: 92, color: "#1CBBB4" },
+  { id: "nodeair", name: "Le-NodeAir", Icon: Plane, angle: 164, color: "#7CFC9A" },
+  { id: "orion", name: "Le-ORION", Icon: Bot, angle: 236, color: "#FF5C8A" },
+  { id: "leos", name: "LeOS", Icon: Layers, angle: 308, color: "#4F8BFF" },
 ];
 
 const INNER_RADIUS = 0.225;
@@ -72,7 +73,7 @@ function Satellite({
   // Rounded: raw floats differ in the last digits between server and client and trigger a hydration mismatch.
   const left = Number((50 + Math.cos(rad) * radius * 100).toFixed(2));
   const top = Number((50 + Math.sin(rad) * radius * 100).toFixed(2));
-  const { Icon } = node;
+  const { Icon, color } = node;
 
   return (
     <span className="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${left}%`, top: `${top}%` }}>
@@ -98,8 +99,8 @@ function Satellite({
           className="relative flex size-[46px] items-center justify-center transition-transform duration-300 group-hover:scale-110 sm:size-[58px]"
           style={{
             clipPath: HEX,
-            background: active ? "#63D9FF" : "#2A9FFF",
-            filter: "drop-shadow(0 0 10px rgba(42,159,255,0.45))",
+            background: color,
+            filter: `drop-shadow(0 0 ${active ? 16 : 10}px ${color}${active ? "B3" : "73"})`,
           }}
         >
           <span
@@ -111,10 +112,10 @@ function Satellite({
                 : "linear-gradient(180deg, #0b2a63 0%, #061a40 100%)",
             }}
           >
-            <Icon className={active ? "size-5 text-[#63D9FF] sm:size-6" : "size-5 text-[#9fd8ff] sm:size-6"} strokeWidth={1.6} />
+            <Icon className="size-5 sm:size-6" style={{ color }} strokeWidth={1.8} />
           </span>
         </span>
-        <span className="font-inter text-[9px] font-bold leading-none tracking-[0.2px] text-white whitespace-nowrap sm:text-[11px]">
+        <span className="font-inter text-[9px] font-bold leading-none tracking-[0.2px] whitespace-nowrap sm:text-[11px]" style={{ color: active ? color : "#FFFFFF" }}>
           {node.name}
         </span>
       </button>

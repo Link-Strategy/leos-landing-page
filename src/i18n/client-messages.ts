@@ -14,7 +14,7 @@ const CLIENT_NAMESPACES = {
   serviceModel: true,
   techArchitecture: true,
   contact: { phone1: true },
-  v2: { common: true, products: true, loop: true, dialog: true },
+  v2: { common: true, products: true, principles: true, loop: true, dialog: true },
 } as const;
 
 type Pick = true | { readonly [key: string]: Pick };
