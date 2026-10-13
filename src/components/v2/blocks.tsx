@@ -6,7 +6,6 @@ import {
   Lead,
   SectionHead,
   SectionTitle,
-  StatusTag,
   V2Card,
   V2CardGrid,
   V2Section,
@@ -52,7 +51,6 @@ export async function V2Feature({ which }: { which: "factory" | "city" }) {
       <Eyebrow>{t(`${key}.eyebrow`)}</Eyebrow>
       <SectionTitle>{t(`${key}.title`)}</SectionTitle>
       <Lead>{t(`${key}.body`)}</Lead>
-      <StatusTag>{t(`${key}.tag`)}</StatusTag>
       <ContactCta variant="link" topic={t(`${key}.topic`)}>
         {t(`${key}.cta`)}
       </ContactCta>

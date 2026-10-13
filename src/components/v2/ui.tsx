@@ -151,7 +151,6 @@ export function V2Card({ item, linkLabel }: { item: V2CardItem; linkLabel?: stri
       <Eyebrow className="!text-[11px] !tracking-[2px] lg:!text-[12px]">{item.eyebrow}</Eyebrow>
       <h3 className="font-inter m-0 text-[22px] font-bold leading-[28px] text-white lg:text-[24px] lg:leading-[30px]">{item.title}</h3>
       <p className="font-open-sans m-0 text-[15px] leading-[24px] text-[#E5F0FA]">{item.body}</p>
-      {item.status && <StatusTag>{item.status}</StatusTag>}
       {item.route && linkLabel && (
         <ContactCta variant="link" topic={item.title} className="mt-auto pt-2">
           {linkLabel.replace("{name}", item.title)}

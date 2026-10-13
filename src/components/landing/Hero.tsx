@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ContactMasterButton } from "@/components/contact/ContactDialog";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
@@ -6,7 +5,6 @@ import HeroOrbit from "@/components/landing/HeroOrbit";
 
 export default function Hero() {
   const t = useTranslations("hero");
-  const features = t.raw("features") as string[];
   const footerTags = t.raw("footerTags") as string[];
 
   return (
@@ -33,16 +31,6 @@ export default function Hero() {
               {t("subtitle")}
             </p>
 
-            <ul className="flex w-full flex-col items-start gap-2 lg:w-auto lg:flex-row lg:flex-wrap lg:items-center lg:justify-start lg:gap-x-6 lg:gap-y-2">
-              {features.map((feature) => (
-                <li key={feature} className="flex items-center gap-[6px]">
-                  <Image src="/landing/LeOsAi/Tick.svg" alt="" width={20} height={20} className="shrink-0" />
-                  <span className="font-open-sans text-[18px] font-normal leading-[30px] tracking-[0px] text-white">
-                    {feature}
-                  </span>
-                </li>
-              ))}
-            </ul>
 
             <p className="font-open-sans text-[18px] font-light leading-[30px] tracking-[0px] text-[#F4F4F4]">
               {t("description")}

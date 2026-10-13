@@ -34,7 +34,6 @@ export async function GET() {
     { url: "blog", priority: "0.9", changefreq: "daily" as const, lastmod: undefined },
     { url: "giai-phap", priority: "0.8", changefreq: "monthly" as const, lastmod: undefined },
     { url: "nen-tang", priority: "0.7", changefreq: "monthly" as const, lastmod: undefined },
-    { url: "cong-nghe", priority: "0.7", changefreq: "monthly" as const, lastmod: undefined },
     { url: "nha-may", priority: "0.7", changefreq: "monthly" as const, lastmod: undefined },
     { url: "thanh-pho-so", priority: "0.7", changefreq: "monthly" as const, lastmod: undefined },
     { url: "nha-dau-tu", priority: "0.6", changefreq: "monthly" as const, lastmod: undefined },

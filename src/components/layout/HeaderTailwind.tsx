@@ -61,7 +61,7 @@ export default function Header() {
   };
   return (
     <header className="sticky top-0 z-50 w-full" onMouseLeave={() => setActiveMegaMenu(null)}>
-      <div className="fixed left-0 top-0 z-999 w-full bg-[#0D1B4B]/60 px-6 py-5 backdrop-blur-sm">
+      <div className="fixed left-0 top-0 z-999 w-full px-6 py-5">
         <NavigationMenuPrimitive.Root className="relative w-full">
           <div className="header-glass-container relative z-20 flex h-20 w-full flex-row items-center justify-around overflow-hidden px-[35px] max-[1550px]:justify-between max-[1550px]:px-6 max-lg:px-5 max-md:px-[14px]">
             {/* Logo */}
@@ -115,9 +115,6 @@ export default function Header() {
                                         className="relative flex min-h-0 flex-1 flex-col justify-between gap-1.5 overflow-hidden bg-[linear-gradient(180deg,#0f2a63_0%,#0a1f4d_100%)] px-2.5 py-2 no-underline"
                                       >
                                         <p className="m-0 line-clamp-4 font-sans text-[11px] font-normal normal-case leading-[15px] text-white/85">{prod.body}</p>
-                                        <span className="w-fit rounded-full border border-[#FAB81F]/60 px-1.5 py-px font-sans text-[9px] font-semibold uppercase leading-[12px] tracking-[0.4px] text-[#FAB81F]">
-                                          {prod.status}
-                                        </span>
                                       </Link>
                                     </Card>
                                   </div>
@@ -209,7 +206,6 @@ export default function Header() {
                         <prod.Icon aria-hidden className="size-5 shrink-0 text-[#63D9FF]" strokeWidth={1.8} />
                         <div className="flex flex-col text-start gap-1">
                           <span className="text-sm font-semibold text-white font-sans leading-none">{prod.title}</span>
-                          <span className="text-[10px] text-[#FAB81F] font-sans leading-none">{prod.status}</span>
                         </div>
                       </Link>
                     </li>

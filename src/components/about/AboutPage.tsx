@@ -5,16 +5,19 @@ import { Link } from "@/i18n/navigation";
 import Career from "@/components/landing/Career";
 import { AboutHeartValues } from "./AboutHeartValues";
 import { LeadershipReveal } from "./LeadershipReveal";
-import { V2Philosophy, V2Portfolio } from "@/components/v2/blocks";
-import { Eyebrow, Lead, SectionHead, SectionTitle, V2Card, V2CardGrid, V2Section, type V2CardItem } from "@/components/v2/ui";
+import TechArchitecture from "@/components/landing/TechArchitecture";
+import { V2Philosophy, V2Portfolio, V2Readiness } from "@/components/v2/blocks";
+import { Eyebrow, Lead, SectionHead, SectionTitle, V2Card, V2CardGrid, V2Notice, V2Section, type V2CardItem } from "@/components/v2/ui";
 
 // About page, one story in the V2 voice: who LeTRON is → vision & mission → the Chairman's philosophy → H.E.A.R.T →
-// the three capability units → leadership → join us. Every block uses the shared V2 kit so spacing and type match
+// the three capability units → patents → technology & R&D (formerly /cong-nghe) → leadership → join us. Every block uses the shared V2 kit so spacing and type match
 // the rest of the site.
 export default async function AboutPage() {
   const t = await getTranslations("about");
   const v2 = await getTranslations("v2.aboutV2");
+  const tech = await getTranslations("v2");
   const eco = v2.raw("eco") as V2CardItem[];
+  const capabilities = tech.raw("technologyPage.capabilities") as V2CardItem[];
 
   return (
     <div className="site-main">
@@ -74,8 +77,26 @@ export default async function AboutPage() {
         <V2CardGrid items={eco} />
       </V2Section>
 
-      {/* 20 patent families (also on /cong-nghe) */}
-      <V2Portfolio />
+      {/* Technology & R&D: patents, architecture, capabilities, readiness. /cong-nghe redirects here. */}
+      <div id="cong-nghe" className="scroll-mt-28">
+        <V2Portfolio />
+        <TechArchitecture />
+        <V2Section>
+          <SectionHead eyebrow={tech("technologyPage.capEyebrow")} title={tech("technologyPage.capTitle")} />
+          <V2CardGrid items={capabilities} linkLabel={tech("common.viewSolution")} />
+        </V2Section>
+        <V2Section tone="mid">
+          <SectionHead
+            eyebrow={tech("technologyPage.honestEyebrow")}
+            title={tech("technologyPage.honestTitle")}
+            lead={tech("technologyPage.honestBody")}
+          />
+          <V2Readiness />
+          <div className="mt-8">
+            <V2Notice title={tech("technologyPage.docsTitle")} body={tech("technologyPage.docsBody")} />
+          </div>
+        </V2Section>
+      </div>
 
       {/* Leadership */}
       <V2Section>

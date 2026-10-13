@@ -148,7 +148,7 @@ export default function Footer() {
     { href: "/gioi-thieu", label: t("quickLinks.aboutUs") },
     { href: "/giai-phap", label: t("quickLinks.solutions") },
     { href: "/nen-tang", label: t("quickLinks.platform") },
-    { href: "/cong-nghe", label: t("quickLinks.technology") },
+    { href: "/gioi-thieu#cong-nghe", label: t("quickLinks.technology") },
     { href: "/blog", label: t("quickLinks.newsEvents") },
     { href: "/tuyen-dung", label: t("quickLinks.careers") },
     { href: "/nha-dau-tu", label: t("quickLinks.investors") },

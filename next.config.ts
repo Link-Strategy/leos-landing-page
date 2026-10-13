@@ -86,6 +86,9 @@ const nextConfig: NextConfig = {
   async redirects() {
     const greenPost = "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh";
     return [
+      // Technology & R&D merged into the about page.
+      { source: "/cong-nghe", destination: "/gioi-thieu#cong-nghe", permanent: true },
+      { source: "/en/cong-nghe", destination: "/en/gioi-thieu#cong-nghe", permanent: true },
       // Pages from the old site that no longer exist.
       { source: "/cong-ty-thanh-vien", destination: "/san-pham", permanent: true },
       { source: "/en/cong-ty-thanh-vien", destination: "/en/san-pham", permanent: true },

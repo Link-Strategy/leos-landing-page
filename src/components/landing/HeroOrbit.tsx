@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { LucideIcon } from "lucide-react";
 import { Bot, Brain, Cpu, LayoutGrid, Layers, Plane, Server, Truck } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -37,7 +38,8 @@ const HEX = "polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0% 50%)";
 const TIP_WIDTH = 250;
 
 type OrbitText = { role: string; status?: string; description?: string };
-// Where the tooltip sits relative to its icon. `x`/`y` are root-relative offsets: for above/below `x` is the
+// Where the tooltip sits relative to its icon, in viewport coordinates (it renders position:fixed in a portal, so the
+// hero's overflow:hidden cannot clip it). For above/below `x` is the
 // (clamped) horizontal center and `y` the distance from the root's bottom/top edge; for left/right `x` is the
 // distance from the root's right/left edge and `y` the vertical center.
 type Tip = { id: string; side: "above" | "below" | "left" | "right"; x: number; y: number };
@@ -166,25 +168,46 @@ export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption
     const b = btn.getBoundingClientRect();
     const half = TIP_WIDTH / 2;
     const gap = 8;
+    const cx = b.left + b.width / 2;
+    const cy = b.top + b.height / 2;
     // Open away from the orbit: along the direction from the sun to the icon.
-    const dx = b.left + b.width / 2 - (r.left + r.width / 2);
-    const dy = b.top + b.height / 2 - (r.top + r.height / 2);
+    const dx = cx - (r.left + r.width / 2);
+    const dy = cy - (r.top + r.height / 2);
     const roomRight = window.innerWidth - b.right;
     const roomLeft = b.left;
     const horizontal = Math.abs(dx) >= Math.abs(dy);
     if (horizontal && dx >= 0 && roomRight >= TIP_WIDTH + gap + 8) {
-      return { id, side: "right", x: b.right - r.left + gap, y: b.top + b.height / 2 - r.top };
+      return { id, side: "right", x: b.right + gap, y: cy };
     }
     if (horizontal && dx < 0 && roomLeft >= TIP_WIDTH + gap + 8) {
-      return { id, side: "left", x: r.right - b.left + gap, y: b.top + b.height / 2 - r.top };
+      return { id, side: "left", x: window.innerWidth - b.left + gap, y: cy };
     }
-    const x = Math.min(Math.max(b.left + b.width / 2 - r.left, half), Math.max(r.width - half, half));
-    // Vertical fallback: outward when the icon is on that half; flip only if the viewport has no room above.
-    const wantAbove = dy < 0 && b.top >= 170;
+    // Keep the box inside the viewport horizontally.
+    const x = Math.min(Math.max(cx, half + 8), window.innerWidth - half - 8);
+    // Vertical fallback: outward when the icon is on that half; flip only if the viewport has no room on that side.
+    const wantAbove = dy < 0 ? b.top >= 170 : b.bottom > window.innerHeight - 170;
     return wantAbove
-      ? { id, side: "above", x, y: r.bottom - b.top + gap }
-      : { id, side: "below", x, y: b.bottom - r.top + gap };
+      ? { id, side: "above", x, y: window.innerHeight - b.top + gap }
+      : { id, side: "below", x, y: b.bottom + gap };
   };
+
+  // Fixed coordinates go stale when the page scrolls or resizes: close the tooltip instead of letting it drift.
+  useEffect(() => {
+    if (!tip) return;
+    const close = () => {
+      hoveredRef.current = null;
+      selectedRef.current = null;
+      setHovered(null);
+      setSelected(null);
+      setTip(null);
+    };
+    window.addEventListener("scroll", close, { passive: true });
+    window.addEventListener("resize", close);
+    return () => {
+      window.removeEventListener("scroll", close);
+      window.removeEventListener("resize", close);
+    };
+  }, [tip]);
 
   // A tooltip opened by click (touch) closes by itself so the orbit never stays frozen.
   useEffect(() => {
@@ -278,35 +301,32 @@ export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption
         <p className="mb-0 mt-3 text-center font-inter text-[12px] font-semibold uppercase tracking-[1.6px] text-white/60">{caption}</p>
       ) : null}
 
-      {/* Tooltip attached to the active satellite */}
-      {tip && activeNode && info && tip.id === activeNode.id && (
-        <div
-          role="tooltip"
-          onMouseEnter={cancelLeave}
-          onMouseLeave={scheduleLeave}
-          className="pointer-events-auto absolute z-30 max-w-[92vw] rounded-[14px] border border-[#2A9FFF]/55 bg-[#061a40] px-3.5 py-3 text-left shadow-[0_8px_24px_rgba(0,0,0,0.45)]"
-          style={{
-            width: TIP_WIDTH,
-            ...(tip.side === "above" && { left: tip.x, bottom: tip.y, transform: "translateX(-50%)" }),
-            ...(tip.side === "below" && { left: tip.x, top: tip.y, transform: "translateX(-50%)" }),
-            ...(tip.side === "right" && { left: tip.x, top: tip.y, transform: "translateY(-50%)" }),
-            ...(tip.side === "left" && { right: tip.x, top: tip.y, transform: "translateY(-50%)" }),
-          }}
-        >
-          <p className="m-0 font-inter text-[13px] font-bold leading-[18px] text-white">
-            {activeNode.name}
-            <span className="font-normal text-[#63D9FF]"> · {info.role}</span>
-          </p>
-          {info.status && (
-            <span className="mt-1.5 inline-block rounded-full border border-[#FAB81F]/60 px-2 py-[1px] text-[10px] font-semibold uppercase tracking-[0.6px] text-[#FAB81F]">
-              {info.status}
-            </span>
-          )}
-          {info.description && (
-            <p className="mb-0 mt-1.5 font-inter text-[12px] leading-[17px] text-white/80">{info.description}</p>
-          )}
-        </div>
-      )}
+      {/* Tooltip attached to the active satellite, rendered at the body so no ancestor can clip it */}
+      {tip && activeNode && info && tip.id === activeNode.id && typeof document !== "undefined" &&
+        createPortal(
+          <div
+            role="tooltip"
+            onMouseEnter={cancelLeave}
+            onMouseLeave={scheduleLeave}
+            className="pointer-events-auto fixed z-[1000] max-w-[92vw] rounded-[14px] border border-[#2A9FFF]/55 bg-[#061a40] px-3.5 py-3 text-left shadow-[0_8px_24px_rgba(0,0,0,0.45)]"
+            style={{
+              width: TIP_WIDTH,
+              ...(tip.side === "above" && { left: tip.x, bottom: tip.y, transform: "translateX(-50%)" }),
+              ...(tip.side === "below" && { left: tip.x, top: tip.y, transform: "translateX(-50%)" }),
+              ...(tip.side === "right" && { left: tip.x, top: tip.y, transform: "translateY(-50%)" }),
+              ...(tip.side === "left" && { right: tip.x, top: tip.y, transform: "translateY(-50%)" }),
+            }}
+          >
+            <p className="m-0 font-inter text-[13px] font-bold leading-[18px] text-white">
+              {activeNode.name}
+              <span className="font-normal text-[#63D9FF]"> · {info.role}</span>
+            </p>
+            {info.description && (
+              <p className="mb-0 mt-1.5 font-inter text-[12px] leading-[17px] text-white/80">{info.description}</p>
+            )}
+          </div>,
+          document.body,
+        )}
     </div>
   );
 }

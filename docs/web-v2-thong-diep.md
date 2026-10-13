@@ -13,7 +13,7 @@ Nguồn V2: `web/content.js`, `web/app.js`, `web/README.txt` (03/10/2026). Quy t
 
 **Thêm mới (không mâu thuẫn)**
 - Trang chủ: ba nguyên tắc, hai khối nhà máy/Thành phố Số (ảnh minh họa V2), vòng vận hành 5 bước, dải "20 Họ sáng chế" (ghi rõ là danh mục R&D), S.a.a.S, triết lý Chủ tịch, kêu gọi hành động.
-- Trang mới: `/giai-phap`, `/nen-tang`, `/cong-nghe`, `/nha-may`, `/thanh-pho-so`, `/dieu-khoan-su-dung` (vi + en, có trong sitemap, hreflang).
+- Trang mới: `/giai-phap`, `/nen-tang`, `/nha-may`, `/thanh-pho-so`, `/dieu-khoan-su-dung` (vi + en, có trong sitemap, hreflang).
 - Giới thiệu: sứ mệnh, triết lý, hệ sinh thái LeAR/LeDB/LeHS.
 - Form liên hệ: tổ chức, nhu cầu quan tâm, bộ đếm 1.000 ký tự, cảnh báo tài liệu mật, ba bước chuẩn bị sau khi gửi; số điện thoại không bắt buộc; `interest` được lưu và hiện trong thông báo Telegram/email.
 
@@ -27,6 +27,8 @@ Nguồn V2: `web/content.js`, `web/app.js`, `web/README.txt` (03/10/2026). Quy t
 - Giảm chuyển động / nút tạm dừng của V2 (chủ dự án không muốn).
 - Giao diện màu giấy/cobalt của V2: các khối mới dùng kiểu dáng V1 (nền navy, viền cyan) cho đồng bộ.
 - Cam kết "phản hồi trong 2 ngày làm việc" và mã tham chiếu DEMO của V2: chưa có quy trình xử lý lead.
+
+**Gộp (13/10/2026):** nội dung `/cong-nghe` nằm trong `/gioi-thieu#cong-nghe`, URL cũ redirect 308. File `src/app/[locale]/cong-nghe/page.tsx` giữ lại nhưng không còn được phục vụ.
 
 ## Còn lại
 1. Icon H.E.A.R.T vẫn là file cũ (`respect.svg` đi với Accountability, `action.svg` với Resilience): cần bộ icon mới nếu muốn khớp nghĩa.
