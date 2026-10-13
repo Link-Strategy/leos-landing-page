@@ -20,20 +20,9 @@ import { Card } from "@/components/ui/card";
 import { SearchBar } from "./SearchBar";
 import { cn } from "@/lib/utils";
 
-const NAV_ITEMS: { key: string; href: string; hasDropdown?: boolean; submenu?: { key: string; href: string }[] }[] = [
+const NAV_ITEMS: { key: string; href: string; hasDropdown?: boolean }[] = [
   { key: "aboutUs", href: "/gioi-thieu" },
   { key: "products", href: "/san-pham", hasDropdown: true },
-  {
-    key: "solutions",
-    href: "/giai-phap",
-    submenu: [
-      { key: "solutions", href: "/giai-phap" },
-      { key: "platform", href: "/nen-tang" },
-      { key: "technology", href: "/cong-nghe" },
-      { key: "factory", href: "/nha-may" },
-      { key: "city", href: "/thanh-pho-so" },
-    ],
-  },
   { key: "newsEvents", href: "/blog" },
   { key: "careers", href: "/tuyen-dung" },
   { key: "contact", href: "/lien-he" },
@@ -140,35 +129,6 @@ export default function Header() {
                       );
                     }
 
-                    if (item.submenu) {
-                      return (
-                        <NavigationMenuItem key={index} className="relative">
-                          <NavigationMenuPrimitive.Trigger asChild>
-                            <a className={cn(navigationMenuTriggerStyle({ variant: "brandNav" }), "group relative flex grow items-center cursor-pointer whitespace-nowrap h-auto! px-0! py-2.5!")} href={item.href}>
-                              <span>{t(`nav.${item.key}`)}</span>
-                              <ChevronDownIcon className="ml-1.5 h-3 w-3 fill-current transition duration-200 group-data-[state=open]:rotate-180" />
-                            </a>
-                          </NavigationMenuPrimitive.Trigger>
-                          <NavigationMenuContent className="w-full">
-                            <div className="header-dropdown-glass products-dropdown justify-center!">
-                              <ul className="relative z-6 m-0 flex w-full list-none flex-wrap justify-center gap-3 p-0">
-                                {item.submenu.map((sub) => (
-                                  <li key={sub.href}>
-                                    <Link
-                                      href={sub.href}
-                                      className="block rounded-2xl border border-white/10 bg-[linear-gradient(180deg,#0f2a63_0%,#0a1f4d_100%)] px-6 py-4 font-sans text-sm font-semibold normal-case text-white transition-opacity hover:opacity-90"
-                                    >
-                                      {t(`nav.${sub.key}`)}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          </NavigationMenuContent>
-                        </NavigationMenuItem>
-                      );
-                    }
-
                     return (
                       <NavigationMenuItem key={index} className="relative">
                         <NavigationMenuPrimitive.Link asChild>
@@ -251,25 +211,6 @@ export default function Header() {
                           <span className="text-sm font-semibold text-white font-sans leading-none">{prod.title}</span>
                           <span className="text-[10px] text-[#FAB81F] font-sans leading-none">{prod.status}</span>
                         </div>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-              <li>
-                <div className="flex items-center justify-between">
-                  <Link className="block py-2 font-sans text-base font-medium text-white" href="/giai-phap" tabIndex={-1}>
-                    {t(`nav.solutions`)}
-                  </Link>
-                  <button className="flex h-8 w-8 items-center justify-center text-white" type="button" onClick={(e) => toggleSubMenu('solutions', e)}>
-                    <ChevronDownIcon className={`h-3 w-3 fill-current transition-transform ${openSubMenus["solutions"] ? "rotate-180" : ""}`} />
-                  </button>
-                </div>
-                <ul className={`${openSubMenus['solutions'] ? 'grid' : 'hidden'} pl-4 py-2 grid-cols-1 gap-2`}>
-                  {NAV_ITEMS.find((i) => i.submenu)?.submenu?.map((sub) => (
-                    <li key={sub.href}>
-                      <Link className="block rounded-xl border border-white/10 bg-white/3 p-3 text-sm font-semibold text-white font-sans hover:bg-white/8" href={sub.href} tabIndex={-1}>
-                        {t(`nav.${sub.key}`)}
                       </Link>
                     </li>
                   ))}
