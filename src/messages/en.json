@@ -139,9 +139,7 @@
         "role": "Software platform"
       }
     },
-    "orbitCaption": "Two orbits · One direction",
-    "ctaPrimaryInterest": "Factory solutions",
-    "ctaSecondaryInterest": "Platform and products"
+    "orbitCaption": "Two orbits · One direction"
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
@@ -451,8 +449,7 @@
     "ctaSecondary": "Schedule a Sandbox Visit",
     "mobileDisclaimer": "The full Series A deck and whitepaper are shared only after NDA. The website carries the public edition.",
     "ctaPrimaryTopic": "the Series A investor pack",
-    "ctaSecondaryTopic": "a Uong Bi Sandbox visit",
-    "ctaInterest": "Other"
+    "ctaSecondaryTopic": "a Uong Bi Sandbox visit"
   },
   "pillars": {
     "eyebrow": "Operating Model",
@@ -896,8 +893,7 @@
       "cta": "Discuss your factory case",
       "imageAlt": "Illustration of a factory with a square-headed Le-ORION robot, optical hair and edge devices next to a machining station.",
       "caption": "Le-ORION + Le-NodeFactory · Directional illustration, not a deployed facility.",
-      "topic": "factory solutions",
-      "interest": "Factory solutions"
+      "topic": "factory solutions"
     },
     "city": {
       "eyebrow": "FROM INFRASTRUCTURE TO OPERATIONS",
@@ -907,8 +903,7 @@
       "cta": "Discuss your city or infrastructure case",
       "imageAlt": "Illustration of a Digital City with mobile vehicles, drones and an operations center.",
       "caption": "LeASO + Le-NodeMobility + Le-NodeAir · Directional illustration, not a deployed facility.",
-      "topic": "Digital City solutions",
-      "interest": "Factory solutions"
+      "topic": "Digital City solutions"
     },
     "loop": {
       "eyebrow": "OPERATING LOOP",
@@ -949,8 +944,7 @@
       "lead": "LeTRON develops a coordinated technology portfolio for trusted data, controlled operations and verifiable results.",
       "caption": "This page focuses on problems and application value. In-depth records are shared within the scope of a partnership and a confidentiality agreement.",
       "cta": "Discuss R&D partnership",
-      "topic": "R&D partnership",
-      "interest": "R&D partnership"
+      "topic": "R&D partnership"
     },
     "proof": {
       "eyebrow": "S.a.a.S",
@@ -1085,8 +1079,7 @@
         "title": "From management\nto the field.",
         "body": "The products are developed to work together in one solution. Configuration and the scope of autonomy are set according to the problem.",
         "metaTitle": "Platform",
-        "cta": "Talk about the LeTRON platform",
-        "interest": "Platform and products"
+        "cta": "Talk about the LeTRON platform"
       },
       "technology": {
         "eyebrow": "TECHNOLOGY & R&D",
@@ -1298,13 +1291,20 @@
       "terms": "Terms of use"
     },
     "dialog": {
-      "eyebrow": "TALK TO LeTRON",
-      "title": "Let's define your problem together.",
-      "titleWithTopic": "Talk about {topic}.",
-      "body": "Leave your details and LeTRON will get back within 2 working days to set up a 30-minute call: current state, expected results and a pilot scope that fits.",
-      "direct": "Or call us directly:",
-      "messagePrefix": "I am interested in {topic}.",
-      "submit": "Request a call"
+      "title": "Leave your contact details",
+      "body": "LeTRON will call you back within 2 working days.",
+      "bodyWithTopic": "About {topic}. LeTRON will call you back within 2 working days.",
+      "name": "Full name",
+      "email": "Work email",
+      "phone": "Phone",
+      "optional": "(optional)",
+      "submit": "Send",
+      "direct": "Or call",
+      "messagePrefix": "Interested in: {topic}",
+      "error": "Could not send, please try again.",
+      "sentTitle": "Received",
+      "sentBody": "Thank you. LeTRON will get back to you within 2 working days.",
+      "close": "Close"
     }
   }
 }

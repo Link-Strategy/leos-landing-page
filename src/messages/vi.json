@@ -139,9 +139,7 @@
         "role": "Nền tảng phần mềm"
       }
     },
-    "orbitCaption": "Hai quỹ đạo · Một định hướng",
-    "ctaPrimaryInterest": "Giải pháp nhà máy",
-    "ctaSecondaryInterest": "Nền tảng, sản phẩm"
+    "orbitCaption": "Hai quỹ đạo · Một định hướng"
   },
   "vision": {
     "eyebrow": "SỨ MỆNH & TẦM NHÌN · MISSION & VISION",
@@ -451,8 +449,7 @@
     "ctaSecondary": "Đặt lịch Sandbox",
     "mobileDisclaimer": "Hồ sơ Series A và Sách trắng đầy đủ chỉ gửi sau NDA. Website phát hành Public Edition.",
     "ctaPrimaryTopic": "hồ sơ đầu tư Series A",
-    "ctaSecondaryTopic": "lịch tham quan Sandbox Uông Bí",
-    "ctaInterest": "Khác"
+    "ctaSecondaryTopic": "lịch tham quan Sandbox Uông Bí"
   },
   "pillars": {
     "eyebrow": "Mô hình vận hành",
@@ -896,8 +893,7 @@
       "cta": "Trao đổi bài toán nhà máy của bạn",
       "imageAlt": "Minh họa nhà máy với robot Le-ORION đầu vuông, mái tóc quang học và thiết bị biên cạnh máy gia công.",
       "caption": "Le-ORION + Le-NodeFactory · Hình minh họa định hướng, chưa phải công trình đã triển khai.",
-      "topic": "giải pháp nhà máy",
-      "interest": "Giải pháp nhà máy"
+      "topic": "giải pháp nhà máy"
     },
     "city": {
       "eyebrow": "TỪ HẠ TẦNG ĐẾN ĐIỀU HÀNH",
@@ -907,8 +903,7 @@
       "cta": "Trao đổi bài toán đô thị, hạ tầng",
       "imageAlt": "Minh họa Thành phố Số với phương tiện di động, drone và trung tâm điều hành.",
       "caption": "LeASO + Le-NodeMobility + Le-NodeAir · Hình minh họa định hướng, chưa phải công trình đã triển khai.",
-      "topic": "giải pháp Thành phố Số",
-      "interest": "Giải pháp nhà máy"
+      "topic": "giải pháp Thành phố Số"
     },
     "loop": {
       "eyebrow": "VÒNG VẬN HÀNH",
@@ -949,8 +944,7 @@
       "lead": "LeTRON phát triển danh mục công nghệ phối hợp cho dữ liệu tin cậy, vận hành có kiểm soát và kết quả có thể kiểm lại.",
       "caption": "Thông tin trên trang tập trung vào bài toán và giá trị ứng dụng. Hồ sơ chuyên sâu được chia sẻ theo phạm vi hợp tác và thỏa thuận bảo mật.",
       "cta": "Trao đổi hợp tác R&D",
-      "topic": "hợp tác R&D",
-      "interest": "Hợp tác R&D"
+      "topic": "hợp tác R&D"
     },
     "proof": {
       "eyebrow": "S.a.a.S",
@@ -1085,8 +1079,7 @@
         "title": "Từ quản trị\nđến hiện trường.",
         "body": "Các sản phẩm được phát triển để phối hợp trong một giải pháp. Cấu hình và phạm vi tự chủ được xác định theo bài toán.",
         "metaTitle": "Nền tảng",
-        "cta": "Trao đổi về nền tảng LeTRON",
-        "interest": "Nền tảng, sản phẩm"
+        "cta": "Trao đổi về nền tảng LeTRON"
       },
       "technology": {
         "eyebrow": "CÔNG NGHỆ & R&D",
@@ -1298,13 +1291,20 @@
       "terms": "Điều khoản sử dụng"
     },
     "dialog": {
-      "eyebrow": "TRAO ĐỔI VỚI LeTRON",
-      "title": "Cùng xác định bài toán của anh/chị.",
-      "titleWithTopic": "Trao đổi về {topic}.",
-      "body": "Để lại thông tin, LeTRON sẽ liên hệ lại trong 2 ngày làm việc để hẹn một buổi trao đổi 30 phút: hiện trạng, kết quả mong muốn và phạm vi thử nghiệm phù hợp.",
-      "direct": "Hoặc gọi trực tiếp:",
-      "messagePrefix": "Tôi quan tâm tới {topic}.",
-      "submit": "Gửi yêu cầu trao đổi"
+      "title": "Để lại thông tin liên hệ",
+      "body": "LeTRON sẽ gọi lại trong 2 ngày làm việc.",
+      "bodyWithTopic": "Về {topic}. LeTRON sẽ gọi lại trong 2 ngày làm việc.",
+      "name": "Họ và tên",
+      "email": "Email công việc",
+      "phone": "Số điện thoại",
+      "optional": "(không bắt buộc)",
+      "submit": "Gửi",
+      "direct": "Hoặc gọi",
+      "messagePrefix": "Quan tâm: {topic}",
+      "error": "Chưa gửi được, vui lòng thử lại.",
+      "sentTitle": "Đã nhận thông tin",
+      "sentBody": "Cảm ơn anh/chị. LeTRON sẽ liên hệ lại trong 2 ngày làm việc.",
+      "close": "Đóng"
     }
   }
 }

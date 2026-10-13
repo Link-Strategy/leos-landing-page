@@ -17,7 +17,7 @@ export default async function Products() {
       />
       <V2CardGrid items={items} linkLabel={t.raw("common.discuss") as string} />
       <div className="mt-10">
-        <ContactCta tone="outline" interest={t("pages.platform.interest")}>
+        <ContactCta tone="outline">
           {t("pages.platform.cta")}
         </ContactCta>
       </div>

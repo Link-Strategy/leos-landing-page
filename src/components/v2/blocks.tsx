@@ -53,7 +53,7 @@ export async function V2Feature({ which }: { which: "factory" | "city" }) {
       <SectionTitle>{t(`${key}.title`)}</SectionTitle>
       <Lead>{t(`${key}.body`)}</Lead>
       <StatusTag>{t(`${key}.tag`)}</StatusTag>
-      <ContactCta variant="link" topic={t(`${key}.topic`)} interest={t(`${key}.interest`)}>
+      <ContactCta variant="link" topic={t(`${key}.topic`)}>
         {t(`${key}.cta`)}
       </ContactCta>
     </div>
@@ -93,7 +93,7 @@ export async function V2Portfolio() {
           <SectionTitle>{t("title")}</SectionTitle>
           <Lead>{t("lead")}</Lead>
           <Caption>{t("caption")}</Caption>
-          <ContactCta tone="outline" topic={t("topic")} interest={t("interest")}>
+          <ContactCta tone="outline" topic={t("topic")}>
             {t("cta")}
           </ContactCta>
         </div>
