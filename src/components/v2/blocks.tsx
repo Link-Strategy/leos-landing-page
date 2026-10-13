@@ -132,10 +132,13 @@ export async function V2Sandbox() {
   const facts = t.raw("facts") as { label: string; value: string }[];
   return (
     <section className="relative w-full overflow-hidden bg-[#020E30] py-14 lg:py-20">
-      <Image src="/landing/PartnerAccess/PartnerAccess_bg.webp" alt="" fill sizes="100vw" className="object-cover opacity-40" />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,14,48,0.2)_0%,rgba(2,14,48,0.85)_100%)]" />
-      <div className="container-le relative z-10 grid items-start gap-10 lg:grid-cols-[1fr_380px] lg:gap-14">
-        <div className="flex flex-col items-start gap-4">
+      {/* The old service-model backdrop: sunlit edge of the Earth with a chain of hexagonal lens flares. The copy sits
+          on the left over a gradient; the right half stays clear so the flare chain is fully visible. */}
+      <Image src="/landing/ServiceModel/Service_bg.webp" alt="" fill sizes="100vw" className="object-cover object-[60%_center]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,14,48,0.92)_0%,rgba(2,14,48,0.7)_40%,rgba(2,14,48,0.15)_70%,rgba(2,14,48,0)_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[linear-gradient(180deg,rgba(2,14,48,0)_0%,rgba(2,14,48,0.8)_100%)]" />
+      <div className="container-le relative z-10 flex flex-col gap-10 lg:gap-14">
+        <div className="flex max-w-[620px] flex-col items-start gap-4">
           <Eyebrow>{t("eyebrow")}</Eyebrow>
           <SectionTitle>{t("title")}</SectionTitle>
           <Lead>{t("lead")}</Lead>
@@ -144,11 +147,11 @@ export async function V2Sandbox() {
             <ContactCta topic={t("topic")}>{t("cta")}</ContactCta>
           </div>
         </div>
-        <dl className="m-0 flex flex-col gap-3">
+        <dl className="m-0 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {facts.map((f) => (
-            <div key={f.label} className="rounded-[16px] border border-white/25 bg-[#FFFFFF14] px-5 py-4">
+            <div key={f.label} className="rounded-[16px] border border-white/20 bg-[#020E30]/55 px-5 py-4 backdrop-blur-[2px]">
               <dt className="font-inter text-[11px] font-bold uppercase tracking-[2px] text-[#63D9FF]">{f.label}</dt>
-              <dd className="font-open-sans m-0 mt-1 text-[16px] leading-[24px] text-white">{f.value}</dd>
+              <dd className="font-open-sans m-0 mt-1 text-[15px] leading-[23px] text-white">{f.value}</dd>
             </div>
           ))}
         </dl>
