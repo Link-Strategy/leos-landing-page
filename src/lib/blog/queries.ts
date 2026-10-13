@@ -24,49 +24,49 @@ import type { BlogArticle, BlogCategorySummary, BlogTopicDefinition } from "./ty
 export const getCachedPublicBlogArticles = unstable_cache(
   async (categorySlug?: string) => getPublicBlogArticles({ categorySlug }),
   ["blog-public-articles"],
-  { tags: ["blog"] },
+  { tags: ["blog"], revalidate: 3600 },
 );
 
 export const getCachedAvailableBlogCategories = unstable_cache(
   async (): Promise<BlogCategorySummary[]> => getAvailableBlogCategories(),
   ["blog-available-categories"],
-  { tags: ["blog"] },
+  { tags: ["blog"], revalidate: 3600 },
 );
 
 export const getCachedPublicBlogArticleBySlug = unstable_cache(
   async (slug: string) => getPublicBlogArticleBySlug(slug),
   ["blog-public-article-by-slug"],
-  { tags: ["blog"] },
+  { tags: ["blog"], revalidate: 3600 },
 );
 
 export const getCachedRedirectSlug = unstable_cache(
   async (slug: string) => getBlogArticleRedirectSlug(slug),
   ["blog-redirect-slug"],
-  { tags: ["blog"] },
+  { tags: ["blog"], revalidate: 3600 },
 );
 
 export const getCachedPublishedBlogArticlesForFeed = unstable_cache(
   async () => getPublishedBlogArticlesForFeed(),
   ["blog-feed-articles"],
-  { tags: ["blog"] },
+  { tags: ["blog"], revalidate: 3600 },
 );
 
 export const getCachedLatestPublishedBlogArticles = unstable_cache(
   async (limit: number) => getLatestPublishedBlogArticles(limit),
   ["blog-latest-published-articles"],
-  { tags: ["blog"] },
+  { tags: ["blog"], revalidate: 3600 },
 );
 
 export const getCachedBlogArticleByExternalId = unstable_cache(
   async (externalId: string) => getBlogArticleByExternalId(externalId),
   ["blog-article-by-external-id"],
-  { tags: ["blog"] },
+  { tags: ["blog"], revalidate: 3600 },
 );
 
 export const getCachedBlogArticleBySlug = unstable_cache(
   async (slug: string) => getBlogArticleBySlug(slug),
   ["blog-article-by-slug"],
-  { tags: ["blog"] },
+  { tags: ["blog"], revalidate: 3600 },
 );
 
 type RelatedArticlesInput = {
@@ -216,19 +216,19 @@ export async function getNonEmptyTopicHubs() {
 export const getCachedTopicHubData = unstable_cache(
   async (slug: string) => getTopicHubData(slug),
   ["blog-topic-hub-data"],
-  { tags: ["blog"] },
+  { tags: ["blog"], revalidate: 3600 },
 );
 
 export const getCachedReadNextInTopic = unstable_cache(
   async (slug: string, limit: number) => getReadNextInTopic(slug, limit),
   ["blog-read-next-in-topic"],
-  { tags: ["blog"] },
+  { tags: ["blog"], revalidate: 3600 },
 );
 
 export const getCachedNonEmptyTopicHubs = unstable_cache(
   async () => getNonEmptyTopicHubs(),
   ["blog-non-empty-topic-hubs"],
-  { tags: ["blog"] },
+  { tags: ["blog"], revalidate: 3600 },
 );
 
 export function resolveArticlePrimaryTopicSlug(article: BlogArticle) {
@@ -249,5 +249,5 @@ export const getCachedRelatedBlogArticles = unstable_cache(
       limit,
     }),
   ["blog-related-articles"],
-  { tags: ["blog"] },
+  { tags: ["blog"], revalidate: 3600 },
 );

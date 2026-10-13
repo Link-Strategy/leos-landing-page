@@ -37,17 +37,42 @@ const securityHeaders = [
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
 ];
 
+const staticAssetCache = "public, max-age=2592000, stale-while-revalidate=604800";
+const staticAssetPaths = [
+  "/wp-content/:path*",
+  "/wp-includes/:path*",
+  "/landing/:path*",
+  "/assets/:path*",
+  "/icons/:path*",
+  "/images/:path*",
+  "/about/:path*",
+  "/contact/:path*",
+  "/v2/:path*",
+  "/figmaAssets/:path*",
+  "/media/:path*",
+];
+
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   experimental: {
     externalDir: true,
+    // Tree-shake barrel imports of the icon/UI libraries so only the used icons/components reach the client bundle.
+    optimizePackageImports: ["lucide-react", "@radix-ui/react-icons"],
     // app/global-not-found.tsx: branded 404 for URLs matching no route (/a/b/c); [locale]/not-found.tsx covers the rest.
     globalNotFound: true,
   },
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      // Static files in /public are not fingerprinted, so the default is max-age=0 (a revalidation request per file on
+      // every visit). Cache them for 30 days with a 7-day stale window; _next/static is already immutable.
+      ...staticAssetPaths.map((source) => ({ source, headers: [{ key: "Cache-Control", value: staticAssetCache }] })),
+    ];
   },
   images: {
+    // AVIF first, WebP fallback; optimized images are kept for 30 days.
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
     remotePatterns: [
       ...[...s3Hosts].map((hostname) => ({ protocol: "https" as const, hostname })),
       {

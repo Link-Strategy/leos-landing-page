@@ -3,8 +3,20 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { formatBlogDate } from "@/lib/blog-utils";
 import CoverImage from "@/components/ui/cover-image";
-import { getCachedPublicBlogArticles } from "@/lib/blog/queries";
+import { getCachedAvailableBlogCategories, getCachedPublicBlogArticles } from "@/lib/blog/queries";
 import { localeAlternates } from "@/lib/seo-alternates";
+
+// ISR: topic pages are prerendered per category and refreshed hourly / on demand.
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  try {
+    const categories = await getCachedAvailableBlogCategories();
+    return categories.filter((c) => c.count > 0).map((c) => ({ slug: c.slug }));
+  } catch {
+    return [];
+  }
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
   const { locale, slug } = await params;

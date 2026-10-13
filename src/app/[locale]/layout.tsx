@@ -4,6 +4,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import JsonLd from "@/components/seo/JsonLd";
 import { getSiteUrl } from "@/lib/blog/seo";
 import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/jsonld";
@@ -13,6 +14,7 @@ import Footer from "@/components/layout/Footer";
 import ClientScripts from "@/components/layout/ClientScripts";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import { routing } from "@/i18n/routing";
+import { pickClientMessages } from "@/i18n/client-messages";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -20,10 +22,13 @@ const archivo = Archivo({
   display: "swap",
 });
 
+// Outfit and Open Sans are used below the fold / on small text; skip their <link rel=preload> so the critical request
+// chain only carries the fonts the first screen needs (Inter for headings, Archivo). They still load when used.
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
   display: "swap",
+  preload: false,
 });
 
 const inter = Inter({
@@ -36,6 +41,7 @@ const openSans = Open_Sans({
   variable: "--font-open-sans",
   subsets: ["latin", "vietnamese"],
   display: "swap",
+  preload: false,
 });
 
 export function generateStaticParams() {
@@ -107,13 +113,14 @@ export default async function RootLayout({
       <body suppressHydrationWarning>
         <JsonLd data={buildOrganizationJsonLd(getSiteUrl())} />
         <JsonLd data={buildWebSiteJsonLd(getSiteUrl())} />
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={pickClientMessages(messages)}>
           <HeaderTailwind />
           <main>{children}</main>
           <Footer />
           <ScrollToTop />
           <ClientScripts />
           <Analytics />
+          <SpeedInsights />
         </NextIntlClientProvider>
       </body>
     </html>

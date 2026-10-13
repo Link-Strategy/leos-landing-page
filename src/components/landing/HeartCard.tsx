@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import type * as React from "react";
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";

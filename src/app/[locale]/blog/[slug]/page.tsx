@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Bookmark, Clock, Home } from "lucide-react";
-import { getCachedLatestPublishedBlogArticles, getCachedPublicBlogArticleBySlug, getCachedRelatedBlogArticles } from "@/lib/blog/queries";
+import { getCachedPublicBlogArticles, getCachedLatestPublishedBlogArticles, getCachedPublicBlogArticleBySlug, getCachedRelatedBlogArticles } from "@/lib/blog/queries";
 import { buildBlogArticleMetadata, buildBlogPostingJsonLd } from "@/lib/blog/seo";
 import JsonLd from "@/components/seo/JsonLd";
 import { renderMarkdownToHtml } from "@/lib/blog/markdown";
@@ -10,6 +10,19 @@ import ShareButtons from "@/components/blog/ShareButtons";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+// ISR: article pages are prerendered (generateStaticParams), refreshed hourly and on demand (revalidateBlogContent).
+// Slugs published after the build render on first request and are then cached.
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  try {
+    const articles = await getCachedPublicBlogArticles();
+    return articles.map((article) => ({ slug: article.slug }));
+  } catch {
+    return [];
+  }
 }
 
 function formatCompactDate(date: string | Date) {

@@ -1,6 +1,5 @@
-"use client";
-
 import type { ReactNode } from "react";
+import { Link } from "@/i18n/navigation";
 
 type MasterButtonType = "full-fill" | "out-line";
 
@@ -55,15 +54,18 @@ function DefaultArrowIcon() {
   );
 }
 
+// Server-safe: with `href` it renders a real link (crawlable, no client JS); otherwise a button that needs `onClick`.
 export default function MasterButton({
   onClick,
+  href,
   content,
   icon,
   isShowIcon = false,
   type = "full-fill",
   className = "",
 }: {
-  onClick: () => void;
+  onClick?: () => void;
+  href?: string;
   content: ReactNode;
   icon?: ReactNode;
   isShowIcon?: boolean;
@@ -75,14 +77,17 @@ export default function MasterButton({
   return (
     <>
       <style>{MASTER_BUTTON_CSS}</style>
-      <button
-        type="button"
-        onClick={onClick}
-        className={`master-button master-button--${type} font-inter inline-flex h-[50px] w-full shrink-0 cursor-pointer items-center justify-center gap-[10px] whitespace-nowrap rounded-full px-[13px] py-1 text-[14px] font-bold leading-[20px] text-white transition-all duration-300 hover:-translate-y-1 hover:opacity-80 lg:w-auto lg:min-w-[268px] ${className}`}
-      >
-        {content}
-        {showIcon && (icon ?? <DefaultArrowIcon />)}
-      </button>
+      {href ? (
+        <Link href={href} className={`master-button master-button--${type} font-inter inline-flex h-[50px] w-full shrink-0 cursor-pointer items-center justify-center gap-[10px] whitespace-nowrap rounded-full px-[13px] py-1 text-[14px] font-bold leading-[20px] text-white no-underline transition-all duration-300 hover:-translate-y-1 hover:opacity-80 lg:w-auto lg:min-w-[268px] ${className}`}>
+          {content}
+          {showIcon && (icon ?? <DefaultArrowIcon />)}
+        </Link>
+      ) : (
+        <button type="button" onClick={onClick} className={`master-button master-button--${type} font-inter inline-flex h-[50px] w-full shrink-0 cursor-pointer items-center justify-center gap-[10px] whitespace-nowrap rounded-full px-[13px] py-1 text-[14px] font-bold leading-[20px] text-white no-underline transition-all duration-300 hover:-translate-y-1 hover:opacity-80 lg:w-auto lg:min-w-[268px] ${className}`}>
+          {content}
+          {showIcon && (icon ?? <DefaultArrowIcon />)}
+        </button>
+      )}
     </>
   );
 }

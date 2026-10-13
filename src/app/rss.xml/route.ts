@@ -4,6 +4,9 @@ import { getSiteUrl } from "@/lib/blog/seo";
 
 const SITE_URL = getSiteUrl();
 
+// ISR for the feed: regenerated at most hourly (and on blog revalidation).
+export const revalidate = 3600;
+
 export async function GET() {
   let articles: Awaited<ReturnType<typeof getCachedPublishedBlogArticlesForFeed>> = [];
   try {
