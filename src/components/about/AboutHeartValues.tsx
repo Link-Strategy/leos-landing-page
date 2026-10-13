@@ -65,7 +65,7 @@ export function AboutHeartValues() {
   const image = (
     <Image
       alt={t("overlayImageAlt")}
-      src="/wp-content/uploads/2026/05/noi-dung-1.png"
+      src="/images/site/noi-dung-1.png"
       width={707}
       height={695}
       className="h-auto w-full object-contain"

@@ -61,7 +61,7 @@
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
 
-  /* Legacy Elementor Bridge Variables */
+  /* Legacy bridge variables */
   --e-global-color-primary: var(--primary);
   --e-global-color-secondary: var(--background);
   --e-global-color-text: var(--foreground);
@@ -532,24 +532,23 @@ main {
   }
 }
 
-/* Rules the pages used to get from the WordPress theme / Elementor CSS. That CSS now loads only for the (wp) routes,
-   so the few rules plain pages still depend on live here. */
+/* Base rules the pages used to get from the old theme. */
 p {
   margin: 0 !important;
 }
 
-.elementor *,
-.elementor ::after,
-.elementor ::before {
+.legacy-scope *,
+.legacy-scope ::after,
+.legacy-scope ::before {
   box-sizing: border-box;
 }
 
-.elementor a {
+.legacy-scope a {
   box-shadow: none;
   text-decoration: none;
 }
 
-.elementor img {
+.legacy-scope img {
   border: none;
   border-radius: 0;
   box-shadow: none;
@@ -557,13 +556,13 @@ p {
   max-width: 100%;
 }
 
-.elementor-heading-title {
+.heading-reset {
   line-height: 1;
   margin: 0;
   padding: 0;
 }
 
-.elementor-screen-only,
+.sr-only-legacy,
 .screen-reader-text,
 .screen-reader-text span {
   height: 1px;
@@ -577,7 +576,7 @@ p {
   border: 0;
 }
 
-.rank-math-breadcrumb a:first-child {
+.breadcrumb-home a:first-child {
   position: relative;
   display: inline-block;
   width: 16px;
@@ -587,15 +586,15 @@ p {
   white-space: nowrap;
 }
 
-.rank-math-breadcrumb a:first-child::before {
+.breadcrumb-home a:first-child::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/wp-content/themes/saokimdigital/assets/images/huge-icon.svg") no-repeat center/contain;
+  background: url("/images/site/huge-icon.svg") no-repeat center/contain;
 }
 
-.rank-math-breadcrumb a,
-.rank-math-breadcrumb .last {
+.breadcrumb-home a,
+.breadcrumb-home .last {
   color: #fff;
   font-family: Archivo, sans-serif;
   font-size: 16px;
@@ -604,7 +603,7 @@ p {
   line-height: 150%;
 }
 
-.rank-math-breadcrumb a,
-.rank-math-breadcrumb .separator {
+.breadcrumb-home a,
+.breadcrumb-home .separator {
   color: #459be2;
 }

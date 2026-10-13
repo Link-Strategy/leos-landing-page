@@ -239,18 +239,18 @@ export default function TechArchitecture() {
           className="flex min-h-0 flex-none flex-col lg:flex-1"
         >
           <TabsList
-            variant="elementor"
+            variant="plain"
             className="relative mx-auto flex w-fit max-w-full shrink-0 items-center justify-center gap-1.5 overflow-hidden rounded-full bg-linear-to-b from-white/16 to-white/14 px-1.5 py-1 shadow-[inset_0_2px_16px_rgba(0,149,255,0.26)] backdrop-blur-xl before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-[#76c6ff66] md:p-4! max-[767px]:gap-1 max-[767px]:overflow-x-auto max-[767px]:scrollbar-none max-[767px]:[&::-webkit-scrollbar]:hidden"
           >
-            <TabsTrigger variant="elementor" value="coreTech" className={tabTriggerClass}>
+            <TabsTrigger variant="plain" value="coreTech" className={tabTriggerClass}>
               <span className="hidden items-center text-center md:flex">{t("tabs.coreTech")}</span>
               <span className="flex items-center text-center md:hidden">{t("tabsMobile.coreTech")}</span>
             </TabsTrigger>
-            <TabsTrigger variant="elementor" value="zeroTrust" className={tabTriggerClass}>
+            <TabsTrigger variant="plain" value="zeroTrust" className={tabTriggerClass}>
               <span className="hidden items-center text-center md:flex">{t("tabs.zeroTrust")}</span>
               <span className="flex items-center text-center md:hidden">{t("tabsMobile.zeroTrust")}</span>
             </TabsTrigger>
-            <TabsTrigger variant="elementor" value="standards" className={tabTriggerClass}>
+            <TabsTrigger variant="plain" value="standards" className={tabTriggerClass}>
               <span className="hidden items-center text-center md:flex">{t("tabs.standards")}</span>
               <span className="flex items-center text-center md:hidden">{t("tabsMobile.standards")}</span>
             </TabsTrigger>

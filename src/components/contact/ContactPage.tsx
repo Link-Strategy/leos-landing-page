@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
-import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
 import { LeadForm } from "@/components/subpage/LeadForm";
 
 export default function ContactPage() {
@@ -14,12 +13,9 @@ export default function ContactPage() {
   const email = t("email");
 
   return (
-    <div className="site-main post-36 page type-page status-publish hentry">
+    <div className="site-main">
       <div
-        className="elementor elementor-36"
-        data-elementor-id={36}
-        data-elementor-post-type="page"
-        data-elementor-type="wp-page"
+        className="legacy-scope"
       >
         {/* Header */}
         <section className="relative isolate flex min-h-[350px] flex-col overflow-hidden pb-8 pt-[calc(var(--header-height-mobile)+24px)]! sm:min-h-[620px] sm:justify-end sm:pb-14 lg:min-h-[720px] lg:pt-[calc(var(--header-height)+32px)]!">
@@ -33,14 +29,14 @@ export default function ContactPage() {
           />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(13,27,75,0.1)_0%,rgba(13,27,75,0.3)_50%,#0D1B4B_100%)]" />
           <div className="container-le">
-            <nav aria-label="breadcrumbs" className="rank-math-breadcrumb text-sm text-zinc-400">
+            <nav aria-label="breadcrumbs" className="breadcrumb-home text-sm text-zinc-400">
               <p>
                 <Link href="/">{t("breadcrumbHome")}</Link>
                 <span className="separator"> / </span>
                 <span className="last">{t("breadcrumbCurrent")}</span>
               </p>
             </nav>
-            <h1 className="elementor-heading-title elementor-size-default mt-4 font-archivo text-3xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-4xl">
+            <h1 className="heading-reset mt-4 font-archivo text-3xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-4xl">
               {t("heroTitlePrefix")}<span className="text-[#2A9FFF]">{t("heroTitleHighlight")}</span>
             </h1>
             <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-zinc-400">
@@ -54,7 +50,7 @@ export default function ContactPage() {
           <div
             className="relative isolate overflow-hidden rounded-[20px] border border-white/15 bg-no-repeat shadow-[0px_2px_20px_0px_rgba(12,178,255,0.12)]"
             style={{
-              backgroundImage: "url('/wp-content/uploads/2026/05/bg-color-1.png')",
+              backgroundImage: "url('/images/site/bg-color-1.png')",
               backgroundSize: "cover",
               backgroundPosition: "20% 0%",
             }}
@@ -77,7 +73,7 @@ export default function ContactPage() {
             <div className="relative flex flex-col lg:flex-row">
               {/* Form */}
               <div className="flex flex-col justify-center p-6 sm:p-10 lg:w-1/2 lg:p-[60px]">
-                <h2 className="elementor-heading-title elementor-size-default mb-7! font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[32px]!">
+                <h2 className="heading-reset mb-7! font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[32px]!">
                   {t("formHeadingLine1")}
                   <br />
                   {t("formHeadingLine2Prefix")}<span className="text-[#2A9FFF]">{t("formHeadingLine2Highlight")}</span>
@@ -193,7 +189,6 @@ export default function ContactPage() {
           </div>
         </section>
       </div>
-      <LandingElementorHooks />
     </div>
   );
 }

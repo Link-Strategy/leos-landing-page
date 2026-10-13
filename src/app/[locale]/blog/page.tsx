@@ -32,16 +32,16 @@ export default async function BlogPage() {
     <div>
       {/* ====== HERO ====== */}
       <div className="flex flex-col bg-cover bg-center bg-no-repeat min-h-[720px] relative"
-        style={{ backgroundImage: "url('/wp-content/uploads/2026/05/image-6-1.jpg')" }}
+        style={{ backgroundImage: "url('/images/site/image-6-1.jpg')" }}
       >
         <div className="absolute inset-0 bg-black/40" />
         <div className="container-le relative z-10 flex flex-col flex-1 pb-[60px]" style={{ justifyContent: "flex-end" }}>
-          <nav className="rank-math-breadcrumb text-sm mb-6">
+          <nav className="breadcrumb-home text-sm mb-6">
             <Link href="/" className="hover:text-white transition-colors" style={{ color: "rgba(255,255,255,0.6)" }}>Home</Link>
             <span className="separator" style={{ color: "rgba(255,255,255,0.3)", margin: "0 8px" }}>/</span>
             <span className="last" style={{ color: "white" }}>Tin tức - Sự kiện</span>
           </nav>
-          <h1 className="elementor-heading-title elementor-size-default" style={{ fontFamily: "Archivo, sans-serif", fontWeight: 800, fontSize: 64, lineHeight: "1.3em", color: "#FFFFFF" }}>
+          <h1 className="heading-reset" style={{ fontFamily: "Archivo, sans-serif", fontWeight: 800, fontSize: 64, lineHeight: "1.3em", color: "#FFFFFF" }}>
             Cập nhật tin tức mới của <span style={{ color: "#2A9FFF" }}>LeTRON</span>
           </h1>
           <p style={{ marginTop: 24, color: "rgb(255, 255, 255)", fontSize: 16, lineHeight: 1.5 }}>

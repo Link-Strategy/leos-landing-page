@@ -10,7 +10,7 @@ if (process.env.S3_BUCKET_NAME) {
 }
 
 // CSP runs in Report-Only mode: nothing is blocked, violations are POSTed to /api/csp-report (Vercel logs).
-// Tighten it from real reports — drop 'unsafe-inline'/'unsafe-eval' once the Elementor/WordPress scripts and
+// Tighten it from real reports — drop 'unsafe-inline'/'unsafe-eval' once the legacy scripts and
 // Next's inline bootstrap are covered by nonces — then switch the header to Content-Security-Policy.
 const cspReportOnly = [
   "default-src 'self'",
@@ -39,9 +39,6 @@ const securityHeaders = [
 
 const staticAssetCache = "public, max-age=2592000, stale-while-revalidate=604800";
 const staticAssetPaths = [
-  "/wp-content/:path*",
-  "/wp-includes/:path*",
-  "/landing/:path*",
   "/assets/:path*",
   "/icons/:path*",
   "/images/:path*",
@@ -89,17 +86,14 @@ const nextConfig: NextConfig = {
   async redirects() {
     const greenPost = "/letron-chuyen-hoa-1-trieu-tan-xi-thai-thanh-vat-lieu-xay-dung-xanh";
     return [
-      // Member-companies page is hidden to keep the focus on the product strategy. Temporary (307) so it can be
-      // restored: delete these two redirects, re-add the Footer link and the sitemap entry. See docs/backlog.md.
-      { source: "/cong-ty-thanh-vien", destination: "/san-pham", permanent: false },
-      { source: "/en/cong-ty-thanh-vien", destination: "/en/san-pham", permanent: false },
-      // Duplicate WordPress pages.
+      // Pages from the old site that no longer exist.
+      { source: "/cong-ty-thanh-vien", destination: "/san-pham", permanent: true },
+      { source: "/en/cong-ty-thanh-vien", destination: "/en/san-pham", permanent: true },
       // Per-company product pages were removed; the product line lives on /san-pham.
       { source: "/san-pham/:slug+", destination: "/san-pham", permanent: true },
       { source: "/en/san-pham/:slug+", destination: "/en/san-pham", permanent: true },
-      ...[2, 3, 4, 5, 6, 7, 8].map((n) => ({ source: `${greenPost}-${n}`, destination: greenPost, permanent: true })),
-      // Raw static exports must not be indexed or browsed directly.
-      { source: "/landing/:path*/index.html", destination: "/:path*", permanent: true },
+      { source: greenPost, destination: "/blog", permanent: true },
+      { source: greenPost + "-:n(\\d+)", destination: "/blog", permanent: true },
       {
         source: "/category/tin-tuc-su-kien",
         destination: "/blog",

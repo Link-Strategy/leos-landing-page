@@ -74,7 +74,7 @@ export default function Header() {
                 <Image
                   alt="LETRON Logo"
                   className="object-contain object-left"
-                  src="/wp-content/uploads/2026/05/logo-letron-2-1.svg"
+                  src="/images/site/logo-letron-2-1.svg"
                   fill
                   priority
                 />

@@ -110,7 +110,7 @@ export function JobApplyForm({ jobTitle, jobSlug }: Props) {
 
   if (submitted) {
     return (
-      <div className="elementor-element elementor-element-cf46928 elementor-button-align-start form-data form_apply_job btn elementor-widget elementor-widget-form">
+      <div className="w-full">
         <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-6 text-center backdrop-blur-md">
           <p className="text-emerald-300 font-semibold text-lg mb-2">Đăng ký thành công!</p>
           <p className="text-emerald-400/80 text-sm">
@@ -121,128 +121,110 @@ export function JobApplyForm({ jobTitle, jobSlug }: Props) {
     );
   }
 
+  const labelClass = "mb-2 block font-archivo text-sm font-semibold text-white";
+  const inputClass =
+    "w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 font-sans text-sm text-white placeholder:text-white/40 shadow-[inset_0_2px_8px_rgba(0,149,255,0.12)] outline-hidden transition-colors focus:border-[#2A9FFF]";
+
   return (
-    <div
-      className="elementor-element elementor-element-cf46928 elementor-button-align-start form-data form_apply_job btn elementor-widget elementor-widget-form"
-      data-e-type="widget"
-      data-element_type="widget"
-      data-id="cf46928"
-      data-widget_type="form.default"
-    >
-      <form className="elementor-form" onSubmit={handleSubmit}>
-        <div className="elementor-form-fields-wrapper elementor-labels-above">
-          {/* Honeypot: hidden from people, filled by bots. */}
-          <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
-            <input ref={websiteRef} name="website" type="text" tabIndex={-1} autoComplete="off" />
-          </div>
+    <div className="w-full">
+      <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+        {/* Honeypot: hidden from people, filled by bots. */}
+        <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+          <input ref={websiteRef} name="website" type="text" tabIndex={-1} autoComplete="off" />
+        </div>
 
-          {error && (
-            <div className="elementor-field-group elementor-col-100 mb-4 text-rose-400 text-sm font-semibold">
-              {error}
-            </div>
-          )}
+        {error && <div className="text-sm font-semibold text-rose-400">{error}</div>}
 
-          <div className="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100">
-            <label className="elementor-field-label" htmlFor="form-field-name">
-              Họ và tên
-            </label>
-            <input
-              className="elementor-field elementor-size-sm elementor-field-textual"
-              id="form-field-name"
-              name="name"
-              placeholder="Nhập họ và tên"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
+        <div>
+          <label className={labelClass} htmlFor="form-field-name">
+            Họ và tên
+          </label>
+          <input
+            className={inputClass}
+            id="form-field-name"
+            name="name"
+            placeholder="Nhập họ và tên"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
 
-          <div className="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-100 elementor-field-required">
-            <label className="elementor-field-label" htmlFor="form-field-email">
-              Email
-            </label>
-            <input
-              className="elementor-field elementor-size-sm elementor-field-textual"
-              id="form-field-email"
-              name="email"
-              placeholder="Nhập email của bạn"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+        <div>
+          <label className={labelClass} htmlFor="form-field-email">
+            Email
+          </label>
+          <input
+            className={inputClass}
+            id="form-field-email"
+            name="email"
+            placeholder="Nhập email của bạn"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
 
-          <div className="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-field_4bc9d85 elementor-col-100 elementor-field-required">
-            <label className="elementor-field-label" htmlFor="form-field-field_4bc9d85">
-              Số điện thoại
-            </label>
-            <input
-              className="elementor-field elementor-size-sm elementor-field-textual"
-              id="form-field-field_4bc9d85"
-              name="phone"
-              pattern="[0-9()#&amp;+*-=.]+"
-              placeholder="Nhập số điện thoại của bạn"
-              type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              required
-            />
-          </div>
+        <div>
+          <label className={labelClass} htmlFor="form-field-phone">
+            Số điện thoại
+          </label>
+          <input
+            className={inputClass}
+            id="form-field-phone"
+            name="phone"
+            pattern="[0-9()#&amp;+*-=.]+"
+            placeholder="Nhập số điện thoại của bạn"
+            type="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            required
+          />
+        </div>
 
-          <div className="elementor-field-type-html elementor-field-group elementor-column elementor-field-group-field_4703be9 elementor-col-100">
-            <p className="my_form_label">Đính kèm CV</p>
-            <button
-              type="button"
-              onClick={handleCvBtnClick}
-              className="my_cv_btn flex items-center gap-2 cursor-pointer bg-transparent border-0 p-0 text-left w-full outline-hidden"
-            >
-              <img src="/wp-content/uploads/2026/05/File-input-button.svg" alt="Upload Icon" className="shrink-0 size-30" />
-              <span className="my_file_cv_name text-sm text-white/80 select-none truncate">
-                {cvName}
-              </span>
-            </button>
-          </div>
+        <div>
+          <p className={labelClass}>Đính kèm CV</p>
+          <button
+            type="button"
+            onClick={handleCvBtnClick}
+            className="flex w-full cursor-pointer items-center gap-3 border-0 bg-transparent p-0 text-left outline-hidden"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/recruitment/File-input-button.svg" alt="Upload Icon" className="h-[39px] w-[123px] shrink-0" />
+            <span className="select-none truncate text-sm text-white/80">{cvName}</span>
+          </button>
+          <input
+            ref={fileInputRef}
+            className="hidden"
+            id="form-field-cv"
+            name="cv_file"
+            type="file"
+            accept=".pdf,.doc,.docx"
+            onChange={handleFileChange}
+          />
+        </div>
 
-          <div className="elementor-field-type-upload elementor-field-group elementor-column elementor-field-group-field_8c7cb99 elementor-col-100 hidden">
-            <input
-              ref={fileInputRef}
-              className="elementor-field elementor-size-sm elementor-upload-field"
-              id="form-field-field_8c7cb99"
-              name="cv_file"
-              type="file"
-              accept=".pdf,.doc,.docx"
-              onChange={handleFileChange}
-            />
-          </div>
+        <div>
+          <ConsentCheckbox id="apply-consent" onChange={setConsent} />
+        </div>
 
-          <div className="elementor-field-group elementor-column elementor-col-100">
-            <ConsentCheckbox id="apply-consent" onChange={setConsent} />
-          </div>
-
-          <div className="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
-            <button
-              className="elementor-button elementor-size-sm flex items-center justify-center gap-2 disabled:opacity-50  cursor-pointer!"
-              type="submit"
-              disabled={loading}
-            >
-              <span className="elementor-button-content-wrapper flex items-center justify-center gap-2">
-                {loading ? (
-                  <Loader2 className="animate-spin size-5 text-white" />
-                ) : (
-                  <span className="elementor-button-icon shrink-0">
-                    <svg fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2.5 10H17.5M17.5 10L12.5 15M17.5 10L12.5 5" stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-                    </svg>
-                  </span>
-                )}
-                <span className="elementor-button-text">
-                  {loading ? "Đang xử lý..." : "Nộp đơn ứng tuyển"}
-                </span>
-              </span>
-            </button>
-          </div>
+        <div>
+          <button
+            className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border-0 bg-[linear-gradient(180deg,#4DB1FF_0%,#2A9FFF_100%)] px-6 py-2.5 font-archivo text-base font-semibold text-white shadow-[0_4px_16px_rgba(42,159,255,0.3)] transition-all duration-300 hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? (
+              <Loader2 className="size-5 animate-spin text-white" />
+            ) : (
+              <svg className="shrink-0" fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 10H17.5M17.5 10L12.5 15M17.5 10L12.5 5" stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+              </svg>
+            )}
+            <span>{loading ? "Đang xử lý..." : "Nộp đơn ứng tuyển"}</span>
+          </button>
         </div>
       </form>
     </div>

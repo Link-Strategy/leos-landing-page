@@ -4,7 +4,6 @@ import { Play } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
-import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
 import PartnerShowcase from "@/components/landing/PartnerShowcase";
 import Career from "@/components/landing/Career";
 import { AboutHeartValues } from "./AboutHeartValues";
@@ -44,12 +43,9 @@ export default function AboutPage() {
   const MISSION_POINTS = t.raw("missionPoints") as string[];
 
   return (
-    <div className="site-main post-723 page type-page status-publish hentry">
+    <div className="site-main">
       <div
-        className="elementor elementor-723"
-        data-elementor-id={723}
-        data-elementor-post-type="page"
-        data-elementor-type="wp-page"
+        className="legacy-scope"
       >
         {/* Hero */}
         <section className="relative isolate flex h-[350px] items-end overflow-hidden pb-8 sm:h-[620px] sm:pb-14">
@@ -63,14 +59,14 @@ export default function AboutPage() {
           />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(13,27,75,0.1)_0%,rgba(13,27,75,0.3)_50%,#0D1B4B_100%)]" />
           <div className="container-le">
-            <nav aria-label="breadcrumbs" className="rank-math-breadcrumb text-sm text-zinc-400">
+            <nav aria-label="breadcrumbs" className="breadcrumb-home text-sm text-zinc-400">
               <p>
                 <Link href="/">{t("breadcrumbHome")}</Link>
                 <span className="separator"> / </span>
                 <span className="last">{t("breadcrumbCurrent")}</span>
               </p>
             </nav>
-            <h1 className="elementor-heading-title elementor-size-default mt-4 font-archivo text-3xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-4xl">
+            <h1 className="heading-reset mt-4 font-archivo text-3xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-4xl">
               {t("heroTitlePrefix")}<span className="text-[#2A9FFF]">{t("heroTitleHighlight")}</span>
             </h1>
             <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-zinc-400">
@@ -85,7 +81,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-16">
               <div>
                 <SubtitleBadge>{t("introBadge")}</SubtitleBadge>
-                <h2 className="elementor-heading-title elementor-size-default font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]! my-7!">
+                <h2 className="heading-reset font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]! my-7!">
                   {t("introHeadingLine1")}
                   <br />
                   {t("introHeadingLine2Prefix")}<span className="text-[#2A9FFF]">{t("introHeadingLine2Highlight")}</span>
@@ -104,25 +100,25 @@ export default function AboutPage() {
 
             {/* <div className="relative">
               <div
-                className="elementor-element elementor-widget elementor-widget-video"
+                className=""
                 data-widget_type="video.default"
                 data-settings='{"youtube_url":"https://www.youtube.com/watch?v=XHOmBV4js_E","video_type":"youtube"}'
               >
                 <div
-                  className="elementor-wrapper elementor-open-inline relative w-full overflow-hidden rounded-2xl border border-white/10"
+                  className="relative w-full overflow-hidden rounded-2xl border border-white/10"
                   style={{ "--video-aspect-ratio": "16 / 9" } as React.CSSProperties}
                 >
-                  <div className="elementor-video" />
+                  <div className="" />
                   <div
-                    className="elementor-custom-embed-image-overlay absolute inset-0 flex items-center justify-center bg-cover bg-center"
+                    className="absolute inset-0 flex items-center justify-center bg-cover bg-center"
                     style={{
                       backgroundImage:
-                        "url(/wp-content/uploads/2026/05/af37ff9a27363e04b244b5aa57821bce76b409c5-1.jpg)",
+                        "url(/images/site/af37ff9a27363e04b244b5aa57821bce76b409c5-1.jpg)",
                     }}
                   >
                     <div
                       aria-label={t("playVideoLabel")}
-                      className="elementor-custom-embed-play flex size-16 cursor-pointer items-center justify-center rounded-full bg-[#2A9FFF] text-white shadow-[0_2px_20px_rgba(12,178,255,0.4)] transition hover:bg-[#4AB3FF]"
+                      className="flex size-16 cursor-pointer items-center justify-center rounded-full bg-[#2A9FFF] text-white shadow-[0_2px_20px_rgba(12,178,255,0.4)] transition hover:bg-[#4AB3FF]"
                       role="button"
                       tabIndex={0}
                     >
@@ -188,7 +184,7 @@ export default function AboutPage() {
 
         {/* Ban lãnh đạo */}
         <div className="container-le py-16">
-          <h2 className="elementor-heading-title elementor-size-default mb-10! text-center font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
+          <h2 className="heading-reset mb-10! text-center font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
             {t("leadershipHeading")}
           </h2>
           <LeadershipReveal />
@@ -198,7 +194,6 @@ export default function AboutPage() {
         <PartnerShowcase />
         <Career />
       </div>
-      <LandingElementorHooks />
     </div>
   );
 }

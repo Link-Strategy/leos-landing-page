@@ -11,7 +11,7 @@ export default async function LeOsAi() {
         <div
           className="relative rounded-[20px] border border-white/15 shadow-[0px_2px_20px_0px_rgba(12,178,255,0.12)] overflow-hidden bg-no-repeat"
           style={{
-            backgroundImage: "url('/wp-content/uploads/2026/05/bg-color-1.png')",
+            backgroundImage: "url('/images/site/bg-color-1.png')",
             backgroundSize: "cover",
             backgroundPosition: "55% 0%",
           }}
@@ -52,7 +52,7 @@ export default async function LeOsAi() {
                   {/* QR Code */}
                   <div className="relative p-2 bg-white rounded-2xl shadow-lg shadow-black/50 shrink-0">
                     <Image
-                      src="/wp-content/uploads/2026/05/QRcode-02-2.svg"
+                      src="/images/site/QRcode-02-2.svg"
                       alt="QR Code LeTRON App"
                       width={90}
                       height={90}
@@ -67,7 +67,7 @@ export default async function LeOsAi() {
                       className="inline-block transition-transform hover:-translate-y-0.5 duration-200"
                     >
                       <Image
-                        src="/wp-content/uploads/2026/05/Store-download-button.svg"
+                        src="/images/site/Store-download-button.svg"
                         alt={t("appStoreAlt")}
                         width={130}
                         height={42}
@@ -79,7 +79,7 @@ export default async function LeOsAi() {
                       className="inline-block transition-transform hover:-translate-y-0.5 duration-200"
                     >
                       <Image
-                        src="/wp-content/uploads/2026/05/Store-download-button-1.svg"
+                        src="/images/site/Store-download-button-1.svg"
                         alt={t("googlePlayAlt")}
                         width={130}
                         height={42}
@@ -93,7 +93,7 @@ export default async function LeOsAi() {
             {/* Right Column: Interactive Mockup/Image */}
             <div className="relative flex justify-center p-[10px] md:pt-[30px] md:pb-[30px] md:pl-5 md:pr-[30px] lg:p-0 2xl:pt-5 2xl:pb-5 2xl:pl-0 2xl:pr-5">
               <Image
-                src="/wp-content/uploads/2026/05/img-3-1.webp"
+                src="/images/site/img-3-1.webp"
                 alt={t("mockupAlt")}
                 width={500}
                 height={350}

@@ -4,7 +4,7 @@ import { v2Href } from "@/lib/v2-routes";
 import { Link } from "@/i18n/navigation";
 import SectionEdgeFade from "@/components/ui/section-edge-fade";
 
-const LOGO = "/wp-content/uploads/2026/05/logo-2.png";
+const LOGO = "/images/site/logo-2.png";
 const WATERMARK_DESKTOP = "/landing/Footer/watermark-desktop.svg";
 const WATERMARK_MOBILE = "/landing/Footer/watermark-mobile.svg";
 const ICON_HIGHLIGHT = "/landing/Footer/icon-highlight.svg";

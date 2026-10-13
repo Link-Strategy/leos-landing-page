@@ -23,9 +23,9 @@ export default function Hover({
   onClose,
 }: HoverProps) {
   const content = (
-    <div className="elementor-icon-box-content">
+    <div className="">
       {/* Per-pillar accent Header Title inside Popup */}
-      <h3 className="elementor-icon-box-title font-archivo font-bold text-lg mb-4 text-left" style={{ color }}>
+      <h3 className="font-archivo font-bold text-lg mb-4 text-left" style={{ color }}>
         <span>
           <span className="font-extrabold">Le</span>
           {title.replace("Le", "")}
@@ -50,8 +50,8 @@ export default function Hover({
   // Mobile: render as a centered modal via portal so it always shows in the
   // middle of the viewport, unaffected by transformed ancestors (which break
   // absolute/fixed positioning of a nested popup) and clipping at screen edges.
-  // Deliberately avoids the elementor-* / box-sub-home classes used on desktop:
-  // a global legacy Elementor/jQuery script on the page auto fades-and-hides
+  // Deliberately avoids the legacy classes used on desktop:
+  // a legacy global script on the page auto fades-and-hides
   // any element carrying those classes shortly after it enters the DOM, which
   // caused the "flashes once then disappears" bug.
   if (mobile) {
@@ -115,7 +115,7 @@ export default function Hover({
 
   return (
     <div
-      className="elementor-element box-sub-home elementor-absolute elementor-widget elementor-widget-icon-box"
+      className="box-sub-home "
       data-id={dataId}
       style={{
         display: active ? "block" : "none",

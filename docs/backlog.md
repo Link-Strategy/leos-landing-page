@@ -34,9 +34,5 @@ Cập nhật: 13/10/2026. Production: `www.letrongroup.com`. Mọi mục dưới
 - Xem `docs/web-v2-thong-diep.md`: bảng đối chiếu thông điệp thiết kế V2 (`D:\BusinessAnalyze\Letron\web`) với landing page hiện tại, kèm đề xuất thay thế. Chờ chốt trước khi áp dụng.
 - Trang `/cong-ty-thanh-vien` đang bị ẩn (redirect tạm về `/san-pham`, bỏ khỏi footer và sitemap). Muốn mở lại: xóa hai redirect trong `next.config.ts`, thêm lại link ở `Footer.tsx` và dòng trong `src/app/sitemap/route.ts`.
 
-## Gỡ dần WordPress/Elementor (13/10/2026)
-- Đã gỡ khỏi trang chủ, Giới thiệu, Liên hệ, danh sách Sản phẩm, Blog, chính sách/điều khoản và 5 trang V2: không còn 45 file CSS, jQuery, Swiper CDN, runtime Elementor. Hiệu năng mobile (Lighthouse giả lập) 59 → 71.
-- Các route còn dùng markup Elementor nằm trong `src/app/[locale]/(wp)/`: tuyển dụng, trang chi tiết sản phẩm theo công ty con (`/san-pham/*`), `/cong-ty-thanh-vien` và các trang tĩnh xuất từ WordPress (`[slug]`). Chúng nạp **một** file CSS đã lọc `public/wp-content/wp-legacy.min.css` (235 KB, 27 KB nén; trước đó 45 file 974 KB).
-- Tạo lại file CSS sau khi sửa các trang đó: `node scripts/build-wp-css.mjs` (đọc HTML từ site đang chạy, dùng PurgeCSS).
-- Tuyển dụng không còn nạp JS Elementor. Trang `/san-pham/*` và `[slug]` vẫn nạp (cần Swiper cho slider đánh giá).
-- Việc tiếp theo để bỏ hẳn: viết lại trang `/san-pham/*` bằng React/Tailwind (và nạp Swiper riêng cho slider), rồi xóa thư mục `public/wp-content`, `public/wp-includes`, `src/lib/elementor-scripts.ts`.
+## WordPress/Elementor
+- Đã xóa hoàn toàn (13/10/2026): không còn CSS/JS WordPress, `public/wp-content`, `public/landing`, trang chi tiết sản phẩm theo công ty con, `/cong-ty-thanh-vien`. Các URL cũ redirect 308 (xem `next.config.ts`).

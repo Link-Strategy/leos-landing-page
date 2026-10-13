@@ -1,128 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { ELEMENTOR_SCRIPTS } from "@/lib/elementor-scripts";
-
-
-/**
- * Elementor's scripts depend on each other (frontend.min.js needs frontend-modules.min.js' `elementorModules`,
- * Pro needs the free frontend, ...). next/script injects scripts dynamically, which makes them async and
- * unordered, so they raced and intermittently threw "elementorModules is not defined".
- * Dynamically inserted scripts with `async = false` download in parallel but execute in insertion order.
- */
-function loadElementorScripts() {
-  const w = window as Window & { __elementorScriptsLoaded?: boolean };
-  if (w.__elementorScriptsLoaded) return;
-  w.__elementorScriptsLoaded = true;
-
-  for (const item of ELEMENTOR_SCRIPTS) {
-    const el = document.createElement("script");
-    if ("src" in item) {
-      el.src = item.src;
-      el.async = false;
-    } else {
-      el.text = item.code;
-    }
-    document.body.appendChild(el);
-  }
-}
-
-// Routes that render without WordPress assets (keep in sync with the route layout: everything outside app/[locale]/(wp)).
-const PLAIN_ROUTES = [
-  "/",
-  "/gioi-thieu",
-  "/lien-he",
-  "/san-pham",
-  "/giai-phap",
-  "/nen-tang",
-  "/cong-nghe",
-  "/nha-may",
-  "/thanh-pho-so",
-  "/dieu-khoan-su-dung",
-  "/chinh-sach-bao-mat",
-];
-
-function isPlainRoute(pathname: string): boolean {
-  const path = pathname.replace(/^\/en(?=\/|$)/, "") || "/";
-  return PLAIN_ROUTES.includes(path) || path === "/blog" || path.startsWith("/blog/");
-}
-
-// Routes that still load the WordPress CSS (app/[locale]/(wp)) but run fine without the Elementor/jQuery scripts.
-function isCssOnlyRoute(pathname: string): boolean {
-  const path = pathname.replace(/^\/en(?=\/|$)/, "") || "/";
-  return path === "/tuyen-dung" || path.startsWith("/tuyen-dung/");
-}
+import { useEffect } from "react";
 
 export default function ClientScripts() {
-  const pathname = usePathname();
-  const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    setMounted(true);
+    if (!("serviceWorker" in navigator)) return;
+    if (process.env.NODE_ENV === "production") {
+      navigator.serviceWorker.register("/sw.js");
+    } else {
+      // Dev chunks change constantly; a cached shell breaks hydration. Drop any SW left from prod builds.
+      navigator.serviceWorker.getRegistrations().then((regs) => regs.forEach((r) => r.unregister()));
+    }
   }, []);
 
-  // The legacy Elementor/jQuery scripts are only needed by the routes in app/[locale]/(wp); every other page is plain React.
-  const needsWordPress = typeof pathname === "string" && !isPlainRoute(pathname) && !isCssOnlyRoute(pathname);
-  const showElementor = mounted && needsWordPress;
-
-  useEffect(() => {
-    if (showElementor) loadElementorScripts();
-  }, [showElementor]);
-
-  useEffect(() => {
-    if ("serviceWorker" in navigator) {
-      if (process.env.NODE_ENV === "production") {
-        navigator.serviceWorker.register("/sw.js");
-      } else {
-        // Dev chunks change constantly; a cached shell breaks hydration. Drop any SW left from prod builds.
-        navigator.serviceWorker.getRegistrations().then((regs) => regs.forEach((r) => r.unregister()));
-      }
-    }
-
-    if (!showElementor) return;
-
-    const lazyloadRunObserver = () => {
-      const lazyloadBackgrounds = document.querySelectorAll(
-        ".e-con.e-parent:not(.e-lazyloaded)"
-      );
-      const lazyloadBackgroundObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const lazyloadBackground = entry.target as HTMLElement;
-              if (lazyloadBackground) {
-                lazyloadBackground.classList.add("e-lazyloaded");
-              }
-              lazyloadBackgroundObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { rootMargin: "200px 0px 200px 0px" }
-      );
-      lazyloadBackgrounds.forEach((lazyloadBackground) => {
-        lazyloadBackgroundObserver.observe(lazyloadBackground);
-      });
-    };
-
-    lazyloadRunObserver();
-
-    const events = ["DOMContentLoaded", "elementor/lazyload/observe"];
-    events.forEach((event) => {
-      document.addEventListener(event, lazyloadRunObserver);
-    });
-
-    return () => {
-      events.forEach((event) => {
-        document.removeEventListener(event, lazyloadRunObserver);
-      });
-    };
-  }, [showElementor]);
-
-  return (
-    <>
-      {/* ====== GLOBAL SCRIPTS (load on ALL pages) ====== */}
-      {/* beforeInteractive scripts (jQuery, wp hooks/i18n) live in the root layout — they must be rendered by a Server Component */}
-
-    </>
-  );
+  return null;
 }

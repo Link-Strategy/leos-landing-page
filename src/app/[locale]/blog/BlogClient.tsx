@@ -87,14 +87,14 @@ export default function BlogClient({ articles, categories }: Props) {
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full flex justify-center">
           <TabsList
-            variant="elementor"
+            variant="plain"
             className="relative flex w-fit max-w-full mx-auto flex-nowrap items-center justify-start md:justify-center gap-[6px] rounded-[100px] border border-[#76c6ff] p-[5px] shadow-[inset_0px_2px_16px_0px_rgba(0,149,255,0.26)] overflow-x-auto scrollbar-none [&::-webkit-scrollbar]:hidden"
           >
             <div className="absolute inset-0 rounded-[100px] bg-linear-to-brfrom-white/16o-white/[0.14]" />
             {tabs.map((tab) => (
               <TabsTrigger
                 key={tab.slug}
-                variant="elementor"
+                variant="plain"
                 value={tab.slug}
                 className="relative z-10 flex h-[38px] shrink-0 items-center rounded-[100px] border px-[16px] transition cursor-pointer border-[#31b0ff] bg-linear-to-b from-[rgba(118,198,255,0)] to-[rgba(42,117,243,0)] text-white hover:opacity-80 data-[state=active]:border-white data-[state=active]:bg-linear-to-bata-[state=active]:from-[#e2f3ff] data-[state=active]:to-white data-[state=active]:text-[#2a9fff] font-['Archivo',Helvetica] text-[13px] font-semibold leading-none sm:text-[15px]"
               >

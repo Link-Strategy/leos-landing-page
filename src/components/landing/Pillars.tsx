@@ -121,7 +121,7 @@ export default function Pillars() {
               {/* Outer mechanical ring — rotates counter-clockwise */}
               <div className="absolute inset-0 animate-[spin_60s_linear_infinite_reverse]">
                 <img
-                  src="/wp-content/uploads/2026/05/Property-1Variant3-1.webp"
+                  src="/images/site/Property-1Variant3-1.webp"
                   alt={t("loopAlt")}
                   className="w-full h-full! object-contain opacity-60 filter drop-shadow-[0_0_20px_rgba(42,159,255,0.15)]"
                 />
@@ -130,7 +130,7 @@ export default function Pillars() {
               {/* Inner Circle Logo / Device — rotates clockwise */}
               <div className="relative w-[180px] h-[180px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px] rounded-full overflow-hidden flex justify-center items-center animate-[spin_60s_linear_infinite]">
                 <img
-                  src="/wp-content/uploads/2026/05/Group-11.png"
+                  src="/images/site/Group-11.png"
                   alt={t("hubAlt")}
                   className="w-full h-full! object-contain p-4 filter drop-shadow-[0_0_15px_rgba(42,159,255,0.2)]"
                 />

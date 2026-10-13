@@ -1,0 +1,256 @@
+- generic [active] [ref=f8e1]:
+  - banner:
+    - navigation "Main" [ref=f8e3]:
+      - generic [ref=f8e4]:
+        - link [ref=f8e6] [cursor=pointer]:
+          - /url: /en
+          - img "LETRON Logo" [ref=f8e7]
+        - list [ref=f8e11]:
+          - listitem [ref=f8e12]:
+            - link "About Us" [ref=f8e13] [cursor=pointer]:
+              - /url: /en/gioi-thieu
+          - listitem [ref=f8e14]:
+            - link "Products" [ref=f8e15] [cursor=pointer]:
+              - /url: /san-pham
+          - listitem [ref=f8e19]:
+            - link "Solutions" [ref=f8e20] [cursor=pointer]:
+              - /url: /en/giai-phap
+          - listitem [ref=f8e21]:
+            - link "Technology & R&D" [ref=f8e22] [cursor=pointer]:
+              - /url: /en/cong-nghe
+          - listitem [ref=f8e23]:
+            - link "News & Events" [ref=f8e24] [cursor=pointer]:
+              - /url: /en/blog
+          - listitem [ref=f8e25]:
+            - link "Careers" [ref=f8e26] [cursor=pointer]:
+              - /url: /en/tuyen-dung
+          - listitem [ref=f8e27]:
+            - link "Contact" [ref=f8e28] [cursor=pointer]:
+              - /url: /en/lien-he
+        - search [ref=f8e30]:
+          - generic [ref=f8e33]:
+            - textbox "Tìm kiếm ..." [ref=f8e34]
+            - button "Tìm kiếm" [ref=f8e36] [cursor=pointer]:
+              - img "Search" [ref=f8e37]
+        - link "Switch language" [ref=f8e39] [cursor=pointer]:
+          - /url: /vi/tuyen-dung
+  - main [ref=f8e40]:
+    - generic [ref=f8e41]:
+      - generic [ref=f8e43]:
+        - navigation "breadcrumbs" [ref=f8e44]:
+          - paragraph [ref=f8e45]:
+            - link "Home" [ref=f8e46] [cursor=pointer]:
+              - /url: /
+            - text: / Tuyển dụng
+        - heading "Gia nhập đội ngũ LeTRON" [level=1] [ref=f8e47]
+        - paragraph [ref=f8e48]: Cùng LeTRON kiến tạo những giải pháp công nghệ tái định hình ngành công nghiệp xanh — nơi bạn được trao cơ hội phát triển và tạo ra tác động thực sự.
+      - generic [ref=f8e51]:
+        - heading "Môi trường làm việc" [level=3] [ref=f8e52]
+        - heading "Môi trường kiến tạo vận hành như một hệ thống" [level=2] [ref=f8e53]: Môi trường kiến tạovận hành như một hệ thống
+        - paragraph [ref=f8e54]: LETRON xây dựng môi trường nơi con người, công nghệ và dữ liệu phối hợp để giải quyết những bài toán công nghiệp quy mô lớn.
+        - list [ref=f8e55]:
+          - listitem [ref=f8e56]:
+            - generic [ref=f8e57]: Làm việc trên các dự án thực, tác động trực tiếp đến môi trường và xã hội
+          - listitem [ref=f8e58]:
+            - generic [ref=f8e59]: Văn hóa tốc độ cao – ưu tiên hành động và kết quả
+          - listitem [ref=f8e60]:
+            - generic [ref=f8e61]: Minh bạch bằng dữ liệu – mọi quyết định có cơ sở rõ ràng
+          - listitem [ref=f8e62]:
+            - generic [ref=f8e63]: Khuyến khích đổi mới và thử nghiệm liên tục
+          - listitem [ref=f8e64]:
+            - generic [ref=f8e65]: "Cộng tác đa lĩnh vực: công nghệ – công nghiệp – tài chính"
+      - generic [ref=f8e68]:
+        - generic [ref=f8e69]:
+          - generic [ref=f8e75]:
+            - heading "Cơ hội phát triển nhanh" [level=3] [ref=f8e76]
+            - paragraph [ref=f8e77]: Lộ trình rõ ràng, trao quyền theo năng lực
+          - generic [ref=f8e83]:
+            - heading "Phúc lợi đầy đủ" [level=3] [ref=f8e84]
+            - paragraph [ref=f8e85]: Bảo hiểm, nghỉ phép, chế độ theo quy định và mở rộng
+          - generic [ref=f8e91]:
+            - heading "Thu nhập cạnh tranh" [level=3] [ref=f8e92]
+            - paragraph [ref=f8e93]: Lương, thưởng gắn với hiệu quả và kết quả công việc
+          - generic [ref=f8e99]:
+            - heading "Cơ hội phát triển nhanh" [level=3] [ref=f8e100]
+            - paragraph [ref=f8e101]: Lộ trình rõ ràng, trao quyền theo năng lực
+        - generic [ref=f8e102]:
+          - heading "Chính sách nhân sự" [level=3] [ref=f8e103]
+          - heading "Đãi ngộ xứng đáng với giá trị tạo ra" [level=2] [ref=f8e104]: Đãi ngộ xứng đángvới giá trị tạo ra
+          - paragraph [ref=f8e105]: Chính sách được thiết kế để thu hút, phát triển và giữ chân những nhân sự có năng lực tạo tác động thực
+          - link "Xem các vị trí đang tuyển" [ref=f8e106] [cursor=pointer]:
+            - /url: "#cac-vi-tri-dang-tuyen"
+      - generic [ref=f8e111]:
+        - heading "Các vị trí đang tuyển" [level=3] [ref=f8e113]
+        - heading "Tìm kiếm công việc mơ ước tại LeTRON" [level=2] [ref=f8e114]
+        - paragraph [ref=f8e115]: Phát triển bản thân và tỏa sáng tại môi trường làm việc hạnh phúc.
+        - generic [ref=f8e117]:
+          - generic [ref=f8e118]:
+            - button "Tất cả" [ref=f8e119] [cursor=pointer]
+            - button "Hành chính - Nhân sự (2)" [ref=f8e120] [cursor=pointer]:
+              - text: Hành chính - Nhân sự
+              - generic [ref=f8e121]: (2)
+            - button "Kinh doanh (1)" [ref=f8e122] [cursor=pointer]:
+              - text: Kinh doanh
+              - generic [ref=f8e123]: (1)
+            - button "Kỹ thuật (1)" [ref=f8e124] [cursor=pointer]:
+              - text: Kỹ thuật
+              - generic [ref=f8e125]: (1)
+            - button "Tài chính - Kế toán (1)" [ref=f8e126] [cursor=pointer]:
+              - text: Tài chính - Kế toán
+              - generic [ref=f8e127]: (1)
+          - list [ref=f8e128]:
+            - listitem [ref=f8e129]:
+              - article [ref=f8e130]:
+                - generic [ref=f8e131]:
+                  - heading [level=3] [ref=f8e132]:
+                    - link "Nhân viên hành chính nhân sự" [ref=f8e133] [cursor=pointer]:
+                      - /url: /tuyen-dung/vi-tri-nhan-vien-hanh-chinh-nhan-su-2
+                  - list [ref=f8e134]:
+                    - listitem [ref=f8e135]:
+                      - generic [ref=f8e136]: Hành chính - Nhân sự
+                    - listitem [ref=f8e137]:
+                      - generic [ref=f8e138]: Hà Nội • Toàn thời gian
+                    - listitem [ref=f8e139]:
+                      - generic [ref=f8e140]: Thỏa thuận
+                - link "Xem chi tiết" [ref=f8e142] [cursor=pointer]:
+                  - /url: /tuyen-dung/vi-tri-nhan-vien-hanh-chinh-nhan-su-2
+            - listitem [ref=f8e146]:
+              - article [ref=f8e147]:
+                - generic [ref=f8e148]:
+                  - heading [level=3] [ref=f8e149]:
+                    - link "Trưởng phòng phát triển kinh doanh" [ref=f8e150] [cursor=pointer]:
+                      - /url: /tuyen-dung/truong-phong-phat-trien-kinh-doanh
+                  - list [ref=f8e151]:
+                    - listitem [ref=f8e152]:
+                      - generic [ref=f8e153]: Kinh doanh
+                    - listitem [ref=f8e154]:
+                      - generic [ref=f8e155]: Hà Nội • Toàn thời gian
+                    - listitem [ref=f8e156]:
+                      - generic [ref=f8e157]: Thỏa thuận
+                - link "Xem chi tiết" [ref=f8e159] [cursor=pointer]:
+                  - /url: /tuyen-dung/truong-phong-phat-trien-kinh-doanh
+            - listitem [ref=f8e163]:
+              - article [ref=f8e164]:
+                - generic [ref=f8e165]:
+                  - heading [level=3] [ref=f8e166]:
+                    - link "Nhân viên IT" [ref=f8e167] [cursor=pointer]:
+                      - /url: /tuyen-dung/vi-tri-nhan-vien-it-2
+                  - list [ref=f8e168]:
+                    - listitem [ref=f8e169]:
+                      - generic [ref=f8e170]: Kỹ thuật
+                    - listitem [ref=f8e171]:
+                      - generic [ref=f8e172]: Hà Nội • Toàn thời gian
+                    - listitem [ref=f8e173]:
+                      - generic [ref=f8e174]: Thỏa thuận
+                - link "Xem chi tiết" [ref=f8e176] [cursor=pointer]:
+                  - /url: /tuyen-dung/vi-tri-nhan-vien-it-2
+            - listitem [ref=f8e180]:
+              - article [ref=f8e181]:
+                - generic [ref=f8e182]:
+                  - heading [level=3] [ref=f8e183]:
+                    - link "Nhân viên kế toán" [ref=f8e184] [cursor=pointer]:
+                      - /url: /tuyen-dung/vi-tri-nhan-vien-ke-toan-2
+                  - list [ref=f8e185]:
+                    - listitem [ref=f8e186]:
+                      - generic [ref=f8e187]: Tài chính - Kế toán
+                    - listitem [ref=f8e188]:
+                      - generic [ref=f8e189]: Hà Nội • Toàn thời gian
+                    - listitem [ref=f8e190]:
+                      - generic [ref=f8e191]: Thỏa thuận
+                - link "Xem chi tiết" [ref=f8e193] [cursor=pointer]:
+                  - /url: /tuyen-dung/vi-tri-nhan-vien-ke-toan-2
+            - listitem [ref=f8e197]:
+              - article [ref=f8e198]:
+                - generic [ref=f8e199]:
+                  - heading [level=3] [ref=f8e200]:
+                    - link "Nhân viên hành chính nhân sự" [ref=f8e201] [cursor=pointer]:
+                      - /url: /tuyen-dung/vi-tri-nhan-vien-hanh-chinh-nhan-su
+                  - list [ref=f8e202]:
+                    - listitem [ref=f8e203]:
+                      - generic [ref=f8e204]: Hành chính - Nhân sự
+                    - listitem [ref=f8e205]:
+                      - generic [ref=f8e206]: Hà Nội • Toàn thời gian
+                    - listitem [ref=f8e207]:
+                      - generic [ref=f8e208]: Thỏa thuận
+                - link "Xem chi tiết" [ref=f8e210] [cursor=pointer]:
+                  - /url: /tuyen-dung/vi-tri-nhan-vien-hanh-chinh-nhan-su
+  - contentinfo [ref=f8e214]:
+    - generic [ref=f8e217]:
+      - generic [ref=f8e219]:
+        - generic [ref=f8e220]:
+          - img "LeTRON" [ref=f8e221]
+          - paragraph [ref=f8e222]: LeTRON Group Joint Stock Company
+          - generic [ref=f8e223]:
+            - link [ref=f8e224] [cursor=pointer]:
+              - /url: "#"
+              - img "Facebook" [ref=f8e227]
+            - link [ref=f8e228] [cursor=pointer]:
+              - /url: "#"
+              - img "LinkedIn" [ref=f8e231]
+            - link [ref=f8e232] [cursor=pointer]:
+              - /url: "#"
+              - img "Zalo" [ref=f8e235]
+            - link [ref=f8e237] [cursor=pointer]:
+              - /url: "#"
+              - img "Instagram" [ref=f8e240]
+        - generic [ref=f8e241]:
+          - paragraph [ref=f8e242]: Quick Links
+          - list [ref=f8e243]:
+            - listitem [ref=f8e244]:
+              - link "Home" [ref=f8e245] [cursor=pointer]:
+                - /url: /en
+            - listitem [ref=f8e247]:
+              - link "About Us" [ref=f8e248] [cursor=pointer]:
+                - /url: /en/gioi-thieu
+            - listitem [ref=f8e250]:
+              - link "Solutions" [ref=f8e251] [cursor=pointer]:
+                - /url: /en/giai-phap
+            - listitem [ref=f8e253]:
+              - link "Platform" [ref=f8e254] [cursor=pointer]:
+                - /url: /en/nen-tang
+            - listitem [ref=f8e256]:
+              - link "Technology & R&D" [ref=f8e257] [cursor=pointer]:
+                - /url: /en/cong-nghe
+            - listitem [ref=f8e259]:
+              - link "News - Events" [ref=f8e260] [cursor=pointer]:
+                - /url: /en/blog
+            - listitem [ref=f8e262]:
+              - link "Careers" [ref=f8e263] [cursor=pointer]:
+                - /url: /en/tuyen-dung
+        - generic [ref=f8e265]:
+          - paragraph [ref=f8e266]: Products
+          - list [ref=f8e267]:
+            - listitem [ref=f8e268]:
+              - link "LeASO + LeLe" [ref=f8e269] [cursor=pointer]:
+                - /url: /en/nen-tang
+            - listitem [ref=f8e271]:
+              - link "Le-NodeFactory" [ref=f8e272] [cursor=pointer]:
+                - /url: /en/nha-may
+            - listitem [ref=f8e274]:
+              - link "Le-NodeMobility" [ref=f8e275] [cursor=pointer]:
+                - /url: /en/thanh-pho-so
+            - listitem [ref=f8e277]:
+              - link "Le-NodeAir" [ref=f8e278] [cursor=pointer]:
+                - /url: /en/thanh-pho-so
+            - listitem [ref=f8e280]:
+              - link "Le-ORION" [ref=f8e281] [cursor=pointer]:
+                - /url: /en/nha-may
+            - listitem [ref=f8e283]:
+              - link "LeCAP-M" [ref=f8e284] [cursor=pointer]:
+                - /url: /en/cong-nghe
+        - generic [ref=f8e286]:
+          - paragraph [ref=f8e287]: Contact
+          - generic [ref=f8e288]:
+            - paragraph [ref=f8e294]: "Headquarters: Floor 3, Cong Thanh Building, 295 Tran Nhan Tong Street, Uong Bi Ward, Quang Ninh Province"
+            - paragraph [ref=f8e299]: 02033.668.838 · 02033.669.966
+            - paragraph [ref=f8e304]: office@letrongroup.com
+      - generic [ref=f8e305]:
+        - paragraph [ref=f8e306]:
+          - text: © 2026 LeTRON Group · Quang Ninh, Vietnam ·
+          - link "Privacy policy" [ref=f8e307] [cursor=pointer]:
+            - /url: /en/chinh-sach-bao-mat
+          - text: ·
+          - link "Terms of use" [ref=f8e308] [cursor=pointer]:
+            - /url: /en/dieu-khoan-su-dung
+        - paragraph [ref=f8e309]: Trust · Control · Accountability
+  - button "Open Next.js Dev Tools" [ref=f8e315] [cursor=pointer]

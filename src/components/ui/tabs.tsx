@@ -18,7 +18,7 @@ const tabsListVariants = cva(
         glass: "h-11 rounded-full border border-white/15 bg-white/[0.05] backdrop-blur-xl shadow-[inset_0_2px_16px_rgba(0,149,255,0.16)]",
         segmented: "h-11 rounded-xl border border-white/10 bg-canvas/70 backdrop-blur-xl",
         scrollable: "w-full justify-start gap-2 overflow-x-auto rounded-none border-0 bg-transparent p-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
-        elementor: "",
+        plain: "",
       },
     },
     defaultVariants: {
@@ -50,7 +50,7 @@ const tabsTriggerVariants = cva(
         glass: "h-9 rounded-full px-5 text-white/60 hover:bg-white/5 hover:text-white data-[state=active]:bg-white/10 data-[state=active]:text-white data-[state=active]:shadow-[inset_0_2px_16px_rgba(0,149,255,0.18)]",
         segmented: "h-9 rounded-lg px-4 text-white/60 hover:bg-white/5 hover:text-white data-[state=active]:bg-brand-primary data-[state=active]:text-white",
         scrollable: "h-10 shrink-0 rounded-full border border-white/10 px-5 text-white/60 hover:bg-white/5 hover:text-white data-[state=active]:border-brand-primary/40 data-[state=active]:bg-brand-primary/10 data-[state=active]:text-brand-primary",
-        elementor: "",
+        plain: "",
       },
     },
     defaultVariants: {

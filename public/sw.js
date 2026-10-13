@@ -19,8 +19,6 @@ self.addEventListener("activate", (event) => {
 function isStaticAsset(url) {
   return (
     url.pathname.startsWith("/_next/static/") ||
-    url.pathname.startsWith("/wp-content/") ||
-    url.pathname.startsWith("/wp-includes/") ||
     url.pathname.startsWith("/icons/") ||
     url.pathname.startsWith("/assets/") ||
     /\.(?:png|jpe?g|gif|webp|avif|svg|ico|woff2?|ttf)$/i.test(url.pathname)

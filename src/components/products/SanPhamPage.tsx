@@ -3,7 +3,6 @@ import type * as React from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
-import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
 import Products from "@/components/landing/Products";
 import {
   Accordion,
@@ -36,18 +35,15 @@ export default function SanPhamPage() {
   const faqItems = t.raw("faqItems") as FaqItem[];
 
   return (
-    <div className="site-main post-423 page type-page status-publish hentry">
+    <div className="site-main">
       <div
-        className="elementor elementor-423"
-        data-elementor-id={423}
-        data-elementor-post-type="page"
-        data-elementor-type="wp-page"
+        className="legacy-scope"
       >
         {/* Hero */}
         <section className="relative isolate flex min-h-[350px] flex-col justify-end overflow-hidden pb-8 sm:min-h-[620px] sm:pb-14">
           <Image
             alt=""
-            src="/wp-content/uploads/2026/05/image-23-1.jpg"
+            src="/images/site/image-23-1.jpg"
             fill
             priority
             sizes="100vw"
@@ -55,14 +51,14 @@ export default function SanPhamPage() {
           />
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(13,27,75,0.1)_0%,rgba(13,27,75,0.3)_50%,#0D1B4B_100%)]" />
           <div className="container-le">
-            <nav aria-label="breadcrumbs" className="rank-math-breadcrumb text-sm text-zinc-400">
+            <nav aria-label="breadcrumbs" className="breadcrumb-home text-sm text-zinc-400">
               <p>
                 <Link href="/">{t("breadcrumbHome")}</Link>
                 <span className="separator"> / </span>
                 <span className="last">{t("breadcrumbCurrent")}</span>
               </p>
             </nav>
-            <h1 className="elementor-heading-title elementor-size-default mt-4 font-archivo text-3xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-4xl">
+            <h1 className="heading-reset mt-4 font-archivo text-3xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-4xl">
               {t("heroTitlePrefix")}<span className="text-[#2A9FFF]">{t("heroTitleHighlight")}</span>
             </h1>
             <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-zinc-400">
@@ -75,7 +71,7 @@ export default function SanPhamPage() {
         <section className="bg-[#0D1B4B]">
           <div className="container-le grid grid-cols-1 items-center gap-10 py-16 lg:grid-cols-2 lg:gap-16">
             <div>
-              <h2 className="elementor-heading-title elementor-size-default font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
+              <h2 className="heading-reset font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
                 {t("introHeadingLine1")}
                 <br />
                 <span className="text-[#2A9FFF]">{t("introHeadingLine2")}</span>
@@ -99,7 +95,7 @@ export default function SanPhamPage() {
                 className="h-auto w-full rounded-2xl"
                 height={457}
                 sizes="(max-width: 1024px) 100vw, 800px"
-                src="/wp-content/uploads/2026/05/ad408cb3168053cbbf00b6f78be954d0b71ffbba-1.jpg"
+                src="/images/site/ad408cb3168053cbbf00b6f78be954d0b71ffbba-1.jpg"
                 width={800}
               />
               <Image
@@ -107,7 +103,7 @@ export default function SanPhamPage() {
                 aria-hidden
                 className="pointer-events-none absolute inset-0 h-full w-full"
                 height={606}
-                src="/wp-content/uploads/2026/05/img-2-2-1.png"
+                src="/images/site/img-2-2-1.png"
                 width={853}
               />
             </div>
@@ -123,7 +119,7 @@ export default function SanPhamPage() {
         <section className="container-le bg-[#0D1B4B] py-16 lg:py-24">
           <div className="mx-auto max-w-[820px] text-center">
             <SubtitleBadge>{t("faqBadge")}</SubtitleBadge>
-            <h2 className="elementor-heading-title elementor-size-default mt-5! font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
+            <h2 className="heading-reset mt-5! font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
               {t("faqHeadingPrefix")}<span className="text-[#2A9FFF]">{t("faqHeadingHighlight")}</span>
             </h2>
           </div>
@@ -151,7 +147,6 @@ export default function SanPhamPage() {
           </Accordion>
         </section>
       </div>
-      <LandingElementorHooks />
     </div>
   );
 }

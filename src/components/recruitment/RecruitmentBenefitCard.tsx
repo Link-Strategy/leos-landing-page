@@ -33,21 +33,21 @@ export function RecruitmentBenefitCard({
       hover="none"
       size={null}
       className={cn(
-        "px-[25px] py-[15px] max-[1550px]:px-5 max-[1550px]:py-2.5 max-[1024px]:px-4 max-[1024px]:py-2.5 max-[767px]:w-1/2 max-[767px]:max-w-1/2 max-[767px]:px-2.5 max-[767px]:py-1.5",
+        "px-2.5 py-3 sm:px-4 sm:py-4 lg:px-5 lg:py-5 2xl:px-[25px]",
         className,
       )}
       style={style}
     >
-      <div className="flex flex-col items-stretch gap-2.5 text-center max-[1024px]:gap-0">
-        <div className="inline-block flex-none leading-none">
-          <span className="inline-block text-[100px] leading-none text-(--e-global-color-primary) border-(--e-global-color-primary) fill-(--e-global-color-primary) max-[1550px]:text-[80px] max-[1024px]:text-[60px] max-[767px]:text-[50px] [&_svg]:size-[1em]">
+      <div className="flex flex-col items-stretch gap-2.5 text-center">
+        <div className="mx-auto flex-none">
+          <span className="block size-[50px] text-[#2A9FFF] sm:size-[60px] lg:size-[72px] 2xl:size-[88px] [&_img]:size-full [&_svg]:size-full">
             {icon}
           </span>
         </div>
         <CardContent className="w-full grow">
           <CardTitle
             asChild
-            className="mb-2 font-sans text-2xl! font-bold leading-[1.3em] tracking-normal text-(--e-global-color-primary)! max-[1550px]:text-xl max-[1550px]:leading-(--e-global-typography-primary-line-height) max-[1024px]:mb-1 max-[1024px]:text-lg max-[767px]:text-base"
+            className="mb-1 font-sans text-base! font-bold leading-[1.3] tracking-normal text-[#2A9FFF]! sm:text-lg! lg:mb-2 lg:text-xl! 2xl:text-2xl!"
           >
             <h3>
               <span>{title}</span>
@@ -55,7 +55,7 @@ export function RecruitmentBenefitCard({
           </CardTitle>
           <CardDescription
             asChild
-            className="m-0 font-sans text-base font-normal leading-[1.3em] text-(--e-global-color-text) max-[1550px]:text-base max-[1550px]:leading-(--e-global-typography-text-line-height) max-[1024px]:text-sm max-[767px]:text-xs"
+            className="m-0 font-sans text-xs font-normal leading-[1.3] text-white/90 sm:text-sm lg:text-base"
           >
             <p>{description}</p>
           </CardDescription>

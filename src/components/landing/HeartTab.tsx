@@ -399,7 +399,7 @@ const spiritSectionCss = `
   column-gap: 0px;
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 309px 0px;
-  background-image: url("/wp-content/uploads/2026/05/572-Converted-01-1-1-1.png");
+  background-image: url("/images/site/572-Converted-01-1-1-1.png");
   background-position: bottom center;
   background-repeat: no-repeat;
 }
@@ -582,29 +582,29 @@ export default function HeartTab() {
       <style>{heartHeadingCss}</style>
       <style>{waySectionCss}</style>
       <style>{spiritSectionCss}</style>
-      <div className="elementor elementor-2407 flex w-full flex-col items-center">
+      <div className="flex w-full flex-col items-center">
         <div className="w-full">
            <Tabs value={activeTab} onValueChange={setActiveTab} className="container-le flex min-w-0 flex-col gap-[60px] pt-[60px] text-start max-[1550px]:gap-10 max-[1550px]:pt-[50px] max-[1024px]:pt-[50px] max-[767px]:gap-5 max-[767px]:pt-10">
             <TabsList
-              variant="elementor"
+              variant="plain"
               className="relative md:p-4! mx-auto flex w-fit items-center justify-center gap-1.5 overflow-hidden rounded-full bg-linear-to-b from-white/16 to-white/14 px-1.5 py-1 shadow-[inset_0_2px_16px_rgba(0,149,255,0.26)] backdrop-blur-xl before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-[#76c6ff66] max-[767px]:mx-0 max-[767px]:w-full max-[767px]:justify-start max-[767px]:overflow-x-auto max-[767px]:border max-[767px]:border-[#76c6ff66] max-[767px]:scrollbar-none max-[767px]:[&::-webkit-scrollbar]:hidden"
             >
               <TabsTrigger
-                variant="elementor"
+                variant="plain"
                 value="heart"
                 className={tabTriggerClass}
               >
                 <span className="flex items-center text-center">{t("tabs.heart")}</span>
               </TabsTrigger>
               <TabsTrigger
-                variant="elementor"
+                variant="plain"
                 value="way"
                 className={tabTriggerClass}
               >
                 <span className="flex items-center text-center">{t("tabs.way")}</span>
               </TabsTrigger>
               <TabsTrigger
-                variant="elementor"
+                variant="plain"
                 value="spirit"
                 className={tabTriggerClass}
               >
@@ -616,7 +616,7 @@ export default function HeartTab() {
               {/* TAB 1: HEART */}
               <TabsContent
                 value="heart"
-                className="mt-0 flex w-full flex-col gap-16 bg-[url('/wp-content/uploads/2026/05/bg-1.png')] bg-bottom bg-no-repeat bg-auto pb-[383px] max-[1550px]:gap-10 max-[1550px]:pb-[300px] max-[1024px]:bg-cover max-[1024px]:px-[25px] max-[1024px]:pb-[160px] max-[767px]:px-4 max-[767px]:pb-20 max-[767px]:bg-contain"
+                className="mt-0 flex w-full flex-col gap-16 bg-[url('/images/site/bg-1.png')] bg-bottom bg-no-repeat bg-auto pb-[383px] max-[1550px]:gap-10 max-[1550px]:pb-[300px] max-[1024px]:bg-cover max-[1024px]:px-[25px] max-[1024px]:pb-[160px] max-[767px]:px-4 max-[767px]:pb-20 max-[767px]:bg-contain"
               >
                 <div className="flex w-full flex-col gap-[60px] max-[1024px]:gap-10 max-[767px]:gap-5">
                   <div className="letron-heart-heading-widget">
@@ -661,8 +661,8 @@ export default function HeartTab() {
                           height="613"
                           loading="lazy"
                           sizes="(max-width: 651px) 100vw, 651px"
-                          src="/wp-content/uploads/2026/05/Group-1-1.webp"
-                          srcSet="/wp-content/uploads/2026/05/Group-1-1.webp 651w, /wp-content/uploads/2026/05/Group-1-1-300x282.webp 300w"
+                          src="/images/site/Group-1-1.webp"
+                          srcSet="/images/site/Group-1-1.webp 651w, /images/site/Group-1-1-300x282.webp 300w"
                           width="651"
                         />
                       </div>

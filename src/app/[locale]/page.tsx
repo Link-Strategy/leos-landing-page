@@ -1,5 +1,3 @@
-import HomeElementorInteractions from "@/components/landing/HomeElementorInteractions";
-import LandingElementorHooks from "@/components/landing/LandingElementorHooks";
 import Hero from "@/components/landing/Hero";
 import Vision from "@/components/landing/Vision";
 import Heart from "@/components/landing/Heart";
@@ -44,14 +42,8 @@ export default async function Home({
   const { locale } = await params;
   setRequestLocale(locale);
   return (
-    <div className="site-main post-2588 page type-page status-publish hentry">
-      {/* Scope container for Elementor styling */}
-      <div
-        className="elementor elementor-2588"
-        data-elementor-id="2588"
-        data-elementor-post-type="page"
-        data-elementor-type="wp-page"
-      >
+    <div className="site-main">
+      <div className="legacy-scope">
         <Hero />
         <V2Principles />
         <V2Feature which="factory" />
@@ -78,9 +70,6 @@ export default async function Home({
         {/* <Career /> */}
       </div>
 
-      {/* Interactions and hooks */}
-      <HomeElementorInteractions />
-      <LandingElementorHooks />
     </div>
   );
 }

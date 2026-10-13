@@ -48,6 +48,6 @@ export default function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!api|_next|_vercel|sitemap|rss\\.xml|robots\\.txt|site\\.webmanifest|favicon\\.ico|opengraph-image|wp-content|assets|icons|images|.*\\..*).*)",
+    "/((?!api|_next|_vercel|sitemap|rss\\.xml|robots\\.txt|site\\.webmanifest|favicon\\.ico|opengraph-image|assets|icons|images|.*\\..*).*)",
   ],
 };

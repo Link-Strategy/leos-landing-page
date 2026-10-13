@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: ["/", "/images/", "/favicon.ico"],
-        disallow: ["/api/", "/admin/", "/landing/", "/*.json$"],
+        disallow: ["/api/", "/admin/", "/*.json$"],
         crawlDelay: 1,
       },
     ],
