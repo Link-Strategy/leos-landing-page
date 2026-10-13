@@ -723,8 +723,8 @@
     "introHeadingLine1": "An Industrial Ecosystem",
     "introHeadingLine2Prefix": "Powered by ",
     "introHeadingLine2Highlight": "Data",
-    "introParagraph1": "LETRON is a new-generation industrial group, pioneering the application of digital technology to restructure the entire value chain from resources and production to infrastructure and energy.",
-    "introParagraph2": "Unlike traditional business models, LETRON is built as a unified operating platform, where data, artificial intelligence, and physical assets are tightly connected through the LeOS operating system. Here, what was once considered \"waste\" is redefined as valuable resources, creating a sustainable, globally scalable circular economic loop.",
+    "introParagraph1": "LeTRON is an industrial technology group building the infrastructure that lets factories, industrial parks and cities automate one operating scope at a time while people keep the decisions.",
+    "introParagraph2": "Three capability units work as one chain: LeAR researches and holds the intellectual property, LeDB builds the digital platform and engineering environment, LeHS designs and manufactures the hardware. Products are delivered as a service and accepted on measured results at the Uong Bi Sandbox before scaling.",
     "playVideoLabel": "Play video",
     "visionBadge": "Vision",
     "visionHeadingLine1": "An Industrial Ecosystem",
@@ -742,7 +742,13 @@
     ],
     "orgChartHeading": "Organizational Chart",
     "orgChartAlt": "LeTRON organizational chart",
-    "leadershipHeading": "Leadership"
+    "leadershipHeading": "Leadership",
+    "introEyebrow": "ABOUT US",
+    "introTitle": "Technology for factories\nand cities that run themselves.",
+    "heartEyebrow": "CORE VALUES",
+    "heartTitle": "H.E.A.R.T",
+    "heartLead": "Five values that shape how LeTRON makes decisions, hands work to machines and answers for the results.",
+    "leadershipEyebrow": "THE TEAM"
   },
   "contact": {
     "metaTitle": "Contact",

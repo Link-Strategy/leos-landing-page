@@ -1,199 +1,86 @@
 import Image from "next/image";
-import type * as React from "react";
-import { Play } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 
-import PartnerShowcase from "@/components/landing/PartnerShowcase";
 import Career from "@/components/landing/Career";
 import { AboutHeartValues } from "./AboutHeartValues";
 import { LeadershipReveal } from "./LeadershipReveal";
-import { V2AboutBlocks } from "@/components/v2/blocks";
+import { V2Philosophy } from "@/components/v2/blocks";
+import { Eyebrow, Lead, SectionHead, SectionTitle, V2Card, V2CardGrid, V2Section, type V2CardItem } from "@/components/v2/ui";
 
-function SubtitleBadge({ children, className }: { children: React.ReactNode; className?: string }) {
-  return (
-    <div
-      className={`inline-block rounded-full border border-[#538DC3] p-px shadow-[0px_2px_16px_0px_rgba(0,149,255,0.26)] ${className ?? ""}`}
-    >
-      <div className="inline-flex items-center rounded-full px-6! py-1 lg:h-10 lg:px-[13px] lg:py-0 backdrop-blur-sm font-display text-sm font-normal leading-[2] text-[#4AB3FF] 2xl:text-base">
-        {children}
-      </div>
-    </div>
-  );
-}
-
-function InfoCard({ children, className }: { children: React.ReactNode; className?: string }) {
-  return (
-    <div
-      className={`rounded-2xl p-px shadow-[inset_0px_2px_8px_0px_rgba(255,255,255,0.08),0px_4px_26px_0px_rgba(0,161,219,0.08)] ${className ?? ""}`}
-      style={{ backgroundImage: "linear-gradient(180deg, #2A9FFF 0%, #76C6FF 100%)" }}
-    >
-      <div
-        className="h-full rounded-2xl bg-[#132563] px-6 py-6 sm:px-[37px] sm:py-[30px]"
-        style={{ backgroundImage: "linear-gradient(180deg, rgba(42,159,255,0.55) 0%, rgba(23,71,156,0.55) 100%)" }}
-      >
-        {children}
-      </div>
-    </div>
-  );
-}
-
-export default function AboutPage() {
-  const t = useTranslations("about");
-  const MISSION_POINTS = t.raw("missionPoints") as string[];
+// About page, one story in the V2 voice: who LeTRON is → vision & mission → the Chairman's philosophy → H.E.A.R.T →
+// the three capability units → leadership → join us. Every block uses the shared V2 kit so spacing and type match
+// the rest of the site.
+export default async function AboutPage() {
+  const t = await getTranslations("about");
+  const v2 = await getTranslations("v2.aboutV2");
+  const eco = v2.raw("eco") as V2CardItem[];
 
   return (
     <div className="site-main">
-      <div
-        className="legacy-scope"
-      >
-        {/* Hero */}
-        <section className="relative isolate flex h-[350px] items-end overflow-hidden pb-8 sm:h-[620px] sm:pb-14">
-          <Image
-            alt=""
-            src="/about/Banner.webp"
-            fill
-            priority
-            sizes="100vw"
-            className="absolute inset-0 -z-20 object-cover"
-          />
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(13,27,75,0.1)_0%,rgba(13,27,75,0.3)_50%,#0D1B4B_100%)]" />
-          <div className="container-le">
-            <nav aria-label="breadcrumbs" className="breadcrumb-home text-sm text-zinc-400">
-              <p>
-                <Link href="/">{t("breadcrumbHome")}</Link>
-                <span className="separator"> / </span>
-                <span className="last">{t("breadcrumbCurrent")}</span>
-              </p>
-            </nav>
-            <h1 className="heading-reset mt-4 font-archivo text-3xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-4xl">
-              {t("heroTitlePrefix")}<span className="text-[#2A9FFF]">{t("heroTitleHighlight")}</span>
-            </h1>
-            <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-zinc-400">
-              {t("heroDescription")}
+      {/* Hero */}
+      <section className="relative isolate flex h-[350px] items-end overflow-hidden pb-8 sm:h-[620px] sm:pb-14">
+        <Image alt="" src="/about/Banner.webp" fill priority sizes="100vw" className="absolute inset-0 -z-20 object-cover" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(13,27,75,0.1)_0%,rgba(13,27,75,0.3)_50%,#0D1B4B_100%)]" />
+        <div className="container-le">
+          <nav aria-label="breadcrumbs" className="breadcrumb-home text-sm text-zinc-400">
+            <p>
+              <Link href="/">{t("breadcrumbHome")}</Link>
+              <span className="separator"> / </span>
+              <span className="last">{t("breadcrumbCurrent")}</span>
             </p>
+          </nav>
+          <h1 className="heading-reset mt-4 font-archivo text-3xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-4xl">
+            {t("heroTitlePrefix")}
+            <span className="text-[#2A9FFF]">{t("heroTitleHighlight")}</span>
+          </h1>
+          <p className="mt-4 max-w-2xl text-base font-light leading-relaxed text-zinc-400">{t("heroDescription")}</p>
+        </div>
+      </section>
+
+      {/* Who we are */}
+      <V2Section>
+        <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-16">
+          <div className="flex flex-col gap-4">
+            <Eyebrow>{t("introEyebrow")}</Eyebrow>
+            <SectionTitle>{t("introTitle")}</SectionTitle>
           </div>
-        </section>
-
-        {/* Giới thiệu chung */}
-        <div className="container-le space-y-16 py-16">
-          <div className="space-y-10">
-            <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-16">
-              <div>
-                <SubtitleBadge>{t("introBadge")}</SubtitleBadge>
-                <h2 className="heading-reset font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]! my-7!">
-                  {t("introHeadingLine1")}
-                  <br />
-                  {t("introHeadingLine2Prefix")}<span className="text-[#2A9FFF]">{t("introHeadingLine2Highlight")}</span>
-                </h2>
-              </div>
-
-              <div className="space-y-4 text-base font-light leading-relaxed text-white">
-                <p>
-                  {t("introParagraph1")}
-                </p>
-                <p>
-                  {t("introParagraph2")}
-                </p>
-              </div>
-            </div>
-
-            {/* <div className="relative">
-              <div
-                className=""
-                data-widget_type="video.default"
-                data-settings='{"youtube_url":"https://www.youtube.com/watch?v=XHOmBV4js_E","video_type":"youtube"}'
-              >
-                <div
-                  className="relative w-full overflow-hidden rounded-2xl border border-white/10"
-                  style={{ "--video-aspect-ratio": "16 / 9" } as React.CSSProperties}
-                >
-                  <div className="" />
-                  <div
-                    className="absolute inset-0 flex items-center justify-center bg-cover bg-center"
-                    style={{
-                      backgroundImage:
-                        "url(/images/site/af37ff9a27363e04b244b5aa57821bce76b409c5-1.webp)",
-                    }}
-                  >
-                    <div
-                      aria-label={t("playVideoLabel")}
-                      className="flex size-16 cursor-pointer items-center justify-center rounded-full bg-[#2A9FFF] text-white shadow-[0_2px_20px_rgba(12,178,255,0.4)] transition hover:bg-[#4AB3FF]"
-                      role="button"
-                      tabIndex={0}
-                    >
-                      <Play aria-hidden className="size-6 translate-x-0.5" fill="currentColor" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-          </div>
-
-          {/* Tầm nhìn / Sứ mệnh */}
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
-            <InfoCard>
-              <Image alt="" src="/about/Eye.png" width={82} height={82} />
-              <SubtitleBadge className="mt-4">{t("visionBadge")}</SubtitleBadge>
-              <h3 className="my-7! font-archivo text-xl font-bold leading-[1.3] text-white sm:text-2xl">
-                {t("visionHeadingLine1")}
-                <br />
-                {t("visionHeadingLine2Prefix")}<span className="text-[#2A9FFF]">{t("visionHeadingLine2Highlight")}</span>
-              </h3>
-              <p className="mt-4 text-base font-light leading-[1.5]! text-white">
-                {t("visionParagraph")}
-              </p>
-            </InfoCard>
-
-            <InfoCard>
-              <Image alt="" src="/about/Target.png" width={82} height={82} />
-              <SubtitleBadge className="mt-4">{t("missionBadge")}</SubtitleBadge>
-              <h3 className="my-7! font-archivo text-xl font-bold leading-[1.3] text-white sm:text-2xl">
-                {t("missionHeadingLine1")}
-                <br />
-                <span className="text-[#2A9FFF]">{t("missionHeadingHighlight")}</span>
-              </h3>
-              <p className="mt-4 text-base font-light leading-[150%] text-white">
-                {t("missionIntro")}
-              </p>
-              <ul className="mt-4 space-y-2.5">
-                {MISSION_POINTS.map((point) => (
-                  <li
-                    key={point}
-                    className="flex items-center gap-2.5 text-sm font-light leading-[150%] text-white"
-                  >
-                    <Image
-                      src="/landing/LeOsAi/Tick.svg"
-                      alt=""
-                      width={30}
-                      height={28}
-                      className="flex-shrink-0"
-                    />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </InfoCard>
+          <div className="flex flex-col gap-4">
+            <Lead>{t("introParagraph1")}</Lead>
+            <Lead>{t("introParagraph2")}</Lead>
           </div>
         </div>
+      </V2Section>
 
-        {/* Giá trị cốt lõi H.E.A.R.T */}
-        <div className="container-le py-16">
-          <AboutHeartValues />
+      {/* Vision & mission */}
+      <V2Section tone="mid">
+        <div className="grid gap-5 md:grid-cols-2">
+          <V2Card item={{ eyebrow: v2("visionEyebrow"), title: v2("visionTitle"), body: v2("visionBody") }} />
+          <V2Card item={{ eyebrow: v2("missionEyebrow"), title: v2("missionTitle"), body: v2("missionBody") }} />
         </div>
+      </V2Section>
 
-        {/* Ban lãnh đạo */}
-        <div className="container-le py-16">
-          <h2 className="heading-reset mb-10! text-center font-archivo text-2xl font-extrabold leading-[1.3]! text-white drop-shadow-[4px_0_20px_rgba(0,140,255,0.2)] sm:text-[40px]!">
-            {t("leadershipHeading")}
-          </h2>
-          <LeadershipReveal />
-        </div>
+      <V2Philosophy />
 
-        <V2AboutBlocks />
-        <PartnerShowcase />
-        <Career />
-      </div>
+      {/* H.E.A.R.T */}
+      <V2Section tone="mid">
+        <SectionHead eyebrow={t("heartEyebrow")} title={t("heartTitle")} lead={t("heartLead")} />
+        <AboutHeartValues />
+      </V2Section>
+
+      {/* Capability units */}
+      <V2Section>
+        <SectionHead eyebrow={v2("ecoEyebrow")} title={v2("ecoTitle")} />
+        <V2CardGrid items={eco} />
+      </V2Section>
+
+      {/* Leadership */}
+      <V2Section tone="mid">
+        <SectionHead eyebrow={t("leadershipEyebrow")} title={t("leadershipHeading")} className="items-center text-center mx-auto" />
+        <LeadershipReveal />
+      </V2Section>
+
+      <Career />
     </div>
   );
 }

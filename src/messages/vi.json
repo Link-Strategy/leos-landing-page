@@ -723,8 +723,8 @@
     "introHeadingLine1": "Hệ sinh thái công nghiệp",
     "introHeadingLine2Prefix": "Vận hành bằng ",
     "introHeadingLine2Highlight": "dữ liệu",
-    "introParagraph1": "LETRON là tập đoàn công nghiệp thế hệ mới, tiên phong ứng dụng công nghệ số để tái cấu trúc toàn bộ chuỗi giá trị từ tài nguyên, sản xuất đến hạ tầng và năng lượng.",
-    "introParagraph2": "Khác với mô hình doanh nghiệp truyền thống, LETRON được xây dựng như một nền tảng vận hành hợp nhất, nơi dữ liệu, trí tuệ nhân tạo và tài sản vật lý kết nối chặt chẽ thông qua hệ điều hành LeOS. Tại đây, những gì từng được xem là “chất thải” được tái định nghĩa thành tài nguyên có giá trị, tạo ra một vòng lặp kinh tế tuần hoàn bền vững và có khả năng mở rộng toàn cầu.",
+    "introParagraph1": "LeTRON là tập đoàn công nghệ công nghiệp, phát triển hạ tầng để nhà máy, khu công nghiệp và đô thị tự động hóa từng phạm vi vận hành mà vẫn giữ quyền quyết định ở con người.",
+    "introParagraph2": "Ba đơn vị năng lực phối hợp trong một chuỗi: LeAR nghiên cứu và giữ sở hữu trí tuệ, LeDB xây dựng nền tảng số và môi trường kỹ thuật, LeHS thiết kế và sản xuất phần cứng. Sản phẩm được giao theo dịch vụ, nghiệm thu bằng kết quả đo được tại Sandbox Uông Bí trước khi mở rộng.",
     "playVideoLabel": "Phát video",
     "visionBadge": "Tầm nhìn",
     "visionHeadingLine1": "Hệ sinh thái công nghiệp",
@@ -742,7 +742,13 @@
     ],
     "orgChartHeading": "Sơ đồ tổ chức",
     "orgChartAlt": "Sơ đồ tổ chức LeTRON",
-    "leadershipHeading": "Ban lãnh đạo"
+    "leadershipHeading": "Ban lãnh đạo",
+    "introEyebrow": "GIỚI THIỆU CHUNG",
+    "introTitle": "Công nghệ cho nhà máy\nvà đô thị tự vận hành.",
+    "heartEyebrow": "GIÁ TRỊ CỐT LÕI",
+    "heartTitle": "H.E.A.R.T",
+    "heartLead": "Năm giá trị định hình cách LeTRON ra quyết định, giao việc cho máy và chịu trách nhiệm với kết quả.",
+    "leadershipEyebrow": "ĐỘI NGŨ"
   },
   "contact": {
     "metaTitle": "Liên hệ",
