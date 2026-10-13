@@ -48,6 +48,12 @@ function isPlainRoute(pathname: string): boolean {
   return PLAIN_ROUTES.includes(path) || path === "/blog" || path.startsWith("/blog/");
 }
 
+// Routes that still load the WordPress CSS (app/[locale]/(wp)) but run fine without the Elementor/jQuery scripts.
+function isCssOnlyRoute(pathname: string): boolean {
+  const path = pathname.replace(/^\/en(?=\/|$)/, "") || "/";
+  return path === "/tuyen-dung" || path.startsWith("/tuyen-dung/");
+}
+
 export default function ClientScripts() {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
@@ -56,7 +62,7 @@ export default function ClientScripts() {
   }, []);
 
   // The legacy Elementor/jQuery scripts are only needed by the routes in app/[locale]/(wp); every other page is plain React.
-  const needsWordPress = typeof pathname === "string" && !isPlainRoute(pathname);
+  const needsWordPress = typeof pathname === "string" && !isPlainRoute(pathname) && !isCssOnlyRoute(pathname);
   const showElementor = mounted && needsWordPress;
 
   useEffect(() => {

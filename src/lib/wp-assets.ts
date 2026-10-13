@@ -1,5 +1,5 @@
-// WordPress/Elementor stylesheets, in the order they used to be listed in the root layout's <head>.
-// Only the routes under app/[locale]/(wp) still use them (see WpAssets); every other page works without them.
+// Source WordPress/Elementor stylesheets, in the order they used to be listed in the root layout's <head>.
+// scripts/build-wp-css.mjs purges and concatenates them into public/wp-content/wp-legacy.min.css, which the (wp) routes load.
 export const WP_STYLESHEETS: string[] = [
   "/wp-content/themes/saokimdigital/style.css",
   "/wp-content/uploads/elementor/css/custom-frontend.min.css",

@@ -1,12 +1,4 @@
-import { WP_STYLESHEETS } from "@/lib/wp-assets";
-
-/** Loads the legacy WordPress/Elementor CSS. Rendered only by the (wp) route group layout; React hoists the links into <head>. */
+/** Loads the legacy WordPress/Elementor CSS for the (wp) routes: one purged file (see scripts/build-wp-css.mjs). */
 export default function WpAssets() {
-  return (
-    <>
-      {WP_STYLESHEETS.map((href) => (
-        <link key={href} rel="stylesheet" href={href} precedence="wp" />
-      ))}
-    </>
-  );
+  return <link rel="stylesheet" href="/wp-content/wp-legacy.min.css?v=1" precedence="wp" />;
 }
