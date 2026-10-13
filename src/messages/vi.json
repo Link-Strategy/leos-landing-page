@@ -91,7 +91,7 @@
       "Máy tự vận hành trong giới hạn con người đặt ra",
       "Mỗi nhiệm vụ có người chịu trách nhiệm và bằng chứng nghiệm thu"
     ],
-    "description": "Phần mềm quản trị, thiết bị biên và robot trong một hệ thống. Triển khai theo dịch vụ; chỉ mở rộng khi số liệu trước và sau triển khai đã được kiểm chứng.",
+    "description": "Một nền tảng trọn gói: phần mềm quản trị, thiết bị biên và robot. Bắt đầu từ một công đoạn, đo hiệu quả, rồi mới mở rộng.",
     "ctaPrimary": "Đặt lịch tư vấn 30 phút",
     "ctaSecondary": "Nhận hồ sơ giới thiệu",
     "footerTags": [
