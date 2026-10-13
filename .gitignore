@@ -43,3 +43,4 @@ GATE_REPORT.md
 
 # Company/bank details (never commit)
 docs/Thông tin Letron.*
+.playwright-mcp/
