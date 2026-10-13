@@ -361,7 +361,7 @@
     "description": "LeTRON builds a closed-loop circular economy model, where every link in the chain creates value."
   },
   "career": {
-    "eyebrow": "Join LeTRON",
+    "eyebrow": "JOIN LeTRON",
     "titleLine1": "Build a career",
     "titleHighlightPrefix": "or shape ",
     "titleHighlightAccent": "the future?",
@@ -416,7 +416,7 @@
       {
         "phaseLabel": "PHASE 1 · Q3–Q4 2026",
         "title": "Uông Bí Sandbox",
-        "description": "Live demo of the Le-Node network · logistics MOU signed."
+        "description": "Trial operation of the Le-Node network · logistics partnership signed."
       },
       {
         "phaseLabel": "PHASE 2 · Q1 2027",
@@ -426,28 +426,28 @@
       {
         "phaseLabel": "PHASE 3 · 2028–2030",
         "title": "Nationwide commercialization",
-        "description": "Scale to four devices · targeting an international listing."
+        "description": "Four device lines scaled nationwide · international listing target."
       }
     ],
     "milestone": {
       "label": "STRATEGIC TARGET",
       "year": "2030",
       "heading": "A verified national edge network",
-      "description": "Built on a foundation of verified data, an OpEx service model, and field deployment capability — without compromising autonomy or safety."
+      "description": "Expansion on verified data, an OpEx service model and field deployment capability, without trading away autonomy or safety."
     }
   },
   "partnerAccess": {
     "eyebrow": "INVESTOR & PARTNER ACCESS",
     "badge": "UÔNG BÍ SANDBOX — Q4/2026",
     "headingBefore": "Where the",
-    "headingAccent": "Perceptive Edge Network",
+    "headingAccent": "LeTRON platform",
     "headingAfter": "runs for real",
     "description": "For investors and partners:",
     "descriptionDetail": "Series A deck under NDA, public whitepaper, and Sandbox site visit scheduling.",
     "descriptionMobile": "For investors and partners: Series A deck under NDA, public whitepaper, and Sandbox site visit scheduling.",
     "ctaPrimary": "Contact Investor Relations",
     "ctaSecondary": "Schedule a Sandbox Visit",
-    "mobileDisclaimer": "The full Series A deck and whitepaper are shared only after NDA. The website carries the public edition.",
+    "mobileDisclaimer": "The full Series A pack and White Paper are provided after NDA. The website is the public edition.",
     "ctaPrimaryTopic": "the Series A investor pack",
     "ctaSecondaryTopic": "a Uong Bi Sandbox visit"
   },
@@ -754,8 +754,8 @@
     "metaTitle": "Contact",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Contact",
-    "heroTitlePrefix": "Let's define ",
-    "heroTitleHighlight": "the outcome you need",
+    "heroTitlePrefix": "Define ",
+    "heroTitleHighlight": "the first pilot scope",
     "heroDescription": "Describe the current state, the task and the expected result to define a suitable pilot scope. LeTRON responds within 2 working days.",
     "formHeadingLine1": "Request a consultation",
     "formHeadingLine2Prefix": "LeTRON will ",
@@ -766,7 +766,7 @@
     "formMessagePlaceholder": "Message*",
     "formSubmitLabel": "Send now",
     "addressLabel": "Headquarters: 3rd Floor, Cong Thanh Building, 295 Tran Nhan Tong Street, Uong Bi Ward, Quang Ninh Province",
-    "mapLinkLabel": "[Get directions]",
+    "mapLinkLabel": "View map",
     "phone1": "02033.668.838",
     "phone2": "02033.669.966",
     "email": "office@letrongroup.com"
@@ -782,7 +782,7 @@
       },
       "action": {
         "title": "A — Accountability",
-        "description": "Accountability. It is clear who decides, who executes and who verifies."
+        "description": "Accountability. Clarity on who decides, who executes and who verifies."
       },
       "humanity": {
         "title": "H — Humanity",
@@ -863,7 +863,7 @@
   },
   "v2": {
     "common": {
-      "explore": "Explore the direction",
+      "explore": "Learn more",
       "viewSolution": "View the solution",
       "contactCta": "Book a consultation",
       "home": "Back to home",
@@ -888,7 +888,7 @@
       },
       {
         "eyebrow": "03 / ACCOUNTABILITY",
-        "title": "Results with an owner",
+        "title": "Every result has an owner",
         "body": "Each task is linked to the assigner, the executing unit and the acceptance evidence."
       }
     ],
@@ -915,12 +915,12 @@
     "loop": {
       "eyebrow": "HOW THE SYSTEM WORKS",
       "title": "One task. Five steps. One record.",
-      "lead": "Every task passes through the same five steps. Status, responsible party and acceptance result are always clear.",
+      "lead": "Every task passes through the same five steps. Status, owner and acceptance result are always clear.",
       "ariaLabel": "Operating loop",
       "stages": [
         {
           "name": "Assign",
-          "body": "Define the work, the responsible party, the scope and the completion criteria."
+          "body": "Define the work, the owner, the scope and the completion criteria."
         },
         {
           "name": "Execute",
@@ -1040,13 +1040,13 @@
       {
         "eyebrow": "FACTORY",
         "title": "Traceable manufacturing",
-        "body": "Connect management, devices and robots to coordinate task assignment, QC and maintenance.",
+        "body": "Connects management, devices and robots across task assignment, quality control and maintenance.",
         "route": "factory"
       },
       {
         "eyebrow": "DIGITAL CITY",
         "title": "Coordination infrastructure",
-        "body": "Connect LeASO, Le-NodeMobility and the Le-NodeAir direction by operating domain.",
+        "body": "Connects LeASO, Le-NodeMobility and Le-NodeAir across operating domains.",
         "route": "city"
       },
       {
@@ -1058,7 +1058,7 @@
       {
         "eyebrow": "ENERGY",
         "title": "Measurement sources & assets",
-        "body": "Track measurement sources, equipment and maintenance within the agreed scope.",
+        "body": "Monitors measurement sources, equipment and maintenance within the agreed scope.",
         "route": "contact"
       },
       {
@@ -1070,7 +1070,7 @@
       {
         "eyebrow": "HIGH-TECH AGRICULTURE",
         "title": "Monitoring & coordination",
-        "body": "Define the observation, operation and inspection problem for each site.",
+        "body": "Sets up monitoring, operation and inspection per site.",
         "route": "contact"
       }
     ],
@@ -1078,7 +1078,7 @@
       "solutions": {
         "eyebrow": "SOLUTIONS BY CONTEXT",
         "title": "Start from the problem.\nMeasure by results.",
-        "body": "Every site has its own operating conditions. Scope, reference figures and acceptance criteria are established with the customer before deployment.",
+        "body": "Every site has its own operating conditions. Scope, reference figures and acceptance criteria are agreed with the customer before deployment.",
         "metaTitle": "Solutions by context"
       },
       "platform": {
@@ -1095,13 +1095,13 @@
         "metaTitle": "Technology & R&D"
       },
       "factory": {
-        "eyebrow": "SOLUTION DIRECTION / FACTORY",
+        "eyebrow": "FACTORY SOLUTION",
         "title": "A self-operating factory\nunder control.",
-        "body": "LeASO coordinates task assignment; Le-NodeFactory connects the shop floor; Le-ORION supports handling within the agreed scope. Acceptance is based on measured results.",
+        "body": "LeASO coordinates tasks, Le-NodeFactory connects the shop floor, Le-ORION performs operations within the assigned scope. Accepted on measured results.",
         "metaTitle": "A self-operating factory under control"
       },
       "city": {
-        "eyebrow": "SOLUTION DIRECTION / DIGITAL CITY",
+        "eyebrow": "DIGITAL CITY SOLUTION",
         "title": "One city.\nMany coordinated domains.",
         "body": "LeASO links operations with Le-NodeMobility and the Le-NodeAir direction; access rights, data and responsibilities are set for each scope.",
         "metaTitle": "Digital City"
@@ -1122,7 +1122,7 @@
     "solutionsPage": {
       "sectorsEyebrow": "APPLICATION CONTEXTS",
       "sectorsTitle": "One coordinated solution.\nOne clear scope of responsibility.",
-      "noticeTitle": "The data belongs to the customer.",
+      "noticeTitle": "Data belongs to the customer.",
       "noticeBody": "Access, use and storage rights are agreed. The scope of autonomy and operating responsibility are defined in the contract."
     },
     "platformPage": {
@@ -1130,8 +1130,8 @@
       "componentsTitle": "Choose a configuration to fit the problem.",
       "softwareEyebrow": "SOFTWARE PLATFORM",
       "softwareTitle": "LeOS and LeZTP.",
-      "softwareBody": "Supports the software environment, identity and execution rights in a tested configuration. Release status is confirmed in separate records.",
-      "readinessNote": "Status labels serve the internal design and must be confirmed before publication. Configurations and pilot results are discussed in separate records.",
+      "softwareBody": "Software environment, identity and execution rights under tested configurations. Release status is confirmed in the private file.",
+      "readinessNote": "Design status is updated as development progresses. Configurations and trial results are provided in the private file.",
       "tableHeadStatus": "DESIGN STATUS",
       "tableHeadComponent": "COMPONENT",
       "tableHeadUpdated": "UPDATED",
@@ -1154,29 +1154,29 @@
           "route": "solutions"
         },
         {
-          "eyebrow": "RECONCILIATION",
+          "eyebrow": "VERIFICATION",
           "title": "Trace and re-check",
-          "body": "Link results to tasks, responsibilities and operating records to support reconciliation.",
+          "body": "Links results to the task, the responsibility and the operating record for verification when needed.",
           "route": "factory"
         }
       ],
       "honestEyebrow": "TRUTHFUL DISCLOSURE",
       "honestTitle": "Evidence before commitment.",
-      "honestBody": "State the stage of development and the update date. Pilot results are published only when there is data and a specific measurement scope.",
+      "honestBody": "Each product states its development stage and update date. Trial results are published only with data and a defined measurement scope.",
       "docsTitle": "Versioned documents.",
-      "docsBody": "We propose adding a version number, release date and integrity-check information to public documents. Documents will appear here once approved."
+      "docsBody": "Public documents are released with a version number, release date and integrity check information."
     },
     "factoryPage": {
       "threeEyebrow": "THREE COMPONENTS WORKING TOGETHER",
       "threeTitle": "Management. Edge devices. Robots.",
-      "robotEyebrow": "Le-ORION / NEW EXTERIOR DESIGN",
+      "robotEyebrow": "Le-ORION / EXTERIOR DESIGN",
       "robotTitle": "Silver L1. Ivory H1.",
       "robotBody": "A square head, two camera eyes, black optical hair, a cyan trim and a sensor band. The image shows the exterior design.",
-      "robotAlt": "Four front and rear views of the silver L1 and ivory H1 Le-ORION as supplied by the Chairman",
-      "robotCaption": "Le-ORION design supplied by the Chairman · Exterior design, not an accepted mechanical model."
+      "robotAlt": "Front and rear views of Le-ORION L1 silver and H1 ivory",
+      "robotCaption": "Le-ORION exterior design model · not an accepted mechanical model."
     },
     "cityPage": {
-      "domainEyebrow": "DIGITAL CITY LeASO",
+      "domainEyebrow": "DIGITAL CITY",
       "domainTitle": "Operate by domain.",
       "domainBody": "Choose the problem, the data scope and the intervention rights for transport, logistics, energy and infrastructure.",
       "scopeEyebrow": "SCOPED DEPLOYMENT",
@@ -1190,10 +1190,10 @@
         {
           "eyebrow": "02 / DATA",
           "title": "Define responsibilities",
-          "body": "Clarify who manages the data, access rights, retention time and the intervention process."
+          "body": "Define the data-managing unit, access rights, retention period and intervention procedure."
         },
         {
-          "eyebrow": "03 / RECONCILE",
+          "eyebrow": "03 / ACCEPTANCE",
           "title": "Expand with conditions",
           "body": "Compare before and after deployment, accept the results, then decide the expansion scope."
         }
@@ -1241,7 +1241,7 @@
       "problemPlaceholder": "Current situation, tasks and desired results",
       "counter": "/ 1,000",
       "required": "* Required field",
-      "notice": "LeTRON does not accept unsolicited ideas or technical documents through this form. Please do not send confidential documents.",
+      "notice": "This form does not accept unsolicited ideas or technical documents. Please do not send confidential material.",
       "infoEyebrow": "CONNECT",
       "infoTitle": "Consult with the LeTRON team.",
       "infoNote": "Send overview information only. In-depth documents are exchanged through an agreed confidential channel and scope.",
@@ -1264,7 +1264,7 @@
           },
           {
             "eyebrow": "03 / SCOPE",
-            "title": "Exchange safely",
+            "title": "Information security",
             "body": "Confidential documents are shared only after a channel and confidentiality scope are agreed."
           }
         ]

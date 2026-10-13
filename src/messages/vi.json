@@ -361,7 +361,7 @@
     "description": "LeTRON xây dựng mô hình kinh tế tuần hoàn khép kín, nơi mỗi mắt xích đều tạo ra giá trị."
   },
   "career": {
-    "eyebrow": "Gia nhập letron",
+    "eyebrow": "GIA NHẬP LeTRON",
     "titleLine1": "Xây sự nghiệp",
     "titleHighlightPrefix": "hay kiến tạo ",
     "titleHighlightAccent": "tương lai?",
@@ -416,7 +416,7 @@
       {
         "phaseLabel": "GIAI ĐOẠN 1 · Q3–Q4 2026",
         "title": "Sandbox Uông Bí",
-        "description": "Live Demo mạng lưới Le‑Node · ký MOU logistics."
+        "description": "Vận hành thử mạng lưới Le-Node · ký kết hợp tác logistics."
       },
       {
         "phaseLabel": "GIAI ĐOẠN 2 · Q1 2027",
@@ -426,28 +426,28 @@
       {
         "phaseLabel": "GIAI ĐOẠN 3 · 2028–2030",
         "title": "Thương mại hóa toàn quốc",
-        "description": "Nhân rộng bốn thiết bị · mục tiêu niêm yết quốc tế."
+        "description": "Nhân rộng bốn dòng thiết bị · mục tiêu niêm yết quốc tế."
       }
     ],
     "milestone": {
       "label": "MỤC TIÊU CHIẾN LƯỢC",
       "year": "2030",
       "heading": "Mạng lưới biên được kiểm chứng trên toàn quốc",
-      "description": "Mở rộng trên nền tảng dữ liệu chứng thực, mô hình dịch vụ OpEx và năng lực triển khai thực địa — không đánh đổi tính tự chủ hay an toàn."
+      "description": "Mở rộng trên nền tảng dữ liệu chứng thực, mô hình dịch vụ OpEx và năng lực triển khai thực địa, không đánh đổi tính tự chủ và an toàn."
     }
   },
   "partnerAccess": {
     "eyebrow": "NHÀ ĐẦU TƯ & ĐỐI TÁC",
     "badge": "SANDBOX UÔNG BÍ — Q4/2026",
-    "headingBefore": "Nơi Mạng lưới",
-    "headingAccent": "Biên Tri giác",
-    "headingAfter": "vận hành thật",
+    "headingBefore": "Nơi nền tảng",
+    "headingAccent": "LeTRON",
+    "headingAfter": "vận hành thực tế",
     "description": "Dành cho nhà đầu tư và đối tác:",
     "descriptionDetail": "Hồ sơ Series A theo NDA, Sách trắng công khai và lịch tham quan Sandbox.",
     "descriptionMobile": "Dành cho nhà đầu tư và đối tác: hồ sơ Series A theo NDA, Sách trắng công khai và lịch tham quan Sandbox.",
     "ctaPrimary": "Liên hệ đầu tư",
     "ctaSecondary": "Đặt lịch Sandbox",
-    "mobileDisclaimer": "Hồ sơ Series A và Sách trắng đầy đủ chỉ gửi sau NDA. Website là bản công khai.",
+    "mobileDisclaimer": "Hồ sơ Series A và Sách trắng đầy đủ được cung cấp sau khi ký NDA. Website là bản công khai.",
     "ctaPrimaryTopic": "hồ sơ đầu tư Series A",
     "ctaSecondaryTopic": "lịch tham quan Sandbox Uông Bí"
   },
@@ -754,8 +754,8 @@
     "metaTitle": "Liên hệ",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Liên hệ",
-    "heroTitlePrefix": "Cùng xác định ",
-    "heroTitleHighlight": "kết quả cần đạt",
+    "heroTitlePrefix": "Xác định ",
+    "heroTitleHighlight": "phạm vi thử nghiệm đầu tiên",
     "heroDescription": "Mô tả hiện trạng, nhiệm vụ và kết quả mong muốn để xác định phạm vi thử nghiệm phù hợp. LeTRON liên hệ trong 2 ngày làm việc.",
     "formHeadingLine1": "Đăng ký tư vấn",
     "formHeadingLine2Prefix": "LeTRON sẽ sớm ",
@@ -766,7 +766,7 @@
     "formMessagePlaceholder": "Nội dung*",
     "formSubmitLabel": "Gửi ngay",
     "addressLabel": "Trụ sở chính: Tầng 3, Tòa nhà Công Thành, số 295 đường Trần Nhân Tông, phường Uông Bí, tỉnh Quảng Ninh",
-    "mapLinkLabel": "[Bản đồ đường đi]",
+    "mapLinkLabel": "Xem bản đồ",
     "phone1": "02033.668.838",
     "phone2": "02033.669.966",
     "email": "office@letrongroup.com"
@@ -782,7 +782,7 @@
       },
       "action": {
         "title": "A — Accountability",
-        "description": "Trách nhiệm giải trình. Làm rõ ai quyết định, ai thực hiện và ai đối soát."
+        "description": "Trách nhiệm giải trình. Làm rõ ai quyết định, ai thực hiện và ai kiểm chứng."
       },
       "humanity": {
         "title": "H — Humanity",
@@ -863,7 +863,7 @@
   },
   "v2": {
     "common": {
-      "explore": "Khám phá định hướng",
+      "explore": "Tìm hiểu thêm",
       "viewSolution": "Xem giải pháp",
       "contactCta": "Đặt lịch tư vấn",
       "home": "Về trang chủ",
@@ -888,7 +888,7 @@
       },
       {
         "eyebrow": "03 / TRÁCH NHIỆM",
-        "title": "Kết quả có chủ thể",
+        "title": "Kết quả có người chịu trách nhiệm",
         "body": "Mỗi nhiệm vụ gắn với người giao, đơn vị thực hiện và bằng chứng nghiệm thu."
       }
     ],
@@ -915,12 +915,12 @@
     "loop": {
       "eyebrow": "CÁCH HỆ THỐNG VẬN HÀNH",
       "title": "Một nhiệm vụ. Năm bước. Một hồ sơ.",
-      "lead": "Mọi nhiệm vụ đi qua năm bước thống nhất. Trạng thái, chủ thể chịu trách nhiệm và kết quả nghiệm thu luôn rõ ràng.",
+      "lead": "Mọi nhiệm vụ đi qua năm bước thống nhất. Trạng thái, người chịu trách nhiệm và kết quả nghiệm thu luôn rõ ràng.",
       "ariaLabel": "Vòng vận hành",
       "stages": [
         {
           "name": "Giao việc",
-          "body": "Xác định công việc, chủ thể chịu trách nhiệm, phạm vi và tiêu chí hoàn thành."
+          "body": "Xác định công việc, người chịu trách nhiệm, phạm vi và tiêu chí hoàn thành."
         },
         {
           "name": "Thực hiện",
@@ -1040,13 +1040,13 @@
       {
         "eyebrow": "NHÀ MÁY",
         "title": "Sản xuất có truy xuất",
-        "body": "Kết nối quản trị, thiết bị và robot để phối hợp giao việc, QC và bảo trì.",
+        "body": "Kết nối quản trị, thiết bị và robot trong giao việc, kiểm tra chất lượng và bảo trì.",
         "route": "factory"
       },
       {
         "eyebrow": "THÀNH PHỐ SỐ",
         "title": "Hạ tầng phối hợp",
-        "body": "Kết nối LeASO, Le-NodeMobility và định hướng Le-NodeAir theo từng miền vận hành.",
+        "body": "Kết nối LeASO, Le-NodeMobility và Le-NodeAir theo từng miền vận hành.",
         "route": "city"
       },
       {
@@ -1058,7 +1058,7 @@
       {
         "eyebrow": "NĂNG LƯỢNG",
         "title": "Nguồn đo & tài sản",
-        "body": "Theo dõi nguồn đo, thiết bị và bảo trì trong phạm vi được xác lập.",
+        "body": "Theo dõi nguồn đo, thiết bị và bảo trì trong phạm vi đã thống nhất.",
         "route": "contact"
       },
       {
@@ -1070,7 +1070,7 @@
       {
         "eyebrow": "NÔNG NGHIỆP CÔNG NGHỆ CAO",
         "title": "Theo dõi & phối hợp",
-        "body": "Xác định bài toán quan sát, vận hành và kiểm tra theo từng cơ sở.",
+        "body": "Thiết lập giám sát, vận hành và kiểm tra theo từng cơ sở.",
         "route": "contact"
       }
     ],
@@ -1078,7 +1078,7 @@
       "solutions": {
         "eyebrow": "GIẢI PHÁP THEO BỐI CẢNH",
         "title": "Bắt đầu từ bài toán.\nĐo bằng kết quả.",
-        "body": "Mỗi cơ sở có điều kiện vận hành riêng. Phạm vi, số liệu tham chiếu và tiêu chí nghiệm thu được xác lập cùng khách hàng trước khi triển khai.",
+        "body": "Mỗi cơ sở có điều kiện vận hành riêng. Phạm vi, số liệu tham chiếu và tiêu chí nghiệm thu được thống nhất với khách hàng trước khi triển khai.",
         "metaTitle": "Giải pháp theo bối cảnh"
       },
       "platform": {
@@ -1095,13 +1095,13 @@
         "metaTitle": "Công nghệ & R&D"
       },
       "factory": {
-        "eyebrow": "ĐỊNH HƯỚNG GIẢI PHÁP / NHÀ MÁY",
+        "eyebrow": "GIẢI PHÁP NHÀ MÁY",
         "title": "Nhà máy tự vận hành\ncó kiểm soát.",
-        "body": "LeASO phối hợp giao việc; Le-NodeFactory kết nối hiện trường; Le-ORION hỗ trợ thao tác trong phạm vi đã xác lập. Nghiệm thu bằng kết quả đo được.",
+        "body": "LeASO điều phối nhiệm vụ, Le-NodeFactory kết nối hiện trường, Le-ORION thực hiện thao tác trong phạm vi được giao. Nghiệm thu bằng kết quả đo được.",
         "metaTitle": "Nhà máy tự vận hành có kiểm soát"
       },
       "city": {
-        "eyebrow": "ĐỊNH HƯỚNG GIẢI PHÁP / THÀNH PHỐ SỐ",
+        "eyebrow": "GIẢI PHÁP THÀNH PHỐ SỐ",
         "title": "Một đô thị.\nNhiều miền phối hợp.",
         "body": "LeASO kết nối điều hành với Le-NodeMobility và định hướng Le-NodeAir; quyền truy cập, dữ liệu và trách nhiệm được xác định theo từng phạm vi.",
         "metaTitle": "Thành phố Số"
@@ -1122,7 +1122,7 @@
     "solutionsPage": {
       "sectorsEyebrow": "BỐI CẢNH ỨNG DỤNG",
       "sectorsTitle": "Một giải pháp phối hợp.\nMột phạm vi trách nhiệm rõ.",
-      "noticeTitle": "Dữ liệu thuộc khách hàng.",
+      "noticeTitle": "Dữ liệu thuộc về khách hàng.",
       "noticeBody": "Quyền truy cập, sử dụng và lưu trữ được thỏa thuận. Phạm vi tự chủ và trách nhiệm vận hành được xác định trong hợp đồng."
     },
     "platformPage": {
@@ -1130,8 +1130,8 @@
       "componentsTitle": "Chọn cấu hình theo bài toán.",
       "softwareEyebrow": "NỀN TẢNG PHẦN MỀM",
       "softwareTitle": "LeOS và LeZTP.",
-      "softwareBody": "Hỗ trợ môi trường phần mềm, danh tính và quyền thực hiện theo cấu hình được kiểm thử. Trạng thái phát hành được xác nhận trong hồ sơ riêng.",
-      "readinessNote": "Nhãn trạng thái phục vụ bản thiết kế nội bộ, cần xác nhận trước khi công bố. Cấu hình và kết quả thử nghiệm được trao đổi trong hồ sơ riêng.",
+      "softwareBody": "Môi trường phần mềm, định danh và quyền thực hiện theo cấu hình đã kiểm thử. Trạng thái phát hành được xác nhận trong hồ sơ riêng.",
+      "readinessNote": "Trạng thái thiết kế được cập nhật theo tiến độ phát triển. Cấu hình và kết quả thử nghiệm được cung cấp trong hồ sơ riêng.",
       "tableHeadStatus": "TRẠNG THÁI THIẾT KẾ",
       "tableHeadComponent": "THÀNH PHẦN",
       "tableHeadUpdated": "CẬP NHẬT",
@@ -1154,29 +1154,29 @@
           "route": "solutions"
         },
         {
-          "eyebrow": "ĐỐI SOÁT",
+          "eyebrow": "KIỂM CHỨNG",
           "title": "Truy xuất và kiểm lại",
-          "body": "Gắn kết quả với nhiệm vụ, trách nhiệm và hồ sơ vận hành để hỗ trợ đối soát.",
+          "body": "Gắn kết quả với nhiệm vụ, trách nhiệm và hồ sơ vận hành để kiểm chứng khi cần.",
           "route": "factory"
         }
       ],
       "honestEyebrow": "CÔNG BỐ TRUNG THỰC",
       "honestTitle": "Bằng chứng trước cam kết.",
-      "honestBody": "Nêu giai đoạn phát triển và ngày cập nhật. Kết quả thử chỉ công bố khi có dữ liệu và phạm vi đo cụ thể.",
+      "honestBody": "Mỗi sản phẩm công bố giai đoạn phát triển và ngày cập nhật. Kết quả thử nghiệm chỉ công bố kèm dữ liệu và phạm vi đo cụ thể.",
       "docsTitle": "Tài liệu có phiên bản.",
-      "docsBody": "Đề xuất bổ sung số phiên bản, ngày phát hành và thông tin kiểm tra tính toàn vẹn cho tài liệu công khai. Các tài liệu sẽ xuất hiện tại đây sau khi được duyệt."
+      "docsBody": "Tài liệu công khai được phát hành kèm số phiên bản, ngày phát hành và thông tin kiểm tra tính toàn vẹn."
     },
     "factoryPage": {
       "threeEyebrow": "BA THÀNH PHẦN PHỐI HỢP",
       "threeTitle": "Quản trị. Thiết bị biên. Robot.",
-      "robotEyebrow": "Le-ORION / MẪU NGOẠI THẤT MỚI",
+      "robotEyebrow": "Le-ORION / THIẾT KẾ NGOẠI THẤT",
       "robotTitle": "L1 bạc. H1 trắng ngà.",
       "robotBody": "Đầu vuông, hai mắt camera, mái tóc quang học đen, viền cyan và đai cảm biến. Hình ảnh thể hiện thiết kế ngoại thất.",
-      "robotAlt": "Bốn góc trước và sau của Le-ORION L1 bạc và H1 trắng ngà theo mẫu Chủ tịch cung cấp",
-      "robotCaption": "Mẫu Le-ORION do Chủ tịch cung cấp · Thiết kế ngoại thất, chưa phải mô hình cơ khí được nghiệm thu."
+      "robotAlt": "Bốn góc nhìn trước và sau của Le-ORION L1 bạc và H1 trắng ngà",
+      "robotCaption": "Mẫu thiết kế ngoại thất Le-ORION · chưa phải mô hình cơ khí đã nghiệm thu."
     },
     "cityPage": {
-      "domainEyebrow": "THÀNH PHỐ SỐ LeASO",
+      "domainEyebrow": "THÀNH PHỐ SỐ",
       "domainTitle": "Điều hành theo từng miền.",
       "domainBody": "Chọn bài toán, phạm vi dữ liệu và quyền can thiệp cho giao thông, logistics, năng lượng và hạ tầng.",
       "scopeEyebrow": "TRIỂN KHAI THEO PHẠM VI",
@@ -1190,10 +1190,10 @@
         {
           "eyebrow": "02 / DỮ LIỆU",
           "title": "Xác định trách nhiệm",
-          "body": "Làm rõ chủ thể quản lý dữ liệu, quyền truy cập, thời gian lưu và quy trình can thiệp."
+          "body": "Xác định đơn vị quản lý dữ liệu, quyền truy cập, thời gian lưu trữ và quy trình can thiệp."
         },
         {
-          "eyebrow": "03 / ĐỐI SOÁT",
+          "eyebrow": "03 / NGHIỆM THU",
           "title": "Mở rộng có điều kiện",
           "body": "So sánh trước và sau triển khai, nghiệm thu kết quả, sau đó quyết định phạm vi mở rộng."
         }
@@ -1241,7 +1241,7 @@
       "problemPlaceholder": "Hiện trạng, nhiệm vụ và kết quả mong muốn",
       "counter": "/ 1.000",
       "required": "* Trường bắt buộc",
-      "notice": "LeTRON không tiếp nhận ý tưởng hoặc tài liệu kỹ thuật chưa được yêu cầu qua biểu mẫu này. Vui lòng không gửi tài liệu mật.",
+      "notice": "Biểu mẫu không tiếp nhận ý tưởng hoặc tài liệu kỹ thuật chưa được yêu cầu. Vui lòng không gửi tài liệu mật.",
       "infoEyebrow": "KẾT NỐI",
       "infoTitle": "Tư vấn cùng đội ngũ LeTRON.",
       "infoNote": "Chỉ gửi thông tin tổng quan. Tài liệu chuyên sâu được trao đổi qua kênh và phạm vi bảo mật đã thống nhất.",
@@ -1264,7 +1264,7 @@
           },
           {
             "eyebrow": "03 / PHẠM VI",
-            "title": "Trao đổi an toàn",
+            "title": "Bảo mật thông tin",
             "body": "Tài liệu mật chỉ chia sẻ sau khi thống nhất kênh và phạm vi bảo mật."
           }
         ]
