@@ -106,7 +106,7 @@ function Satellite({
               src={`/images/orbit/shell-${FIGMA_SHELL[node.id]}.svg`}
               alt=""
               className="absolute block max-w-none"
-              style={{ left: "-9.73%", top: "-10.98%", width: "119.46%", height: "121.96%" }}
+              style={{ left: "-9.73%", top: "-10.98%", width: "119.46%", height: "121.96%", maxWidth: "none" }}
             />
             <Icon className="relative size-5 sm:size-6" style={{ color, filter: `drop-shadow(0 0 6px ${color}99)` }} strokeWidth={1.8} />
           </span>
@@ -306,7 +306,7 @@ export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption
       </div>
 
       {caption ? (
-        <p className="mb-0 mt-3 text-center font-inter text-[12px] font-semibold uppercase tracking-[1.6px] text-white/60">{caption}</p>
+        <p className="pt-10 text-center font-inter text-[12px] font-semibold uppercase tracking-[1.6px] text-white/60">{caption}</p>
       ) : null}
 
       {/* Tooltip attached to the active satellite, rendered at the body so no ancestor can clip it */}
