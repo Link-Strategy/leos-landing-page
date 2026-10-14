@@ -37,8 +37,6 @@ const RING_SECONDS = 70;
 
 // Figma hexagon shell variant per satellite (public/images/orbit/shell-*.svg).
 const FIGMA_SHELL: Record<string, string> = {"leaso": "a", "lele": "a", "lecapm": "c", "nodefactory": "a", "nodemobility": "d", "nodeair": "a", "orion": "d", "leos": "b"};
-// Figma product logo per satellite (public/images/orbit/logo-*.svg).
-const FIGMA_LOGO: Record<string, string> = {"leaso": "lele", "lele": "green", "lecapm": "grey", "nodefactory": "lime", "nodemobility": "teal", "nodeair": "green", "orion": "orange", "leos": "lele"};
 const TIP_WIDTH = 250;
 
 type OrbitText = { role: string; status?: string; description?: string };
@@ -76,6 +74,7 @@ function Satellite({
   // Rounded: raw floats differ in the last digits between server and client and trigger a hydration mismatch.
   const left = Number((50 + Math.cos(rad) * radius * 100).toFixed(2));
   const top = Number((50 + Math.sin(rad) * radius * 100).toFixed(2));
+  const { Icon, color } = node;
 
   return (
     <span className="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${left}%`, top: `${top}%` }}>
@@ -109,7 +108,7 @@ function Satellite({
               className="absolute block max-w-none"
               style={{ left: "-9.73%", top: "-10.98%", width: "119.46%", height: "121.96%", maxWidth: "none" }}
             />
-            {/* Figma "DS Interface Icon": navy tile, 1px electric-blue border, rounded corners, product logo, soft glow */}
+            {/* Figma "DS Interface Icon" tile (navy, 1px electric-blue border, rounded corners, glow) holding the original function icon */}
             <span
               className="relative block"
               style={{
@@ -121,11 +120,10 @@ function Satellite({
                 boxShadow: "0 0 10px rgba(42,159,255,0.45), inset 0 0 6px rgba(42,159,255,0.25)",
               }}
             >
-              <img
-                src={`/images/orbit/logo-${FIGMA_LOGO[node.id]}.svg`}
-                alt=""
-                className="absolute block"
-                style={{ left: "17.65%", top: "15.04%", width: "64.7%", height: "69.9%", maxWidth: "none" }}
+              <Icon
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                style={{ width: "62%", height: "62%", color, filter: `drop-shadow(0 0 4px ${color}99)` }}
+                strokeWidth={1.9}
               />
             </span>
           </span>
