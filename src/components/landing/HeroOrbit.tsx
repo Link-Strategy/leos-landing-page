@@ -130,7 +130,7 @@ function Satellite({
             </span>
           </span>
         </span>
-        <span className="absolute left-1/2 top-full mt-1 -translate-x-1/2 text-center font-inter text-[9px] font-extrabold leading-[1.15] tracking-[0.2px] whitespace-nowrap sm:text-[11px]" style={{ color: active ? "#8FE3FF" : "#FFFFFF", textShadow: "0 0 8px rgba(42,159,255,0.8), 0 1px 2px rgba(0,0,0,0.6)" }}>
+        <span className="absolute left-1/2 top-full -translate-x-1/2 text-center font-inter text-[9px] font-extrabold leading-[1.15] tracking-[0.2px] whitespace-nowrap sm:text-[11px]" style={{ marginTop: "-2px", color: active ? "#8FE3FF" : "#FFFFFF", textShadow: "0 0 8px rgba(42,159,255,0.8), 0 1px 2px rgba(0,0,0,0.6)" }}>
           {(() => {
             const m = node.name.match(/^(Le-Node)(Factory|Mobility)$/);
             return m ? (<>{m[1]}<br />{m[2]}</>) : node.name;
