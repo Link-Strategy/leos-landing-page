@@ -95,27 +95,28 @@ function Satellite({
           animationPlayState: paused ? "paused" : "running",
         }}
       >
+        {/* Original look: bright blue outline with a glow, navy body, thin inner line. Size and icons unchanged. */}
         <span
           className="relative flex size-[46px] items-center justify-center transition-transform duration-300 group-hover:scale-110 sm:size-[58px]"
           style={{
             clipPath: HEX,
-            background: color,
-            filter: `drop-shadow(0 0 ${active ? 16 : 10}px ${color}${active ? "B3" : "73"})`,
+            background: active ? "#8FE3FF" : "linear-gradient(180deg,#6CCBFF 0%,#2A9FFF 45%,#1666D8 100%)",
+            filter: `drop-shadow(0 0 ${active ? 20 : 14}px rgba(42,159,255,${active ? 0.95 : 0.75})) drop-shadow(0 0 4px rgba(99,217,255,0.5))`,
           }}
         >
           <span
-            className="absolute inset-[1.5px] flex items-center justify-center"
-            style={{
-              clipPath: HEX,
-              background: active
-                ? "linear-gradient(180deg, #0f3a82 0%, #0a2a63 100%)"
-                : "linear-gradient(180deg, #0b2a63 0%, #061a40 100%)",
-            }}
+            className="absolute inset-[3px] flex items-center justify-center"
+            style={{ clipPath: HEX, background: "linear-gradient(180deg,#0e2a66 0%,#050f33 55%,#020819 100%)" }}
           >
-            <Icon className="size-5 sm:size-6" style={{ color }} strokeWidth={1.8} />
+            <span
+              aria-hidden
+              className="absolute inset-[3px] border border-[#63D9FF]/45"
+              style={{ clipPath: HEX }}
+            />
+            <Icon className="relative size-5 sm:size-6" style={{ color, filter: `drop-shadow(0 0 6px ${color}99)` }} strokeWidth={1.8} />
           </span>
         </span>
-        <span className="font-inter text-[9px] font-bold leading-none tracking-[0.2px] whitespace-nowrap sm:text-[11px]" style={{ color: active ? color : "#FFFFFF" }}>
+        <span className="font-inter text-[9px] font-extrabold leading-none tracking-[0.2px] whitespace-nowrap sm:text-[11px]" style={{ color: active ? "#8FE3FF" : "#FFFFFF", textShadow: "0 0 8px rgba(42,159,255,0.8), 0 1px 2px rgba(0,0,0,0.6)" }}>
           {node.name}
         </span>
       </button>
@@ -248,24 +249,35 @@ export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption
     <div ref={rootRef} className="relative w-[300px] shrink-0 sm:w-[380px] lg:w-full lg:max-w-[500px] lg:justify-self-end">
       <style>{"@keyframes orbit-spin{to{transform:rotate(360deg)}}"}</style>
       <div className="relative aspect-square w-full">
-        {/* Orbit guide lines */}
-        <span
-          aria-hidden
-          className="pointer-events-none absolute rounded-full border border-dashed border-[#2A9FFF]/35"
-          style={{ inset: `${(0.5 - INNER_RADIUS) * 100}%` }}
-        />
-        <span
-          aria-hidden
-          className="pointer-events-none absolute rounded-full border border-[#2A9FFF]/55"
-          style={{ inset: `${(0.5 - OUTER_RADIUS) * 100}%` }}
-        />
+        {/* Orbit guide lines: solid, thin solid, dashed and dotted rings with a few glowing dots, as in the original art.
+            They only decorate the existing radii; they take no space and ignore the pointer. */}
+        <span aria-hidden className="pointer-events-none absolute rounded-full border border-[#2A9FFF]/60 shadow-[0_0_14px_rgba(42,159,255,0.25)]" style={{ inset: `${(0.5 - OUTER_RADIUS) * 100}%` }} />
+        <span aria-hidden className="pointer-events-none absolute rounded-full border border-[#63D9FF]/25" style={{ inset: `${(0.5 - OUTER_RADIUS - 0.03) * 100}%` }} />
+        <span aria-hidden className="pointer-events-none absolute rounded-full border border-dashed border-[#2A9FFF]/45" style={{ inset: `${(0.5 - INNER_RADIUS) * 100}%` }} />
+        <span aria-hidden className="pointer-events-none absolute rounded-full border border-dotted border-[#63D9FF]/30" style={{ inset: `${(0.5 - INNER_RADIUS + 0.04) * 100}%` }} />
+        {[
+          { r: OUTER_RADIUS, a: 55 },
+          { r: OUTER_RADIUS, a: 200 },
+          { r: OUTER_RADIUS + 0.03, a: 330 },
+          { r: INNER_RADIUS, a: 95 },
+        ].map((d) => (
+          <span
+            key={`${d.r}-${d.a}`}
+            aria-hidden
+            className="pointer-events-none absolute size-[5px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#63D9FF] shadow-[0_0_8px_2px_rgba(99,217,255,0.8)]"
+            style={{
+              left: `${50 + Math.cos((d.a * Math.PI) / 180) * d.r * 100}%`,
+              top: `${50 + Math.sin((d.a * Math.PI) / 180) * d.r * 100}%`,
+            }}
+          />
+        ))}
 
         {/* Sun: the glowing ring turns against the core */}
         <div className="pointer-events-none absolute left-1/2 top-1/2 size-[34%] -translate-x-1/2 -translate-y-1/2">
           <img
             src="/images/site/sun-ring.webp"
             alt=""
-            className="absolute inset-0 h-full! w-full object-contain opacity-60 drop-shadow-[0_0_20px_rgba(42,159,255,0.15)]"
+            className="absolute inset-0 h-full! w-full object-contain drop-shadow-[0_0_28px_rgba(42,159,255,0.6)]"
             style={{ animation: `orbit-spin ${RING_SECONDS}s linear infinite reverse`, animationPlayState: play }}
           />
           <img
