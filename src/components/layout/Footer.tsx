@@ -56,7 +56,7 @@ function SocialIcon({ glow, glyph, ring, alt, href }: { glow: string; glyph: str
 }
 
 // Only the channels that exist are linked; add LinkedIn/Zalo/Instagram here once the company pages are created.
-const FACEBOOK_URL = "https://www.facebook.com/people/Letron-Vietnam/61595038693250/";
+const FACEBOOK_URL = "https://www.facebook.com/letrongroup";
 
 function SocialRow() {
   return (

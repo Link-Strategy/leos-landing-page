@@ -8,7 +8,7 @@ export const ORGANIZATION = {
   alternateName: ["LeTRON Group", "Letron Group", "Tập đoàn LeTRON"],
   description: "Hạ tầng chứng thực tại nguồn và kiểm soát tự chủ.",
   // Official profiles, so search engines tie "letron" queries to this company rather than similarly named ones.
-  sameAs: ["https://www.facebook.com/people/Letron-Vietnam/61595038693250/"],
+  sameAs: ["https://www.facebook.com/letrongroup"],
   address: {
     streetAddress: "Tầng 3, Tòa nhà Công Thành, số 295 đường Trần Nhân Tông",
     addressLocality: "phường Uông Bí",
