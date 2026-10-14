@@ -306,39 +306,39 @@ export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption
         ))}
 
         {/* Sun: Figma LeOS core; the gear ring and the mark keep their turning speeds */}
-        <div className="pointer-events-none absolute left-1/2 top-1/2 size-[34%] -translate-x-1/2 -translate-y-1/2">
-        {/* LeOS core from Figma. Its diameter (65.6% of this box) equals the visible ring it replaces, so the size is unchanged. */}
-        <div
-          className="pointer-events-none absolute overflow-hidden rounded-full"
-          style={{
-            left: "17.2%",
-            top: "17.2%",
-            width: "65.6%",
-            height: "65.6%",
-            border: "2px solid #2a9fff",
-            background: "radial-gradient(circle at 50% 50%, #1c4d88 0%, #133874 46%, #0c275e 78%, #071a49 100%)",
-            boxShadow: "0 12.6px 31.6px -9.5px rgba(6,21,62,0.34), 0 0 34.8px rgba(42,159,255,0.26)",
-          }}
-        >
-          <div className="absolute" style={{ inset: "2.27%" }} role="img" aria-label={sunAlt}>
-            <div className="absolute aspect-square" style={{ left: "50%", top: "50%", width: "119.2%", marginLeft: "-59.6%", marginTop: "-59.6%", animation: `orbit-spin ${RING_SECONDS}s linear infinite reverse`, animationPlayState: play }}>
-              <div className="absolute left-1/2 top-1/2 aspect-square overflow-hidden" style={{ width: "83.9%", transform: "translate(-50%, -50%) rotate(-12.45deg)" }}>
-                <img src="/images/orbit/core-gear.webp" alt="" className="absolute max-w-none" style={{ height: "115.65%", left: "-3.711%", top: "-7.375%", width: "109.01%", maxWidth: "none" }} />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 size-[34%] -translate-x-1/2 -translate-y-1/2" style={{ containerType: "inline-size" }}>
+          {/* LeOS core, values copied from the Figma node (330px core; pixel values are converted to cqw so they scale with it).
+              Core diameter is 65.6% of this box, the size of the ring it replaces. */}
+          <div
+            className="pointer-events-none absolute overflow-hidden rounded-full"
+            style={{
+              left: "17.2%",
+              top: "17.2%",
+              width: "65.6%",
+              height: "65.6%",
+              border: "0.4719cqw solid #2a9fff",
+              background: "radial-gradient(ellipse 64.103% 64.103% at 51.282% 51.282%, #1c4d88 0%, #133874 46%, #0c275e 78%, #071a49 100%)",
+              boxShadow: "0 2.5173cqw 6.2932cqw -1.8879cqw rgba(6,21,62,0.34), 0 0 6.9224cqw rgba(42,159,255,0.26)",
+            }}
+          >
+            <div className="absolute aspect-square" style={{ left: "1.575%", top: "1.575%", width: "96.85%" }} role="img" aria-label={sunAlt}>
+              <div className="absolute aspect-square" style={{ left: "50%", top: "50%", width: "119.2%", marginLeft: "-59.6%", marginTop: "-59.6%", animation: `orbit-spin ${RING_SECONDS}s linear infinite reverse`, animationPlayState: play }}>
+                <div className="absolute left-1/2 top-1/2 aspect-square overflow-hidden" style={{ width: "83.89%", transform: "translate(-50%, -50%) rotate(-12.45deg)" }}>
+                  <img src="/images/orbit/core-gear.webp" alt="" className="absolute max-w-none" style={{ height: "115.65%", left: "-3.89%", top: "-7.82%", width: "109.01%", maxWidth: "none" }} />
+                </div>
+              </div>
+              <img src="/images/orbit/core-disc.svg" alt="" className="absolute block max-w-none" style={{ left: "22.616%", top: "22.438%", width: "53.887%", height: "53.887%", maxWidth: "none" }} />
+              <div className="absolute inset-0" style={{ animation: `orbit-spin ${SUN_SECONDS}s linear infinite`, animationPlayState: play }}>
+                <div className="absolute" style={{ left: "23.2%", right: "22.1%", top: "22.27%", bottom: "22.36%" }}>
+                  <img src="/images/orbit/core-arms.svg" alt="" className="absolute left-1/2 top-1/2 block max-w-none" style={{ width: "69.2%", height: "73.87%", maxWidth: "none", transform: "translate(-50%, -50%) rotate(36.19deg)" }} />
+                </div>
+                <div className="absolute" style={{ left: "40.49%", right: "39.67%", top: "40.36%", bottom: "40.2%" }}>
+                  <img src="/images/orbit/core-hex.svg" alt="" className="absolute left-1/2 top-1/2 block max-w-none" style={{ width: "75.57%", height: "67.45%", maxWidth: "none", transform: "translate(-50%, -50%) rotate(36.19deg)" }} />
+                </div>
               </div>
             </div>
-            <img src="/images/orbit/core-disc.svg" alt="" className="absolute block max-w-none" style={{ left: "23.055%", top: "23.055%", width: "53.89%", height: "53.89%", maxWidth: "none" }} />
-            <div className="absolute inset-0" style={{ animation: `orbit-spin ${SUN_SECONDS}s linear infinite`, animationPlayState: play }}>
-              <div className="absolute" style={{ left: "22.65%", right: "22.65%", top: "22.315%", bottom: "22.315%" }}>
-                <img src="/images/orbit/core-arms.svg" alt="" className="absolute left-1/2 top-1/2 block max-w-none" style={{ width: "69.2%", height: "73.9%", maxWidth: "none", transform: "translate(-50%, -50%) rotate(36.19deg)" }} />
-              </div>
-              <div className="absolute" style={{ left: "40.08%", right: "40.08%", top: "40.28%", bottom: "40.28%" }}>
-                <img src="/images/orbit/core-hex.svg" alt="" className="absolute left-1/2 top-1/2 block max-w-none" style={{ width: "75.5%", height: "67.5%", maxWidth: "none", transform: "translate(-50%, -50%) rotate(36.19deg)" }} />
-              </div>
-            </div>
+            <div className="absolute inset-0 rounded-full" style={{ boxShadow: "inset 0 0 7.5518cqw rgba(118,198,255,0.2)" }} />
           </div>
-          <div className="absolute inset-0 rounded-full" style={{ boxShadow: "inset 0 0 38px rgba(118,198,255,0.2)" }} />
-        </div>
-
         </div>
 
         {/* Inner orbit (applications): counter-clockwise and slower. The layers ignore the pointer so they
