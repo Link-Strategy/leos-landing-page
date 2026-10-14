@@ -35,7 +35,8 @@ const INNER_SECONDS = Math.round(OUTER_SECONDS / 0.55);
 const SUN_SECONDS = 45;
 const RING_SECONDS = 70;
 
-const HEX = "polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0% 50%)";
+// Figma hexagon shell variant per satellite (public/images/orbit/shell-*.svg).
+const FIGMA_SHELL: Record<string, string> = {"leaso": "a", "lele": "a", "lecapm": "c", "nodefactory": "a", "nodemobility": "d", "nodeair": "a", "orion": "d", "leos": "b"};
 const TIP_WIDTH = 250;
 
 type OrbitText = { role: string; status?: string; description?: string };
@@ -89,34 +90,28 @@ function Satellite({
           if (e.currentTarget.matches(":focus-visible")) onEnter();
         }}
         onBlur={onLeave}
-        className="group pointer-events-auto flex cursor-pointer flex-col items-center gap-1 border-0 bg-transparent p-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63D9FF]"
+        className="group pointer-events-auto relative flex cursor-pointer flex-col items-center border-0 bg-transparent p-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63D9FF]"
         style={{
           animation: `orbit-spin ${seconds}s linear infinite ${reverse ? "normal" : "reverse"}`,
           animationPlayState: paused ? "paused" : "running",
         }}
       >
-        {/* Original look: bright blue outline with a glow, navy body, thin inner line. Size and icons unchanged. */}
-        <span
-          className="relative flex size-[46px] items-center justify-center transition-transform duration-300 group-hover:scale-110 sm:size-[58px]"
-          style={{
-            clipPath: HEX,
-            background: active ? "#8FE3FF" : "linear-gradient(180deg,#6CCBFF 0%,#2A9FFF 45%,#1666D8 100%)",
-            filter: `drop-shadow(0 0 ${active ? 20 : 14}px rgba(42,159,255,${active ? 0.95 : 0.75})) drop-shadow(0 0 4px rgba(99,217,255,0.5))`,
-          }}
-        >
+        {/* Hexagon border: the exported Figma shell. Same 46px / 58px footprint, same icon and name as before. */}
+        <span className="relative block size-[46px] transition-transform duration-300 group-hover:scale-110 sm:size-[58px]">
           <span
-            className="absolute inset-[3px] flex items-center justify-center"
-            style={{ clipPath: HEX, background: "linear-gradient(180deg,#0e2a66 0%,#050f33 55%,#020819 100%)" }}
+            className="absolute inset-x-0 flex items-center justify-center"
+            style={{ top: "6.385%", height: "87.23%", filter: active ? "drop-shadow(0 0 8px rgba(99,217,255,0.9))" : undefined }}
           >
-            <span
-              aria-hidden
-              className="absolute inset-[3px] border border-[#63D9FF]/45"
-              style={{ clipPath: HEX }}
+            <img
+              src={`/images/orbit/shell-${FIGMA_SHELL[node.id]}.svg`}
+              alt=""
+              className="absolute block max-w-none"
+              style={{ left: "-9.73%", top: "-10.98%", width: "119.46%", height: "121.96%" }}
             />
             <Icon className="relative size-5 sm:size-6" style={{ color, filter: `drop-shadow(0 0 6px ${color}99)` }} strokeWidth={1.8} />
           </span>
         </span>
-        <span className="font-inter text-[9px] font-extrabold leading-none tracking-[0.2px] whitespace-nowrap sm:text-[11px]" style={{ color: active ? "#8FE3FF" : "#FFFFFF", textShadow: "0 0 8px rgba(42,159,255,0.8), 0 1px 2px rgba(0,0,0,0.6)" }}>
+        <span className="absolute left-1/2 top-full mt-1 -translate-x-1/2 font-inter text-[9px] font-extrabold leading-none tracking-[0.2px] whitespace-nowrap sm:text-[11px]" style={{ color: active ? "#8FE3FF" : "#FFFFFF", textShadow: "0 0 8px rgba(42,159,255,0.8), 0 1px 2px rgba(0,0,0,0.6)" }}>
           {node.name}
         </span>
       </button>
