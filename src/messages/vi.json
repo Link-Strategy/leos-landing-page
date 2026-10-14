@@ -143,7 +143,8 @@
         "description": "Thao tác vật liệu, cấp phôi và kiểm tra trực quan trong phạm vi được giao."
       },
       "leos": {
-        "role": "Hệ điều hành chung"
+        "role": "Hệ điều hành chung",
+        "description": "Lớp vận hành chung kết nối ứng dụng, thiết bị và dữ liệu trên cùng một nền tảng."
       }
     },
     "orbitCaption": "Một nền tảng · Tám thành phần",
