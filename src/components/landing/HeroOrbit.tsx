@@ -37,6 +37,8 @@ const RING_SECONDS = 70;
 
 // Figma hexagon shell variant per satellite (public/images/orbit/shell-*.svg).
 const FIGMA_SHELL: Record<string, string> = {"leaso": "a", "lele": "a", "lecapm": "c", "nodefactory": "a", "nodemobility": "d", "nodeair": "a", "orion": "d", "leos": "b"};
+// Figma product logo per satellite (public/images/orbit/logo-*.svg).
+const FIGMA_LOGO: Record<string, string> = {"leaso": "lele", "lele": "green", "lecapm": "grey", "nodefactory": "lime", "nodemobility": "teal", "nodeair": "green", "orion": "orange", "leos": "lele"};
 const TIP_WIDTH = 250;
 
 type OrbitText = { role: string; status?: string; description?: string };
@@ -74,7 +76,6 @@ function Satellite({
   // Rounded: raw floats differ in the last digits between server and client and trigger a hydration mismatch.
   const left = Number((50 + Math.cos(rad) * radius * 100).toFixed(2));
   const top = Number((50 + Math.sin(rad) * radius * 100).toFixed(2));
-  const { Icon, color } = node;
 
   return (
     <span className="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${left}%`, top: `${top}%` }}>
@@ -108,11 +109,32 @@ function Satellite({
               className="absolute block max-w-none"
               style={{ left: "-9.73%", top: "-10.98%", width: "119.46%", height: "121.96%", maxWidth: "none" }}
             />
-            <Icon className="relative size-5 sm:size-6" style={{ color, filter: `drop-shadow(0 0 6px ${color}99)` }} strokeWidth={1.8} />
+            {/* Figma "DS Interface Icon": navy tile, 1px electric-blue border, rounded corners, product logo, soft glow */}
+            <span
+              className="relative block"
+              style={{
+                width: "44%",
+                aspectRatio: "1",
+                background: "#0d1b4b",
+                border: "1px solid #2a9fff",
+                borderRadius: "29.4%",
+                boxShadow: "0 0 10px rgba(42,159,255,0.45), inset 0 0 6px rgba(42,159,255,0.25)",
+              }}
+            >
+              <img
+                src={`/images/orbit/logo-${FIGMA_LOGO[node.id]}.svg`}
+                alt=""
+                className="absolute block"
+                style={{ left: "17.65%", top: "15.04%", width: "64.7%", height: "69.9%", maxWidth: "none" }}
+              />
+            </span>
           </span>
         </span>
-        <span className="absolute left-1/2 top-full mt-1 -translate-x-1/2 font-inter text-[9px] font-extrabold leading-none tracking-[0.2px] whitespace-nowrap sm:text-[11px]" style={{ color: active ? "#8FE3FF" : "#FFFFFF", textShadow: "0 0 8px rgba(42,159,255,0.8), 0 1px 2px rgba(0,0,0,0.6)" }}>
-          {node.name}
+        <span className="absolute left-1/2 top-full mt-1 -translate-x-1/2 text-center font-inter text-[9px] font-extrabold leading-[1.15] tracking-[0.2px] whitespace-nowrap sm:text-[11px]" style={{ color: active ? "#8FE3FF" : "#FFFFFF", textShadow: "0 0 8px rgba(42,159,255,0.8), 0 1px 2px rgba(0,0,0,0.6)" }}>
+          {(() => {
+            const m = node.name.match(/^(Le-Node)(Factory|Mobility)$/);
+            return m ? (<>{m[1]}<br />{m[2]}</>) : node.name;
+          })()}
         </span>
       </button>
     </span>
@@ -244,6 +266,14 @@ export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption
     <div ref={rootRef} className="relative w-[300px] shrink-0 sm:w-[380px] lg:w-full lg:max-w-[500px] lg:justify-self-end">
       <style>{"@keyframes orbit-spin{to{transform:rotate(360deg)}}"}</style>
       <div className="relative aspect-square w-full">
+        {/* Figma "Orbit glow": soft blue halo behind the whole diagram */}
+        <img
+          src="/images/orbit/glow.svg"
+          alt=""
+          aria-hidden
+          className="pointer-events-none absolute block"
+          style={{ left: "7.15%", top: "7.15%", width: "85.7%", height: "85.7%", maxWidth: "none" }}
+        />
         {/* Orbit guide lines: solid, thin solid, dashed and dotted rings with a few glowing dots, as in the original art.
             They only decorate the existing radii; they take no space and ignore the pointer. */}
         <span aria-hidden className="pointer-events-none absolute rounded-full border border-[#2A9FFF]/60 shadow-[0_0_14px_rgba(42,159,255,0.25)]" style={{ inset: `${(0.5 - OUTER_RADIUS) * 100}%` }} />
