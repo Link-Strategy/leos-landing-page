@@ -10,19 +10,21 @@ import { useTranslations } from "next-intl";
 // outer orbit of devices. Start angles (degrees from +x, clockwise) and radii (fraction of the box width)
 // come from the V2 design (web/content.js, web/app.js). Styling reuses the site's existing cyan glow look.
 // Each satellite has its own accent so the two rings read as eight distinct things, not eight copies of one icon.
+// Satellite colours are the brand tokens (globals.css --brand-*), the same palette as the Figma product logos:
+// emerald #298C43, cyan #6FCBDC, gray #6E6F6F, lime #7DC35A, teal #038181, orange-deep #F78E20, orange #FAAF4D.
 type OrbitNode = { id: string; name: string; Icon: LucideIcon; angle: number; color: string };
 
 const INNER: OrbitNode[] = [
-  { id: "leaso", name: "LeASO", Icon: LayoutGrid, angle: 0, color: "#63D9FF" },
-  { id: "lele", name: "LeLe", Icon: Brain, angle: 120, color: "#B388FF" },
-  { id: "lecapm", name: "LeCAP-M", Icon: Cpu, angle: 240, color: "#FAB81F" },
+  { id: "leaso", name: "LeASO", Icon: LayoutGrid, angle: 0, color: "#298C43" },
+  { id: "lele", name: "LeLe", Icon: Brain, angle: 120, color: "#6FCBDC" },
+  { id: "lecapm", name: "LeCAP-M", Icon: Cpu, angle: 240, color: "#6E6F6F" },
 ];
 const OUTER: OrbitNode[] = [
-  { id: "nodefactory", name: "Le-NodeFactory", Icon: Server, angle: 20, color: "#FF7E00" },
-  { id: "nodemobility", name: "Le-NodeMobility", Icon: Truck, angle: 92, color: "#1CBBB4" },
-  { id: "nodeair", name: "Le-NodeAir", Icon: Plane, angle: 164, color: "#7CFC9A" },
-  { id: "orion", name: "Le-ORION", Icon: Bot, angle: 236, color: "#FF5C8A" },
-  { id: "leos", name: "LeOS", Icon: Layers, angle: 308, color: "#4F8BFF" },
+  { id: "nodefactory", name: "Le-NodeFactory", Icon: Server, angle: 20, color: "#7DC35A" },
+  { id: "nodemobility", name: "Le-NodeMobility", Icon: Truck, angle: 92, color: "#038181" },
+  { id: "nodeair", name: "Le-NodeAir", Icon: Plane, angle: 164, color: "#7DC35A" },
+  { id: "orion", name: "Le-ORION", Icon: Bot, angle: 236, color: "#F78E20" },
+  { id: "leos", name: "LeOS", Icon: Layers, angle: 308, color: "#FAAF4D" },
 ];
 
 const INNER_RADIUS = 0.225;
@@ -316,7 +318,7 @@ export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption
                 <img src="/images/orbit/core-gear.webp" alt="" className="absolute max-w-none" style={{ height: "115.65%", left: "-3.711%", top: "-7.375%", width: "109.01%", maxWidth: "none" }} />
               </div>
             </div>
-            <img src="/images/orbit/core-disc.svg" alt="" className="absolute block max-w-none" style={{ left: "23.055%", top: "23.055%", width: "53.89%", height: "53.89%", maxWidth: "none" }} />
+            <img src="/images/orbit/core-disc.svg" alt="" className="absolute block max-w-none" style={{ left: "23.055%", top: "23.055%", width: "53.89%", height: "53.89%", maxWidth: "none", opacity: 0.85 }} />
             <div className="absolute inset-0" style={{ animation: `orbit-spin ${SUN_SECONDS}s linear infinite`, animationPlayState: play }}>
               <div className="absolute" style={{ left: "22.65%", right: "22.65%", top: "22.315%", bottom: "22.315%" }}>
                 <img src="/images/orbit/core-arms.svg" alt="" className="absolute left-1/2 top-1/2 block max-w-none" style={{ width: "69.2%", height: "73.9%", maxWidth: "none", transform: "translate(-50%, -50%) rotate(36.19deg)" }} />
@@ -354,7 +356,7 @@ export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption
       </div>
 
       {caption ? (
-        <p className="pt-10 text-center font-inter text-[12px] font-semibold uppercase tracking-[1.6px] text-white/60">{caption}</p>
+        <p className="pt-8 text-center font-inter text-[12px] lg:pt-6 font-semibold uppercase tracking-[1.6px] text-white/60">{caption}</p>
       ) : null}
 
       {/* Tooltip attached to the active satellite, rendered at the body so no ancestor can clip it */}
