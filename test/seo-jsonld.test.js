@@ -31,7 +31,7 @@ describe("blog canonical", () => {
 
   it("falls back to the site's OG image when the article has no cover", () => {
     const meta = buildBlogArticleMetadata({ ...article, coverImage: undefined });
-    assert.equal(meta.openGraph.images[0].url, "/opengraph-image");
+    assert.equal(meta.openGraph.images[0].url, "/opengraph-image.jpg");
   });
 
   it("does not double the brand in article titles", () => {
