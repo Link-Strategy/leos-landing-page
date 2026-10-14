@@ -326,7 +326,7 @@ export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption
                 <img src="/images/orbit/core-gear.webp" alt="" className="absolute max-w-none" style={{ height: "115.65%", left: "-3.711%", top: "-7.375%", width: "109.01%", maxWidth: "none" }} />
               </div>
             </div>
-            <img src="/images/orbit/core-disc.svg" alt="" className="absolute block max-w-none" style={{ left: "23.055%", top: "23.055%", width: "53.89%", height: "53.89%", maxWidth: "none", opacity: 0.85 }} />
+            <img src="/images/orbit/core-disc.svg" alt="" className="absolute block max-w-none" style={{ left: "23.055%", top: "23.055%", width: "53.89%", height: "53.89%", maxWidth: "none" }} />
             <div className="absolute inset-0" style={{ animation: `orbit-spin ${SUN_SECONDS}s linear infinite`, animationPlayState: play }}>
               <div className="absolute" style={{ left: "22.65%", right: "22.65%", top: "22.315%", bottom: "22.315%" }}>
                 <img src="/images/orbit/core-arms.svg" alt="" className="absolute left-1/2 top-1/2 block max-w-none" style={{ width: "69.2%", height: "73.9%", maxWidth: "none", transform: "translate(-50%, -50%) rotate(36.19deg)" }} />
