@@ -12,7 +12,6 @@ export default function Hero() {
       className="relative flex min-h-[600px] items-center overflow-hidden bg-cover bg-center bg-no-repeat pt-[calc(var(--header-height-mobile)+20px)] lg:min-h-[800px] lg:items-start lg:pt-[calc(var(--header-height)+40px)]"
       style={{ backgroundImage: "url('/landing/Hero/Hero_bg.webp')" }}
     >
-      <SectionEdgeFade position="top" />
       <SectionEdgeFade position="bottom" />
 
       <div className="container-le relative z-10 flex w-full flex-col items-center gap-16 py-16 lg:grid lg:grid-cols-2 lg:items-center lg:gap-10 lg:py-0">
