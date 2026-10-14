@@ -285,15 +285,15 @@ export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption
           <div className="absolute" style={{ inset: "2.27%" }} role="img" aria-label={sunAlt}>
             <div className="absolute aspect-square" style={{ left: "50%", top: "50%", width: "119.2%", marginLeft: "-59.6%", marginTop: "-59.6%", animation: `orbit-spin ${RING_SECONDS}s linear infinite reverse`, animationPlayState: play }}>
               <div className="absolute left-1/2 top-1/2 aspect-square overflow-hidden" style={{ width: "83.9%", transform: "translate(-50%, -50%) rotate(-12.45deg)" }}>
-                <img src="/images/orbit/core-gear.webp" alt="" className="absolute max-w-none" style={{ height: "115.65%", left: "-3.89%", top: "-7.82%", width: "109.01%" }} />
+                <img src="/images/orbit/core-gear.webp" alt="" className="absolute max-w-none" style={{ height: "115.65%", left: "-3.711%", top: "-7.375%", width: "109.01%" }} />
               </div>
             </div>
-            <img src="/images/orbit/core-disc.svg" alt="" className="absolute block max-w-none" style={{ left: "22.62%", top: "22.44%", width: "53.89%", height: "53.89%" }} />
+            <img src="/images/orbit/core-disc.svg" alt="" className="absolute block max-w-none" style={{ left: "23.055%", top: "23.055%", width: "53.89%", height: "53.89%" }} />
             <div className="absolute inset-0" style={{ animation: `orbit-spin ${SUN_SECONDS}s linear infinite`, animationPlayState: play }}>
-              <div className="absolute" style={{ left: "23.2%", right: "22.1%", top: "22.27%", bottom: "22.36%" }}>
+              <div className="absolute" style={{ left: "22.65%", right: "22.65%", top: "22.315%", bottom: "22.315%" }}>
                 <img src="/images/orbit/core-arms.svg" alt="" className="absolute left-1/2 top-1/2 block max-w-none" style={{ width: "69.2%", height: "73.9%", transform: "translate(-50%, -50%) rotate(36.19deg)" }} />
               </div>
-              <div className="absolute" style={{ left: "40.49%", right: "39.67%", top: "40.36%", bottom: "40.2%" }}>
+              <div className="absolute" style={{ left: "40.08%", right: "40.08%", top: "40.28%", bottom: "40.28%" }}>
                 <img src="/images/orbit/core-hex.svg" alt="" className="absolute left-1/2 top-1/2 block max-w-none" style={{ width: "75.5%", height: "67.5%", transform: "translate(-50%, -50%) rotate(36.19deg)" }} />
               </div>
             </div>
