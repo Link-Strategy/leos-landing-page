@@ -26,7 +26,7 @@ export function buildBlogArticleMetadata(article: BlogArticle): Metadata {
   const title = article.seoTitle || article.title;
   const description = article.seoDescription || article.excerpt;
   const canonical = getArticleCanonicalUrl(article);
-  const image = article.coverImage || "/opengraph-image";
+  const image = article.coverImage || "/opengraph-image.jpg";
 
   return {
     // The root layout title template already appends the brand; titles that carry it are used as-is.

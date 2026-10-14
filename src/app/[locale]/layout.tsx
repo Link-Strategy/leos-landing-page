@@ -69,9 +69,9 @@ export async function generateMetadata({
       siteName: "LeTRON",
       type: "website",
       locale: locale === "en" ? "en_US" : "vi_VN",
-      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LeTRON" }],
+      images: [{ url: "/opengraph-image.jpg", width: 1200, height: 630, alt: "LeTRON" }],
     },
-    twitter: { card: "summary_large_image", images: ["/opengraph-image"] },
+    twitter: { card: "summary_large_image", images: ["/opengraph-image.jpg"] },
     robots: { index: true, follow: true },
     icons: {
       icon: [
