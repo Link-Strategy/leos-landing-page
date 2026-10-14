@@ -104,6 +104,15 @@ function Satellite({
             className="absolute inset-x-0 flex items-center justify-center"
             style={{ top: "6.385%", height: "87.23%", filter: active ? "drop-shadow(0 0 8px rgba(99,217,255,0.9))" : undefined }}
           >
+            {/* Opaque navy body under the Figma shell, so the hexagon reads as dark as in the design whatever is behind it */}
+            <span
+              aria-hidden
+              className="absolute inset-0"
+              style={{
+                clipPath: "polygon(25.6% 1.2%, 74.5% 1.2%, 98.9% 50%, 74.5% 98.4%, 25.6% 98.4%, 1.2% 50%)",
+                background: "linear-gradient(180deg, #071a45 0%, #040f2b 100%)",
+              }}
+            />
             <img
               src={`/images/orbit/shell-${FIGMA_SHELL[node.id]}.svg`}
               alt=""
@@ -117,10 +126,9 @@ function Satellite({
                 width: "44%",
                 aspectRatio: "1",
                 background: "#0d1b4b",
-                border: "1px solid #2a9fff",
+                border: "0.85px solid #2a9fff",
                 borderRadius: "29.4%",
-                boxShadow: "0 0 10px rgba(42,159,255,0.45), inset 0 0 6px rgba(42,159,255,0.25)",
-              }}
+                              }}
             >
               <Icon
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
