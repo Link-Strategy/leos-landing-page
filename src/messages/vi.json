@@ -80,6 +80,13 @@
           "Le-GreenAsphalt (nhựa đường tái chế)"
         ]
       }
+    },
+    "productMenu": {
+      "platform": "NỀN TẢNG QUẢN TRỊ",
+      "edge": "THIẾT BỊ BIÊN",
+      "robot": "ROBOT & AN TOÀN",
+      "viewAll": "Xem tất cả sản phẩm",
+      "platformLink": "Tìm hiểu nền tảng"
     }
   },
   "hero": {

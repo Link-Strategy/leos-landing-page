@@ -80,6 +80,13 @@
           "Le-GreenAsphalt (recycled asphalt)"
         ]
       }
+    },
+    "productMenu": {
+      "platform": "MANAGEMENT PLATFORM",
+      "edge": "EDGE DEVICES",
+      "robot": "ROBOT & SAFETY",
+      "viewAll": "View all products",
+      "platformLink": "Explore the platform"
     }
   },
   "hero": {

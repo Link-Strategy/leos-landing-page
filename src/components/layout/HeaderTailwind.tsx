@@ -4,8 +4,6 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import type { LucideIcon } from "lucide-react";
-import { Bot, Cpu, LayoutGrid, Plane, Server, Truck } from "lucide-react";
 import { v2Href } from "@/lib/v2-routes";
 import ChevronDownIcon from "./ChevronDownIcon";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -16,8 +14,8 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
-import { Card } from "@/components/ui/card";
 import { SearchBar } from "./SearchBar";
+import ProductMegaMenu, { ProductTile } from "./ProductMegaMenu";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS: { key: string; href: string; hasDropdown?: boolean }[] = [
@@ -28,17 +26,8 @@ const NAV_ITEMS: { key: string; href: string; hasDropdown?: boolean }[] = [
   { key: "contact", href: "/lien-he" },
 ];
 
-// V2 products shown in the "Sản phẩm" mega menu; names, status and descriptions come from the `v2.products` messages.
-const PRODUCT_ICONS: Record<string, LucideIcon> = {
-  leaso: LayoutGrid,
-  nodefactory: Server,
-  nodemobility: Truck,
-  nodeair: Plane,
-  orion: Bot,
-  lecapm: Cpu,
-};
-
 type HeaderProduct = { id: string; eyebrow: string; title: string; body: string; status: string; route: string };
+
 
 export default function Header() {
   const t = useTranslations("header");
@@ -46,7 +35,6 @@ export default function Header() {
   const PRODUCTS = (tv.raw("products") as HeaderProduct[]).map((p) => ({
     ...p,
     href: v2Href(p.route),
-    Icon: PRODUCT_ICONS[p.id] ?? LayoutGrid,
   }));
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubMenus, setOpenSubMenus] = useState<{ [key: string]: boolean }>({});
@@ -93,34 +81,7 @@ export default function Header() {
                             </a>
                           </NavigationMenuPrimitive.Trigger>
                           <NavigationMenuContent className="w-full">
-                            <div className="header-dropdown-glass products-dropdown">
-                              <div className="relative z-6 grid grid-cols-6 gap-2 w-full">
-                                {PRODUCTS.map((prod, prodIdx) => (
-                                  <div key={prodIdx} className="relative z-2 min-w-0">
-                                    <Card variant="glass" hover="lift" size="mini" className="p-0! gap-0! rounded-2xl! w-full h-40 text-start shadow-[0_4px_30px_rgba(0,0,0,0.1)] flex flex-col overflow-hidden relative">
-                                      {/* Header: icon + name on a solid, darker background */}
-                                      <Link
-                                        href={prod.href}
-                                        className="relative z-10 flex shrink-0 items-center gap-1.5 h-10.5 px-2.5 bg-[#0d1b4b] border-b border-white/10 hover:opacity-95 transition-opacity"
-                                      >
-                                        <prod.Icon aria-hidden className="size-4 shrink-0 text-[#63D9FF]" strokeWidth={1.8} />
-                                        <span className="min-w-0 flex-1 truncate font-sans text-xs font-semibold normal-case leading-[1.3em] text-white/95">
-                                          {prod.title}
-                                        </span>
-                                      </Link>
-
-                                      {/* Body: description and development status */}
-                                      <Link
-                                        href={prod.href}
-                                        className="relative flex min-h-0 flex-1 flex-col justify-between gap-1.5 overflow-hidden bg-[linear-gradient(180deg,#0f2a63_0%,#0a1f4d_100%)] px-2.5 py-2 no-underline"
-                                      >
-                                        <p className="m-0 line-clamp-4 font-sans text-[11px] font-normal normal-case leading-[15px] text-white/85">{prod.body}</p>
-                                      </Link>
-                                    </Card>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
+                            <ProductMegaMenu products={PRODUCTS} />
                           </NavigationMenuContent>
                         </NavigationMenuItem>
                       );
@@ -203,7 +164,7 @@ export default function Header() {
                   {PRODUCTS.map((prod, prodIdx) => (
                     <li key={prodIdx}>
                       <Link className="flex items-center gap-3 rounded-xl bg-white/3 p-3 hover:bg-white/8 transition-all duration-300 border border-white/10" href={prod.href} tabIndex={-1}>
-                        <prod.Icon aria-hidden className="size-5 shrink-0 text-[#63D9FF]" strokeWidth={1.8} />
+                        <ProductTile id={prod.id} size={36} />
                         <div className="flex flex-col text-start gap-1">
                           <span className="text-sm font-semibold text-white font-sans leading-none">{prod.title}</span>
                         </div>
