@@ -116,8 +116,8 @@ function Satellite({
               alt=""
               className="absolute -left-[9.73%] -top-[10.98%] block h-[121.96%]! w-[119.46%] max-w-none!"
             />
-            <span className="relative block aspect-square w-[44%] rounded-[29.4%] border-[0.85px] border-solid border-[#2a9fff] bg-[#0d1b4b]">
-              <Icon className={cn("absolute left-1/2 top-1/2 size-[62%] -translate-1/2", node.icon, node.glow)} strokeWidth={1.9} />
+            <span className="relative block aspect-square w-[52%] rounded-[29.4%] border-[0.85px] border-solid border-[#2a9fff] bg-[#0d1b4b]">
+              <Icon className={cn("absolute left-1/2 top-1/2 size-[84%] -translate-1/2", node.icon, node.glow)} strokeWidth={1.9} />
             </span>
           </span>
         </span>
