@@ -36,6 +36,11 @@ const SUN_SECONDS = 45;
 const RING_SECONDS = 70;
 
 const HEX = "polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0% 50%)";
+
+// The real LeTRON mark, pre-tinted per satellite (public/images/site/logo-<id>.webp).
+function Mark({ id }: { id: string }) {
+  return <img src={`/images/site/logo-${id}.webp`} alt="" className="size-[82%] object-contain" />;
+}
 const TIP_WIDTH = 250;
 
 type OrbitText = { role: string; status?: string; description?: string };
@@ -73,7 +78,7 @@ function Satellite({
   // Rounded: raw floats differ in the last digits between server and client and trigger a hydration mismatch.
   const left = Number((50 + Math.cos(rad) * radius * 100).toFixed(2));
   const top = Number((50 + Math.sin(rad) * radius * 100).toFixed(2));
-  const { Icon, color } = node;
+  const { color } = node;
 
   return (
     <span className="absolute -translate-x-1/2 -translate-y-1/2" style={{ left: `${left}%`, top: `${top}%` }}>
@@ -89,34 +94,35 @@ function Satellite({
           if (e.currentTarget.matches(":focus-visible")) onEnter();
         }}
         onBlur={onLeave}
-        className="group pointer-events-auto flex cursor-pointer flex-col items-center gap-1 border-0 bg-transparent p-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63D9FF]"
+        className="group pointer-events-auto flex cursor-pointer flex-col items-center border-0 bg-transparent p-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#63D9FF]"
         style={{
           animation: `orbit-spin ${seconds}s linear infinite ${reverse ? "normal" : "reverse"}`,
           animationPlayState: paused ? "paused" : "running",
         }}
       >
         <span
-          className="relative flex size-[46px] items-center justify-center transition-transform duration-300 group-hover:scale-110 sm:size-[58px]"
-          style={{
-            clipPath: HEX,
-            background: color,
-            filter: `drop-shadow(0 0 ${active ? 16 : 10}px ${color}${active ? "B3" : "73"})`,
-          }}
+          className="relative block h-[66px] w-[76px] transition-transform duration-300 group-hover:scale-110 sm:h-[88px] sm:w-[100px]"
+          style={{ filter: `drop-shadow(0 0 ${active ? 16 : 10}px rgba(42,159,255,${active ? 0.85 : 0.55}))` }}
         >
           <span
-            className="absolute inset-[1.5px] flex items-center justify-center"
-            style={{
-              clipPath: HEX,
-              background: active
-                ? "linear-gradient(180deg, #0f3a82 0%, #0a2a63 100%)"
-                : "linear-gradient(180deg, #0b2a63 0%, #061a40 100%)",
-            }}
+            className="absolute inset-0"
+            style={{ clipPath: HEX, background: active ? "#8FE3FF" : "linear-gradient(180deg,#5CC0FF 0%,#1E7BE0 100%)" }}
           >
-            <Icon className="size-5 sm:size-6" style={{ color }} strokeWidth={1.8} />
+            <span
+              className="absolute inset-[2.5px] flex flex-col items-center justify-center gap-1 pt-0.5"
+              style={{ clipPath: HEX, background: "linear-gradient(180deg,#0f2a63 0%,#040d2a 100%)" }}
+            >
+              <span
+                className="flex size-[26px] items-center justify-center rounded-[8px] border border-[#2A9FFF]/55 bg-[#0b1f52] sm:size-[34px] sm:rounded-[10px]"
+                style={{ boxShadow: `inset 0 0 8px ${color}33` }}
+              >
+                <Mark id={node.id} />
+              </span>
+              <span className="font-inter text-[7px] font-bold leading-none tracking-[0px] text-white whitespace-nowrap sm:text-[8.5px]">
+                {node.name}
+              </span>
+            </span>
           </span>
-        </span>
-        <span className="font-inter text-[9px] font-bold leading-none tracking-[0.2px] whitespace-nowrap sm:text-[11px]" style={{ color: active ? color : "#FFFFFF" }}>
-          {node.name}
         </span>
       </button>
     </span>
@@ -265,7 +271,7 @@ export default function HeroOrbit({ sunAlt, caption }: { sunAlt: string; caption
           <img
             src="/images/site/sun-ring.webp"
             alt=""
-            className="absolute inset-0 h-full! w-full object-contain opacity-60 drop-shadow-[0_0_20px_rgba(42,159,255,0.15)]"
+            className="absolute inset-0 h-full! w-full object-contain drop-shadow-[0_0_20px_rgba(42,159,255,0.35)]"
             style={{ animation: `orbit-spin ${RING_SECONDS}s linear infinite reverse`, animationPlayState: play }}
           />
           <img
