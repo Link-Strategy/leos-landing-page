@@ -12,7 +12,7 @@ export const ORGANIZATION = {
   address: {
     streetAddress: "Tầng 3, Tòa nhà Công Thành, số 295 đường Trần Nhân Tông",
     addressLocality: "phường Uông Bí",
-    addressRegion: "tỉnh Quảng Ninh",
+    addressRegion: "thành phố Quảng Ninh",
     addressCountry: "VN",
   },
 } as const;

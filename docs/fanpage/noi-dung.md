@@ -23,7 +23,7 @@ Website: letrongroup.com
 ## Thông tin liên hệ (đã có trên website)
 - Email: office@letrongroup.com
 - Điện thoại: +84 2033 668 838
-- Địa chỉ: Tầng 3, Tòa nhà Công Thành, số 295 đường Trần Nhân Tông, phường Uông Bí, tỉnh Quảng Ninh
+- Địa chỉ: Tầng 3, Tòa nhà Công Thành, số 295 đường Trần Nhân Tông, phường Uông Bí, thành phố Quảng Ninh
 
 ## Nút hành động
 - Nhãn: **Liên hệ** (hoặc "Gửi thư").
