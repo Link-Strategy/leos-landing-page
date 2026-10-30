@@ -11,8 +11,8 @@ export const ORGANIZATION = {
   sameAs: ["https://www.facebook.com/letrongroup"],
   address: {
     streetAddress: "Tầng 3, Tòa nhà Công Thành, số 295 đường Trần Nhân Tông",
-    addressLocality: "phường Uông Bí",
-    addressRegion: "thành phố Quảng Ninh",
+    addressLocality: "Phường Uông Bí",
+    addressRegion: "Thành Phố Quảng Ninh",
     addressCountry: "VN",
   },
 } as const;
